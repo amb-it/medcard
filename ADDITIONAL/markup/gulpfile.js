@@ -5,7 +5,7 @@ var browserSync = require('browser-sync');
 gulp.task('less', function(){
     return gulp.src('src/*.less')
         .pipe(less())
-        .pipe(gulp.dest('css'))
+        .pipe(gulp.dest('./'))
         .pipe(browserSync.reload({
             stream: true
         }))

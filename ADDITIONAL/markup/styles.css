@@ -1,0 +1,11 @@
+.container header {
+  padding: 10px 10px 30px 10px;
+}
+.container .cards {
+  padding: 10px;
+}
+.container .cards div {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: antiquewhite;
+}
