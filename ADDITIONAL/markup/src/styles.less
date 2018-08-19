@@ -1,15 +1,69 @@
 .container {
   header {
-    padding: 10px 10px 30px 10px;
+    padding: 10px 10px 10px 10px;
+
+    .menu-button {
+      .logo {
+        margin-left: 20px;
+        color: green;
+        font-weight: bold;
+      }
+    }
+    .search-magnifier {
+      right: 10px;
+      top: 10px;
+    }
+    .menu {
+      width: 70%;
+      height: 100%;
+      position: absolute;
+      background-color: white;
+      z-index: 1;
+    }
   }
+
 
   .cards {
     padding: 10px;
 
-      div {
+      .card {
         padding: 10px;
-        margin-bottom: 10px;
-        background-color: antiquewhite;
+        margin-bottom: 30px;
+        background-color: aliceblue;
+        border-radius: 5px;
+        border: 1px white solid;
+        font-size: small;
+
+        .date {
+          padding: 3px;
+          background-color: rgb(230, 230, 230);
+          padding-left: 10px;
+          font-size: x-small;
+        }
+        .type {
+          text-align: right;
+        }
+        .description {
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+        .hospital {
+          text-align: center;
+          font-weight: bold;
+        }
       }
+  }
+
+  .add-card-link {
+    position: fixed;
+    right: 30px;
+    bottom: 25px;
+    padding: 10px 15px;
+    border-radius: 30px;
+    background-color: green;
+
+    .oi {
+      color: white;
+    }
   }
 }
