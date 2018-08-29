@@ -5,3 +5,8 @@ to install all dependecies:
 
 to start watching files:
 ```gulp watch```
+
+
+### TODO:
+
+- add open-iconic to repository
