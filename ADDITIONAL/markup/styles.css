@@ -36,9 +36,8 @@
   font-size: small;
 }
 .container .cards .card .date {
-  padding: 3px;
+  padding: 3px 3px 3px 10px;
   background-color: #e6e6e6;
-  padding-left: 10px;
   font-size: x-small;
 }
 .container .cards .card .type {
@@ -51,6 +50,15 @@
 .container .cards .card .hospital {
   text-align: center;
   font-weight: bold;
+}
+.container .card-item {
+  padding: 10px;
+}
+.container .card-item .date {
+  font-size: small;
+}
+.container .card-item .date .time {
+  padding-left: 30px;
 }
 .container .add-card-link {
   position: fixed;
