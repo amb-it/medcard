@@ -31,6 +31,7 @@
 }
 .container .cards {
   padding: 10px;
+  color: #646464;
 }
 .container .cards .card {
   padding: 10px;
@@ -41,20 +42,25 @@
   font-size: small;
 }
 .container .cards .card .date {
-  padding: 3px 3px 3px 10px;
-  background-color: #e6e6e6;
+  display: inline;
   font-size: x-small;
 }
-.container .cards .card .type {
-  text-align: right;
+.container .cards .card .card-id {
+  font-size: small;
+}
+.container .cards .card .card-id .oi {
+  font-size: xx-small;
 }
 .container .cards .card .description {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: black;
 }
 .container .cards .card .hospital {
-  text-align: center;
-  font-weight: bold;
+  text-align: right;
+}
+.container .cards .card .hospital .oi {
+  margin-left: 10px;
 }
 .container .card-item {
   padding: 0px 10px 10px 10px;
@@ -74,7 +80,8 @@
 }
 .container .card-item .description div {
   margin-top: 20px;
-  background-color: #fafafa;
+  background-color: aliceblue;
+  padding: 5px;
 }
 .container .card-item .description div .title {
   font-size: x-small;
