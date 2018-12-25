@@ -41,6 +41,9 @@
   padding-left: 10px;
   font-size: x-small;
 }
+.container .cards .card .date .card-id {
+  float: right;
+}
 .container .cards .card .type {
   text-align: right;
 }
