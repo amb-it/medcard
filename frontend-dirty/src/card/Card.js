@@ -4,7 +4,7 @@ export default class Card extends Component {
     render() {
         return (
             <div>
-                Home
+                Card { this.props.match.params.id }
             </div>
         );
     }
