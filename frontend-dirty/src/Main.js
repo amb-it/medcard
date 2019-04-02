@@ -8,8 +8,8 @@ import {
 // import { Provider } from "react-redux";
 // import { reducer } from "./redux/reducer";
 import axios from "axios";
-// import MockedCards from "./mocks/MockedCards";
-import RequestService from "./request/RequestService";
+
+import config from "./config";
 
 import Home from "./home/Home";
 import Card from "./card/Card";
@@ -24,19 +24,14 @@ export default class Main extends Component {
     }
 
     componentDidMount() {
-        // let mockedCardsService = new MockedCards();
-        let requestService = new RequestService();
-        // let cards = mockedCardsService.getCards();
-        let cards = requestService.getCards();
-        console.log(cards);
 
-        const apiUrl = 'https://reqres.in/api/users';
+        const apiUrl =  config.apiBaseUrl + '/cards';
 
         return axios.get(apiUrl)
             .then(response => {
                 this.setState({
-                    users: response.data
-                })
+                    cards: response.data
+                });
             })
             .catch(error => {
                 console.log(error);

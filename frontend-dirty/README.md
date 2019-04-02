@@ -1,3 +1,25 @@
+
+## To launch app:
+
+First install dependecies:
+
+```npm install```
+
+Then copy libs files to public directory:
+```
+cp node_modules/bootstrap/dist/css/bootstrap.min.css public/lib/bootstrap/bootstrap.min.css
+cp node_modules/bootstrap/dist/js/bootstrap.min.js public/lib/bootstrap/bootstrap.min.js
+cp node_modules/open-iconic/font/css/open-iconic-bootstrap.css public/lib/open-iconic-bootstrap.css
+```
+
+------------------------------------
+------------------------------------
+------------------------------------
+------------------------------------
+------------------------------------
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
