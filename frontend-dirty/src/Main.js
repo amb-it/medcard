@@ -20,7 +20,9 @@ export default class Main extends Component {
     constructor(props, context) {
         super(props, context);
 
-        this.state = {};
+        this.state = {
+            cards: []
+        };
     }
 
     componentDidMount() {
@@ -42,8 +44,8 @@ export default class Main extends Component {
         return (
             <Router>
                 <div className="container">
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/card/:id" component={Card}/>
+                    <Route exact path="/" render={(props) => (<Home {...props} cards={this.state.cards} />)}/>
+                    <Route path="/card/:id" render={(props) => (<Card {...props} cards={this.state.cards} />)}/>
                 </div>
             </Router>
         );

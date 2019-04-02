@@ -10,7 +10,7 @@ module.exports = () => {
     function createCard(i) {
         return {
             id: i,
-            date: faker.date.recent(),
+            date: faker.date.past(),
             cardType: {
                 id: 1,
                 name: faker.lorem.word('lorem.word')
@@ -18,7 +18,7 @@ module.exports = () => {
             complaint: faker.lorem.paragraphs(),
             visited: {
                 clinic: {
-                    name: "Astra Dental",
+                    name: faker.lorem.word('name.jobArea'),
                     district: "District of a Face Surgery",
                     address: "Kyiv, Peremohy ave, 143"
                 },

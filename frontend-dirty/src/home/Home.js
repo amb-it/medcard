@@ -20,26 +20,16 @@ export default class Home extends Component {
 
 
                 <div className="cards">
-                    <ShortCard/>
-                    {/*<div className="card">*/}
-                        {/*<div className="row">*/}
-                            {/*<div className="col date">24 April <div className="card-id">#124</div></div>*/}
-                            {/*<div className="col type">Tooth</div>*/}
-                        {/*</div>*/}
-
-                        {/*<div className="description">Had a toothache. Approximately fourth upper. Ache was for 2 days*/}
-                            {/*...*/}
-                        {/*</div>*/}
-                        {/*<div className="hospital">*/}
-                            {/*Astra Dental hospital*/}
-                            {/*/!*<span className="oi oi-map" title="icon name" aria-hidden="true"></span>*!/*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
+                    {
+                        this.props.cards.map(
+                            (card, key) => <ShortCard card={card} key={key}/>
+                        )
+                    }
                 </div>
 
-                <a className="add-card-link">
+                <span className="add-card-link">
                     <span>+</span>
-                </a>
+                </span>
             </div>
         );
     }

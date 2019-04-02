@@ -14,3 +14,5 @@ install dependecies ```npm i```
 ## additional
 
 json-server documentation see here - https://github.com/typicode/json-server
+
+Faker documentation see here - https://github.com/Marak/faker.js
