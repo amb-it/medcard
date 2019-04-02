@@ -1,0 +1,16 @@
+# API mock server
+
+to launch server type:
+```
+json-server index.js --port 3001
+```
+
+## prerequisites
+
+install json-server  ```npm i json-server -g```
+
+install dependecies ```npm i```
+
+## additional
+
+json-server documentation see here - https://github.com/typicode/json-server
