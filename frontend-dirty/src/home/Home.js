@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import ShortCard from "./ShortCard";
 
-
 export default class Home extends Component {
     render() {
         return (
@@ -19,7 +18,7 @@ export default class Home extends Component {
                 </header>
 
 
-                <div className="cards">
+                <div className="mainpage-cards">
                     {
                         this.props.cards.map(
                             (card, key) => <ShortCard card={card} key={key}/>

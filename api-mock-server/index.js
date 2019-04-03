@@ -13,26 +13,26 @@ module.exports = () => {
             date: faker.date.past(),
             cardType: {
                 id: 1,
-                name: faker.lorem.word('lorem.word')
+                title: faker.lorem.word('lorem.word')
             },
             complaint: faker.lorem.paragraphs(),
             visited: {
                 clinic: {
-                    name: faker.lorem.word('name.jobArea'),
+                    title: faker.lorem.word('name.jobArea'),
                     district: "District of a Face Surgery",
                     address: "Kyiv, Peremohy ave, 143"
                 },
                 doctor: {
                     id: 3,
-                    name: "Aleksei Rubinovich"
+                    title: "Aleksei Rubinovich"
                 }
             },
             diagnose: [
                 {
-                    name: "3rd upper left has caries"
+                    title: "3rd upper left has caries"
                 },
                 {
-                    name: "2nd bottom right has deep caries"
+                    title: "2nd bottom right has deep caries"
                 }
             ],
             materials: [

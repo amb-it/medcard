@@ -44,11 +44,11 @@ export default class Main extends Component {
         return (
             <Router>
                 <div className="container">
-                    <Route exact path="/" render={
-                        (props) => (<Home {...props} cards={this.state.cards} />)
-                    }/>
+                    <Route exact path="/" render={(props) => (<Home {...props} cards={this.state.cards} />)}/>
                     <Route path="/card/:id" render={
-                        (props) => (<Card {...props} card={this.state.cards[props.match.params.id]} />)
+                        (props) => (<Card {...props}
+                                          card={this.state.cards[props.match.params.id]}
+                                          loading={!this.state.cards[props.match.params.id]} />)
                     }/>
                 </div>
             </Router>
