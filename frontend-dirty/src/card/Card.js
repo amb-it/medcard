@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import {NavLink} from "react-router-dom";
 
 import withLoadingScreen from "../core/withLoadingScreen";
-import ShortCard from "../home/Home";
 
 class Card extends Component {
     render() {
@@ -12,9 +12,9 @@ class Card extends Component {
                 <header>
                     <a className="btn menu-button">
                         {/*<span className="oi oi-caret-left" title="icon name" aria-hidden="true"></span>*/}
-                        <span>back</span>
+                        <NavLink to="/">back</NavLink>
                     </a>
-                    <span className="card-title">Card {card.id}</span>
+                    <span className="card-title">Card &nbsp; #{card.id}</span>
                     {/*<span className="oi oi-menu float-right float-right right-icon"></span>*/}
                     <span className="float-right right-icon">menu</span>
                     <hr/>

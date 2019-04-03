@@ -3,6 +3,18 @@ import React, { Component } from "react";
 import ShortCard from "./ShortCard";
 
 export default class Home extends Component {
+    renderCards() {
+        const cards = this.props.cards;
+
+        if (true) {
+            return cards.map(
+                (card, key) => <ShortCard card={card} key={key}/>
+            )
+        } else {
+            return "Fail to load cards";
+        }
+    }
+
     render() {
         return (
             <div>
@@ -19,11 +31,7 @@ export default class Home extends Component {
 
 
                 <div className="mainpage-cards">
-                    {
-                        this.props.cards.map(
-                            (card, key) => <ShortCard card={card} key={key}/>
-                        )
-                    }
+                    {this.renderCards()}
                 </div>
 
                 <span className="add-card-link">

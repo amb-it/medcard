@@ -31,7 +31,13 @@
 .container .mainpage-cards {
   padding: 10px;
 }
-.container .mainpage-cards .card {
+.container .mainpage-cards a {
+  color: black;
+}
+.container .mainpage-cards a:hover {
+  text-decoration: none;
+}
+.container .mainpage-cards a .card {
   padding: 10px;
   margin-bottom: 30px;
   background-color: aliceblue;
@@ -39,23 +45,23 @@
   border: 1px white solid;
   font-size: small;
 }
-.container .mainpage-cards .card .date {
+.container .mainpage-cards a .card .date {
   padding: 3px;
   background-color: #e6e6e6;
   padding-left: 10px;
   font-size: x-small;
 }
-.container .mainpage-cards .card .date .card-id {
+.container .mainpage-cards a .card .date .card-id {
   float: right;
 }
-.container .mainpage-cards .card .type {
+.container .mainpage-cards a .card .type {
   text-align: right;
 }
-.container .mainpage-cards .card .description {
+.container .mainpage-cards a .card .description {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.container .mainpage-cards .card .hospital {
+.container .mainpage-cards a .card .hospital {
   text-align: center;
   font-weight: bold;
 }
