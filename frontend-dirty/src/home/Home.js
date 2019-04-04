@@ -6,7 +6,7 @@ export default class Home extends Component {
     renderCards() {
         const cards = this.props.cards;
 
-        if (true) {
+        if (cards.length > 0) {
             return cards.map(
                 (card, key) => <ShortCard card={card} key={key}/>
             )
@@ -20,12 +20,10 @@ export default class Home extends Component {
             <div>
                 <header>
                     <span className="btn menu-button">
-                        {/*<span className="oi oi-menu" title="icon name" aria-hidden="true"></span>*/}
-                        <span>=</span>
+                        <span className="oi oi-menu" title="icon name" aria-hidden="true"></span>
                         <span className="logo">MedCard</span>
                     </span>
-                    {/*<span className="oi oi-magnifying-glass float-right search-magnifier"></span>*/}
-                    <span className="float-right search-magnifier">search</span>
+                    <span className="oi oi-magnifying-glass float-right right-icon"></span>
                     <hr />
                 </header>
 

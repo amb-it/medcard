@@ -10,13 +10,11 @@ class Card extends Component {
         return (
             <div className="container">
                 <header>
-                    <a className="btn menu-button">
-                        {/*<span className="oi oi-caret-left" title="icon name" aria-hidden="true"></span>*/}
-                        <NavLink to="/">back</NavLink>
-                    </a>
+                    <NavLink to="/" className="btn menu-button">
+                        <span className="oi oi-caret-left" title="icon name" aria-hidden="true"></span>
+                    </NavLink>
                     <span className="card-title">Card &nbsp; #{card.id}</span>
-                    {/*<span className="oi oi-menu float-right float-right right-icon"></span>*/}
-                    <span className="float-right right-icon">menu</span>
+                    <span className="oi oi-menu float-right float-right right-icon"></span>
                     <hr/>
                 </header>
 
