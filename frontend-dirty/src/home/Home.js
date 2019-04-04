@@ -33,7 +33,7 @@ export default class Home extends Component {
                 </div>
 
                 <span className="add-card-link">
-                    <span>+</span>
+                    <span className="oi oi-plus" title="icon name" aria-hidden="true"></span>
                 </span>
             </div>
         );

@@ -7,15 +7,13 @@ First install dependecies:
 
 Then copy libs files to public directory:
 ```
+mkdir public/lib public/lib/bootstrap public/lib/open-iconic public/lib/open-iconic/css public/lib/open-iconic/fonts
 cp node_modules/bootstrap/dist/css/bootstrap.min.css public/lib/bootstrap/bootstrap.min.css
 cp node_modules/bootstrap/dist/css/bootstrap.min.css.map public/lib/bootstrap/bootstrap.min.css.map
 cp node_modules/bootstrap/dist/js/bootstrap.min.js public/lib/bootstrap/bootstrap.min.js
-mkdir public/lib/open-iconic public/lib/open-iconic/css public/lib/open-iconic/fonts
 cp node_modules/open-iconic/font/css/open-iconic-bootstrap.css public/lib/open-iconic/css/open-iconic-bootstrap.css
 cp -r node_modules/open-iconic/font/fonts public/lib/open-iconic/fonts
 ```
-
-THINK ABOUT IT !
 
 ------------------------------------
 ------------------------------------
