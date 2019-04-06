@@ -3,6 +3,9 @@
     padding: 10px 10px 10px 10px;
 
     .menu-button {
+      .oi:hover {
+        cursor: pointer;
+      }
       .logo {
         margin-left: 20px;
         color: green;
@@ -21,13 +24,16 @@
     }
   }
 
-  .menu {
+  .left-menu {
     width: 70%;
     height: 100%;
     position: absolute;
     z-index: 1;
     background-color: white;
     border-right: 1px gray solid;
+    // to see menu - comment line below
+    transform: translate3d(-100vw, 0, 0);
+    transition: transform .3s ease-in;
 
     ul {
       list-style: none;
@@ -36,6 +42,9 @@
         margin-top: 30px;
       }
     }
+  }
+  .visible {
+    transform: translate3d(0vw, 0, 0);
   }
 
   // main page

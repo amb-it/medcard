@@ -1,8 +1,20 @@
 import React, { Component } from "react";
 
 import ShortCard from "./ShortCard";
+import MenuButton from "../core/component/MenuButton";
+import MainMenu from "./MainMenu";
 
 export default class Home extends Component {
+    constructor(props, context) {
+        super(props, context);
+
+        this.state = {
+            visibleMainMenu: false
+        };
+
+        this.handleMenuButtonClick = this.handleMenuButtonClick.bind(this);
+    }
+
     renderCards() {
         const cards = this.props.cards;
 
@@ -15,18 +27,30 @@ export default class Home extends Component {
         }
     }
 
+    handleMenuButtonClick(e) {
+        this.setState({
+            visibleMainMenu: !this.state.visibleMainMenu
+        });
+
+        e.stopPropagation();
+    }
+
     render() {
         return (
             <div>
                 <header>
                     <span className="btn menu-button">
-                        <span className="oi oi-menu" title="icon name" aria-hidden="true"></span>
+                        <MenuButton
+                            handleClick={this.handleMenuButtonClick}
+                            visibleMenu={this.state.visibleMainMenu}
+                        />
                         <span className="logo">MedCard</span>
                     </span>
                     <span className="oi oi-magnifying-glass float-right right-icon"></span>
                     <hr />
                 </header>
 
+                <MainMenu visible={this.state.visibleMainMenu}/>
 
                 <div className="mainpage-cards">
                     {this.renderCards()}

@@ -1,7 +1,11 @@
+## Start app
 
-## To launch app:
+```npm start```
 
-First install dependecies:
+
+## Install app:
+
+First install dependencies:
 
 ```npm install```
 

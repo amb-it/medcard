@@ -1,6 +1,9 @@
 .container header {
   padding: 10px 10px 10px 10px;
 }
+.container header .menu-button .oi:hover {
+  cursor: pointer;
+}
 .container header .menu-button .logo {
   margin-left: 20px;
   color: green;
@@ -14,19 +17,24 @@
   padding-left: 70px;
   color: green;
 }
-.container .menu {
+.container .left-menu {
   width: 70%;
   height: 100%;
   position: absolute;
   z-index: 1;
   background-color: white;
   border-right: 1px gray solid;
+  transform: translate3d(-100vw, 0, 0);
+  transition: transform 0.3s ease-in;
 }
-.container .menu ul {
+.container .left-menu ul {
   list-style: none;
 }
-.container .menu ul li {
+.container .left-menu ul li {
   margin-top: 30px;
+}
+.container .visible {
+  transform: translate3d(0vw, 0, 0);
 }
 .container .mainpage-cards {
   padding: 10px;
