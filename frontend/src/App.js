@@ -1,28 +1,57 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import {
+  Route,
+  // NavLink,
+  BrowserRouter as Router
+} from "react-router-dom";
+// import { createStore } from "redux";
+// import { Provider } from "react-redux";
+// import { reducer } from "./redux/reducer";
+import axios from "axios";
 
-class App extends Component {
+import config from "./config";
+
+import Home from "./home/Home";
+import Card from "./card/Card";
+
+// let store = createStore(reducer);
+
+export default class App extends Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      cards: []
+    };
+  }
+
+  componentDidMount() {
+
+    const apiUrl =  config.apiBaseUrl + '/cards';
+
+    return axios.get(apiUrl)
+        .then(response => {
+          this.setState({
+            cards: response.data
+          });
+        })
+        .catch(error => {
+          console.log(error);
+        })
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <Router>
+          <div className="container">
+            <Route exact path="/" render={(props) => (<Home {...props} cards={this.state.cards} />)}/>
+            <Route path="/card/:id" render={
+              (props) => (<Card {...props}
+                                card={this.state.cards[props.match.params.id]}
+                                loading={!this.state.cards[props.match.params.id]} />)
+            }/>
+          </div>
+        </Router>
     );
   }
 }
-
-export default App;
