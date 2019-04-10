@@ -15,29 +15,24 @@
 <div class="container">
     <header>
         <a class="btn menu-button">
-            <span class="oi oi-caret-left" title="icon name" aria-hidden="true"></span>
+            <span class="oi oi-x"></span>
         </a>
-        <span class="card-title">Add card</span>
-        <span class="oi oi-check float-right right-icon"></span>
+        <span class="card-page-title">New card</span>
+        <a class="btn menu-button float-right right-icon">
+            <span class="oi oi-check"></span>
+        </a>
+
         <hr>
     </header>
 
 
     <div class="add_card_page">
-        <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+        <nav class="mb-5">
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" role="tab" aria-controls="nav-home" aria-selected="true">Inputs</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" role="tab" aria-controls="nav-profile" aria-selected="false">Files, pictures</a>
             </div>
         </nav>
-        <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">One</div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">Two</div>
-            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Three</div>
-        </div>
-
-        <hr />
 
         <div class="input-group mb-3">
             <select class="custom-select" placeholder="Type">
@@ -61,9 +56,22 @@
         <div class="input-group mb-3">
             <textarea rows="8" class="form-control" placeholder="Prescription"></textarea>
         </div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-5">
             <textarea rows="8" class="form-control" placeholder="Notes"></textarea>
         </div>
+
+        <hr/>
+
+        <div class="row md-5">
+            <div class="col-6 text-center">
+                <button class="btn btn-outline-danger">Cancel</button>
+            </div>
+            <div class="col-6 text-center">
+                <button class="btn btn-success">Save</button>
+            </div>
+        </div>
+
+        <hr/>
     </div>
 
 </div>
