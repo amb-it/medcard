@@ -19,7 +19,7 @@ class Card extends Component {
                 </header>
 
 
-                <div className="pagecard">
+                <div className="card-page">
                     <div className="title-elements">
                         <span>{card.date.substring(0,10)}</span>
                         <span className="float-right type">{card.cardType.title}</span>

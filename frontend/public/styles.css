@@ -36,6 +36,17 @@
 .container .visible {
   transform: translate3d(0vw, 0, 0);
 }
+.container .add-card-link {
+  position: fixed;
+  right: 30px;
+  bottom: 25px;
+  padding: 10px 15px;
+  border-radius: 30px;
+  background-color: green;
+}
+.container .add-card-link .oi {
+  color: white;
+}
 .container .mainpage-cards {
   padding: 10px;
 }
@@ -73,33 +84,22 @@
   text-align: center;
   font-weight: bold;
 }
-.container .pagecard {
+.container .card-page {
   padding: 0 20px;
 }
-.container .pagecard .title-elements .type {
+.container .card-page .title-elements .type {
   font-weight: bolder;
 }
-.container .pagecard .parargaph {
+.container .card-page .parargaph {
   font-size: small;
   padding-top: 30px;
 }
-.container .pagecard .parargaph .title {
+.container .card-page .parargaph .title {
   padding-left: 30px;
   padding-bottom: 10px;
   font-size: larger;
   font-style: italic;
 }
-.container .pagecard .parargaph ul {
+.container .card-page .parargaph ul {
   padding: 0 10px;
-}
-.container .add-card-link {
-  position: fixed;
-  right: 30px;
-  bottom: 25px;
-  padding: 10px 15px;
-  border-radius: 30px;
-  background-color: green;
-}
-.container .add-card-link .oi {
-  color: white;
 }

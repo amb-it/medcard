@@ -6,6 +6,7 @@ gulp.task('less', function(){
     return gulp.src('src/*.less')
         .pipe(less())
         .pipe(gulp.dest('css/'))
+        .pipe(gulp.dest('../frontend/public/'))
         .pipe(browserSync.reload({
             stream: true
         }))
@@ -22,5 +23,6 @@ gulp.task('browserSync', function() {
         server: {
             baseDir: './'
         },
+        port: 3002
     });
 });
