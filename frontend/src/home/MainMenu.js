@@ -11,6 +11,7 @@ export default class MainMenu extends Component {
         return (
             <div className={menuClassName}>
                 <ul>
+                    <li>My bio</li>
                     <li>Settings</li>
                     <li>Clinics</li>
                     <li>Share</li>

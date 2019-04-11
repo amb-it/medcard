@@ -13,7 +13,7 @@ class Card extends Component {
                     <NavLink to="/" className="btn menu-button">
                         <span className="oi oi-caret-left" title="icon name" aria-hidden="true"></span>
                     </NavLink>
-                    <span className="card-title">Card &nbsp; #{card.id}</span>
+                    <span className="card-page-title">Card &nbsp; #{card.id}</span>
                     <span className="oi oi-menu float-right float-right right-icon"></span>
                     <hr/>
                 </header>
@@ -45,7 +45,7 @@ class Card extends Component {
                         <div className="description">
                             <ul>
                                 {card.diagnose.map(
-                                    (item) => <li>{item.title}</li>
+                                    (item, key) => <li key={key}>{item.title}</li>
                                 )}
                             </ul>
                         </div>
@@ -56,7 +56,7 @@ class Card extends Component {
                         <div className="description">
                             <ul>
                                 {card.materials.map(
-                                    (item) => <li>{item.title}</li>
+                                    (item, key) => <li key={key}>{item.title}</li>
                                 )}
                             </ul>
                         </div>

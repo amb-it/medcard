@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {NavLink} from "react-router-dom";
 
 import ShortCard from "./ShortCard";
 import MenuButton from "../core/component/MenuButton";
@@ -37,7 +38,7 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <header>
                     <span className="btn menu-button">
                         <MenuButton
@@ -56,9 +57,9 @@ export default class Home extends Component {
                     {this.renderCards()}
                 </div>
 
-                <span className="add-card-link">
+                <NavLink to="/add-card" className="btn menu-button add-card-link">
                     <span className="oi oi-plus" title="icon name" aria-hidden="true"></span>
-                </span>
+                </NavLink>
             </div>
         );
     }

@@ -10,9 +10,11 @@ import {
 import axios from "axios";
 
 import config from "./config";
+import ScrollToTop from "./core/helper/ScrollToTop";
 
 import Home from "./home/Home";
 import Card from "./card/Card";
+import AddCard from "./card/AddCard";
 
 // let store = createStore(reducer);
 
@@ -43,14 +45,17 @@ export default class App extends Component {
   render() {
     return (
         <Router>
-          <div className="container">
-            <Route exact path="/" render={(props) => (<Home {...props} cards={this.state.cards} />)}/>
-            <Route path="/card/:id" render={
-              (props) => (<Card {...props}
-                                card={this.state.cards[props.match.params.id]}
-                                loading={!this.state.cards[props.match.params.id]} />)
-            }/>
-          </div>
+            <ScrollToTop>
+
+                <Route exact path="/" render={(props) => (<Home {...props} cards={this.state.cards} />)}/>
+                <Route path="/card/:id" render={
+                  (props) => (<Card {...props}
+                                    card={this.state.cards[props.match.params.id]}
+                                    loading={!this.state.cards[props.match.params.id]} />)
+                }/>
+                <Route path="/add-card" render={(props) => (<AddCard {...props} cards={this.state.cards} />)}/>
+
+            </ScrollToTop>
         </Router>
     );
   }
