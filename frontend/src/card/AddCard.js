@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 import axios from "axios";
 
 import config from "../config";
@@ -30,33 +30,42 @@ class AddCard extends Component {
     }
 
     onSubmitInputs() {
-        const apiUrl =  config.apiBaseUrl + '/card';
+        const apiUrl =  config.apiBaseUrl + '/cards';
         const newCard = this.state.newCard;
+        newCard.date = (new Date()).toDateString();
 
         return axios.post(apiUrl, newCard)
             .then(response => {
-                console.log("success")
+                this.setState({redirectTo: "/"});
             })
             .catch(error => {
                 console.log(error);
             })
     }
 
+    renderRedirect = () => {
+        if (this.state.redirectTo) {
+            return <Redirect to={this.state.redirectTo} />
+        }
+    };
+
     render() {
         return (
             <div className="container">
+                {this.renderRedirect()}
                 <header>
                     <NavLink to="/" className="btn menu-button">
                         <span className="oi oi-x"></span>
                     </NavLink>
                     <span className="card-page-title">New card</span>
-                    <NavLink to="/" className="btn menu-button float-right right-icon">
+                    <button
+                        onClick={this.onSubmitInputs}
+                        className="btn menu-button float-right right-icon">
                         <span className="oi oi-check"></span>
-                    </NavLink>
+                    </button>
 
                     <hr/>
                 </header>
-
 
                 <div className="add_card_page">
                     <nav className="mb-5">
