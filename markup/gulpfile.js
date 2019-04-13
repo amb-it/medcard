@@ -14,7 +14,7 @@ gulp.task('less', function(){
 
 gulp.task('watch', ['browserSync', 'less'], function() {
     gulp.watch('src/*.less', ['less']);
-    gulp.watch('*.html', browserSync.reload)
+    gulp.watch('html/*.html', browserSync.reload)
     gulp.watch('js/*.js', browserSync.reload)
 });
 

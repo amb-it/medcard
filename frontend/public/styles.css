@@ -103,3 +103,20 @@
 .container .card-page .parargaph ul {
   padding: 0 10px;
 }
+.container .add_card_page .main_icons .oi {
+  font-size: xx-large;
+}
+.container .add_card_page .pictures .title {
+  font-size: small;
+  padding: 7px 20px;
+}
+.container .add_card_page .pictures .row {
+  margin-bottom: 40px;
+}
+.container .add_card_page .pictures ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.container .add_card_page .pictures img {
+  width: 100%;
+}
