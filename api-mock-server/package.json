@@ -8,8 +8,9 @@
   },
   "devDependencies": {},
   "scripts": {
+    "start": "json-server index.js --port 3001",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Ambit",
   "license": "ISC"
 }

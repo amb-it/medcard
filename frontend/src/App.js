@@ -4,10 +4,11 @@ import {
   // NavLink,
   BrowserRouter as Router
 } from "react-router-dom";
+import axios from "axios";
+
 // import { createStore } from "redux";
 // import { Provider } from "react-redux";
 // import { reducer } from "./redux/reducer";
-import axios from "axios";
 
 import config from "./config";
 import ScrollToTop from "./core/helper/ScrollToTop";
