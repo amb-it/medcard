@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+
+  frontend:
+    container_name: frontend
+    build         : ./frontend
+    volumes:
+      - ./frontend/app:/srv/www
+      - ./frontend/scripts:/scripts
+    command: /scripts/init.sh
+    ports:
+      - "5000:5000"
+    networks:
+      - medcard
+    tty: true
+
+  api:
+    container_name: api
+    build: ./api
+    volumes:
+      - ./api/app:/srv/www
+      - ./api/scripts:/scripts
+    command: /scripts/init.sh
+    ports:
+      - "8080:8080"
+    networks:
+      - medcard
+    tty: true
+
+  mongo:
+    image: 'bitnami/mongodb:latest'
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo/database:/bitnami
+    networks:
+      - medcard
+
+
+networks:
+  medcard:

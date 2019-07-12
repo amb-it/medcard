@@ -1,24 +1,20 @@
 {
-  "name": "frontend-dirty",
+  "name": "frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "bootstrap": "^4.1.2",
     "filepond": "^4.4.0",
     "filepond-plugin-image-preview": "^4.0.8",
-    "open-iconic": "^1.1.1",
-    "react": "^16.8.5",
+    "react": "^16.8.6",
     "react-activity": "^1.2.2",
-    "react-dom": "^16.8.5",
+    "react-dom": "^16.8.6",
     "react-filepond": "^7.0.1",
-    "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8",
-    "redux": "^4.0.1"
+    "react-scripts": "3.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=5000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -1,32 +1,3 @@
-## Start app
-
-```npm start```
-
-
-## Install app:
-
-First install dependencies:
-
-```npm install```
-
-Then copy libs files to public directory:
-```
-mkdir public/lib public/lib/bootstrap public/lib/open-iconic public/lib/open-iconic/css public/lib/open-iconic/fonts
-cp node_modules/bootstrap/dist/css/bootstrap.min.css public/lib/bootstrap/bootstrap.min.css
-cp node_modules/bootstrap/dist/css/bootstrap.min.css.map public/lib/bootstrap/bootstrap.min.css.map
-cp node_modules/bootstrap/dist/js/bootstrap.min.js public/lib/bootstrap/bootstrap.min.js
-cp node_modules/open-iconic/font/css/open-iconic-bootstrap.css public/lib/open-iconic/css/open-iconic-bootstrap.css
-cp -r node_modules/open-iconic/font/fonts public/lib/open-iconic/fonts
-```
-
-------------------------------------
-------------------------------------
-------------------------------------
-------------------------------------
-------------------------------------
-
-
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

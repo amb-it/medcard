@@ -6,9 +6,7 @@ import {
 } from "react-router-dom";
 import axios from "axios";
 
-// import { createStore } from "redux";
-// import { Provider } from "react-redux";
-// import { reducer } from "./redux/reducer";
+// import './App.css';
 
 import config from "./config";
 import ScrollToTop from "./core/helper/ScrollToTop";
@@ -17,7 +15,6 @@ import Home from "./home/Home";
 import Card from "./card/Card";
 import AddCard from "./card/AddCard";
 
-// let store = createStore(reducer);
 
 export default class App extends Component {
   constructor(props, context) {
