@@ -1,31 +1,31 @@
-version: '3'
+version: '3.7'
 
 services:
 
   frontend:
     container_name: frontend
-    build         : ./frontend
+    build: ./frontend
+    env_file:
+      - .env
     volumes:
       - ./frontend/app:/srv/www
       - ./frontend/scripts:/scripts
     command: /scripts/init.sh
     ports:
       - "5000:5000"
-    networks:
-      - medcard
     tty: true
 
   api:
     container_name: api
     build: ./api
+    env_file:
+      - .env
     volumes:
       - ./api/app:/srv/www
       - ./api/scripts:/scripts
     command: /scripts/init.sh
     ports:
       - "8080:8080"
-    networks:
-      - medcard
     tty: true
 
   mongo:
@@ -35,9 +35,3 @@ services:
       - "27017:27017"
     volumes:
       - ./mongo/database:/bitnami
-    networks:
-      - medcard
-
-
-networks:
-  medcard:

@@ -3,7 +3,7 @@
 
 To start app:
 ```
-cp api/app/.env.dist api/app/.env
+cp .env.dist .env
 ```
 ```
 docker-compose up
