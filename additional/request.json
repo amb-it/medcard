@@ -1,0 +1,34 @@
+{
+  "cardType": {
+    "id": 1,
+    "title": "eyes"
+  },
+  "complaint": "Aliquid similique aut a ut vel. Dicta nostrum blanditiis ad consequatur distinctio sequi voluptatem nobis dicta. Atque perferendis officia consectetur occaecati id dolorum alias. Qui in voluptates. Vel quidem dolores dolorem repudiandae. Architecto id a unde ullam architecto neque explicabo totam.\n \rAnimi numquam saepe sint minus tempora aspernatur. Nisi nihil itaque ea. Laudantium reiciendis nobis facere inventore eos qui.\n \rQuod rerum nesciunt culpa. Rerum ad aliquid saepe placeat accusantium voluptatem commodi. Veniam totam voluptates praesentium voluptatem ut autem inventore omnis.",
+  "visited": {
+    "clinic": {
+      "title": "nobis",
+      "district": "District of a Face Surgery",
+      "address": "Kyiv, Peremohy ave, 143"
+    },
+    "doctor": {
+      "id": 3,
+      "title": "Aleksei Rubinovich"
+    }
+  },
+  "diagnose": [
+    {
+      "title": "3rd upper left has caries"
+    },
+    {
+      "title": "2nd bottom right has deep caries"
+    }
+  ],
+  "materials": [
+    {
+      "title": "blood analysis"
+    },
+    {
+      "title": "rentgen"
+    }
+  ]
+}

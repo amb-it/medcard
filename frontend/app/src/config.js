@@ -1,5 +1,5 @@
 let config = {
-    apiBaseUrl: "http://localhost:3001"
+    apiBaseUrl: "http://localhost:8080"
 };
 
 export default config;

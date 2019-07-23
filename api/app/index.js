@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 
 import connectDb from "./models/connectdb";
 
-import someEntityRoutes from './routes/some-entity';
+import cardRoutes from './routes/card';
 
 
 const app = express();
@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 });
 
 // route groups
-app.use('/some-entity', someEntityRoutes);
+app.use('/cards', cardRoutes);
 
 
 connectDb().then(async () => {
