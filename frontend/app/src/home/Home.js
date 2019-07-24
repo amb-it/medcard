@@ -24,7 +24,7 @@ export default class Home extends Component {
                 (card, key) => <ShortCard card={card} key={key}/>
             )
         } else {
-            return "Fail to load cards";
+            return "loading cards ...";
         }
     }
 

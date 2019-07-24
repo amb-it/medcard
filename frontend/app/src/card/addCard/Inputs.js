@@ -13,7 +13,7 @@ export default class Inputs extends Component {
                 <div className="input-group mb-3">
                     <select
                         onChange={this.props.onInputChange}
-                        id="type"
+                        id="cardType"
                         className="custom-select" placeholder="Type">
                         <option value="0">Type...</option>
                         <option value="1">Heart</option>

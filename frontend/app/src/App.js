@@ -26,10 +26,23 @@ export default class App extends Component {
   }
   
   componentDidMount() {
-    
+    this.requestCards();
+  }
+  
+  updateCards = () => {
+    this.requestCards();
+  };
+  
+  getCardById = (id) => {
+    for (const cardItem of this.state.cards) {
+      if (cardItem._id === id) return cardItem;
+    }
+  };
+  
+  requestCards() {
     const apiUrl =  config.apiBaseUrl + '/cards';
     
-    return axios.get(apiUrl)
+    axios.get(apiUrl)
       .then(response => {
         this.setState({
           cards: response.data
@@ -45,13 +58,23 @@ export default class App extends Component {
       <Router>
         <ScrollToTop>
           
-          <Route exact path="/" render={(props) => (<Home {...props} cards={this.state.cards} />)}/>
-          <Route path="/card/:id" render={
-            (props) => (<Card {...props}
-                              card={this.state.cards[props.match.params.id]}
-                              loading={!this.state.cards[props.match.params.id]} />)
-          }/>
-          <Route path="/add-card" render={(props) => (<AddCard {...props} cards={this.state.cards} />)}/>
+          <Route exact path="/"
+                 render={(props) => (
+                   <Home {...props}
+                         cards={this.state.cards}
+                   />)}/>
+          <Route path="/card/:id"
+                 render={(props) => (
+                   <Card {...props}
+                         card={this.getCardById(props.match.params.id)}
+                         loading={!this.getCardById(props.match.params.id)}
+                   />)}/>
+          <Route path="/add-card"
+                 render={(props) => (
+                   <AddCard {...props}
+                         cards={this.state.cards}
+                         updateCards={this.updateCards}
+                   />)}/>
         
         </ScrollToTop>
       </Router>

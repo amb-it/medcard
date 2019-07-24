@@ -7,16 +7,16 @@ export default class ShortCard extends Component {
         const card = this.props.card;
 
         return (
-            <NavLink to={"card/"+card.id}>
+            <NavLink to={"card/"+card._id}>
                 <div className="card">
                     <div className="row">
-                        <div className="col date">{card.date.substring(0,10)} <div className="card-id"># {card.id}</div></div>
-                        <div className="col type">{card.cardType.title}</div>
+                        <div className="col date">{card.date.substring(0,10)} <div className="card-id"># {card._id}</div></div>
+                        <div className="col type">{card.cardType ? card.cardType.title : ''}</div>
                     </div>
 
-                    <div className="description">{card.complaint.substring(0,90) + '...'}</div>
+                    <div className="description">{card.complaint ? card.complaint.substring(0,90) + '...' : ' - '}</div>
                     <div className="hospital">
-                        {card.visited.clinic.title}
+                        {card.visited ? card.visited.clinic.title : ''}
                         {/*<span className="oi oi-map" title="icon name" aria-hidden="true"></span>*/}
                     </div>
                 </div>

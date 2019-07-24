@@ -17,38 +17,36 @@ class AddCard extends Component {
             showTab: this.inputs_tab_id,
             newCard: {}
         };
-
-        this.onInputChange = this.onInputChange.bind(this);
-        this.onSubmitInputs = this.onSubmitInputs.bind(this);
     }
-
-    onInputChange(e) {
+    
+    onInputChange = (e) => {
         let newCard = this.state.newCard;
         newCard[e.target.id] = e.target.value;
 
         this.setState({newCard: newCard});
-    }
-
-    onSubmitInputs() {
+    };
+    
+    onSubmitInputs = () => {
         const apiUrl =  config.apiBaseUrl + '/cards';
         const newCard = this.state.newCard;
-        newCard.date = (new Date()).toDateString();
-
-        return axios.post(apiUrl, newCard)
+        // newCard.date = (new Date()).toDateString();
+        
+        axios.post(apiUrl, newCard)
             .then(response => {
+                this.props.updateCards();
                 this.setState({redirectTo: "/"});
             })
             .catch(error => {
                 console.log(error);
             })
-    }
-
+    };
+    
     renderRedirect = () => {
         if (this.state.redirectTo) {
             return <Redirect to={this.state.redirectTo} />
         }
     };
-
+    
     render() {
         return (
             <div className="container">
