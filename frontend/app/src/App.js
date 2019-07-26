@@ -35,7 +35,7 @@ export default class App extends Component {
   
   getCardById = (id) => {
     for (const cardItem of this.state.cards) {
-      if (cardItem._id === id) return cardItem;
+      if (cardItem._id === +id) return cardItem;
     }
   };
   
