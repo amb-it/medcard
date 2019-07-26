@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 // import cardTypeSchema from 'schemas/cardTypeSchema';
 // import CardType from './cardType';
-import autoIncrement from 'mongoose-auto-increment';
+import {MongooseAutoIncrementID} from 'mongoose-auto-increment-reworked';
 
 let cardSchema = new mongoose.Schema({
     date: { type: Date, default: Date.now },
@@ -21,5 +21,5 @@ let cardSchema = new mongoose.Schema({
     // materials: {}
 });
 
-cardSchema.plugin(autoIncrement.plugin, 'Card');
+cardSchema.plugin(MongooseAutoIncrementID.plugin, {modelName: 'Card'});
 export default mongoose.model('Card', cardSchema);

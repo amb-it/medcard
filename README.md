@@ -24,7 +24,6 @@ http://localhost:8080
 
 #### Tasks:
 
-- API. make short id (uuid)
 - make consistent list of fields 
     - database design
     - api design
