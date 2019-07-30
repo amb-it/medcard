@@ -26,13 +26,14 @@ http://localhost:8080
 
 - make consistent list of fields 
     - make cardTypes logic
-        - set requested cardTypes to corresponding input
+        - FE: set requested cardTypes to corresponding input
         - make on API correct cardType saving
         - put on FE cardType to request
     - database design
     - api design
     - list of FE fields
     - make it all consistent
+- env variables in React (delete config.js ?)
 - Pictures (files) handling
     - api endpoint
     - fe correct request
