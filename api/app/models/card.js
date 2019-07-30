@@ -22,4 +22,5 @@ let cardSchema = new mongoose.Schema({
 });
 
 cardSchema.plugin(MongooseAutoIncrementID.plugin, {modelName: 'Card'});
+
 export default mongoose.model('Card', cardSchema);

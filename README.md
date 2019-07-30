@@ -25,11 +25,11 @@ http://localhost:8080
 #### Tasks:
 
 - make consistent list of fields 
+    - make types logic
     - database design
     - api design
     - list of FE fields
     - make it all consistent
-    - make types logic
 - Pictures (files) handling
     - api endpoint
     - fe correct request

@@ -1,10 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import mongoose from 'mongoose';
 
-import connectDb from "./models/connectdb";
+import connectDb from "./core/connectdb";
 
+import seedRoutes from './routes/dev/seed';
 import cardRoutes from './routes/card';
 
 
@@ -12,14 +12,18 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+// output all requests to console
+app.all("*", function (req, resp, next) {
+    console.log(`${req.method} ${req.originalUrl}`);
+    next();
+});
+
 app.get('/', (req, res) => {
-    return res.send({
-        "message": "Hello, I am API",
-        "mongo_connection": !!mongoose.connection.readyState
-    });
+    return res.send({"message": "Hello, I am API"});
 });
 
 // route groups
+app.use('/dev/seed', seedRoutes);
 app.use('/cards', cardRoutes);
 
 
