@@ -6,6 +6,7 @@ import connectDb from "./core/connectdb";
 
 import seedRoutes from './routes/dev/seed';
 import cardRoutes from './routes/card';
+import cardTypeRoutes from './routes/cardType';
 
 
 const app = express();
@@ -25,6 +26,7 @@ app.get('/', (req, res) => {
 // route groups
 app.use('/dev/seed', seedRoutes);
 app.use('/cards', cardRoutes);
+app.use('/card-types', cardTypeRoutes);
 
 
 connectDb().then(async () => {

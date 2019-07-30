@@ -9,6 +9,7 @@ cardRoutes.get('/', async (req, res) => {
     const cards = await Card
       .find();
       // .populate('cardType');
+
     res.send(cards);
 });
 //

@@ -25,7 +25,10 @@ http://localhost:8080
 #### Tasks:
 
 - make consistent list of fields 
-    - make types logic
+    - make cardTypes logic
+        - set requested cardTypes to corresponding input
+        - make on API correct cardType saving
+        - put on FE cardType to request
     - database design
     - api design
     - list of FE fields
