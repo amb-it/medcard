@@ -36,9 +36,7 @@ class AddCard extends Component {
                 this.props.updateCards();
                 this.setState({redirectTo: "/"});
             })
-            .catch(error => {
-                console.log(error);
-            })
+            .catch(error => { console.log(error); })
     };
     
     renderRedirect = () => {
@@ -87,7 +85,10 @@ class AddCard extends Component {
 
                     {(this.state.showTab === this.files_tab_id)
                         ? <Files onInputChange={this.onInputChange}/>
-                        : <Inputs onInputChange={this.onInputChange}/>
+                        : <Inputs
+                            onInputChange={this.onInputChange}
+                            cardTypes={this.props.cardTypes}
+                            />
                     }
 
                     <hr/>

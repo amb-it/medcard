@@ -11,13 +11,12 @@ export default class ShortCard extends Component {
                 <div className="card">
                     <div className="row">
                         <div className="col date">{card.date.substring(0,10)} <div className="card-id"># {card._id}</div></div>
-                        <div className="col type">{card.cardType ? card.cardType.title : ''}</div>
+                        <div className="col type">{card.cardType ? card.cardType.name : ''}</div>
                     </div>
 
                     <div className="description">{card.complaint ? card.complaint.substring(0,90) + '...' : ' - '}</div>
                     <div className="hospital">
                         {card.visited ? card.visited.clinic.title : ''}
-                        {/*<span className="oi oi-map" title="icon name" aria-hidden="true"></span>*/}
                     </div>
                 </div>
             </NavLink>

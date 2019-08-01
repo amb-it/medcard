@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import {
   Route,
-  // NavLink,
   BrowserRouter as Router
 } from "react-router-dom";
 import axios from "axios";
@@ -21,12 +20,14 @@ export default class App extends Component {
     super(props, context);
     
     this.state = {
-      cards: []
+      cards: [],
+      cardTypes: []
     };
   }
   
   componentDidMount() {
     this.requestCards();
+    this.requestCardTypes();
   }
   
   updateCards = () => {
@@ -48,9 +49,19 @@ export default class App extends Component {
           cards: response.data
         });
       })
-      .catch(error => {
-        console.log(error);
+      .catch(error => {console.log(error);})
+  }
+  
+  requestCardTypes() {
+    const apiUrl =  config.apiBaseUrl + '/card-types';
+  
+    axios.get(apiUrl)
+      .then(response => {
+        this.setState({
+          cardTypes: response.data
+        });
       })
+      .catch(error => {console.log(error);})
   }
   
   render() {
@@ -72,8 +83,8 @@ export default class App extends Component {
           <Route path="/add-card"
                  render={(props) => (
                    <AddCard {...props}
-                         cards={this.state.cards}
-                         updateCards={this.updateCards}
+                            cardTypes={this.state.cardTypes}
+                            updateCards={this.updateCards}
                    />)}/>
         
         </ScrollToTop>

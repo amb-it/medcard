@@ -5,6 +5,6 @@ let cardTypeSchema = new mongoose.Schema({
   name: String
 });
 
-cardTypeSchema.plugin(MongooseAutoIncrementID.plugin, {modelName: 'cardType'});
+cardTypeSchema.plugin(MongooseAutoIncrementID.plugin, {modelName: 'CardType'});
 
 export default mongoose.model('CardType', cardTypeSchema);
