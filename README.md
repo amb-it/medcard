@@ -25,7 +25,6 @@ http://localhost:8080
 #### Tasks:
 
 - make consistent list of fields
-    - database design
     - api design
     - list of FE fields
     - make it all consistent
