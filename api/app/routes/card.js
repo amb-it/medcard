@@ -8,6 +8,7 @@ const cardRoutes = Router();
 cardRoutes.get('/', async (req, res) => {
     const cards = await Card
       .find()
+      .sort({_id: "desc"})
       .populate('cardType');
 
     res.send(cards);

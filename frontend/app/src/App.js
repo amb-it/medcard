@@ -70,20 +70,19 @@ export default class App extends Component {
         <ScrollToTop>
           
           <Route exact path="/"
-                 render={(props) => (
-                   <Home {...props}
-                         cards={this.state.cards}
+                 render={() => (
+                   <Home cards={this.state.cards}
                    />)}/>
           <Route path="/card/:id"
                  render={(props) => (
+                   // here {...props}  - throw all props from Route into Card .It is not needed. But I left it to remember how to do it
                    <Card {...props}
                          card={this.getCardById(props.match.params.id)}
                          loading={!this.getCardById(props.match.params.id)}
                    />)}/>
           <Route path="/add-card"
-                 render={(props) => (
-                   <AddCard {...props}
-                            cardTypes={this.state.cardTypes}
+                 render={() => (
+                   <AddCard cardTypes={this.state.cardTypes}
                             updateCards={this.updateCards}
                    />)}/>
         

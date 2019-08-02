@@ -13,7 +13,7 @@ class Card extends Component {
                     <NavLink to="/" className="btn menu-button">
                         <span className="oi oi-caret-left" title="icon name" aria-hidden="true"></span>
                     </NavLink>
-                    <span className="card-page-title">Card &nbsp; #{card._id}</span>
+                    <span className="card-page-title">Card &nbsp; № {card._id}</span>
                     <span className="oi oi-menu float-right float-right right-icon"></span>
                     <hr/>
                 </header>

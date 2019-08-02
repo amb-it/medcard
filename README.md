@@ -24,11 +24,7 @@ http://localhost:8080
 
 #### Tasks:
 
-- ake consistent list of fields
-    - make cardTypes logic
-        - FE: set requested cardTypes to corresponding input
-        - make on API correct cardType saving
-        - put on FE cardType to request
+- make consistent list of fields
     - database design
     - api design
     - list of FE fields
@@ -41,4 +37,3 @@ http://localhost:8080
 - separate users:
     - api
 - Make lib to be as a part of common files (css as styles.css) etc.
-- check if {...props} are needed on Home.js (FE)
