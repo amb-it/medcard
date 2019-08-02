@@ -15,7 +15,7 @@ seedRoutes.post('/', async (req, res) => {
   // save cardTypes from seed array
   for (const value of cardTypeSeed) {
     const cardType = new CardType({
-      "name": value.name
+      "title": value.title
     });
     
     await cardType.save()

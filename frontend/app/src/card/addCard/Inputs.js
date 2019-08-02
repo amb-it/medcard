@@ -6,7 +6,7 @@ export default class Inputs extends Component {
   
     if (cardTypes.length > 0) {
       return cardTypes.map(
-        (cardType, key) => <option value={cardType._id} key={key}>{cardType.name}</option>
+        (cardType, key) => <option value={cardType._id} key={key}>{cardType.title}</option>
       )
     }
   }

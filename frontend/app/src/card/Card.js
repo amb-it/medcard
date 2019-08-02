@@ -22,7 +22,7 @@ class Card extends Component {
                 <div className="card-page">
                     <div className="title-elements">
                         <span>{card.date.substring(0,10)}</span>
-                        <span className="float-right type">{card.cardType ? card.cardType.name : '-'}</span>
+                        <span className="float-right type">{card.cardType ? card.cardType.title : '-'}</span>
                     </div>
 
                     <div className="parargaph">

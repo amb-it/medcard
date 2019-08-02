@@ -36,4 +36,5 @@ http://localhost:8080
 - Redux implement
 - separate users:
     - api
-- Make lib to be as a part of common files (css as styles.css) etc.
+- make lib to be as a part of common files (css as styles.css) etc.
+- redirect to main page if there is no card
