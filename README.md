@@ -24,6 +24,7 @@ http://localhost:8080
 
 #### Tasks:
 
+- clear db command
 - make consistent list of fields
     - api design
     - list of FE fields
