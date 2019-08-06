@@ -8,11 +8,22 @@ let cardSchema = new mongoose.Schema({
         ref: 'CardType'
     },
     complaint: String,
-    clinic: String,
-    doctor: String,
+    clinic: {
+        type: Number,
+        ref: 'Clinic'
+    },
+    clinicDepartment: {
+        type: Number,
+        ref: 'ClinicDepartment'
+    },
+    doctor: {
+        type: Number,
+        ref: 'Doctor'
+    },
+    diagnoses: String,
     materials: String,
-    notes: String,
-    prescription: String,
+    prescriptions: String,
+    notes: String
 });
 
 cardSchema.plugin(MongooseAutoIncrementID.plugin, {modelName: 'Card'});

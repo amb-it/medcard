@@ -16,12 +16,15 @@ module.exports = () => {
                 title: faker.lorem.word('lorem.word')
             },
             complaint: faker.lorem.paragraphs(),
-            visited: {
+            visit: {
                 clinic: {
                     id: 10,
                     title: faker.lorem.word('name.jobArea'),
-                    district: "District of a Face Surgery",
-                    address: "Kyiv, Peremohy ave, 143"
+                    department: {
+                        id: 3,
+                        title: "District of a Face Surgery",
+                        address: "Kyiv, Peremohy ave, 143"
+                    }
                 },
                 doctor: {
                     id: 3,
@@ -29,12 +32,7 @@ module.exports = () => {
                 }
             },
             diagnose: " - 3rd upper left has caries \n - 2nd bottom right has deep caries",
-            materials: [
-                {
-                    title: "blood analysis",
-                    description: "leikocits - 150/30 \n neurocits - none"
-                }
-            ],
+            materials: "blood analysis \n leikocits - 150/30 \n neurocits - none",
             prescriptions: " - drink tea with camomile \n - analgin 500mg every evening",
             notes: "some other stuff"
         }
