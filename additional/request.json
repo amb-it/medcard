@@ -11,7 +11,8 @@
   },
   "doctor": {
       "name": "Petro",
-      "surname": "Onishenko"
+      "surname": "Onishenko",
+      "title": "1st category doctor"
   },
   "diagnoses": "some diagnose",
   "materials": "some materials",

@@ -24,7 +24,6 @@ http://localhost:8080
 
 #### Tasks:
 
-- clear db command
 - make consistent list of fields
     - api design
     - list of FE fields
@@ -38,3 +37,4 @@ http://localhost:8080
     - api
 - make lib to be as a part of common files (css as styles.css) etc.
 - redirect to main page if there is no card
+- dev routes available only for dev env

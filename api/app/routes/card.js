@@ -22,8 +22,7 @@ cardRoutes.get('/', async (req, res) => {
 
 // save new card
 cardRoutes.post('/', async (req, res) => {
-    // todo: can be const instead of let ?
-    let card = new Card;
+    const card = new Card;
     
     const r = req.body;
     
@@ -32,28 +31,21 @@ cardRoutes.post('/', async (req, res) => {
     card.materials = r.materials;
     card.prescriptions = r.prescriptions;
     card.notes = r.notes;
-    
     card.cardType = r.cardType;
 
-    let clinic;
-    
     if (r.clinic) {
-        clinic = new Clinic({
+        await Clinic.findOrCreate({
             title: r.clinic.title,
             address: r.clinic.address
-        });
-        
-        await clinic.save();
-        card.clinic = clinic._id;
-        
+        })
+            .then(result => card.clinic = result.doc._id);
+    
         if (r.clinicDepartment) {
-            let clinicDepartment = new ClinicDepartment({
+            await ClinicDepartment.findOrCreate({
                 title: r.clinicDepartment.title,
                 address: r.clinicDepartment.address
-            });
-    
-            await clinicDepartment.save();
-            card.clinicDepartment = clinicDepartment._id;
+            })
+                .then(result => card.clinicDepartment = result.doc._id);
         }
     }
     
@@ -67,7 +59,8 @@ cardRoutes.post('/', async (req, res) => {
         
         await Doctor.findOrCreate({
             name: r.doctor.name,
-            surname: r.doctor.surname,
+            surname: r.doctor.surname
+        }, {
             title: r.doctor.title
         })
             .then(result => doctor = result.doc);
