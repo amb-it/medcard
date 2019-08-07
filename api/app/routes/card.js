@@ -22,9 +22,15 @@ cardRoutes.get('/', async (req, res) => {
 
 // save new card
 cardRoutes.post('/', async (req, res) => {
-    const card = new Card;
-    
     const r = req.body;
+    
+    let card = await Card.findOne({complaint: r.complaint});
+    
+    if (card) {
+        return res.status(500).send({message: 'Card with such complaint already exists'});
+    }
+
+    card = new Card;
     
     card.complaint = r.complaint;
     card.diagnoses = r.diagnoses;
@@ -50,22 +56,13 @@ cardRoutes.post('/', async (req, res) => {
     }
     
     if (r.doctor) {
-        let doctor;
-
-        // todo: save clinic on doctor.save()
-        // if (typeof clinic != null) {
-        //     doctor.clinic = clinic._id;
-        // }
-        
         await Doctor.findOrCreate({
             name: r.doctor.name,
             surname: r.doctor.surname
         }, {
             title: r.doctor.title
         })
-            .then(result => doctor = result.doc);
-        
-        card.doctor = doctor._id;
+            .then(result => card.doctor = result.doc._id);
     }
     
     await card.save()
