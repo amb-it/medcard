@@ -3,7 +3,6 @@ version: '3.7'
 services:
 
   frontend:
-    container_name: frontend
     build: ./frontend
     env_file:
       - .env
@@ -16,7 +15,6 @@ services:
     tty: true
 
   api:
-    container_name: api
     build: ./api
     env_file:
       - .env
@@ -30,7 +28,6 @@ services:
 
   mongo:
     image: 'bitnami/mongodb:latest'
-    container_name: mongo
     ports:
       - "27017:27017"
     volumes:
