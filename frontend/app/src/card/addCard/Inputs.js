@@ -29,17 +29,62 @@ export default class Inputs extends Component {
                     {this.renderCardTypeOptions()}
                   </select>
               </div>
+    
+              <hr />
+              <h2 className="badge badge-secondary">
+                  Clinic
+              </h2>
               <div className="input-group mb-3">
                   <input
                       onChange={this.props.onInputChange}
-                      id="clinic"
-                      type="text" className="form-control" placeholder="Clinic"/>
+                      id="clinicTitle"
+                      type="text" className="form-control" placeholder="title"/>
               </div>
               <div className="input-group mb-3">
                   <input
                       onChange={this.props.onInputChange}
-                      id="doctor"
-                      type="text" className="form-control" placeholder="Doctor"/>
+                      id="clinicAddress"
+                      type="text" className="form-control" placeholder="address"/>
+              </div>
+              <div className="input-group mb-3">
+                  <input
+                      onChange={this.props.onInputChange}
+                      id="clinicDepartmentTitle"
+                      type="text" className="form-control" placeholder="department title"/>
+              </div>
+              <div className="input-group mb-3">
+                  <input
+                      onChange={this.props.onInputChange}
+                      id="clinicDepartmentAddress"
+                      type="text" className="form-control" placeholder="department address"/>
+              </div>
+    
+              <hr />
+              <h2 className="badge badge-secondary">
+                  Doctor
+              </h2>
+              <div className="input-group mb-3">
+                  <input
+                      onChange={this.props.onInputChange}
+                      id="doctorSurname"
+                      type="text" className="form-control" placeholder="surname"/>
+              </div>
+              <div className="input-group mb-3">
+                  <input
+                      onChange={this.props.onInputChange}
+                      id="doctorName"
+                      type="text" className="form-control" placeholder="name"/>
+              </div>
+              
+              <hr />
+              <h2 className="badge badge-secondary">
+                  other
+              </h2>
+              <div className="input-group mb-3">
+                  <textarea
+                      onChange={this.props.onInputChange}
+                      id="diagnoses"
+                      rows="8" className="form-control" placeholder="Diagnose"></textarea>
               </div>
               <div className="input-group mb-3">
                   <textarea
@@ -50,7 +95,7 @@ export default class Inputs extends Component {
               <div className="input-group mb-3">
                   <textarea
                       onChange={this.props.onInputChange}
-                      id="prescription"
+                      id="prescriptions"
                       rows="8" className="form-control" placeholder="Prescription"></textarea>
               </div>
               <div className="input-group mb-5">

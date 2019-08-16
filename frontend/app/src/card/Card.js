@@ -22,73 +22,85 @@ class Card extends Component {
                 <div className="card-page">
                     <div className="title-elements">
                         <span>{card.date.substring(0,10)}</span>
-                        <span className="float-right type">{card.cardType ? card.cardType.title : '-'}</span>
+                        <span className="float-right type">{card.cardType ? card.cardType.title : ''}</span>
                     </div>
 
-                    <div className="parargaph">
-                        <div className="title">Complaint</div>
-                        <div className="description">{card.complaint ? card.complaint : '-'}</div>
-                    </div>
+                    { card.complaint &&
+                        <div className="parargaph">
+                            <div className="title">Complaint</div>
+                            <div className="description">{card.complaint}</div>
+                        </div>
+                    }
 
-                    <div className="parargaph">
-                        <div className="title">Visited</div>
-                        <div className="description">
-                            {card.clinic ? card.clinic : '-'}
-                            {/*{card.visited.clinic.title} <span className="float-right">({card.visited.clinic.address})</span>*/}
-                            <br/>
-                            <p>{card.doctor ? card.doctor : ''}</p>
-                            {/*<p>{card.visited.clinic.district}</p>*/}
-                            {/*<p>{card.visited.doctor.title}</p>*/}
+                    { card.clinic &&
+                        <div className="parargaph">
+                            <div className="title">Visited</div>
+                            <div className="description">
+                                { card.clinic.title ? card.clinic.title : ''}
+                                { card.clinic.address && <span className="float-right">({card.clinic.address})</span> }
+                            </div>
+                            { card.clinicDepartment &&
+                                <div className="description">
+                                    { card.clinicDepartment.title ? card.clinicDepartment.title : ''}
+                                    { card.clinicDepartment.address &&
+                                        <span className="float-right">({card.clinicDepartment.address})</span>
+                                    }
+                                </div>
+                            }
+                            { card.doctor &&
+                                <div className="description">
+                                    <div>-</div>
+                                    { card.doctor.surname ? card.doctor.surname : ''}&nbsp;
+                                    { card.doctor.name ? card.doctor.name : ''}
+                                </div>
+                            }
                         </div>
-                    </div>
+                    }
 
-                    { card.diagnose ?
-                    <div className="parargaph">
-                        <div className="title">Diagnose</div>
-                        <div className="description">
-                            card.diagnose
-                            {/*<ul>*/}
-                            {/*    {card.diagnose.map(*/}
-                            {/*        (item, key) => <li key={key}>{item.title}</li>*/}
-                            {/*    )}*/}
-                            {/*</ul>*/}
+                    { card.diagnoses &&
+                        <div className="parargaph">
+                            <div className="title">Diagnose</div>
+                            <div className="description">
+                                { card.diagnoses }
+                                {/*<ul>*/}
+                                {/*    {card.diagnose.map(*/}
+                                {/*        (item, key) => <li key={key}>{item.title}</li>*/}
+                                {/*    )}*/}
+                                {/*</ul>*/}
+                            </div>
                         </div>
-                    </div>
-                      : ''}
-                    
-                    <div className="parargaph">
-                        <div className="title">Materials and Analysis</div>
-                        <div className="description">
-                            {card.materials ? card.materials : '-'}
-                            {/*<ul>*/}
-                            {/*    {card.materials.map(*/}
-                            {/*        (item, key) => <li key={key}>{item.title}</li>*/}
-                            {/*    )}*/}
-                            {/*</ul>*/}
+                    }
+
+                    { card.materials &&
+                        <div className="parargaph">
+                            <div className="title">Materials and Analysis</div>
+                            <div className="description">
+                                { card.materials }
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div className="parargaph">
-                        <div className="title">Prescriptions</div>
-                        <div className="description">
-                            {card.prescription ? card.prescription : '-'}
+                    }
+
+                    { card.prescriptions &&
+                        <div className="parargaph">
+                            <div className="title">Prescriptions</div>
+                            <div className="description">
+                                { card.prescriptions }
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div className="parargaph">
-                        <div className="title">Notes</div>
-                        <div className="description">
-                            {card.notes ? card.notes : '-'}
-                            {/*<ul>*/}
-                            {/*    {card.materials.map(*/}
-                            {/*        (item, key) => <li key={key}>{item.title}</li>*/}
-                            {/*    )}*/}
-                            {/*</ul>*/}
+                    }
+
+                    { card.notes &&
+                        <div className="parargaph">
+                            <div className="title">Notes</div>
+                            <div className="description">
+                                { card.notes }
+                            </div>
                         </div>
-                    </div>
-                    
+                    }
+                    <hr />
+
                 </div>
-                
+
             </div>
         );
     }

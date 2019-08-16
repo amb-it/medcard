@@ -39,28 +39,38 @@ cardRoutes.post('/', async (req, res) => {
     card.notes = r.notes;
     card.cardType = r.cardType;
 
-    if (r.clinic) {
-        await Clinic.findOrCreate({
-            title: r.clinic.title,
-            address: r.clinic.address
-        })
+    if (r.clinicTitle) {
+        
+        const clinic = {title: r.clinicTitle};
+        
+        if (r.clinicAddress) {
+            clinic.address = r.clinicAddress;
+        }
+        
+        await Clinic.findOrCreate(clinic)
             .then(result => card.clinic = result.doc._id);
     
-        if (r.clinicDepartment) {
-            await ClinicDepartment.findOrCreate({
-                title: r.clinicDepartment.title,
-                address: r.clinicDepartment.address
-            })
+        if (r.clinicDepartmentTitle) {
+            
+            const clinicDepartment = {
+                title: r.clinicDepartmentTitle
+            };
+            
+            if (r.clinicDepartmentAddress) {
+                clinicDepartment.address = r.clinicDepartmentAddress
+            }
+            
+            await ClinicDepartment.findOrCreate(clinicDepartment)
                 .then(result => card.clinicDepartment = result.doc._id);
         }
     }
     
-    if (r.doctor) {
+    if (r.doctorSurname && r.doctorName) {
         await Doctor.findOrCreate({
-            name: r.doctor.name,
-            surname: r.doctor.surname
+            name: r.doctorName,
+            surname: r.doctorSurname
         }, {
-            title: r.doctor.title
+            title: r.doctorTitle
         })
             .then(result => card.doctor = result.doc._id);
     }

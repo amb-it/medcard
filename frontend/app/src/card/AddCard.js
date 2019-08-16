@@ -20,7 +20,7 @@ class AddCard extends Component {
     }
     
     onInputChange = (e) => {
-        let newCard = this.state.newCard;
+        const newCard = this.state.newCard;
         newCard[e.target.id] = e.target.value;
 
         this.setState({newCard: newCard});

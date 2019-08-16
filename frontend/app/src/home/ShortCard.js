@@ -16,7 +16,7 @@ export default class ShortCard extends Component {
 
                     <div className="description">{card.complaint ? card.complaint.substring(0,90) + '...' : ' - '}</div>
                     <div className="hospital">
-                        {card.visited ? card.visited.clinic.title : ''}
+                        {card.clinic && card.clinic.title ? card.clinic.title : ''}
                     </div>
                 </div>
             </NavLink>

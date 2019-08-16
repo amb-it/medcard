@@ -9,7 +9,7 @@ cp .env.dist .env
 docker-compose up
 ```
 
--------------------
+---
 
 React App (frontend) will be available:
 
@@ -22,12 +22,18 @@ http://localhost:8080
 
 ---
 
+## API
+
+available commands:
+- to refresh database
+```
+http POST localhost:8080/dev/db/refresh
+```
+
+---
+
 #### Tasks:
 
-- make consistent list of fields
-    - api design
-    - list of FE fields
-    - make it all consistent
 - env variables in React (delete config.js ?)
 - pictures (files) handling
     - api endpoint
