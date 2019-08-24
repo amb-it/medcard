@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {NavLink, Redirect} from "react-router-dom";
 import axios from "axios";
 
-import config from "../config";
 import Inputs from "./addCard/Inputs";
 import Files from "./addCard/Files";
 
@@ -27,7 +26,7 @@ class AddCard extends Component {
     };
     
     onSubmitInputs = () => {
-        const apiUrl =  config.apiBaseUrl + '/cards';
+        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards';
         const newCard = this.state.newCard;
         // newCard.date = (new Date()).toDateString();
         

@@ -7,7 +7,6 @@ import axios from "axios";
 
 // import './App.css';
 
-import config from "./config";
 import ScrollToTop from "./core/helper/ScrollToTop";
 
 import Home from "./home/Home";
@@ -41,7 +40,7 @@ export default class App extends Component {
   };
   
   requestCards() {
-    const apiUrl =  config.apiBaseUrl + '/cards';
+    const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards';
     
     axios.get(apiUrl)
       .then(response => {
@@ -53,7 +52,7 @@ export default class App extends Component {
   }
   
   requestCardTypes() {
-    const apiUrl =  config.apiBaseUrl + '/card-types';
+    const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/card-types';
   
     axios.get(apiUrl)
       .then(response => {
