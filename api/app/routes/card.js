@@ -1,4 +1,6 @@
 import { Router } from 'express';
+import Formidable from 'formidable';
+
 import Card from '../models/card';
 import Clinic from '../models/clinic';
 import ClinicDepartment from '../models/clinicDepartment';
@@ -78,6 +80,18 @@ cardRoutes.post('/', async (req, res) => {
     await card.save()
         .then(data => {res.send(data);})
         .catch(err => {res.status(500).send({message: err.message || "Some error occurred while saving some-entity."});});
+});
+
+cardRoutes.post('/save-picture', (req, res) => {
+    new Formidable.IncomingForm().parse(req)
+        .on('fileBegin', (name, file) => {
+            // file.path = __dirname + '/uploads/' + file.name
+            file.path = '/srv/www/uploaded_files/' + file.name
+        })
+        .on('file', (name, file) => {
+            // console.log('Uploaded file', name, file)
+            res.send({message: "success"});
+        })
 });
 
 export default cardRoutes;

@@ -9,9 +9,11 @@ registerPlugin(FilePondPluginImagePreview);
 
 export default class Files extends Component {
     render() {
+        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards/save-picture';
+
         return (
             <div class="mb-5">
-                <FilePond allowMultiple={true}/>
+                <FilePond allowMultiple={true} server={apiUrl} />
             </div>
         );
     }
