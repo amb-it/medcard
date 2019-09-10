@@ -21,18 +21,30 @@ class AddCard extends Component {
     onInputChange = (e) => {
         const newCard = this.state.newCard;
         newCard[e.target.id] = e.target.value;
-
         this.setState({newCard: newCard});
     };
     
-    onSubmitInputs = () => {
+    onAddFile = (filename) => {
+        const newCard = this.state.newCard;
+        if (newCard.files) {
+            newCard.files.push(filename);
+        } else {
+            newCard.files = [filename];
+        }
+        this.setState({newCard: newCard});
+    };
+    
+    saveCard = () => {
         const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards';
         const newCard = this.state.newCard;
-        // newCard.date = (new Date()).toDateString();
         
         axios.post(apiUrl, newCard)
             .then(response => {
                 this.props.updateCards();
+                
+                const newCard = this.state.newCard;
+                this.setState({newCard: newCard});
+                
                 this.setState({redirectTo: "/"});
             })
             .catch(error => { console.log(error); })
@@ -54,7 +66,7 @@ class AddCard extends Component {
                     </NavLink>
                     <span className="card-page-title">New card</span>
                     <button
-                        onClick={this.onSubmitInputs}
+                        onClick={this.saveCard}
                         className="btn menu-button float-right right-icon">
                         <span className="oi oi-check"></span>
                     </button>
@@ -83,7 +95,9 @@ class AddCard extends Component {
                     </nav>
 
                     {(this.state.showTab === this.files_tab_id)
-                        ? <Files onInputChange={this.onInputChange}/>
+                        ? <Files
+                            onAddFile={this.onAddFile}
+                            />
                         : <Inputs
                             onInputChange={this.onInputChange}
                             cardTypes={this.props.cardTypes}
@@ -100,7 +114,7 @@ class AddCard extends Component {
                         </div>
                         <div className="col-6 text-center">
                             <button
-                                onClick={this.onSubmitInputs}
+                                onClick={this.saveCard}
                                 className="btn btn-success">Save</button>
                         </div>
                     </div>

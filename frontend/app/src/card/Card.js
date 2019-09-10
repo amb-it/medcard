@@ -97,6 +97,21 @@ class Card extends Component {
                             </div>
                         </div>
                     }
+                    
+                    { card.files &&
+                    <div className="parargaph">
+                        <div className="title">Materials</div>
+                        <div className="description">
+                            <ul>
+                                {card.files.map(
+                                    (item, key) => <li key={key}>
+                                        <img src={'http://localhost:8080/' + item} style={{width: '100%', marginBottom: '30px'}} />
+                                    </li>
+                                )}
+                            </ul>
+                        </div>
+                    </div>
+                    }
                     <hr />
 
                 </div>

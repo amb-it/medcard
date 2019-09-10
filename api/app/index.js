@@ -28,6 +28,7 @@ app.use('/dev', devRoutes);
 app.use('/cards', cardRoutes);
 app.use('/card-types', cardTypeRoutes);
 
+app.use(express.static('user_files/sandbox'));
 
 connectDb().then(async () => {
     app.listen(process.env.API_PORT, () =>

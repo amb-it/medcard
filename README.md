@@ -37,6 +37,7 @@ http POST localhost:8080/dev/db/refresh
 - pictures (files) handling
     - api endpoint
     - fe correct request
+    - correct styles for pictures in card
 - Redux implement
 - separate users:
     - api

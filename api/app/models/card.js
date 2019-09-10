@@ -23,7 +23,8 @@ let cardSchema = new mongoose.Schema({
     diagnoses: String,
     materials: String,
     prescriptions: String,
-    notes: String
+    notes: String,
+    files: [String]
 });
 
 cardSchema.plugin(MongooseAutoIncrementID.plugin, {modelName: 'Card'});

@@ -40,6 +40,7 @@ cardRoutes.post('/', async (req, res) => {
     card.prescriptions = r.prescriptions;
     card.notes = r.notes;
     card.cardType = r.cardType;
+    card.files = r.files;
 
     if (r.clinicTitle) {
         
@@ -83,14 +84,17 @@ cardRoutes.post('/', async (req, res) => {
 });
 
 cardRoutes.post('/save-picture', (req, res) => {
+    let filename;
+    
     new Formidable.IncomingForm().parse(req)
         .on('fileBegin', (name, file) => {
-            // file.path = __dirname + '/uploads/' + file.name
-            file.path = '/srv/www/uploaded_files/' + file.name
+            filename = Date.now() + '.' + file.name.substring(file.name.length - 3);
+            file.path = __dirname + '/../user_files/sandbox/' + filename;
         })
         .on('file', (name, file) => {
-            // console.log('Uploaded file', name, file)
-            res.send({message: "success"});
+            res.send({
+                filename: filename
+            });
         })
 });
 
