@@ -7,6 +7,14 @@ class Card extends Component {
     render() {
         const card = this.props.card;
 
+        const pictureListStyle = {
+            listStyle: 'none'
+        };
+        const pictureStyle = {
+            width: '100%',
+            marginBottom: '30px'
+        };
+
         return (
             <div className="container">
                 <header>
@@ -102,10 +110,10 @@ class Card extends Component {
                     <div className="parargaph">
                         <div className="title">Materials</div>
                         <div className="description">
-                            <ul>
+                            <ul style={pictureListStyle}>
                                 {card.files.map(
                                     (item, key) => <li key={key}>
-                                        <img src={'http://localhost:8080/' + item} style={{width: '100%', marginBottom: '30px'}} />
+                                        <img src={'http://localhost:8080/' + item} alt="" style={pictureStyle} />
                                     </li>
                                 )}
                             </ul>
