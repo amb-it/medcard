@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "filepond": "^4.4.0",
     "filepond-plugin-image-preview": "^4.0.8",
+    "node-sass": "^4.13.0",
     "react": "^16.8.6",
     "react-activity": "^1.2.2",
     "react-dom": "^16.8.6",

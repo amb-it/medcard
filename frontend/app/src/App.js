@@ -5,8 +5,6 @@ import {
 } from "react-router-dom";
 import axios from "axios";
 
-// import './App.css';
-
 import ScrollToTop from "./core/helper/ScrollToTop";
 
 import Home from "./home/Home";
