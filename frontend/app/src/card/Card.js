@@ -10,17 +10,17 @@ class Card extends Component {
         return (
             <div className="container">
                 <header>
-                    <NavLink to="/" className="btn menu-button">
+                    <NavLink to="/" className="btn menu_button">
                         <span className="oi oi-caret-left" title="icon name" aria-hidden="true"></span>
                     </NavLink>
-                    <span className="card-page-title">Card &nbsp; № {card._id}</span>
-                    <span className="oi oi-menu float-right float-right right-icon"></span>
+                    <span className="card_page_title">Card &nbsp; № {card._id}</span>
+                    <span className="oi oi-menu float-right right_icon"></span>
                     <hr/>
                 </header>
 
 
-                <div className="card-page">
-                    <div className="title-elements">
+                <div className="card_page">
+                    <div className="title_elements">
                         <span>{card.date.substring(0,10)}</span>
                         <span className="float-right type">{card.cardType ? card.cardType.title : ''}</span>
                     </div>

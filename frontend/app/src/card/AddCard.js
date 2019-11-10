@@ -61,13 +61,13 @@ class AddCard extends Component {
             <div className="container">
                 {this.renderRedirect()}
                 <header>
-                    <NavLink to="/" className="btn menu-button">
+                    <NavLink to="/" className="btn menu_button">
                         <span className="oi oi-x"></span>
                     </NavLink>
-                    <span className="card-page-title">New card</span>
+                    <span className="card_page_title">New card</span>
                     <button
                         onClick={this.saveCard}
-                        className="btn menu-button float-right right-icon">
+                        className="btn menu_button float-right right_icon">
                         <span className="oi oi-check"></span>
                     </button>
 
@@ -108,7 +108,7 @@ class AddCard extends Component {
 
                     <div className="row md-5">
                         <div className="col-6 text-center">
-                            <NavLink to="/" className="btn btn-outline-danger menu-button">
+                            <NavLink to="/" className="btn btn-outline-danger menu_button">
                                 Cancel
                             </NavLink>
                         </div>

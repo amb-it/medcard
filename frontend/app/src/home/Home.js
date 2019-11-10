@@ -40,24 +40,24 @@ export default class Home extends Component {
         return (
             <div className="container">
                 <header>
-                    <span className="btn menu-button">
+                    <span className="btn menu_button">
                         <MenuButton
                             handleClick={this.handleMenuButtonClick}
                             visibleMenu={this.state.visibleMainMenu}
                         />
                         <span className="logo">MedCard</span>
                     </span>
-                    <span className="oi oi-magnifying-glass float-right right-icon"></span>
+                    <span className="oi oi-magnifying-glass float-right right_icon"></span>
                     <hr />
                 </header>
 
                 <MainMenu visible={this.state.visibleMainMenu}/>
 
-                <div className="mainpage-cards">
+                <div className="mainpage_cards">
                     {this.renderCards()}
                 </div>
 
-                <NavLink to="/add-card" className="btn menu-button add-card-link">
+                <NavLink to="/add-card" className="btn menu_button add_card_link">
                     <span className="oi oi-plus" title="icon name" aria-hidden="true"></span>
                 </NavLink>
             </div>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class MainMenu extends Component {
     render() {
-        let menuClassName = 'left-menu';
+        let menuClassName = 'left_menu';
 
         if (this.props.visible) {
             menuClassName += ' visible';

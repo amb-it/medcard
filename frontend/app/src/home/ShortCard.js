@@ -10,7 +10,7 @@ export default class ShortCard extends Component {
             <NavLink to={"card/"+card._id}>
                 <div className="card">
                     <div className="row">
-                        <div className="col date">{card.date.substring(0,10)} <div className="card-id">№ {card._id}</div></div>
+                        <div className="col date">{card.date.substring(0,10)} <div className="card_id">№ {card._id}</div></div>
                         <div className="col type">{card.cardType ? card.cardType.title : ''}</div>
                     </div>
 

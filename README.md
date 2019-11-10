@@ -36,12 +36,12 @@ http POST localhost:8080/dev/db/refresh
 
 (current sprint):
 
+- figure out with types
 - pictures (files) handling
     - move styles from Card component to App.scss
 - implement users
 - add Makefile
-- change css classes to snake case (to  differentiate own styles with twitter bootstrap)
-
+- implement "edit card" feature
 
 (backlog):
 - Redux implement
