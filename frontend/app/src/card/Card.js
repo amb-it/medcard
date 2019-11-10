@@ -7,14 +7,6 @@ class Card extends Component {
     render() {
         const card = this.props.card;
 
-        const pictureListStyle = {
-            listStyle: 'none'
-        };
-        const pictureStyle = {
-            width: '100%',
-            marginBottom: '30px'
-        };
-
         return (
             <div className="container">
                 <header>
@@ -34,14 +26,14 @@ class Card extends Component {
                     </div>
 
                     { card.complaint &&
-                        <div className="parargaph">
+                        <div className="paragraph">
                             <div className="title">Complaint</div>
                             <div className="description">{card.complaint}</div>
                         </div>
                     }
 
                     { card.clinic &&
-                        <div className="parargaph">
+                        <div className="paragraph">
                             <div className="title">Visited</div>
                             <div className="description">
                                 { card.clinic.title ? card.clinic.title : ''}
@@ -66,7 +58,7 @@ class Card extends Component {
                     }
 
                     { card.diagnoses &&
-                        <div className="parargaph">
+                        <div className="paragraph">
                             <div className="title">Diagnose</div>
                             <div className="description">
                                 { card.diagnoses }
@@ -80,7 +72,7 @@ class Card extends Component {
                     }
 
                     { card.materials &&
-                        <div className="parargaph">
+                        <div className="paragraph">
                             <div className="title">Materials and Analysis</div>
                             <div className="description">
                                 { card.materials }
@@ -89,7 +81,7 @@ class Card extends Component {
                     }
 
                     { card.prescriptions &&
-                        <div className="parargaph">
+                        <div className="paragraph">
                             <div className="title">Prescriptions</div>
                             <div className="description">
                                 { card.prescriptions }
@@ -98,7 +90,7 @@ class Card extends Component {
                     }
 
                     { card.notes &&
-                        <div className="parargaph">
+                        <div className="paragraph">
                             <div className="title">Notes</div>
                             <div className="description">
                                 { card.notes }
@@ -107,13 +99,13 @@ class Card extends Component {
                     }
                     
                     { card.files &&
-                    <div className="parargaph">
+                    <div className="paragraph">
                         <div className="title">Materials</div>
                         <div className="description">
-                            <ul style={pictureListStyle}>
+                            <ul className="pictures_list">
                                 {card.files.map(
                                     (item, key) => <li key={key}>
-                                        <img src={'http://localhost:8080/' + item} alt="" style={pictureStyle} />
+                                        <img src={'http://localhost:8080/' + item} alt=""/>
                                     </li>
                                 )}
                             </ul>

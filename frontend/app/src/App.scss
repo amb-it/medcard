@@ -5,25 +5,25 @@
     .menu-button {
       .oi:hover {
         cursor: pointer;
-    }
+      }
       .logo {
         margin-left: 20px;
         color: green;
         font-weight: bold;
+      }
     }
-  }
     .right-icon {
       right: 10px;
       top: 10px;
-  }
+    }
 
     // card page
     .card-page-title {
       padding-left: 70px;
       //font-size: larger;
       color: green;
+    }
   }
-}
 
   .left-menu {
     width: 70%;
@@ -41,12 +41,12 @@
 
       li {
         margin-top: 30px;
+      }
     }
   }
-}
   .visible {
     transform: translate3d(0vw, 0, 0);
-}
+  }
 
   .add-card-link {
     position: fixed;
@@ -58,8 +58,8 @@
 
     .oi {
       color: white;
+    }
   }
-}
 
   .mainpage-cards {
     padding: 10px;
@@ -69,7 +69,7 @@
 
       &:hover {
         text-decoration: none;
-    }
+      }
       .card {
         padding: 10px;
         margin-bottom: 30px;
@@ -86,23 +86,23 @@
 
           .card-id {
             float: right;
+          }
         }
-      }
         .type {
           text-align: right;
-      }
+        }
         .description {
           padding-top: 10px;
           padding-bottom: 10px;
-      }
+        }
         .hospital {
           text-align: center;
           font-weight: bold;
+        }
       }
     }
-  }
 
-}
+  }
 
   // card page
   .card-page {
@@ -111,10 +111,10 @@
     .title-elements {
       .type {
         font-weight: bolder;
+      }
     }
-  }
 
-    .parargaph {
+    .paragraph {
       font-size: small;
       padding-top: 30px;
 
@@ -123,12 +123,20 @@
         padding-bottom: 10px;
         font-size: larger;
         font-style: italic;
-    }
+      }
       ul {
         padding: 0 10px;
+      }
+      ul.pictures_list {
+        list-style: none;
+
+        img {
+          width: 100%;
+          margin-bottom: 30px;
+        }
+      }
     }
   }
-}
 
   // started to use snake case to  differentiate own styles with twitter bootstrap
   // TODO: change all classes to snake_case
@@ -136,8 +144,8 @@
     .main_icons {
       .oi {
         font-size: xx-large;
+      }
     }
-  }
 
     //border: 1px red solid;
     .pictures {
@@ -146,19 +154,19 @@
       .title {
         font-size: small;
         padding: 7px 20px;
-    }
+      }
       .row {
         //text-align: center;
         //border: 1px red solid;
         margin-bottom: 40px;
-    }
+      }
       ul {
         list-style-type: none;
         padding-left: 0;
-    }
+      }
       img {
         width: 100%;
+      }
     }
   }
-}
 }
