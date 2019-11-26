@@ -8,6 +8,7 @@ import axios from "axios";
 import ScrollToTop from "./core/helper/ScrollToTop";
 
 import Register from "./user/auth/Register";
+import Login from "./user/auth/Login";
 import Home from "./home/Home";
 import Card from "./card/Card";
 import AddCard from "./card/AddCard";
@@ -74,7 +75,11 @@ export default class App extends Component {
 
           <Route path="/register"
                  render={() => (
-                     <Register/>)}/>
+                     <Register />)}/>
+
+          <Route path="/login"
+                 render={() => (
+                     <Login />)}/>
 
           <Route path="/card/:id"
                  render={(props) => (
@@ -83,7 +88,7 @@ export default class App extends Component {
                          card={this.getCardById(props.match.params.id)}
                          loading={!this.getCardById(props.match.params.id)}
                    />)}/>
-                   
+
           <Route path="/add-card"
                  render={() => (
                    <AddCard cardTypes={this.state.cardTypes}
