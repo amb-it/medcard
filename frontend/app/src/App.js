@@ -7,6 +7,7 @@ import axios from "axios";
 
 import ScrollToTop from "./core/helper/ScrollToTop";
 
+import Register from "./user/auth/Register";
 import Home from "./home/Home";
 import Card from "./card/Card";
 import AddCard from "./card/AddCard";
@@ -65,11 +66,16 @@ export default class App extends Component {
     return (
       <Router>
         <ScrollToTop>
-          
+
           <Route exact path="/"
                  render={() => (
                    <Home cards={this.state.cards}
                    />)}/>
+
+          <Route path="/register"
+                 render={() => (
+                     <Register/>)}/>
+
           <Route path="/card/:id"
                  render={(props) => (
                    // here {...props}  - throw all props from Route into Card .It is not needed. But I left it to remember how to do it
@@ -77,6 +83,7 @@ export default class App extends Component {
                          card={this.getCardById(props.match.params.id)}
                          loading={!this.getCardById(props.match.params.id)}
                    />)}/>
+                   
           <Route path="/add-card"
                  render={() => (
                    <AddCard cardTypes={this.state.cardTypes}

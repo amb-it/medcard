@@ -11,7 +11,7 @@ import auth from '../middleware/auth';
 const cardRoutes = Router();
 
 // get all cards
-cardRoutes.get('/', auth, async (req, res) => {
+cardRoutes.get('/', async (req, res) => {
     const cards = await Card
       .find()
       .sort({_id: "desc"})
@@ -24,7 +24,7 @@ cardRoutes.get('/', auth, async (req, res) => {
 });
 
 // save new card
-cardRoutes.post('/', auth, async (req, res) => {
+cardRoutes.post('/', async (req, res) => {
     const r = req.body;
     
     let card = await Card.findOne({complaint: r.complaint});
@@ -84,7 +84,7 @@ cardRoutes.post('/', auth, async (req, res) => {
         .catch(err => {res.status(500).send({message: err.message || "Some error occurred while saving some-entity."});});
 });
 
-cardRoutes.post('/save-picture', auth, (req, res) => {
+cardRoutes.post('/save-picture', (req, res) => {
     let filename;
     
     new Formidable.IncomingForm().parse(req)

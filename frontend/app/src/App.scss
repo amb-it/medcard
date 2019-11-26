@@ -168,3 +168,21 @@
     }
   }
 }
+
+.auth {
+
+  .logo {
+    color: green;
+    font-weight: bold;
+    font-size: large;
+  }
+  h1 {
+    text-align: center;
+    font-size: large;
+    margin-top: 100px;
+    margin-bottom: 30px;
+  }
+  .register-button-box {
+    margin-top: 50px;
+  }
+}
