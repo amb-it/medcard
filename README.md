@@ -25,9 +25,14 @@ http://localhost:8080
 ## API
 
 available commands:
-- to refresh database
+- to migrate (or to refresh) database
 ```
 http POST localhost:8080/dev/db/refresh
+```
+
+- to get access to auth-required endpoints
+```
+http localhost:8080/-endpoint- 'Authorization:Bearer -token-'
 ```
 
 ---
@@ -36,9 +41,6 @@ http POST localhost:8080/dev/db/refresh
 
 (current sprint):
 
-- figure out with types
-- pictures (files) handling
-    - move styles from Card component to App.scss
 - implement users
 - add Makefile
 - implement "edit card" feature
@@ -50,3 +52,4 @@ http POST localhost:8080/dev/db/refresh
     and to see in terminal)
 - redirect to main page if there is no card
 - dev routes available only for dev env
+- use try..catch. Especially in production

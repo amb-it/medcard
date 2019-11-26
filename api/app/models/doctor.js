@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import findOrCreate from 'mongoose-findorcreate';
-import {MongooseAutoIncrementID} from 'mongoose-auto-increment-reworked';
+import { MongooseAutoIncrementID } from 'mongoose-auto-increment-reworked';
 
 let doctorSchema = new mongoose.Schema({
     name: String,

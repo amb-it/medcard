@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import {MongooseAutoIncrementID} from 'mongoose-auto-increment-reworked';
+import { MongooseAutoIncrementID } from 'mongoose-auto-increment-reworked';
 import findOrCreate from "mongoose-findorcreate";
 
 let clinicSchema = new mongoose.Schema({

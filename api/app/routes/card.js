@@ -5,12 +5,13 @@ import Card from '../models/card';
 import Clinic from '../models/clinic';
 import ClinicDepartment from '../models/clinicDepartment';
 import Doctor from '../models/doctor';
+import auth from '../middleware/auth';
 
-
+//      ../cards/
 const cardRoutes = Router();
 
 // get all cards
-cardRoutes.get('/', async (req, res) => {
+cardRoutes.get('/', auth, async (req, res) => {
     const cards = await Card
       .find()
       .sort({_id: "desc"})
@@ -23,13 +24,13 @@ cardRoutes.get('/', async (req, res) => {
 });
 
 // save new card
-cardRoutes.post('/', async (req, res) => {
+cardRoutes.post('/', auth, async (req, res) => {
     const r = req.body;
     
     let card = await Card.findOne({complaint: r.complaint});
     
     if (card) {
-        return res.status(500).send({message: 'Card with such complaint already exists'});
+        return res.status(400).send({message: 'Card with such complaint already exists'});
     }
 
     card = new Card;
@@ -83,7 +84,7 @@ cardRoutes.post('/', async (req, res) => {
         .catch(err => {res.status(500).send({message: err.message || "Some error occurred while saving some-entity."});});
 });
 
-cardRoutes.post('/save-picture', (req, res) => {
+cardRoutes.post('/save-picture', auth, (req, res) => {
     let filename;
     
     new Formidable.IncomingForm().parse(req)

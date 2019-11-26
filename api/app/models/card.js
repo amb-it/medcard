@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import {MongooseAutoIncrementID} from 'mongoose-auto-increment-reworked';
+import { MongooseAutoIncrementID } from 'mongoose-auto-increment-reworked';
 
 let cardSchema = new mongoose.Schema({
     date: { type: Date, default: Date.now },
