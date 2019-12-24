@@ -11,9 +11,9 @@ import auth from '../middleware/auth';
 const cardRoutes = Router();
 
 // get all cards
-cardRoutes.get('/', async (req, res) => {
+cardRoutes.get('/', auth, async (req, res) => {
     const cards = await Card
-      .find()
+      .find({ user: req.user._id })
       .sort({_id: "desc"})
       .populate('cardType')
       .populate('clinic')
@@ -24,10 +24,13 @@ cardRoutes.get('/', async (req, res) => {
 });
 
 // save new card
-cardRoutes.post('/', async (req, res) => {
+cardRoutes.post('/', auth, async (req, res) => {
     const r = req.body;
     
-    let card = await Card.findOne({complaint: r.complaint});
+    let card = await Card.findOne({
+        complaint: r.complaint,
+        user: req.user._id
+    });
     
     if (card) {
         return res.status(400).send({message: 'Card with such complaint already exists'});
@@ -42,6 +45,8 @@ cardRoutes.post('/', async (req, res) => {
     card.notes = r.notes;
     card.cardType = r.cardType;
     card.files = r.files;
+
+    card.user = req.user._id;
 
     if (r.clinicTitle) {
         

@@ -2,6 +2,10 @@ import mongoose from 'mongoose';
 import { MongooseAutoIncrementID } from 'mongoose-auto-increment-reworked';
 
 let cardSchema = new mongoose.Schema({
+    user: {
+        type: Number,
+        ref: 'User'
+    },
     date: { type: Date, default: Date.now },
     cardType: {
         type: Number,
