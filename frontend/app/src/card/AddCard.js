@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {NavLink, Redirect} from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import axios from "axios";
 
 import Inputs from "./addCard/Inputs";
@@ -37,10 +37,11 @@ class AddCard extends Component {
     saveCard = () => {
         const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards';
         const newCard = this.state.newCard;
+        const config = this.props.user.getAuthConfig();
         
-        axios.post(apiUrl, newCard)
+        axios.post(apiUrl, newCard, config)
             .then(response => {
-                this.props.updateCards();
+                this.props.requestCards();
                 
                 const newCard = this.state.newCard;
                 this.setState({newCard: newCard});

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import ShortCard from "./ShortCard";
 import MenuButton from "../core/component/MenuButton";
@@ -13,13 +13,13 @@ export default class Home extends Component {
             visibleMainMenu: false
         };
 
-        this.handleMenuButtonClick = this.handleMenuButtonClick.bind(this);
+        this.props.requestCards();
     }
 
     renderCards() {
         const cards = this.props.cards;
 
-        if (cards.length > 0) {
+        if (cards && cards.length > 0) {
             return cards.map(
                 (card, key) => <ShortCard card={card} key={key}/>
             )
@@ -28,7 +28,7 @@ export default class Home extends Component {
         }
     }
 
-    handleMenuButtonClick(e) {
+    handleMenuButtonClick = (e) => {
         this.setState({
             visibleMainMenu: !this.state.visibleMainMenu
         });

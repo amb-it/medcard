@@ -20,7 +20,9 @@ export default class Register extends Component {
 
         axios.post(apiUrl, this.state)
             .then(response => {
+                this.props.authenticate(response.data.user);
                 this.setState({redirectTo: "/"});
+
             })
             .catch(error => { console.log(error); })
     };
@@ -66,6 +68,13 @@ export default class Register extends Component {
                         <button
                             onClick={this.registerUser}
                             className="btn btn-success">Register</button>
+                    </div>
+                </div>
+
+                <div>
+                    <div className="col-12 text-right">
+                        Or &nbsp;
+                        <NavLink to={"login"}>login</NavLink>
                     </div>
                 </div>
             </div>

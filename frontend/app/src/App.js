@@ -6,6 +6,7 @@ import {
 import axios from "axios";
 
 import ScrollToTop from "./core/helper/ScrollToTop";
+import PrivateRoute from "./core/PrivateRoute";
 
 import Register from "./user/auth/Register";
 import Login from "./user/auth/Login";
@@ -22,15 +23,26 @@ export default class App extends Component {
       cards: [],
       cardTypes: []
     };
+
+    this.requestCards = this.requestCards.bind(this);
   }
   
   componentDidMount() {
-    this.requestCards();
     this.requestCardTypes();
   }
-  
-  updateCards = () => {
-    this.requestCards();
+
+  authenticate = (user) => {
+    user.getAuthConfig = function() {
+      return {
+        headers: {
+          Authorization: "Bearer " + this.tokens[this.tokens.length - 1].token
+        }
+      };
+    };
+
+    this.setState(
+      { user: user }
+    );
   };
   
   getCardById = (id) => {
@@ -41,8 +53,9 @@ export default class App extends Component {
   
   requestCards() {
     const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards';
-    
-    axios.get(apiUrl)
+    const config = this.state.user.getAuthConfig();
+
+    axios.get(apiUrl, config)
       .then(response => {
         this.setState({
           cards: response.data
@@ -68,18 +81,27 @@ export default class App extends Component {
       <Router>
         <ScrollToTop>
 
-          <Route exact path="/"
-                 render={() => (
-                   <Home cards={this.state.cards}
-                   />)}/>
-
           <Route path="/register"
                  render={() => (
-                     <Register />)}/>
+                     <Register authenticate={this.authenticate} />)}/>
 
           <Route path="/login"
                  render={() => (
-                     <Login />)}/>
+                     <Login authenticate={this.authenticate} />)}/>
+
+          <PrivateRoute exact path="/"
+                        component={Home}
+                        user={this.state.user}
+                        cards={this.state.cards}
+                        requestCards={this.requestCards}
+          />
+
+          {/*<PrivateRoute path="/card/:id"*/}
+          {/*              component={Card}*/}
+          {/*              user={this.state.user}*/}
+          {/*              card={console.log(location)}*/}
+          {/*              loading={true}*/}
+          {/*/>*/}
 
           <Route path="/card/:id"
                  render={(props) => (
@@ -89,12 +111,14 @@ export default class App extends Component {
                          loading={!this.getCardById(props.match.params.id)}
                    />)}/>
 
-          <Route path="/add-card"
-                 render={() => (
-                   <AddCard cardTypes={this.state.cardTypes}
-                            updateCards={this.updateCards}
-                   />)}/>
-        
+
+          <PrivateRoute path="/add-card"
+                        component={AddCard}
+                        user={this.state.user}
+                        cardTypes={this.state.cardTypes}
+                        requestCards={this.requestCards}
+          />
+
         </ScrollToTop>
       </Router>
     );

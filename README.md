@@ -46,6 +46,7 @@ http localhost:8080/-endpoint- 'Authorization:Bearer -token-'
 - implement "edit card" feature
 
 (backlog):
+- set everywhere either 4 spaces or 2
 - Redux implement
 - make lib to be as a part of common files (css as styles.css) etc.
 - API deprecations of Mongoose (to see description - add card via FE
