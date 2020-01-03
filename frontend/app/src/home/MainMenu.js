@@ -10,6 +10,10 @@ export default class MainMenu extends Component {
 
         return (
             <div className={menuClassName}>
+                <div className="user_data">
+                    <span className="oi oi-person"></span>
+                    <b>{this.props.user.name}</b>
+                </div>
                 <ul>
                     <li>My bio</li>
                     <li>Settings</li>

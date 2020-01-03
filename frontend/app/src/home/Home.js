@@ -51,7 +51,10 @@ export default class Home extends Component {
                     <hr />
                 </header>
 
-                <MainMenu visible={this.state.visibleMainMenu}/>
+                <MainMenu
+                    visible={this.state.visibleMainMenu}
+                    user={this.props.user}
+                />
 
                 <div className="mainpage_cards">
                     {this.renderCards()}

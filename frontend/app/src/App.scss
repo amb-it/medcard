@@ -36,6 +36,13 @@
     transform: translate3d(-100vw, 0, 0);
     transition: transform .3s ease-in;
 
+    .user_data {
+      padding: 20px;
+
+      span {
+        margin-right: 20px;
+      }
+    }
     ul {
       list-style: none;
 
