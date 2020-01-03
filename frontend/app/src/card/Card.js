@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import withLoadingScreen from "../core/withLoadingScreen";
 
 class Card extends Component {
+
     render() {
-        const card = this.props.card;
+        const card = this.props.getCardById(this.props.match.params.id);
 
         return (
             <div className="container">
@@ -121,4 +122,5 @@ class Card extends Component {
     }
 }
 
+// todo: need it ?
 export default withLoadingScreen(Card);

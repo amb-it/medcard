@@ -9,6 +9,8 @@ class AddCard extends Component {
     constructor(props, context) {
         super(props, context);
 
+        props.requestCardTypes();
+
         this.inputs_tab_id = "inputs_tab";
         this.files_tab_id = "files_tab";
 

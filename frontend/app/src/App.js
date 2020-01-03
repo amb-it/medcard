@@ -25,10 +25,8 @@ export default class App extends Component {
     };
 
     this.requestCards = this.requestCards.bind(this);
-  }
-  
-  componentDidMount() {
-    this.requestCardTypes();
+    this.requestCardTypes = this.requestCardTypes.bind(this);
+    this.getCardById = this.getCardById.bind(this);
   }
 
   authenticate = (user) => {
@@ -96,26 +94,17 @@ export default class App extends Component {
                         requestCards={this.requestCards}
           />
 
-          {/*<PrivateRoute path="/card/:id"*/}
-          {/*              component={Card}*/}
-          {/*              user={this.state.user}*/}
-          {/*              card={console.log(location)}*/}
-          {/*              loading={true}*/}
-          {/*/>*/}
-
-          <Route path="/card/:id"
-                 render={(props) => (
-                   // here {...props}  - throw all props from Route into Card .It is not needed. But I left it to remember how to do it
-                   <Card {...props}
-                         card={this.getCardById(props.match.params.id)}
-                         loading={!this.getCardById(props.match.params.id)}
-                   />)}/>
-
+          <PrivateRoute path="/card/:id"
+                        component={Card}
+                        user={this.state.user}
+                        getCardById={this.getCardById}
+          />
 
           <PrivateRoute path="/add-card"
                         component={AddCard}
                         user={this.state.user}
                         cardTypes={this.state.cardTypes}
+                        requestCardTypes={this.requestCardTypes}
                         requestCards={this.requestCards}
           />
 
