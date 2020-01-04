@@ -15,7 +15,26 @@ export default class Login extends Component {
         this.setState({[param]: e.target.value});
     };
 
-    registerUser = () => {
+    componentDidMount() {
+        this.fakeAuth()
+    }
+
+    fakeAuth() {
+        const user =  {
+            _id: 9,
+            email: "u@e.com",
+            name: "Vladimir",
+            tokens: [
+                {
+                    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjksImlhdCI6MTU3ODA2ODIwM30.PryspKwi2a3oY7uzSftR9v7fBCvqfn53wgG06sttD7A"
+                }
+            ]
+        };
+        this.props.authenticate(user);
+        this.setState({redirectTo: "/"});
+    }
+
+    loginUser = () => {
         const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/user/login';
 
         axios.post(apiUrl, this.state)
@@ -60,7 +79,7 @@ export default class Login extends Component {
                 <div className="row register-button-box">
                     <div className="col-12 text-center">
                         <button
-                            onClick={this.registerUser}
+                            onClick={this.loginUser}
                             className="btn btn-success">Login</button>
                     </div>
                 </div>

@@ -41,9 +41,10 @@ http localhost:8080/-endpoint- 'Authorization:Bearer -token-'
 
 (current sprint):
 
-- implement users
 - add Makefile
 - implement "edit card" feature
+- implement "delete card" (as soft delete) feature
+- number of files in List of Cards
 
 (backlog):
 - set everywhere either 4 spaces or 2
@@ -53,4 +54,4 @@ http localhost:8080/-endpoint- 'Authorization:Bearer -token-'
     and to see in terminal)
 - redirect to main page if there is no card
 - dev routes available only for dev env
-- use try..catch. Especially in production
+- use try..catch in API. Especially in production

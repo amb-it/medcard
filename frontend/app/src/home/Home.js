@@ -34,7 +34,7 @@ export default class Home extends Component {
         });
 
         e.stopPropagation();
-    }
+    };
 
     render() {
         return (
