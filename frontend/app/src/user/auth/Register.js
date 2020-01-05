@@ -64,15 +64,12 @@ export default class Register extends Component {
                 </div>
 
                 <div className="row register-button-box">
-                    <div className="col-12 text-center">
+                    <div className="col-7 text-right">
                         <button
                             onClick={this.registerUser}
                             className="btn btn-success">Register</button>
                     </div>
-                </div>
-
-                <div>
-                    <div className="col-12 text-right">
+                    <div className="col-5 text-right">
                         Or &nbsp;
                         <NavLink to={"login"}>login</NavLink>
                     </div>

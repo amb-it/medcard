@@ -10,30 +10,63 @@ export default class Home extends Component {
         super(props, context);
 
         this.state = {
-            visibleMainMenu: false
+            visibleMainMenu: false,
+            visibleSearchInput: false,
+            cards: [],
+            cardsFiltered: []
         };
 
         this.props.requestCards();
     }
 
-    renderCards() {
-        const cards = this.props.cards;
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.cards !== prevProps.cards) {
+            this.setState({ cards: this.props.cards });
+            this.setState({ cardsFiltered: this.props.cards });
+        }
+    }
 
-        if (cards && cards.length > 0) {
+    renderCards() {
+        const cards = this.state.cardsFiltered;
+
+        if (cards.length > 0) {
             return cards.map(
                 (card, key) => <ShortCard card={card} key={key}/>
             )
         } else {
-            return "No cards yet";
+            return "No cards";
         }
     }
 
-    handleMenuButtonClick = (e) => {
-        this.setState({
-            visibleMainMenu: !this.state.visibleMainMenu
-        });
+    onMenuButtonClick = () => {
+        this.setState({ visibleMainMenu: !this.state.visibleMainMenu });
+    };
 
-        e.stopPropagation();
+    onSearchButtonClick = () => {
+        this.setState({ visibleSearchInput: !this.state.visibleSearchInput });
+    };
+
+    onCloseSearchClick = () => {
+        this.setState({
+            visibleSearchInput: !this.state.visibleSearchInput,
+            cardsFiltered: this.state.cards
+        });
+    };
+
+    onSearchInputChange = (e) => {
+        let cardsFiltered = [];
+
+        if (e.target.value === '') {
+            cardsFiltered = this.state.cards;
+        } else {
+            this.state.cards.forEach( (element) => {
+                if (element.complaint && element.complaint.toLowerCase().includes(e.target.value.toLowerCase())) {
+                    cardsFiltered.push(element);
+                }
+            } );
+        }
+
+        this.setState({ cardsFiltered: cardsFiltered });
     };
 
     render() {
@@ -42,12 +75,19 @@ export default class Home extends Component {
                 <header>
                     <span className="btn menu_button">
                         <MenuButton
-                            handleClick={this.handleMenuButtonClick}
+                            handleClick={this.onMenuButtonClick}
                             visibleMenu={this.state.visibleMainMenu}
                         />
                         <span className="logo">MedCard</span>
                     </span>
-                    <span className="oi oi-magnifying-glass float-right right_icon"></span>
+                    {
+                        !this.state.visibleSearchInput ?
+                            <span
+                                onClick={this.onSearchButtonClick}
+                                className="oi oi-magnifying-glass float-right right_icon "
+                            />
+                            : ""
+                    }
                     <hr />
                 </header>
 
@@ -55,6 +95,24 @@ export default class Home extends Component {
                     visible={this.state.visibleMainMenu}
                     user={this.props.user}
                 />
+
+                { this.state.visibleSearchInput ?
+                    <div className="input-group mb-3">
+                        <input
+                            onChange={this.onSearchInputChange}
+                            autoFocus={true}
+                            type="text" className="form-control col-10" placeholder="search" />
+                        <div className="input-group-append">
+                            <button className="btn" type="button">
+                                <span
+                                    onClick={this.onCloseSearchClick}
+                                    className="col-2 oi oi-x"
+                                />
+                            </button>
+                        </div>
+
+                    </div>
+                    : '' }
 
                 <div className="mainpage_cards">
                     {this.renderCards()}

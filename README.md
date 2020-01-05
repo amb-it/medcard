@@ -44,7 +44,6 @@ http localhost:8080/-endpoint- 'Authorization:Bearer -token-'
 - add Makefile
 - implement "edit card" feature
 - implement "delete card" (as soft delete) feature
-- number of files in List of Cards
 
 (backlog):
 - set everywhere either 4 spaces or 2
