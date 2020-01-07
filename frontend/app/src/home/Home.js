@@ -82,10 +82,12 @@ export default class Home extends Component {
                     </span>
                     {
                         !this.state.visibleSearchInput ?
-                            <span
-                                onClick={this.onSearchButtonClick}
-                                className="oi oi-magnifying-glass float-right right_icon "
-                            />
+                            <span className="float-right right_icon">
+                                <span
+                                    onClick={this.onSearchButtonClick}
+                                    className="oi oi-magnifying-glass"
+                                />
+                            </span>
                             : ""
                     }
                     <hr />

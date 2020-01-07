@@ -1,9 +1,24 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
+import CardMenu from "./CardMenu";
+import MenuButton from "../core/component/MenuButton";
+
 import withLoadingScreen from "../core/withLoadingScreen";
 
 class Card extends Component {
+
+    constructor(props, context) {
+        super(props, context);
+
+        this.state = {
+            visibleMenu: false,
+        };
+    }
+
+    onMenuButtonClick = () => {
+        this.setState({ visibleMenu: !this.state.visibleMenu });
+    };
 
     render() {
         const card = this.props.getCardById(this.props.match.params.id);
@@ -12,13 +27,19 @@ class Card extends Component {
             <div className="container">
                 <header>
                     <NavLink to="/" className="btn menu_button">
-                        <span className="oi oi-caret-left" title="icon name" aria-hidden="true"></span>
+                        <span className="oi oi-caret-left" title="icon name" aria-hidden="true" />
                     </NavLink>
                     <span className="card_page_title">Card &nbsp; № {card._id}</span>
-                    <span className="oi oi-menu float-right right_icon"></span>
+                    <span className="float-right right_icon">
+                        <MenuButton
+                            handleClick={this.onMenuButtonClick}
+                            visibleMenu={this.state.visibleMenu}
+                        />
+                    </span>
                     <hr/>
                 </header>
 
+                <CardMenu visible={this.state.visibleMenu} />
 
                 <div className="card_page">
                     <div className="title_elements">

@@ -1,21 +1,15 @@
 import React, { Component } from "react";
 
-class MenuButton extends Component {
-    getIcon() {
-        if (this.props.visibleMenu) {
-            return <span className="oi oi-x" title="icon name" aria-hidden="true"></span>;
-        } else {
-            return <span className="oi oi-menu" title="icon name" aria-hidden="true"></span>;
-        }
-    }
+export default class MenuButton extends Component {
 
     render() {
+        let classes = "oi ";
+
+        classes += this.props.visibleMenu ?
+            "oi-x" : "oi-menu";
+
         return (
-            <span onClick={this.props.handleClick}>
-                {this.getIcon()}
-            </span>
+            <span className={classes} onClick={this.props.handleClick} />
         );
     }
 }
-
-export default MenuButton;
