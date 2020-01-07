@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 import Inputs from "./addCard/Inputs";
@@ -43,26 +43,19 @@ class AddCard extends Component {
         
         axios.post(apiUrl, newCard, config)
             .then(response => {
-                this.props.requestCards();
-                
+
                 const newCard = this.state.newCard;
                 this.setState({newCard: newCard});
-                
-                this.setState({redirectTo: "/"});
+
+                this.props.history.push("/");
+
             })
             .catch(error => { console.log(error); })
-    };
-    
-    renderRedirect = () => {
-        if (this.state.redirectTo) {
-            return <Redirect to={this.state.redirectTo} />
-        }
     };
     
     render() {
         return (
             <div className="container">
-                {this.renderRedirect()}
                 <header>
                     <NavLink to="/" className="btn menu_button">
                         <span className="oi oi-x"></span>

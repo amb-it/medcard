@@ -73,7 +73,19 @@ export default class App extends Component {
       })
       .catch(error => {console.log(error);})
   }
-  
+
+  deleteCard = (id) => {
+    const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards/' + id;
+    const config = this.state.user.getAuthConfig();
+
+    axios.delete(apiUrl, config)
+        .then(response => {
+          const cards = this.state.cards.filter(card => card._id !== id);
+          this.setState({cards: cards});
+        })
+        .catch(error => {console.log(error);})
+  };
+
   render() {
     return (
       <Router>
@@ -98,6 +110,7 @@ export default class App extends Component {
                         component={Card}
                         user={this.state.user}
                         getCardById={this.getCardById}
+                        deleteCard={this.deleteCard}
           />
 
           <PrivateRoute path="/add-card"

@@ -6,6 +6,14 @@ export default class ShortCard extends Component {
     render() {
         const card = this.props.card;
 
+        let complaint = ' - ';
+
+        if (card.complaint) {
+            complaint = card.complaint.length > 110
+                ? card.complaint.substring(0,110) + '...'
+                : card.complaint
+        }
+
         return (
             <NavLink to={"card/"+card._id}>
                 <div className="card">
@@ -14,7 +22,7 @@ export default class ShortCard extends Component {
                         <div className="col type">{card.cardType ? card.cardType.title : ''}</div>
                     </div>
 
-                    <div className="description">{card.complaint ? card.complaint.substring(0,90) + '...' : ' - '}</div>
+                    <div className="description">{complaint}</div>
                     <div className="hospital">
                         {card.clinic && card.clinic.title ? card.clinic.title : ''}
                     </div>

@@ -12,7 +12,7 @@ export default class CardMenu extends Component {
             <div className={menuClassName}>
                 <ul>
                     <li>Edit</li>
-                    <li>Delete</li>
+                    <li onClick={this.props.deleteCard}>Delete</li>
                 </ul>
             </div>
         );

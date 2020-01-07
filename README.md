@@ -40,10 +40,10 @@ http localhost:8080/-endpoint- 'Authorization:Bearer -token-'
 #### Tasks:
 
 (current sprint):
-
 - add Makefile
 - implement "edit card" feature
 - implement "delete card" (as soft delete) feature
+- Login and Register. Remove renderRedirect() . Add history push like in AddCard
 
 (backlog):
 - set everywhere either 4 spaces or 2

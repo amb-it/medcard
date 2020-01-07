@@ -11,7 +11,7 @@ export default class MainMenu extends Component {
         return (
             <div className={menuClassName}>
                 <div className="user_data">
-                    <span className="oi oi-person"></span>
+                    <span className="oi oi-person" />
                     <b>{this.props.user.name}</b>
                 </div>
                 <ul>

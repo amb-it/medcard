@@ -13,6 +13,7 @@ class Card extends Component {
 
         this.state = {
             visibleMenu: false,
+            card: this.props.getCardById(this.props.match.params.id)
         };
     }
 
@@ -20,8 +21,13 @@ class Card extends Component {
         this.setState({ visibleMenu: !this.state.visibleMenu });
     };
 
+    deleteCard = () => {
+        this.props.deleteCard(this.state.card._id);
+        this.props.history.push("/");
+    };
+
     render() {
-        const card = this.props.getCardById(this.props.match.params.id);
+        const card = this.state.card;
 
         return (
             <div className="container">
@@ -39,7 +45,10 @@ class Card extends Component {
                     <hr/>
                 </header>
 
-                <CardMenu visible={this.state.visibleMenu} />
+                <CardMenu
+                    visible={this.state.visibleMenu}
+                    deleteCard={this.deleteCard}
+                />
 
                 <div className="card_page">
                     <div className="title_elements">

@@ -13,7 +13,10 @@ const cardRoutes = Router();
 // get all cards
 cardRoutes.get('/', auth, async (req, res) => {
     const cards = await Card
-      .find({ user: req.user._id })
+      .find({
+          user: req.user._id,
+          deleted_at: {$exists: false}
+      })
       .sort({_id: "desc"})
       .populate('cardType')
       .populate('clinic')
@@ -102,6 +105,19 @@ cardRoutes.post('/save-picture', (req, res) => {
                 filename: filename
             });
         })
+});
+
+cardRoutes.delete('/:id', auth, async (req, res) => {
+    let card = await Card.findOne({
+        _id: req.params.id,
+        user: req.user._id
+    });
+
+    card.deleted_at = Date.now();
+
+    await card.save()
+        .then(data => {res.send(data);})
+        .catch(err => {res.status(500).send({message: err.message || "Some error occurred while deleting card."});})
 });
 
 export default cardRoutes;
