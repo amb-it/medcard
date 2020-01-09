@@ -24,6 +24,8 @@ export default class App extends Component {
       cardTypes: []
     };
 
+    axios.defaults.headers.common['Cache-Control'] = 'no-cache';
+
     this.requestCards = this.requestCards.bind(this);
     this.requestCardTypes = this.requestCardTypes.bind(this);
     this.getCardById = this.getCardById.bind(this);
@@ -81,7 +83,8 @@ export default class App extends Component {
     axios.delete(apiUrl, config)
         .then(response => {
           const cards = this.state.cards.filter(card => card._id !== id);
-          this.setState({cards: cards});
+          this.setState({cards});
+          console.log(this.state.cards);
         })
         .catch(error => {console.log(error);})
   };
