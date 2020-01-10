@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {
-  Route,
-  BrowserRouter as Router
+    Route,
+    BrowserRouter as Router
 } from "react-router-dom";
 import axios from "axios";
 
@@ -16,116 +16,115 @@ import AddCard from "./card/AddCard";
 
 
 export default class App extends Component {
-  constructor(props, context) {
-    super(props, context);
-    
-    this.state = {
-      cards: [],
-      cardTypes: []
-    };
+    constructor(props, context) {
+        super(props, context);
 
-    axios.defaults.headers.common['Cache-Control'] = 'no-cache';
+        this.state = {
+            cards: [],
+            cardTypes: []
+        };
 
-    this.requestCards = this.requestCards.bind(this);
-    this.requestCardTypes = this.requestCardTypes.bind(this);
-    this.getCardById = this.getCardById.bind(this);
-  }
+        axios.defaults.headers.common['Cache-Control'] = 'no-cache';
 
-  authenticate = (user) => {
-    user.getAuthConfig = function() {
-      return {
-        headers: {
-          Authorization: "Bearer " + this.tokens[this.tokens.length - 1].token
-        }
-      };
-    };
-
-    this.setState(
-      { user: user }
-    );
-  };
-  
-  getCardById = (id) => {
-    for (const cardItem of this.state.cards) {
-      if (cardItem._id === +id) return cardItem;
+        this.requestCards = this.requestCards.bind(this);
+        this.requestCardTypes = this.requestCardTypes.bind(this);
+        this.getCardById = this.getCardById.bind(this);
     }
-  };
-  
-  requestCards() {
-    const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards';
-    const config = this.state.user.getAuthConfig();
 
-    axios.get(apiUrl, config)
-      .then(response => {
-        this.setState({
-          cards: response.data
-        });
-      })
-      .catch(error => {console.log(error);})
-  }
-  
-  requestCardTypes() {
-    const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/card-types';
-  
-    axios.get(apiUrl)
-      .then(response => {
-        this.setState({
-          cardTypes: response.data
-        });
-      })
-      .catch(error => {console.log(error);})
-  }
+    authenticate = (user) => {
+        user.getAuthConfig = function() {
+            return {
+                headers: {
+                    Authorization: "Bearer " + this.tokens[this.tokens.length - 1].token
+                }
+            };
+        };
 
-  deleteCard = (id) => {
-    const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards/' + id;
-    const config = this.state.user.getAuthConfig();
+        this.setState(
+           { user: user }
+        );
+    };
 
-    axios.delete(apiUrl, config)
-        .then(response => {
-          const cards = this.state.cards.filter(card => card._id !== id);
-          this.setState({cards});
-          console.log(this.state.cards);
-        })
-        .catch(error => {console.log(error);})
-  };
+    getCardById = (id) => {
+        for (const cardItem of this.state.cards) {
+            if (cardItem._id === +id) return cardItem;
+        }
+    };
 
-  render() {
-    return (
-      <Router>
-        <ScrollToTop>
+    requestCards() {
+        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards';
+        const config = this.state.user.getAuthConfig();
 
-          <Route path="/register"
-                 render={(props) => (
-                     <Register {...props} authenticate={this.authenticate} />)}/>
+        axios.get(apiUrl, config)
+          .then(response => {
+            this.setState({
+                cards: response.data
+            });
+          })
+          .catch(error => {console.log(error);})
+    }
 
-          <Route path="/login"
-                 render={(props) => (
-                     <Login {...props} authenticate={this.authenticate} />)}/>
+    requestCardTypes() {
+        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/card-types';
 
-          <PrivateRoute exact path="/"
-                        component={Home}
-                        user={this.state.user}
-                        cards={this.state.cards}
-                        requestCards={this.requestCards}
-          />
+        axios.get(apiUrl)
+            .then(response => {
+                this.setState({
+                    cardTypes: response.data
+                });
+            })
+            .catch(error => {console.log(error);})
+    }
 
-          <PrivateRoute path="/card/:id"
-                        component={Card}
-                        user={this.state.user}
-                        getCardById={this.getCardById}
-                        deleteCard={this.deleteCard}
-          />
+    deleteCard = (id) => {
+        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards/' + id;
+        const config = this.state.user.getAuthConfig();
 
-          <PrivateRoute path="/add-card"
-                        component={AddCard}
-                        user={this.state.user}
-                        cardTypes={this.state.cardTypes}
-                        requestCardTypes={this.requestCardTypes}
-                        requestCards={this.requestCards}
-          />
+        axios.delete(apiUrl, config)
+            .then(response => {
+                const cards = this.state.cards.filter(card => card._id !== id);
+                this.setState({cards});
+            })
+            .catch(error => {console.log(error);})
+    };
 
-        </ScrollToTop>
-      </Router>
-    );
-  }
+    render() {
+        return (
+            <Router>
+                <ScrollToTop>
+
+                    <Route path="/register"
+                           render={(props) => (
+                               <Register {...props} authenticate={this.authenticate} />)}/>
+
+                    <Route path="/login"
+                           render={(props) => (
+                               <Login {...props} authenticate={this.authenticate} />)}/>
+
+                    <PrivateRoute exact path="/"
+                                  component={Home}
+                                  user={this.state.user}
+                                  cards={this.state.cards}
+                                  requestCards={this.requestCards}
+                    />
+
+                    <PrivateRoute path="/card/:id"
+                                  component={Card}
+                                  user={this.state.user}
+                                  getCardById={this.getCardById}
+                                  deleteCard={this.deleteCard}
+                    />
+
+                    <PrivateRoute path="/add-card"
+                                  component={AddCard}
+                                  user={this.state.user}
+                                  cardTypes={this.state.cardTypes}
+                                  requestCardTypes={this.requestCardTypes}
+                                  requestCards={this.requestCards}
+                    />
+
+                </ScrollToTop>
+            </Router>
+        );
+    }
 }

@@ -40,8 +40,6 @@ http localhost:8080/-endpoint- 'Authorization:Bearer -token-'
 #### Tasks:
 
 (current sprint):
-- add Makefile
-- set everywhere either 4 spaces or 2
 - API deprecations of Mongoose (to see description - add card via FE
     and to see in terminal)
 
