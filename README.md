@@ -40,8 +40,6 @@ http localhost:8080/-endpoint- 'Authorization:Bearer -token-'
 #### Tasks:
 
 (current sprint):
-- API deprecations of Mongoose (to see description - add card via FE
-    and to see in terminal)
 
 (backlog):
 - implement "edit card" feature

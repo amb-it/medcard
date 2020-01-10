@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import { MongooseAutoIncrementID } from 'mongoose-auto-increment-reworked';
 
+mongoose.set('useFindAndModify', false);
+
 let cardSchema = new mongoose.Schema({
     user: {
         type: Number,
