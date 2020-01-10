@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default class Register extends Component {
 
@@ -21,23 +21,15 @@ export default class Register extends Component {
         axios.post(apiUrl, this.state)
             .then(response => {
                 this.props.authenticate(response.data.user);
-                this.setState({redirectTo: "/"});
+                this.props.history.push('/');
 
             })
             .catch(error => { console.log(error); })
     };
 
-    renderRedirect = () => {
-        if (this.state.redirectTo) {
-            return <Redirect to={this.state.redirectTo} />
-        }
-    };
-
     render() {
         return (
             <div className="container auth">
-                {this.renderRedirect()}
-
                 <header>
                     <span className="logo">MedCard</span>
                 </header>

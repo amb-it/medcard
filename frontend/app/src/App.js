@@ -95,12 +95,12 @@ export default class App extends Component {
         <ScrollToTop>
 
           <Route path="/register"
-                 render={() => (
-                     <Register authenticate={this.authenticate} />)}/>
+                 render={(props) => (
+                     <Register {...props} authenticate={this.authenticate} />)}/>
 
           <Route path="/login"
-                 render={() => (
-                     <Login authenticate={this.authenticate} />)}/>
+                 render={(props) => (
+                     <Login {...props} authenticate={this.authenticate} />)}/>
 
           <PrivateRoute exact path="/"
                         component={Home}

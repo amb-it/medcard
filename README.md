@@ -41,16 +41,13 @@ http localhost:8080/-endpoint- 'Authorization:Bearer -token-'
 
 (current sprint):
 - add Makefile
-- implement "edit card" feature
-- implement "delete card" (as soft delete) feature
-- Login and Register. Remove renderRedirect() . Add history push like in AddCard
-
-(backlog):
 - set everywhere either 4 spaces or 2
-- Redux implement
-- make lib to be as a part of common files (css as styles.css) etc.
 - API deprecations of Mongoose (to see description - add card via FE
     and to see in terminal)
-- redirect to main page if there is no card
+
+(backlog):
+- implement "edit card" feature
+- Redux implement
+- make lib to be as a part of common files (css as styles.css) etc.
 - dev routes available only for dev env
 - use try..catch in API. Especially in production

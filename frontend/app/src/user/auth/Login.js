@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default class Login extends Component {
 
@@ -16,7 +16,7 @@ export default class Login extends Component {
     };
 
     componentDidMount() {
-        this.fakeAuth()
+        // this.fakeAuth()
     }
 
     fakeAuth() {
@@ -31,7 +31,7 @@ export default class Login extends Component {
             ]
         };
         this.props.authenticate(user);
-        this.setState({redirectTo: "/"});
+        this.props.history.push('/');
     }
 
     loginUser = () => {
@@ -40,23 +40,15 @@ export default class Login extends Component {
         axios.post(apiUrl, this.state)
             .then(response => {
                 this.props.authenticate(response.data.user);
-                this.setState({redirectTo: "/"});
+                this.props.history.push('/');
 
             })
             .catch(error => { console.log(error); })
     };
 
-    renderRedirect = () => {
-        if (this.state.redirectTo) {
-            return <Redirect to={this.state.redirectTo} />
-        }
-    };
-
     render() {
         return (
             <div className="container auth">
-                {this.renderRedirect()}
-
                 <header>
                     <span className="logo">MedCard</span>
                 </header>
