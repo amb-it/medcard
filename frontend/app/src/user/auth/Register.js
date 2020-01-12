@@ -29,7 +29,7 @@ export default class Register extends Component {
 
     render() {
         return (
-            <div className="container auth">
+            <div className="container auth_pages">
                 <header>
                     <span className="logo">MedCard</span>
                 </header>
@@ -55,7 +55,7 @@ export default class Register extends Component {
                         type="password" className="form-control" placeholder="password"/>
                 </div>
 
-                <div className="row register-button-box">
+                <div className="row register_button_box">
                     <div className="col-7 text-right">
                         <button
                             onClick={this.registerUser}

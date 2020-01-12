@@ -48,7 +48,7 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div className="container auth">
+            <div className="container auth_pages">
                 <header>
                     <span className="logo">MedCard</span>
                 </header>

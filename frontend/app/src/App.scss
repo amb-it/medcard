@@ -2,215 +2,185 @@ html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
-.container {
-  header {
-    padding: 10px 10px 10px 10px;
 
-    .menu_button {
-      .oi:hover {
-        cursor: pointer;
-      }
-      .logo {
-        margin-left: 20px;
-        color: green;
-        font-weight: bold;
-      }
-      &:hover {
-        cursor: pointer;
-      }
-    }
-    .right_icon {
-      right: 10px;
-      top: 10px;
-      padding: 7px;
-    }
+header {
+  padding: 10px 10px 10px 10px;
 
-    // card page
-    .card_page_title {
-      padding-left: 70px;
-      //font-size: larger;
+  .menu_button_box {
+    .logo {
+      margin-left: 20px;
       color: green;
+      font-weight: bold;
     }
   }
-
-  .left_menu {
-    width: 70%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    background-color: rgb(253, 255, 253);
-    border-right: 1px gray solid;
-    // to see menu - comment line below
-    transform: translate3d(-100vw, 0, 0);
-    transition: transform .3s ease-in;
-
-    .user_data {
-      padding: 20px;
-
-      span {
-        margin-right: 20px;
-      }
-    }
-    ul {
-      list-style: none;
-
-      li {
-        margin-top: 30px;
-
-        a {
-          color: black;
-        }
-      }
-    }
-  }
-  .right_menu {
-    width: 50%;
-    position: absolute;
-    padding-bottom: 30px;
-    right: 0;
-    z-index: 1;
-    background-color: rgb(253, 255, 253);
-    border-left: 1px gray solid;
-    transform: translate3d(100vw, 0, 0);
-    transition: transform .3s ease-in;
-    font-weight: bold;
-    color: #002752;
-
-    ul {
-      list-style: none;
-
-      li {
-        margin-top: 30px;
-
-        a {
-          color: rgb(0,0,0);
-        }
-      }
-    }
-  }
-  .visible {
-    transform: translate3d(0vw, 0, 0);
-  }
-
-  .add_card_link {
-    position: fixed;
-    right: 30px;
-    bottom: 25px;
-    padding: 10px 15px;
-    border-radius: 30px;
-    background-color: green;
-
-    .oi {
-      color: white;
-    }
-  }
-
-  .mainpage_cards {
-    padding: 10px;
-
-    a {
-      color: black;
-
-      &:hover {
-        text-decoration: none;
-      }
-      .card {
-        padding: 10px;
-        margin-bottom: 45px;
-        background-color: rgb(249, 253, 255);
-        border: 1px white solid;
-        font-size: small;
-
-        .date {
-          padding: 3px;
-          padding-left: 10px;
-          background-color: rgb(250, 250, 250);
-          font-size: x-small;
-
-          .card_id {
-            float: right;
-          }
-        }
-        .type {
-          text-align: right;
-        }
-        .description {
-          padding-top: 10px;
-          padding-bottom: 10px;
-        }
-        .hospital {
-          text-align: center;
-          font-weight: bold;
-        }
-        .files {
-          font-size: x-small;
-        }
-      }
-    }
-
+  .right_icon {
+    right: 10px;
+    top: 10px;
+    padding: 7px;
   }
 
   // card page
-  .card_page {
-    padding: 0 20px;
+  .card_page_title {
+    padding-left: 70px;
+    //font-size: larger;
+    color: green;
+  }
+}
 
-    .title_elements {
-      .type {
-        font-weight: bolder;
-      }
+.left_menu {
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  background-color: rgb(253, 255, 253);
+  border-right: 1px gray solid;
+  // to see menu - comment line below
+  transform: translate3d(-100vw, 0, 0);
+  transition: transform .3s ease-in;
+
+  .user_data {
+    padding: 20px;
+
+    span {
+      margin-right: 20px;
     }
+  }
+  ul {
+    list-style: none;
 
-    .paragraph {
-      font-size: small;
-      padding-top: 30px;
+    li {
+      margin-top: 30px;
 
-      .title {
-        padding-left: 30px;
-        padding-bottom: 10px;
-        font-size: larger;
-        font-style: italic;
-      }
-      ul {
-        padding: 0 10px;
-      }
-      ul.pictures_list {
-        list-style: none;
-
-        img {
-          width: 100%;
-          margin-bottom: 30px;
-        }
+      a {
+        color: black;
       }
     }
   }
+}
+.right_menu {
+  width: 50%;
+  position: absolute;
+  padding-bottom: 30px;
+  right: 0;
+  z-index: 1;
+  background-color: rgb(253, 255, 253);
+  border-left: 1px gray solid;
+  transform: translate3d(100vw, 0, 0);
+  transition: transform .3s ease-in;
+  font-weight: bold;
 
-  .add_card_page {
-    .main_icons {
-      .oi {
-        font-size: xx-large;
+  ul {
+    list-style: none;
+
+    li {
+      margin-top: 30px;
+
+      a {
+        color: black;
       }
     }
+  }
+}
+.visible {
+  transform: translate3d(0vw, 0, 0);
+}
 
-    //border: 1px red solid;
-    .pictures {
-      //text-align: center;
+.add_card_link {
+  position: fixed;
+  right: 30px;
+  bottom: 25px;
+  padding: 10px 15px;
+  border-radius: 30px;
+  background-color: green;
 
-      .title {
-        font-size: small;
-        padding: 7px 20px;
+  .oi {
+    color: white;
+  }
+}
+
+// home page
+.home_page {
+  padding: 10px;
+
+  a {
+    color: black;
+
+    &:hover {
+      text-decoration: none;
+    }
+    .card {
+      padding: 10px;
+      margin-bottom: 45px;
+      background-color: rgb(249, 253, 255);
+      border: 1px white solid;
+      font-size: small;
+
+      .date {
+        padding: 3px 3px 3px 10px;
+        background-color: rgb(250, 250, 250);
+        font-size: x-small;
+
+        .card_id {
+          float: right;
+        }
       }
-      .row {
-        //text-align: center;
-        //border: 1px red solid;
-        margin-bottom: 40px;
+      .type {
+        text-align: right;
       }
-      ul {
-        list-style-type: none;
-        padding-left: 0;
+      .description {
+        padding-top: 10px;
+        padding-bottom: 10px;
       }
+      .hospital {
+        text-align: center;
+        font-weight: bold;
+      }
+      .files {
+        font-size: x-small;
+      }
+    }
+  }
+}
+
+// card page
+.card_page {
+  padding: 0 20px;
+
+  .title_elements {
+    .type {
+      font-weight: bolder;
+    }
+  }
+
+  .paragraph {
+    font-size: small;
+    padding-top: 30px;
+
+    .title {
+      padding-left: 30px;
+      padding-bottom: 10px;
+      font-size: larger;
+      font-style: italic;
+    }
+    ul {
+      padding: 0 10px;
+    }
+    ul.pictures_list {
+      list-style: none;
+
       img {
         width: 100%;
+        margin-bottom: 30px;
       }
+    }
+  }
+}
+
+.add_card_page {
+
+  .main_icons {
+    .oi {
+      font-size: xx-large;
     }
   }
 }
@@ -236,7 +206,7 @@ html, body {
 }
 
 // login and register pages
-.auth {
+.auth_pages {
 
   .logo {
     color: green;
@@ -249,7 +219,7 @@ html, body {
     margin-top: 100px;
     margin-bottom: 30px;
   }
-  .register-button-box {
+  .register_button_box {
     margin-top: 50px;
   }
 }

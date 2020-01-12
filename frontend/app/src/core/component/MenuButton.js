@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class MenuButton extends Component {
 
     render() {
-        let classes = "oi menu_button ";
+        let classes = "menu_button oi ";
 
         classes += this.props.visibleMenu ?
             "oi-x" : "oi-menu";

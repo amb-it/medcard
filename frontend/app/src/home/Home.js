@@ -73,7 +73,7 @@ export default class Home extends Component {
         return (
             <div className="container">
                 <header>
-                    <span className="btn menu_button">
+                    <span className="btn menu_button_box">
                         <MenuButton
                             handleClick={this.onMenuButtonClick}
                             visibleMenu={this.state.visibleMainMenu}
@@ -116,7 +116,7 @@ export default class Home extends Component {
                     </div>
                     : '' }
 
-                <div className="mainpage_cards">
+                <div className="home_page">
                     {this.renderCards()}
                 </div>
 
