@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 export default class MainMenu extends Component {
     render() {
@@ -15,11 +16,11 @@ export default class MainMenu extends Component {
                     <b>{this.props.user.name}</b>
                 </div>
                 <ul>
-                    <li>My bio</li>
-                    <li>Settings</li>
-                    <li>Clinics</li>
-                    <li>Share</li>
-                    <li>About</li>
+                    <li><NavLink to="/under-construction">My bio</NavLink></li>
+                    <li><NavLink to="/under-construction">Settings</NavLink></li>
+                    <li><NavLink to="/under-construction">Clinics</NavLink></li>
+                    <li><NavLink to="/under-construction">Share</NavLink></li>
+                    <li><NavLink to="/under-construction">About</NavLink></li>
                 </ul>
             </div>
         );

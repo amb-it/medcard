@@ -10,6 +10,7 @@ import PrivateRoute from "./core/PrivateRoute";
 
 import Register from "./user/auth/Register";
 import Login from "./user/auth/Login";
+import UnderConstruction from "./service/UnderConstruction";
 import Home from "./home/Home";
 import Card from "./card/Card";
 import AddCard from "./card/AddCard";
@@ -100,6 +101,10 @@ export default class App extends Component {
                     <Route path="/login"
                            render={(props) => (
                                <Login {...props} authenticate={this.authenticate} />)}/>
+
+                    <Route path="/under-construction"
+                           render={(props) => (
+                               <UnderConstruction {...props} />)}/>
 
                     <PrivateRoute exact path="/"
                                   component={Home}

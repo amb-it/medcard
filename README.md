@@ -40,6 +40,7 @@ http localhost:8080/-endpoint- 'Authorization:Bearer -token-'
 #### Tasks:
 
 (current sprint):
+- figure out with styles. especially menu_button
 
 (backlog):
 - implement "edit card" feature
