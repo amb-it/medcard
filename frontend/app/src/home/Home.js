@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import React, {Component} from "react";
+import {NavLink} from "react-router-dom";
 
 import ShortCard from "./ShortCard";
 import MenuButton from "../core/component/MenuButton";
@@ -21,29 +21,25 @@ export default class Home extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.cards !== prevProps.cards) {
-            this.setState({ cards: this.props.cards });
-            this.setState({ cardsFiltered: this.props.cards });
+            this.setState({cards: this.props.cards});
+            this.setState({cardsFiltered: this.props.cards});
         }
     }
 
     renderCards() {
         const cards = this.state.cardsFiltered;
 
-        if (cards.length > 0) {
-            return cards.map(
-                (card, key) => <ShortCard card={card} key={key}/>
-            )
-        } else {
-            return "No cards";
-        }
+        return cards.length > 0
+            ? cards.map((card, key) => <ShortCard card={card} key={key}/>)
+            : 'No cards';
     }
 
     onMenuButtonClick = () => {
-        this.setState({ visibleMainMenu: !this.state.visibleMainMenu });
+        this.setState({visibleMainMenu: !this.state.visibleMainMenu});
     };
 
     onSearchButtonClick = () => {
-        this.setState({ visibleSearchInput: !this.state.visibleSearchInput });
+        this.setState({visibleSearchInput: !this.state.visibleSearchInput});
     };
 
     onCloseSearchClick = () => {
@@ -53,20 +49,18 @@ export default class Home extends Component {
         });
     };
 
-    onSearchInputChange = (e) => {
-        let cardsFiltered = [];
+    onSearchInputChange = (event) => {
+        const input = event.target.value;
+        let cardsFiltered = this.state.cards;
 
-        if (e.target.value === '') {
-            cardsFiltered = this.state.cards;
-        } else {
-            this.state.cards.forEach( (element) => {
-                if (element.complaint && element.complaint.toLowerCase().includes(e.target.value.toLowerCase())) {
-                    cardsFiltered.push(element);
-                }
-            } );
+        if (input.length !== 0) {
+            cardsFiltered = this.state.cards.filter(
+                card => card.complaint && card.complaint.toLowerCase().includes(input.toLowerCase())
+            );
+
         }
 
-        this.setState({ cardsFiltered: cardsFiltered });
+        this.setState({cardsFiltered});
     };
 
     render() {
@@ -90,7 +84,7 @@ export default class Home extends Component {
                             </span>
                             : ""
                     }
-                    <hr />
+                    <hr/>
                 </header>
 
                 <MainMenu
@@ -98,12 +92,12 @@ export default class Home extends Component {
                     user={this.props.user}
                 />
 
-                { this.state.visibleSearchInput ?
+                {this.state.visibleSearchInput ?
                     <div className="input-group mb-3">
                         <input
                             onChange={this.onSearchInputChange}
                             autoFocus={true}
-                            type="text" className="form-control col-10" placeholder="search" />
+                            type="text" className="form-control col-10" placeholder="search"/>
                         <div className="input-group-append">
                             <button className="btn" type="button">
                                 <span
@@ -114,14 +108,14 @@ export default class Home extends Component {
                         </div>
 
                     </div>
-                    : '' }
+                    : ''}
 
                 <div className="home_page">
                     {this.renderCards()}
                 </div>
 
                 <NavLink to="/add-card" className="btn menu_button add_card_link">
-                    <span className="oi oi-plus" title="icon name" aria-hidden="true"></span>
+                    <span className="oi oi-plus" title="icon name" aria-hidden="true" />
                 </NavLink>
             </div>
         );

@@ -40,7 +40,6 @@ http localhost:8080/-endpoint- 'Authorization:Bearer -token-'
 #### Tasks:
 
 (current sprint):
-- figure out with styles. especially menu_button
 
 (backlog):
 - implement "edit card" feature
@@ -48,3 +47,6 @@ http localhost:8080/-endpoint- 'Authorization:Bearer -token-'
 - make lib to be as a part of common files (css as styles.css) etc.
 - dev routes available only for dev env
 - use try..catch in API. Especially in production
+- use toastr for popup messages.
+    https://react.rocks/example/react-toastr
+    https://tomchentw.github.io/react-toastr/

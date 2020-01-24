@@ -42,7 +42,7 @@ export default class App extends Component {
         };
 
         this.setState(
-           { user: user }
+           { user }
         );
     };
 
