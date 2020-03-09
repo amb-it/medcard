@@ -16,7 +16,9 @@ export default class Login extends Component {
     };
 
     componentDidMount() {
-        this.fakeAuth()
+        if (process.env.REACT_APP_FAKE_AUTH === true) {
+            this.fakeAuth()
+        }
     }
 
     fakeAuth() {
