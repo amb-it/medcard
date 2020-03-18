@@ -3,6 +3,7 @@ version: '3.7'
 services:
 
   frontend:
+    container_name: medcard_dev_frontend
     build: ./frontend
     env_file:
       - .env
@@ -15,6 +16,7 @@ services:
     tty: true
 
   api:
+    container_name: medcard_dev_api
     build: ../api
     env_file:
       - .env
@@ -27,6 +29,7 @@ services:
     tty: true
 
   mongo:
+    container_name: medcard_dev_mongo
     image: 'bitnami/mongodb:latest'
     ports:
       - "27017:27017"
