@@ -1,7 +1,9 @@
 # Medcard
 
-
-To start app:
+To start app in DEV env:
+```
+cd infra
+```
 ```
 cp .env.dist .env
 ```
