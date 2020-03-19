@@ -33,7 +33,7 @@ app.use('/card-types', cardTypeRoutes);
 app.use(express.static('user_files/sandbox'));
 
 connectDb().then(async () => {
-    app.listen(process.env.NODE_API_PORT, () =>
-        console.log(`Node app listens port ${process.env.NODE_API_PORT}!`),
+    app.listen(8080, () =>
+        console.log(`Node API listens port 8080!`),
     );
 });

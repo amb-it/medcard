@@ -17,12 +17,12 @@ services:
 
   api:
     container_name: medcard_dev_api
-    build: ../api
+    build: ./api
     env_file:
       - .env
     volumes:
-      - ../api/app:/srv/www
-      - ../api/scripts:/scripts
+      - ./api/scripts:/scripts
+      - ../api:/srv/www
     command: /scripts/init.sh
     ports:
       - "8080:8080"
