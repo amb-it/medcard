@@ -1,6 +1,6 @@
-# API mock server
+# Fake API
 
-to launch server type:
+to launch server:
 ```
 json-server index.js --port 3001
 ```
