@@ -25,7 +25,7 @@ http://localhost:8080
 ## API
 
 available commands:
-- to migrate (or to refresh) database
+- to migrate (or to refresh) database (with HTTPie CLI tool)
 ```
 http POST localhost:8080/dev/db/refresh
 ```
@@ -40,6 +40,9 @@ http localhost:8080/-endpoint- 'Authorization:Bearer -token-'
 #### Tasks:
 
 (current sprint):
+- host on VPS with Docker Swarm
+- enable HTTPS
+- enable MVP of PWA
 
 (backlog):
 - implement "edit card" feature

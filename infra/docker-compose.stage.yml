@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+
+  nginx:
+    container_name: medcard_stage_nginx
+    build: ./nginx
+    env_file:
+      - .env.stage
+    ports:
+      - "80:80"
+      - "81:81"
+    volumes:
+      - ../frontend/build:/var/www
+
+  api:
+    container_name: medcard_stage_api
+    build: ./api
+    env_file:
+      - .env.stage
+    volumes:
+      - ./api/scripts:/scripts
+      - ../api:/srv/www
+    command: /scripts/init.sh
+    tty: true
+
+  mongo:
+    container_name: medcard_stage_mongo
+    image: 'bitnami/mongodb:latest'
+    volumes:
+      - ../mongo/database:/bitnami
+
