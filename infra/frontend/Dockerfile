@@ -4,8 +4,7 @@ FROM node:carbon
 #RUN mkdir /srv/cache
 #WORKDIR /srv/cache
 
-#COPY app/package*.json ./
-
-#RUN npm install
-
 WORKDIR /srv/www
+
+COPY ./frontend/package*.json ./
+RUN npm install
