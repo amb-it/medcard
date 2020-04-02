@@ -5,7 +5,7 @@ To start app in DEV env:
 cd infra
 ```
 ```
-cp .env.dist .env
+cp .env.local .env
 ```
 ```
 docker-compose up
@@ -36,22 +36,3 @@ http POST localhost:8080/dev/db/refresh
 ```
 http localhost:8080/-endpoint- 'Authorization:Bearer -token-'
 ```
-
----
-
-#### Tasks:
-
-(current sprint):
-- host on VPS with Docker Swarm
-- enable HTTPS
-- enable MVP of PWA
-
-(backlog):
-- implement "edit card" feature
-- Redux implement
-- make lib to be as a part of common files (css as styles.css) etc.
-- dev routes available only for dev env
-- use try..catch in API. Especially in production
-- use toastr for popup messages.
-    https://react.rocks/example/react-toastr
-    https://tomchentw.github.io/react-toastr/
