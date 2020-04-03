@@ -70,14 +70,15 @@ export default class Login extends Component {
                         type="password" className="form-control" placeholder="password"/>
                 </div>
 
-                <div className="row register-button-box">
+                <div className="row register_button_box">
                     <div className="col-7 text-right">
                         <button
                             onClick={this.loginUser}
                             className="btn btn-success">Login</button>
                     </div>
                     <div className="col-5 text-right">
-                        Or <NavLink to={"register"}>register</NavLink>
+                        <small>or</small> &nbsp;
+                        <NavLink to={"register"}>register</NavLink>
                     </div>
                 </div>
             </div>

@@ -62,7 +62,7 @@ export default class Register extends Component {
                             className="btn btn-success">Register</button>
                     </div>
                     <div className="col-5 text-right">
-                        Or &nbsp;
+                        <small>or</small> &nbsp;
                         <NavLink to={"login"}>login</NavLink>
                     </div>
                 </div>
