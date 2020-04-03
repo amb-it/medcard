@@ -6,34 +6,33 @@ const userRoutes = Router();
 
 userRoutes.post('/register', async (req, res) => {
     try {
-        let user = await User.findOne({email: req.body.email});
+        await User.findOne({email: req.body.email})
+            .then(() => {throw new Error('User with such email already exists')});
 
-        if (user) {
-            throw new Error('User with such email already exists');
-        }
+        let user = new User(req.body);
 
-        user = new User(req.body);
-        await user.save();
+        await user.save()
+            .catch((e) => {throw e});
+
         const token = await user.generateAuthToken();
         res.status(201).send({ user, token });
-    } catch (error) {
-        res.status(400).send(error.message)
+    } catch (err) {
+        res.status(400).send(err.message)
     }
 });
 
-userRoutes.post('/login', async(req, res) => {
+userRoutes.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        const user = await User.findByCredentials(email, password);
-        if (!user) {
-            throw new Error('Login failed! Check authentication credentials');
-        }
+        const user = await User.findByCredentials(email, password)
+            .catch((e) => {throw new Error('Login failed! Check authentication credentials');});
 
         const token = await user.generateAuthToken();
+
         res.send({ user, token })
-    } catch (error) {
-        res.status(400).send(error.message)
+    } catch (err) {
+        res.status(400).send(err.message)
     }
 });
 
