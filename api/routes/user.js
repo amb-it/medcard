@@ -7,7 +7,11 @@ const userRoutes = Router();
 userRoutes.post('/register', async (req, res) => {
     try {
         await User.findOne({email: req.body.email})
-            .then(() => {throw new Error('User with such email already exists')});
+            .then((user) => {
+                if (user !== null) {
+                    throw new Error('User with such email already exists')
+                }
+            });
 
         let user = new User(req.body);
 

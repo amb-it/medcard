@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import toastr from 'toastr';
+import 'toastr/build/toastr.min.css'
 
 export default class Login extends Component {
 
@@ -39,13 +41,23 @@ export default class Login extends Component {
     loginUser = () => {
         const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/user/login';
 
+        toastr.clear();
+
         axios.post(apiUrl, this.state)
             .then(response => {
                 this.props.authenticate(response.data.user);
                 this.props.history.push('/');
 
             })
-            .catch(error => { console.log(error); })
+            .catch(error => {
+                console.log(error);
+
+                toastr.options = {
+                    timeOut: 2000,
+                    closeButton: true
+                };
+                toastr.error(error.response.data);
+            })
     };
 
     render() {
