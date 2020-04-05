@@ -10,6 +10,10 @@ export default class Login extends Component {
         super(props, context);
 
         this.state = {};
+
+        if (this.props.authenticated) {
+            this.props.history.push('/');
+        }
     }
 
     onInputChange = (e) => {

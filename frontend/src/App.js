@@ -22,24 +22,36 @@ export default class App extends Component {
 
         this.state = {
             cards: [],
-            cardTypes: []
+            cardTypes: [],
+            user: this.authenticateFromStorage()
         };
 
         axios.defaults.headers.common['Cache-Control'] = 'no-cache';
+    }
 
-        this.requestCards = this.requestCards.bind(this);
-        this.requestCardTypes = this.requestCardTypes.bind(this);
-        this.getCardById = this.getCardById.bind(this);
+    authenticateFromStorage = () => {
+        let user = localStorage.getItem('currentUser');
+
+        if (user) {
+            user = JSON.parse(user);
+            user = this.initializeUser(user);
+        }
+
+        return user;
+    };
+
+    initializeUser(user) {
+        user.getAuthConfig = function() {
+            return {headers: {Authorization: "Bearer " + this.tokens[this.tokens.length - 1].token}};
+        };
+
+        return user;
     }
 
     authenticate = (user) => {
-        user.getAuthConfig = function() {
-            return {
-                headers: {
-                    Authorization: "Bearer " + this.tokens[this.tokens.length - 1].token
-                }
-            };
-        };
+        localStorage.setItem('currentUser', JSON.stringify(user));
+
+        user = this.initializeUser(user);
 
         this.setState(
            { user }
@@ -52,7 +64,7 @@ export default class App extends Component {
         }
     };
 
-    requestCards() {
+    requestCards = () => {
         const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards';
         const config = this.state.user.getAuthConfig();
 
@@ -63,9 +75,9 @@ export default class App extends Component {
             });
           })
           .catch(error => {console.log(error);})
-    }
+    };
 
-    requestCardTypes() {
+    requestCardTypes = () => {
         const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/card-types';
 
         axios.get(apiUrl)
@@ -75,7 +87,7 @@ export default class App extends Component {
                 });
             })
             .catch(error => {console.log(error);})
-    }
+    };
 
     deleteCard = (id) => {
         const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards/' + id;
@@ -96,11 +108,17 @@ export default class App extends Component {
 
                     <Route path="/register"
                            render={(props) => (
-                               <Register {...props} authenticate={this.authenticate} />)}/>
+                               <Register {...props}
+                                         authenticate={this.authenticate}
+                                         authenticated={!!this.state.user}
+                               />)}/>
 
                     <Route path="/login"
                            render={(props) => (
-                               <Login {...props} authenticate={this.authenticate} />)}/>
+                               <Login {...props}
+                                      authenticate={this.authenticate}
+                                      authenticated={!!this.state.user}
+                               />)}/>
 
                     <Route path="/under-construction"
                            render={(props) => (
