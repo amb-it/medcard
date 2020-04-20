@@ -10,6 +10,7 @@ import PrivateRoute from "./core/PrivateRoute";
 
 import Register from "./user/auth/Register";
 import Login from "./user/auth/Login";
+import Logout from "./user/auth/Logout";
 import UnderConstruction from "./service/UnderConstruction";
 import Home from "./home/Home";
 import Card from "./card/Card";
@@ -56,6 +57,12 @@ export default class App extends Component {
         this.setState(
            { user }
         );
+    };
+
+    logout = () => {
+        localStorage.removeItem('currentUser');
+
+        this.setState({user: null});
     };
 
     getCardById = (id) => {
@@ -118,6 +125,12 @@ export default class App extends Component {
                                <Login {...props}
                                       authenticate={this.authenticate}
                                       authenticated={!!this.state.user}
+                               />)}/>
+
+                    <Route path="/logout"
+                           render={(props) => (
+                               <Logout {...props}
+                                   logout={this.logout}
                                />)}/>
 
                     <Route path="/under-construction"
