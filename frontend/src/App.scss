@@ -150,11 +150,14 @@ header {
     .type {
       font-weight: bolder;
     }
+    .date {
+      color: gray;
+    }
   }
 
   .paragraph {
     font-size: small;
-    padding-top: 30px;
+    padding-top: 50px;
 
     .title {
       padding-left: 30px;

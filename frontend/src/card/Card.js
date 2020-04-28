@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import Moment from 'react-moment';
 
 import CardMenu from "./CardMenu";
 import MenuButton from "../core/component/MenuButton";
@@ -52,7 +53,9 @@ class Card extends Component {
 
                 <div className="card_page">
                     <div className="title_elements">
-                        <span>{card.date.substring(0,10)}</span>
+                        <span className="date">
+                            <Moment format="D MMMM YYYY">{card.date}</Moment>
+                        </span>
                         <span className="float-right type">{card.cardType ? card.cardType.title : ''}</span>
                     </div>
 
@@ -129,21 +132,20 @@ class Card extends Component {
                         </div>
                     }
                     
-                    { card.files &&
+                    { card.files.length > 0 &&
                     <div className="paragraph">
                         <div className="title">Materials</div>
                         <div className="description">
                             <ul className="pictures_list">
                                 {card.files.map(
                                     (item, key) => <li key={key}>
-                                        <img src={'http://localhost:8080/' + item} alt=""/>
+                                        <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} alt=""/>
                                     </li>
                                 )}
                             </ul>
                         </div>
                     </div>
                     }
-                    <hr />
 
                 </div>
 
