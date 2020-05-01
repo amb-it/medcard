@@ -65,22 +65,16 @@ export default class App extends Component {
         this.setState({user: null});
     };
 
-    getCardById = (id) => {
-        for (const cardItem of this.state.cards) {
-            if (cardItem._id === +id) return cardItem;
-        }
-    };
-
     requestCards = () => {
         const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards';
         const config = this.state.user.getAuthConfig();
 
         axios.get(apiUrl, config)
-          .then(response => {
-            this.setState({
-                cards: response.data
-            });
-          })
+            .then(response => {
+                this.setState({
+                    cards: response.data
+                });
+            })
           .catch(error => {console.log(error);})
     };
 
@@ -147,7 +141,8 @@ export default class App extends Component {
                     <PrivateRoute path="/card/:id"
                                   component={Card}
                                   user={this.state.user}
-                                  getCardById={this.getCardById}
+                                  cards={this.state.cards}
+                                  requestCards={this.requestCards}
                                   deleteCard={this.deleteCard}
                     />
 
