@@ -64,8 +64,8 @@ header {
   right: 0;
   z-index: 1;
   background-color: rgb(253, 255, 253);
-  border-left: 1px gray solid;
-  transform: translate3d(100vw, 0, 0);
+  border-bottom: 1px gray solid;
+  transform: translate3d(0, -100vw, 0);
   transition: transform .3s ease-in;
   font-weight: bold;
 
@@ -82,7 +82,7 @@ header {
   }
 }
 .visible {
-  transform: translate3d(0vw, 0, 0);
+  transform: translate3d(0, 0vw, 0);
 }
 
 .add_card_link {

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
-import Inputs from './addCard/Inputs';
-import Files from './addCard/Files';
+import Inputs from './Inputs';
+import Files from './Files';
 
-class AddCard extends Component {
+export default class AddCard extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -78,14 +78,18 @@ class AddCard extends Component {
                                 id={this.inputs_tab_id}
                                 className={this.state.showTab === this.inputs_tab_id ? 'nav-item nav-link active' : 'nav-item nav-link'}
                                 data-toggle='tab' role='tab' aria-controls='nav-home' aria-selected='true'>
-                                Inputs
+                                <span className='oi oi-align-center' />
+                                {/*Inputs*/}
                             </button>
                             <button
                                 onClick={() => {this.setState({showTab: this.files_tab_id})}}
                                 id={this.files_tab_id}
                                 className={this.state.showTab === this.files_tab_id ? 'nav-item nav-link active' : 'nav-item nav-link'}
                                 data-toggle='tab' role='tab' aria-controls='nav-profile' aria-selected='false'>
-                                Files, pictures
+                                <span className='oi oi-file' />
+                                &nbsp;&nbsp;
+                                <span className='oi oi-camera-slr' />
+                                {/*Files, pictures*/}
                             </button>
                         </div>
                     </nav>
@@ -122,5 +126,3 @@ class AddCard extends Component {
         );
     }
 }
-
-export default AddCard;

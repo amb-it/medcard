@@ -14,7 +14,7 @@ import Logout from "./user/auth/Logout";
 import UnderConstruction from "./service/UnderConstruction";
 import Home from "./home/Home";
 import Card from "./card/Card";
-import AddCard from "./card/AddCard";
+import AddCard from "./card/addCard/AddCard";
 
 
 export default class App extends Component {
