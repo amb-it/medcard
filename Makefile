@@ -8,7 +8,7 @@ help:
 	@echo "make stage-build"
 	@echo "make stage-up"
 	@echo "make stage-down"
-	@echo ""
+	@echo '--------------------'
 
 up:
 	cd infra && docker-compose up
