@@ -8,26 +8,22 @@ help:
 	@echo "make stage-build"
 	@echo "make stage-up"
 	@echo "make stage-down"
+	@echo ""
 
 up:
-	cd infra
-	docker-compose up
+	cd infra && docker-compose up
 
 down:
-	cd infra
-	docker-compose down
+	cd infra && docker-compose down
 
 stage-up:
-	cd infra
-	docker-compose -f docker-compose.stage.yml up -d
+	cd infra && docker-compose -f docker-compose.stage.yml up -d
 
 stage-down:
-	cd infra
-	docker-compose -f docker-compose.stage.yml down
+	cd infra && docker-compose -f docker-compose.stage.yml down
 
 stage-build:
-	cd frontend
-	npm run build
+	cd frontend && npm run build
 
 stage-preset-mongo:
 	sudo chown -R 1001 mongo/database
