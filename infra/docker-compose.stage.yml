@@ -12,6 +12,7 @@ services:
       - "81:81"
     volumes:
       - ../frontend/build:/var/www
+      - ./logs:/var/log/nginx
 
   api:
     container_name: medcard_stage_api

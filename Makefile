@@ -23,7 +23,7 @@ stage-down:
 	cd infra && docker-compose -f docker-compose.stage.yml down
 
 stage-build:
-	cd frontend && npm run build
+	cd frontend && npm install && npm run build
 
 stage-preset-mongo:
 	sudo chown -R 1001 mongo/database
