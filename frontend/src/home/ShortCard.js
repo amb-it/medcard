@@ -10,8 +10,8 @@ export default class ShortCard extends Component {
         let complaint = ' - ';
 
         if (card.complaint) {
-            complaint = card.complaint.length > 110
-                ? card.complaint.substring(0,110) + '...'
+            complaint = card.complaint.length > 130
+                ? card.complaint.substring(0,130) + '...'
                 : card.complaint
         }
 
@@ -19,18 +19,26 @@ export default class ShortCard extends Component {
             <NavLink to={"card/"+card._id}>
                 <div className="card">
                     <div className="row">
-                        <div className="col date">
+                        <div className="col title">
                             <Moment format="D MMMM YYYY">{card.date}</Moment>
-                            {/*{card.date.substring(0,10)} */}
                             <div className="card_id">№ {card._id}</div>
                         </div>
                         <div className="col type">{card.cardType ? card.cardType.title : ''}</div>
                     </div>
 
                     <div className="description">{complaint}</div>
-                    <div className="hospital">
-                        {card.clinic && card.clinic.title ? card.clinic.title : ''}
+                    {card.clinic && card.clinic.title ?
+                    <div className="visited">
+                        <span className="oi oi-home" title="icon name" aria-hidden="true" />
+                        &nbsp;&nbsp;{ card.clinic.title }
                     </div>
+                    : ''}
+                    {card.doctor ?
+                    <div className="visited">
+                        <span className="oi oi-person" title="icon name" aria-hidden="true" />
+                        &nbsp;&nbsp;{ card.doctor.name + ' ' + card.doctor.surname }
+                    </div>
+                    : ''}
                     <div className="files text-right">
                         {card.files.map(
                             (item, key) => <span key={key} className="oi oi-file"></span>
