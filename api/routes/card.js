@@ -29,14 +29,17 @@ cardRoutes.get('/', auth, async (req, res) => {
 // save new card
 cardRoutes.post('/', auth, async (req, res) => {
     const r = req.body;
-    
-    let card = await Card.findOne({
-        complaint: r.complaint,
-        user: req.user._id
-    });
-    
-    if (card) {
-        return res.status(400).send({message: 'Card with such complaint already exists'});
+    let card;
+
+    if (r.complaint) {
+        card = await Card.findOne({
+            complaint: r.complaint,
+            user: req.user._id
+        });
+
+        if (card) {
+            return res.status(400).send({message: 'Card with such complaint already exists'});
+        }
     }
 
     card = new Card;

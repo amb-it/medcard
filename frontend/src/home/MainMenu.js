@@ -16,11 +16,11 @@ export default class MainMenu extends Component {
                     <b>{this.props.user.name}</b>
                 </div>
                 <ul>
-                    <li><NavLink to="/under-construction">My bio</NavLink></li>
+                    {/*<li><NavLink to="/under-construction">My bio</NavLink></li>*/}
                     <li><NavLink to="/under-construction">Settings</NavLink></li>
-                    <li><NavLink to="/under-construction">Clinics</NavLink></li>
-                    <li><NavLink to="/under-construction">Share</NavLink></li>
-                    <li><NavLink to="/under-construction">About</NavLink></li>
+                    {/*<li><NavLink to="/under-construction">Clinics</NavLink></li>*/}
+                    {/*<li><NavLink to="/under-construction">Share</NavLink></li>*/}
+                    {/*<li><NavLink to="/under-construction">About</NavLink></li>*/}
                     <li><NavLink to="/logout">Logout</NavLink></li>
                 </ul>
             </div>
