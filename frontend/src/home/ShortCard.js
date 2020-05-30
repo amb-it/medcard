@@ -39,11 +39,14 @@ export default class ShortCard extends Component {
                         { card.doctor.name + ' ' + card.doctor.surname }
                     </div>
                     : ''}
-                    <div className="files text-right">
+                    {card.files.length > 0 ?
+                    <div className="files">
                         {card.files.map(
                             (item, key) => <span key={key} className="oi oi-file"></span>
                         )}
+                        <span className="text">file(s)</span>
                     </div>
+                    : ''}
                 </div>
             </NavLink>
         );
