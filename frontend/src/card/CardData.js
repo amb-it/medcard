@@ -18,14 +18,20 @@ export default class CardData extends Component {
 
                 { card.complaint &&
                 <div className="paragraph">
-                    <div className="title">Complaint</div>
+                    <div className="title">
+                        <span className="oi oi-pin" title="icon name" aria-hidden="true" />
+                        Complaint
+                    </div>
                     <div className="description">{card.complaint}</div>
                 </div>
                 }
 
                 { card.clinic &&
                 <div className="paragraph">
-                    <div className="title">Visited</div>
+                    <div className="title">
+                        <span className="oi oi-pin" title="icon name" aria-hidden="true" />
+                        Visited
+                    </div>
                     <div className="description">
                         { card.clinic.title ? card.clinic.title : ''}
                         { card.clinic.address && <span className="float-right">({card.clinic.address})</span> }
@@ -50,7 +56,10 @@ export default class CardData extends Component {
 
                 { card.diagnoses &&
                 <div className="paragraph">
-                    <div className="title">Diagnose</div>
+                    <div className="title">
+                        <span className="oi oi-pin" title="icon name" aria-hidden="true" />
+                        Diagnose
+                    </div>
                     <div className="description">
                         { card.diagnoses }
                         {/*<ul>*/}
@@ -64,7 +73,10 @@ export default class CardData extends Component {
 
                 { card.materials &&
                 <div className="paragraph">
-                    <div className="title">Materials and Analysis</div>
+                    <div className="title">
+                        <span className="oi oi-pin" title="icon name" aria-hidden="true" />
+                        Materials and Analysis
+                    </div>
                     <div className="description">
                         { card.materials }
                     </div>
@@ -73,7 +85,10 @@ export default class CardData extends Component {
 
                 { card.prescriptions &&
                 <div className="paragraph">
-                    <div className="title">Prescriptions</div>
+                    <div className="title">
+                        <span className="oi oi-pin" title="icon name" aria-hidden="true" />
+                        Prescriptions
+                    </div>
                     <div className="description">
                         { card.prescriptions }
                     </div>
@@ -82,7 +97,10 @@ export default class CardData extends Component {
 
                 { card.notes &&
                 <div className="paragraph">
-                    <div className="title">Notes</div>
+                    <div className="title">
+                        <span className="oi oi-pin" title="icon name" aria-hidden="true" />
+                        Notes
+                    </div>
                     <div className="description">
                         { card.notes }
                     </div>
@@ -91,12 +109,17 @@ export default class CardData extends Component {
 
                 { card.files.length > 0 &&
                 <div className="paragraph">
-                    <div className="title">Materials</div>
+                    <div className="title">
+                        <span className="oi oi-pin" title="icon name" aria-hidden="true" />
+                        Files
+                    </div>
+                    <hr />
                     <div className="description">
                         <ul className="pictures_list">
                             {card.files.map(
                                 (item, key) => <li key={key}>
                                     <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} alt=""/>
+                                    <hr />
                                 </li>
                             )}
                         </ul>

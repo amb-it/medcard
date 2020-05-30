@@ -7,7 +7,7 @@ export default class ShortCard extends Component {
     render() {
         const card = this.props.card;
 
-        let complaint = ' - ';
+        let complaint = '';
 
         if (card.complaint) {
             complaint = card.complaint.length > 130
@@ -30,13 +30,13 @@ export default class ShortCard extends Component {
                     {card.clinic && card.clinic.title ?
                     <div className="visited">
                         <span className="oi oi-home" title="icon name" aria-hidden="true" />
-                        &nbsp;&nbsp;{ card.clinic.title }
+                        { card.clinic.title }
                     </div>
                     : ''}
                     {card.doctor ?
                     <div className="visited">
                         <span className="oi oi-person" title="icon name" aria-hidden="true" />
-                        &nbsp;&nbsp;{ card.doctor.name + ' ' + card.doctor.surname }
+                        { card.doctor.name + ' ' + card.doctor.surname }
                     </div>
                     : ''}
                     <div className="files text-right">
