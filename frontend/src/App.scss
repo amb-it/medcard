@@ -185,15 +185,15 @@ header {
     .title {
       padding: 5px 10px 5px 30px;
       margin-bottom: 10px;
-      font-size: smaller;
-      //font-style: italic;
-      //font-weight: bold;
+      font-size: x-small;
+      font-style: italic;
       color: gray;
-      background: linear-gradient(to right, rgb(249, 253, 255), white);
+      //background: linear-gradient(to right, rgb(249, 253, 255), white, rgb(249, 253, 255));
       border-radius: 1px;
 
       .oi {
         margin-right: 10px;
+        font-size: x-small;
       }
     }
     ul {

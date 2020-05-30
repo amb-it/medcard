@@ -20,7 +20,7 @@ export default class CardData extends Component {
                 { card.complaint &&
                 <div className="paragraph">
                     <div className="title">
-                        <span className="oi oi-pin" title="icon name" aria-hidden="true" />
+                        <span className="oi oi-badge" title="icon name" aria-hidden="true" />
                         Complaint
                     </div>
                     <div className="description">{card.complaint}</div>
@@ -30,7 +30,7 @@ export default class CardData extends Component {
                 { card.clinic &&
                 <div className="paragraph">
                     <div className="title">
-                        <span className="oi oi-pin" title="icon name" aria-hidden="true" />
+                        <span className="oi oi-badge" title="icon name" aria-hidden="true" />
                         Visited
                     </div>
                     <div className="description">
@@ -58,7 +58,7 @@ export default class CardData extends Component {
                 { card.diagnoses &&
                 <div className="paragraph">
                     <div className="title">
-                        <span className="oi oi-pin" title="icon name" aria-hidden="true" />
+                        <span className="oi oi-badge" title="icon name" aria-hidden="true" />
                         Diagnose
                     </div>
                     <div className="description">
@@ -75,7 +75,7 @@ export default class CardData extends Component {
                 { card.materials &&
                 <div className="paragraph">
                     <div className="title">
-                        <span className="oi oi-pin" title="icon name" aria-hidden="true" />
+                        <span className="oi oi-badge" title="icon name" aria-hidden="true" />
                         Materials and Analysis
                     </div>
                     <div className="description">
@@ -87,7 +87,7 @@ export default class CardData extends Component {
                 { card.prescriptions &&
                 <div className="paragraph">
                     <div className="title">
-                        <span className="oi oi-pin" title="icon name" aria-hidden="true" />
+                        <span className="oi oi-badge" title="icon name" aria-hidden="true" />
                         Prescriptions
                     </div>
                     <div className="description">
@@ -99,7 +99,7 @@ export default class CardData extends Component {
                 { card.notes &&
                 <div className="paragraph">
                     <div className="title">
-                        <span className="oi oi-pin" title="icon name" aria-hidden="true" />
+                        <span className="oi oi-badge" title="icon name" aria-hidden="true" />
                         Notes
                     </div>
                     <div className="description">
@@ -111,7 +111,7 @@ export default class CardData extends Component {
                 { card.files.length > 0 &&
                 <div className="paragraph">
                     <div className="title">
-                        <span className="oi oi-pin" title="icon name" aria-hidden="true" />
+                        <span className="oi oi-badge" title="icon name" aria-hidden="true" />
                         Files
                     </div>
                     <hr />
