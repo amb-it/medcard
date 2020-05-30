@@ -72,7 +72,10 @@ export default class Home extends Component {
                             handleClick={this.onMenuButtonClick}
                             visibleMenu={this.state.visibleMainMenu}
                         />
-                        <span className="logo">MedCard</span>
+                        <span className="logo">
+                            <span className="oi oi-medical-cross" title="icon name" aria-hidden="true" />
+                            MedCard
+                        </span>
                     </span>
                     {
                         !this.state.visibleSearchInput ?

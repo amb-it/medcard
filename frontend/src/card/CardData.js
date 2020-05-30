@@ -11,7 +11,8 @@ export default class CardData extends Component {
             <div className="card_page">
                 <div className="title_elements">
                     <span className="date">
-                        <Moment format="D MMMM YYYY">{card.date}</Moment>
+                        <Moment format="D MMMM">{card.date}</Moment>
+                        {/*<Moment format="D MMMM YYYY">{card.date}</Moment>*/}
                     </span>
                     <span className="float-right type">{card.cardType ? card.cardType.title : ''}</span>
                 </div>

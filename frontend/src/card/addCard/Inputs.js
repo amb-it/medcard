@@ -13,7 +13,7 @@ export default class Inputs extends Component {
 
     render() {
         return (
-            <div>
+            <div className="card_inputs">
                 <div className="input-group mb-3">
                     <textarea
                         onChange={this.props.onInputChange}
@@ -32,6 +32,7 @@ export default class Inputs extends Component {
 
                 <hr />
                 <h2 className="badge badge-secondary">
+                    <span className="oi oi-home" title="icon name" aria-hidden="true" />
                     Clinic
                 </h2>
                 <div className="input-group mb-3">
@@ -61,6 +62,7 @@ export default class Inputs extends Component {
 
                 <hr />
                 <h2 className="badge badge-secondary">
+                    <span className="oi oi-person" title="icon name" aria-hidden="true" />
                     Doctor
                 </h2>
                 <div className="input-group mb-3">
@@ -78,6 +80,7 @@ export default class Inputs extends Component {
 
                 <hr />
                 <h2 className="badge badge-secondary">
+                    <span className="oi oi-info" title="icon name" aria-hidden="true" />
                     other
                 </h2>
                 <div className="input-group mb-3">

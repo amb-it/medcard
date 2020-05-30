@@ -20,7 +20,7 @@ export default class ShortCard extends Component {
                 <div className="card">
                     <div className="row">
                         <div className="col title">
-                            <Moment format="D MMMM YYYY">{card.date}</Moment>
+                            <Moment format="D MMMM">{card.date}</Moment>
                             <div className="card_id">№ {card._id}</div>
                         </div>
                         <div className="col type">{card.cardType ? card.cardType.title : ''}</div>
