@@ -13,7 +13,8 @@ export default class CardMenu extends Component {
             <div className={menuClassName}>
                 <ul>
                     <li><NavLink to="/under-construction">Edit</NavLink></li>
-                    <li onClick={this.props.deleteCard}>Delete</li>
+                    <li><NavLink to="/under-construction">Delete</NavLink></li>
+                    {/*<li onClick={this.props.deleteCard}>Delete</li>*/}
                 </ul>
             </div>
         );
