@@ -22,6 +22,7 @@ export default class Files extends Component {
         return (
             <div>
                 <FilePond
+                    labelIdle="Click here"
                     allowMultiple={true}
                     server={filePondServerConfig}
                 />
