@@ -53,13 +53,13 @@ export default class Register extends Component {
                     </span>
                 </header>
 
-                <h1>Register new user</h1>
+                <h1>Зарегистрироваться</h1>
 
                 <div className="input-group mb-3">
                     <input
                         onChange={this.onInputChange}
                         id="name"
-                        type="text" className="form-control" placeholder="name"/>
+                        type="text" className="form-control" placeholder="имя"/>
                 </div>
                 <div className="input-group mb-3">
                     <input
@@ -71,18 +71,18 @@ export default class Register extends Component {
                     <input
                         onChange={this.onInputChange}
                         id="password"
-                        type="password" className="form-control" placeholder="password"/>
+                        type="password" className="form-control" placeholder="пароль"/>
                 </div>
 
                 <div className="row register_button_box">
                     <div className="col-7 text-right">
                         <button
                             onClick={this.registerUser}
-                            className="btn btn-success">Register</button>
+                            className="btn btn-success">Зарегистрировать</button>
                     </div>
                     <div className="col-5 text-right">
-                        <small>or</small> &nbsp;
-                        <NavLink to={"login"}>login</NavLink>
+                        <small>или</small> &nbsp;
+                        <NavLink to={"login"}>войти</NavLink>
                     </div>
                 </div>
             </div>

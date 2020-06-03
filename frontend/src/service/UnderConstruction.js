@@ -23,7 +23,8 @@ export default class UnderConstruction extends Component {
                     {/*        MedCard*/}
                     {/*    </span>*/}
                     {/*</div>*/}
-                    <h1>This feature is under construction...</h1>
+                    <h1>Функционал в разработке...</h1>
+                    {/*<h1>This feature is under construction...</h1>*/}
                 </div>
             </div>
         );

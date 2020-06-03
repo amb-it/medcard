@@ -60,7 +60,7 @@ export default class AddCard extends Component {
                     <NavLink to='/' className='btn menu_button'>
                         <span className='oi oi-x'/>
                     </NavLink>
-                    <span className='card_page_title'>New card</span>
+                    <span className='card_page_title'>Новая карточка</span>
                     <button
                         onClick={this.saveCard}
                         className='btn menu_button float-right right_icon'>
@@ -109,13 +109,13 @@ export default class AddCard extends Component {
                     <div className='row md-5'>
                         <div className='col-6 text-center'>
                             <NavLink to='/' className='btn btn-outline-danger menu_button'>
-                                Cancel
+                                отмена
                             </NavLink>
                         </div>
                         <div className='col-6 text-center'>
                             <button
                                 onClick={this.saveCard}
-                                className='btn btn-success'>Save</button>
+                                className='btn btn-success'>сохранить</button>
                         </div>
                     </div>
 

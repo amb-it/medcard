@@ -1,7 +1,7 @@
 export default [
-    {"title": "heart"},
-    {"title": "head"},
-    {"title": "tooth"},
-    {"title": "muscles"},
-    {"title": "nervous"},
+    {"title": "Аллергология"},
+    {"title": "Терапия"},
+    {"title": "Стоматология"},
+    {"title": "Травматология"},
+    {"title": "Кардиология"},
 ]

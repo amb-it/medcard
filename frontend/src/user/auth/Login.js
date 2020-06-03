@@ -74,7 +74,7 @@ export default class Login extends Component {
                     </span>
                 </header>
 
-                <h1>Login</h1>
+                <h1>Войти</h1>
 
                 <div className="input-group mb-3">
                     <input
@@ -86,18 +86,18 @@ export default class Login extends Component {
                     <input
                         onChange={this.onInputChange}
                         id="password"
-                        type="password" className="form-control" placeholder="password"/>
+                        type="password" className="form-control" placeholder="пароль"/>
                 </div>
 
                 <div className="row register_button_box">
                     <div className="col-7 text-right">
                         <button
                             onClick={this.loginUser}
-                            className="btn btn-success">Login</button>
+                            className="btn btn-success">Войти</button>
                     </div>
                     <div className="col-5 text-right">
-                        <small>or</small> &nbsp;
-                        <NavLink to={"register"}>register</NavLink>
+                        <small>или</small> &nbsp;
+                        <NavLink to={"register"}>зарегистрировать</NavLink>
                     </div>
                 </div>
             </div>

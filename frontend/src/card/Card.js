@@ -45,7 +45,7 @@ export default class Card extends Component {
                     <NavLink to="/" className="btn menu_button">
                         <span className="oi oi-caret-left" title="icon name" aria-hidden="true" />
                     </NavLink>
-                    <span className="card_page_title">Card &nbsp; № {card_id}</span>
+                    <span className="card_page_title">Карточка &nbsp; № {card_id}</span>
                     <span className="float-right right_icon">
                         <MenuButton
                             handleClick={this.onMenuButtonClick}

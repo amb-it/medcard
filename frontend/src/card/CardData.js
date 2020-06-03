@@ -22,7 +22,7 @@ export default class CardData extends Component {
                     <div className="paragraph">
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                            Complaint
+                            Описание
                         </div>
                         <div className="description">{card.complaint}</div>
                     </div>
@@ -32,7 +32,7 @@ export default class CardData extends Component {
                     <div className="paragraph">
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                            Visited
+                            Обратился
                         </div>
                         <div className="description">
                             { card.clinic.title ? card.clinic.title : ''}
@@ -60,7 +60,7 @@ export default class CardData extends Component {
                     <div className="paragraph">
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                            Diagnose
+                            Диагноз
                         </div>
                         <div className="description">
                             { card.diagnoses }
@@ -73,26 +73,26 @@ export default class CardData extends Component {
                     </div>
                     }
 
-                    { card.materials &&
-                    <div className="paragraph">
-                        <div className="title">
-                            <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                            Materials and Analysis
-                        </div>
-                        <div className="description">
-                            { card.materials }
-                        </div>
-                    </div>
-                    }
-
                     { card.prescriptions &&
                     <div className="paragraph">
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                            Prescriptions
+                            Назначения
                         </div>
                         <div className="description">
                             { card.prescriptions }
+                        </div>
+                    </div>
+                    }
+
+                    { card.materials &&
+                    <div className="paragraph">
+                        <div className="title">
+                            <span className="oi oi-badge" title="icon name" aria-hidden="true" />
+                            Анализы и материалы
+                        </div>
+                        <div className="description">
+                            { card.materials }
                         </div>
                     </div>
                     }
@@ -101,7 +101,7 @@ export default class CardData extends Component {
                     <div className="paragraph">
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                            Notes
+                            Другие записи
                         </div>
                         <div className="description">
                             { card.notes }
@@ -114,7 +114,7 @@ export default class CardData extends Component {
                 <div className="paragraph">
                     <div className="title">
                         <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                        Files
+                        Файлы
                     </div>
                     {/*<hr />*/}
                     <div className="description">

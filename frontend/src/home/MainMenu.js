@@ -17,11 +17,11 @@ export default class MainMenu extends Component {
                 </div>
                 <ul>
                     {/*<li><NavLink to="/under-construction">My bio</NavLink></li>*/}
-                    <li><NavLink to="/under-construction">Settings</NavLink></li>
+                    <li><NavLink to="/under-construction">Настройки</NavLink></li>
                     {/*<li><NavLink to="/under-construction">Clinics</NavLink></li>*/}
                     {/*<li><NavLink to="/under-construction">Share</NavLink></li>*/}
                     {/*<li><NavLink to="/under-construction">About</NavLink></li>*/}
-                    <li><NavLink to="/logout">Logout</NavLink></li>
+                    <li><NavLink to="/logout">Выйти</NavLink></li>
                 </ul>
             </div>
         );

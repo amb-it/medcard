@@ -100,7 +100,7 @@ export default class Home extends Component {
                         <input
                             onChange={this.onSearchInputChange}
                             autoFocus={true}
-                            type="text" className="form-control col-10" placeholder="search"/>
+                            type="text" className="form-control col-10" placeholder="поиск"/>
                         <div className="input-group-append">
                             <button className="btn" type="button">
                                 <span
