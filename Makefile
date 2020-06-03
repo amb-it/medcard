@@ -4,9 +4,9 @@ help:
 	@echo '--------------------'
 	@echo "make up"
 	@echo "make down"
-	@echo "make stage-preset-mongo"
 	@echo "make stage-up"
 	@echo "make stage-down"
+	@echo "make fe-build"
 	@echo '--------------------'
 
 up:
@@ -20,3 +20,6 @@ stage-up:
 
 stage-down:
 	cd infra && docker-compose -f docker-compose.stage.yml down
+
+fe-build:
+	cd frontend && npm run build
