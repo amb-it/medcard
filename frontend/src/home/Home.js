@@ -31,7 +31,7 @@ export default class Home extends Component {
 
         return cards.length > 0
             ? cards.map((card, key) => <ShortCard card={card} key={key}/>)
-            : 'No cards';
+            : 'Отсутствуют карточки либо проблема с загрузкой..';
     }
 
     onMenuButtonClick = () => {
