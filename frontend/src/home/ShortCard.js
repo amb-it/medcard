@@ -44,7 +44,7 @@ export default class ShortCard extends Component {
                         <div className="files">
                             {card.files.map(
                                 // (item, key) => <span key={key} className="oi oi-file"></span>
-                                (item, key) => <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} alt=""/>
+                                (item, key) => <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} key={key} alt=""/>
                             )}
                             {/*<span className="text">file(s)</span>*/}
                         </div>

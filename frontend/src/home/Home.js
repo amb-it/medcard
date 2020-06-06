@@ -30,7 +30,7 @@ export default class Home extends Component {
         const cards = this.state.cardsFiltered;
 
         return cards.length > 0
-            ? cards.map((card, key) => <ShortCard card={card} key={key}/>)
+            ? cards.map((card, key) => <ShortCard card={card} key={key} />)
             : 'Отсутствуют карточки либо проблема с загрузкой..';
     }
 
