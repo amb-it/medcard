@@ -22,7 +22,7 @@ export default class Files extends Component {
         return (
             <div>
                 <FilePond
-                    labelIdle="Нажмите здесь..."
+                    labelIdle="Нажмите здесь чтоб сфотографировать и прикрепить к записи выписки, анализы или другие изображения ..."
                     allowMultiple={true}
                     server={filePondServerConfig}
                 />

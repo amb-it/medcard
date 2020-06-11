@@ -60,7 +60,7 @@ export default class AddCard extends Component {
                     <NavLink to='/' className='btn menu_button'>
                         <span className='oi oi-x'/>
                     </NavLink>
-                    <span className='card_page_title'>Новая карточка</span>
+                    <span className='card_page_title'>Новая запись</span>
                     <button
                         onClick={this.saveCard}
                         className='btn menu_button float-right right_icon'>
