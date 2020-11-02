@@ -8,11 +8,13 @@ services:
     env_file:
       - .env.stage
     ports:
-      - "80:80"
-      - "81:81"
+      - "8080:80"
+      - "8081:81"
     volumes:
       - ../frontend/build:/var/www
       - ./logs:/var/log/nginx
+    networks:
+      - medcard
 
   api:
     container_name: medcard_stage_api
@@ -24,10 +26,17 @@ services:
       - ../api:/srv/www
     command: /scripts/init.sh
     tty: true
+    networks:
+      - medcard
 
   mongo:
     container_name: medcard_stage_mongo
     image: 'bitnami/mongodb:latest'
     volumes:
       - ../mongo/database:/bitnami
+    networks:
+      - medcard
 
+networks:
+  medcard:
+    name: medcard
