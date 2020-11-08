@@ -6,7 +6,7 @@ services:
     container_name: medcard_stage_nginx
     build: ./nginx
     env_file:
-      - .env.stage
+      - .env
     ports:
       - "8080:80"
       - "8081:81"
@@ -20,7 +20,7 @@ services:
     container_name: medcard_stage_api
     build: ./api
     env_file:
-      - .env.stage
+      - .env
     volumes:
       - ./api/scripts:/scripts
       - ../api:/srv/www
