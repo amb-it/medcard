@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Moment from "react-moment";
+import 'moment/locale/ru';
 
 export default class ShortCard extends Component {
 
