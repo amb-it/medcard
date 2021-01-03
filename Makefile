@@ -22,4 +22,4 @@ stage-down:
 	cd infra && docker-compose -f docker-compose.stage.yml down
 
 fe-build:
-	cd frontend && npm run build
+	sh ./infra/scripts/export_env_vars.sh
