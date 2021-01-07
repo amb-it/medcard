@@ -30,6 +30,11 @@ header {
       margin-left: 30px;
     }
   }
+  .menu_button, .search_button {
+    &:hover {
+      cursor: pointer;
+    }
+  }
   .right_icon {
     right: 10px;
     top: 10px;

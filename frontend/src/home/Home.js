@@ -82,7 +82,7 @@ export default class Home extends Component {
                             <span className="float-right right_icon">
                                 <span
                                     onClick={this.onSearchButtonClick}
-                                    className="oi oi-magnifying-glass"
+                                    className="oi oi-magnifying-glass search_button"
                                 />
                             </span>
                             : ""
