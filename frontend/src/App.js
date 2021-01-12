@@ -15,6 +15,7 @@ import UnderConstruction from "./service/UnderConstruction";
 import Home from "./home/Home";
 import Card from "./card/Card";
 import AddCard from "./card/addCard/AddCard";
+import EditCard from "./card/editCard/EditCard";
 
 
 export default class App extends Component {
@@ -138,12 +139,21 @@ export default class App extends Component {
                                   requestCards={this.requestCards}
                     />
 
-                    <PrivateRoute path="/card/:id"
+                    <PrivateRoute exact path="/card/:id"
                                   component={Card}
                                   user={this.state.user}
                                   cards={this.state.cards}
                                   requestCards={this.requestCards}
                                   deleteCard={this.deleteCard}
+                    />
+
+                    <PrivateRoute exact path="/card/:id/edit"
+                                  component={EditCard}
+                                  user={this.state.user}
+                                  cards={this.state.cards}
+                                  cardTypes={this.state.cardTypes}
+                                  requestCardTypes={this.requestCardTypes}
+                                  requestCards={this.requestCards}
                     />
 
                     <PrivateRoute path="/add-card"

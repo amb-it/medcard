@@ -57,6 +57,7 @@ export default class Card extends Component {
 
                 <CardMenu
                     visible={this.state.visibleMenu}
+                    card={card}
                     deleteCard={this.deleteCard}
                 />
 
