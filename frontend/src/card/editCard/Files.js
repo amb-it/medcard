@@ -9,7 +9,7 @@ registerPlugin(FilePondPluginImagePreview);
 
 export default class Files extends Component {
     render() {
-        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards/save-picture';
+        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards/files';
         const filePondServerConfig = {
             url: apiUrl,
             process: {
@@ -18,6 +18,20 @@ export default class Files extends Component {
                 }
             }
         };
+
+        const card = this.props.card;
+        let files = [];
+
+        if (card) {
+            card.files.forEach(el => files.push(
+                {
+                    source: el,
+                    options: {
+                        type: 'local'
+                    }
+                }
+            ))
+        }
         
         return (
             <div>
@@ -25,6 +39,7 @@ export default class Files extends Component {
                     labelIdle="Нажмите здесь чтоб сфотографировать и прикрепить к записи выписки, анализы или другие изображения ..."
                     allowMultiple={true}
                     server={filePondServerConfig}
+                    files={files}
                 />
             </div>
         );

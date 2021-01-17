@@ -15,7 +15,7 @@ export default class EditCard extends Component {
         this.files_tab_id = 'files_tab';
 
         this.state = {
-            showTab: this.inputs_tab_id
+            showTab: this.files_tab_id
         };
     }
 
@@ -107,6 +107,7 @@ export default class EditCard extends Component {
 
                     {(this.state.showTab === this.files_tab_id)
                         ? <Files
+                            card={card}
                             onAddFile={this.onAddFile}
                             />
                         : <Inputs

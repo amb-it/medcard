@@ -95,9 +95,13 @@ cardRoutes.post('/', auth, async (req, res) => {
         .catch(err => {res.status(500).send({message: err.message || "Some error occurred while saving some-entity."});});
 });
 
-cardRoutes.post('/save-picture', (req, res) => {
+cardRoutes.get('/files', (req, res) => {
+    res.redirect('/'+req.query.load);
+});
+
+cardRoutes.post('/files', (req, res) => {
     let filename;
-    
+
     new Formidable.IncomingForm().parse(req)
         .on('fileBegin', (name, file) => {
             filename = Date.now() + '.' + file.name.substring(file.name.length - 3);
