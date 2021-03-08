@@ -15,55 +15,74 @@ export default class EditCard extends Component {
         this.files_tab_id = 'files_tab';
 
         this.state = {
-            showTab: this.files_tab_id
+            showTab: this.inputs_tab_id,
+            editCard: null
         };
     }
 
-    getCardById = (id) => {
+    getCard = () => {
+        const card_id = this.props.match.params.id;
+
         if (this.props.cards.length === 0) {
             this.props.requestCards();
         }
         for (const cardItem of this.props.cards) {
-            if (cardItem._id === +id) return cardItem;
+            if (cardItem._id === +card_id) return cardItem;
         }
     };
-    
+
     onInputChange = (e) => {
-        const newCard = this.state.newCard;
-        newCard[e.target.id] = e.target.value;
-        this.setState({newCard});
+        const editCard = this.state.editCard === null
+            ? this.getCard()
+            : this.state.editCard;
+
+        editCard[e.target.id] = e.target.value;
+        this.setState({editCard});
     };
-    
+
     onAddFile = (filename) => {
-        const newCard = this.state.newCard;
-        if (newCard.files) {
-            newCard.files.push(filename);
+        const editCard = this.state.editCard === null
+            ? this.getCard()
+            : this.state.editCard;
+
+        if (editCard.files) {
+            editCard.files.push(filename);
         } else {
-            newCard.files = [filename];
+            editCard.files = [filename];
         }
-        this.setState({newCard});
+        this.setState({editCard});
     };
-    
+
+    onDeleteFile = (filename) => {
+        const editCard = this.state.editCard === null
+            ? this.getCard()
+            : this.state.editCard;
+
+        let index = editCard.files.indexOf(filename);
+        editCard.files.splice(index, 1);
+
+        this.setState({editCard});
+    };
+
     saveCard = () => {
-        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards';
-        const newCard = this.state.newCard;
+        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards/' + this.state.editCard._id;
+        const editCard = this.state.editCard;
         const config = this.props.user.getAuthConfig();
-        
-        axios.post(apiUrl, newCard, config)
+
+        axios.put(apiUrl, editCard, config)
             .then(() => {
 
-                const newCard = this.state.newCard;
-                this.setState({newCard});
+                const editCard = this.state.editCard;
+                this.setState({editCard});
 
                 this.props.history.push('/');
 
             })
             .catch(error => { console.log(error); })
     };
-    
+
     render() {
-        const card_id = this.props.match.params.id;
-        const card = this.getCardById(card_id);
+        const card = this.getCard();
 
         return (
             <div className='container'>
@@ -109,6 +128,7 @@ export default class EditCard extends Component {
                         ? <Files
                             card={card}
                             onAddFile={this.onAddFile}
+                            onDeleteFile={this.onDeleteFile}
                             />
                         : <Inputs
                             card={card}
