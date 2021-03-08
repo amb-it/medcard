@@ -7,6 +7,7 @@ help:
 	@echo "make stage-up"
 	@echo "make stage-down"
 	@echo "make fe-build"
+	@echo "make enter-server"
 	@echo '--------------------'
 
 up:
@@ -23,3 +24,6 @@ stage-down:
 
 fe-build:
 	sh ./infra/scripts/export_env_vars.sh
+
+enter-server:
+	ssh root@vm1066258.had.tf
