@@ -45,28 +45,28 @@ export default class Inputs extends Component {
                 <div className="input-group mb-3">
                     <input
                         onChange={this.props.onInputChange}
-                        value={card.clinic ? card.clinic.title : ''}
+                        value={card.clinicTitle ? card.clinicTitle : card.clinic ? card.clinic.title : ''}
                         id="clinicTitle"
                         type="text" className="form-control" placeholder="название" />
                 </div>
                 <div className="input-group mb-3">
                     <input
                         onChange={this.props.onInputChange}
-                        value={card.clinic ? card.clinic.address : ''}
+                        value={card.clinicAddress ? card.clinicAddress : card.clinic ? card.clinic.address : ''}
                         id="clinicAddress"
                         type="text" className="form-control" placeholder="адрес" />
                 </div>
                 <div className="input-group mb-3">
                     <input
                         onChange={this.props.onInputChange}
-                        value={card.clinicDepartment ? card.clinicDepartment.title : ''}
+                        value={card.clinicDepartmentTitle ? card.clinicDepartmentTitle : card.clinicDepartment ? card.clinicDepartment.title : ''}
                         id="clinicDepartmentTitle"
                         type="text" className="form-control" placeholder="отделение" />
                 </div>
                 <div className="input-group mb-3">
                     <input
                         onChange={this.props.onInputChange}
-                        value={card.clinicDepartment ? card.clinicDepartment.address : ''}
+                        value={card.clinicDepartmentAddress ? card.clinicDepartmentAddress : card.clinicDepartment ? card.clinicDepartment.address : ''}
                         id="clinicDepartmentAddress"
                         type="text" className="form-control" placeholder="адрес отделения" />
                 </div>
@@ -79,14 +79,14 @@ export default class Inputs extends Component {
                 <div className="input-group mb-3">
                   <input
                       onChange={this.props.onInputChange}
-                      value={card.doctor ? card.doctor.surname : ''}
+                      value={card.doctorSurname ? card.doctorSurname : card.doctor ? card.doctor.surname : ''}
                       id="doctorSurname"
                       type="text" className="form-control" placeholder="Фамилия" />
                 </div>
                 <div className="input-group mb-3">
                   <input
                       onChange={this.props.onInputChange}
-                      value={card.doctor ? card.doctor.name : ''}
+                      value={card.doctorName ? card.doctorName : card.doctor ? card.doctor.name : ''}
                       id="doctorName"
                       type="text" className="form-control" placeholder="Имя" />
                 </div>

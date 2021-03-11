@@ -43,7 +43,7 @@ cardRoutes.post('/', auth, async (req, res) => {
     }
 
     card = new Card;
-    
+
     card.complaint = r.complaint;
     card.diagnoses = r.diagnoses;
     card.materials = r.materials;
@@ -55,31 +55,31 @@ cardRoutes.post('/', auth, async (req, res) => {
     card.user = req.user._id;
 
     if (r.clinicTitle) {
-        
+
         const clinic = {title: r.clinicTitle};
-        
+
         if (r.clinicAddress) {
             clinic.address = r.clinicAddress;
         }
-        
+
         await Clinic.findOrCreate(clinic)
             .then(result => card.clinic = result.doc._id);
-    
+
         if (r.clinicDepartmentTitle) {
-            
+
             const clinicDepartment = {
                 title: r.clinicDepartmentTitle
             };
-            
+
             if (r.clinicDepartmentAddress) {
                 clinicDepartment.address = r.clinicDepartmentAddress
             }
-            
+
             await ClinicDepartment.findOrCreate(clinicDepartment)
                 .then(result => card.clinicDepartment = result.doc._id);
         }
     }
-    
+
     if (r.doctorSurname && r.doctorName) {
         await Doctor.findOrCreate({
             name: r.doctorName,
@@ -89,10 +89,68 @@ cardRoutes.post('/', auth, async (req, res) => {
         })
             .then(result => card.doctor = result.doc._id);
     }
-    
+
     await card.save()
         .then(data => {res.send(data);})
-        .catch(err => {res.status(500).send({message: err.message || "Some error occurred while saving some-entity."});});
+        .catch(err => {res.status(500).send({message: err.message || "Some error occurred while saving new card."});});
+});
+
+// edit card
+cardRoutes.put('/:id', auth, async (req, res) => {
+    const r = req.body;
+
+    let card = await Card.findOne({
+        _id: req.params.id,
+        user: req.user._id
+    });
+
+    card.complaint = r.complaint;
+    card.diagnoses = r.diagnoses;
+    card.materials = r.materials;
+    card.prescriptions = r.prescriptions;
+    card.notes = r.notes;
+    card.cardType = r.cardType;
+    card.files = r.files;
+
+    if (r.clinicTitle) {
+
+        const clinic = {title: r.clinicTitle};
+
+        if (r.clinicAddress) {
+            clinic.address = r.clinicAddress;
+        }
+
+        await Clinic.findOrCreate(clinic)
+            .then(result => card.clinic = result.doc._id);
+
+        if (r.clinicDepartmentTitle) {
+
+            const clinicDepartment = {
+                title: r.clinicDepartmentTitle
+            };
+
+            if (r.clinicDepartmentAddress) {
+                clinicDepartment.address = r.clinicDepartmentAddress
+            }
+
+            await ClinicDepartment.findOrCreate(clinicDepartment)
+                .then(result => card.clinicDepartment = result.doc._id);
+        }
+    }
+
+    if (r.doctorSurname && r.doctorName) {
+        await Doctor.findOrCreate({
+            name: r.doctorName,
+            surname: r.doctorSurname
+        }, {
+            title: r.doctorTitle
+        })
+            .then(result => card.doctor = result.doc._id);
+    }
+
+    await card.save()
+        .then(data => {res.send(data);})
+        .catch(err => {res.status(500).send({message: err.message || "Some error occurred while saving edited card."});});
 });
 
 cardRoutes.get('/files', (req, res) => {
