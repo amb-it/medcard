@@ -70,12 +70,12 @@ export default class EditCard extends Component {
         const config = this.props.user.getAuthConfig();
 
         axios.put(apiUrl, editCard, config)
-            .then(() => {
+            .then((response) => {
 
                 const editCard = this.state.editCard;
                 this.setState({editCard});
 
-                this.props.history.push('/');
+                this.props.history.push('/card/' + response.data._id);
 
             })
             .catch(error => { console.log(error); })

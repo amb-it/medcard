@@ -26,4 +26,4 @@ fe-build:
 	sh ./infra/scripts/export_env_vars.sh
 
 enter-server:
-	ssh root@vm1066258.had.tf
+	echo "cd projects/medcard" && ssh root@vm1066258.had.tf

@@ -42,12 +42,12 @@ export default class AddCard extends Component {
         const config = this.props.user.getAuthConfig();
         
         axios.post(apiUrl, newCard, config)
-            .then(() => {
+            .then((response) => {
 
                 const newCard = this.state.newCard;
                 this.setState({newCard});
 
-                this.props.history.push('/');
+                this.props.history.push('/card/' + response.data._id);
 
             })
             .catch(error => { console.log(error); })

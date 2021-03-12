@@ -22,7 +22,9 @@ export default class Card extends Component {
             this.props.requestCards();
         }
         for (const cardItem of this.props.cards) {
-            if (cardItem._id === +id) return cardItem;
+            if (cardItem._id === +id) {
+                return cardItem;
+            }
         }
     };
 
