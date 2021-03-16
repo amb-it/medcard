@@ -4,6 +4,7 @@ import { FilePond, registerPlugin } from 'react-filepond';
 import 'filepond/dist/filepond.min.css';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
+import Picture from "./Picture";
 
 registerPlugin(FilePondPluginImagePreview);
 
@@ -20,18 +21,18 @@ export default class Files extends Component {
         };
 
         const card = this.props.card;
-        let files = [];
-
-        if (card) {
-            card.files.forEach(el => files.push(
-                {
-                    source: el,
-                    options: {
-                        type: 'local'
-                    }
-                }
-            ))
-        }
+        // let files = [];
+        //
+        // if (card) {
+        //     card.files.forEach(el => files.push(
+        //         {
+        //             source: el,
+        //             options: {
+        //                 type: 'local'
+        //             }
+        //         }
+        //     ))
+        // }
         
         return (
             <div>
@@ -39,8 +40,17 @@ export default class Files extends Component {
                     labelIdle="Нажмите здесь чтоб сфотографировать и прикрепить к записи выписки, анализы или другие изображения ..."
                     allowMultiple={true}
                     server={filePondServerConfig}
-                    files={files}
+                    // files={files}
                 />
+
+                <div className='previously_loaded_title'>Ранее загруженные файлы:</div>
+
+                <div>
+                    {card ?
+                        card.files.map(
+                        (item, key) => <Picture filename={item} key={key} />
+                    ): ''}
+                </div>
             </div>
         );
     }

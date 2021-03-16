@@ -256,6 +256,28 @@ header {
       }
     }
   }
+  .previously_loaded_title {
+    font-size: small;
+    margin-top: 30px;
+  }
+  .picture {
+    text-align: center;
+    margin-top: 20px;
+
+    .delete_button {
+      float: right;
+      position: relative;
+      background-color: darkslategrey;
+      border-radius: 15px;
+      color: white;
+      padding: 5px 6px 8px 6px;
+    }
+    img {
+      max-width: 86%;
+      border: 1px black solid;
+      border-radius: 7px;
+    }
+  }
 }
 
 // under construction page
