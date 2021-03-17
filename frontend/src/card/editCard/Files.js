@@ -48,7 +48,7 @@ export default class Files extends Component {
                 <div>
                     {card ?
                         card.files.map(
-                        (item, key) => <Picture filename={item} key={key} />
+                        (item, key) => <Picture filename={item} keyProp={key} />
                     ): ''}
                 </div>
             </div>
