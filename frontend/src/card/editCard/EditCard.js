@@ -15,7 +15,7 @@ export default class EditCard extends Component {
         this.files_tab_id = 'files_tab';
 
         this.state = {
-            showTab: this.inputs_tab_id,
+            showTab: this.files_tab_id,
             editCard: null
         };
     }
@@ -53,14 +53,12 @@ export default class EditCard extends Component {
         this.setState({editCard});
     };
 
-    onDeleteFile = (filename) => {
+    onUpdateFiles = (files) => {
         const editCard = this.state.editCard === null
             ? this.getCard()
             : this.state.editCard;
 
-        let index = editCard.files.indexOf(filename);
-        editCard.files.splice(index, 1);
-
+        editCard.files = files;
         this.setState({editCard});
     };
 
@@ -82,7 +80,9 @@ export default class EditCard extends Component {
     };
 
     render() {
-        const card = this.getCard();
+        const card = this.state.editCard
+            ? this.state.editCard
+            : this.getCard();
 
         return (
             <div className='container'>
@@ -128,7 +128,7 @@ export default class EditCard extends Component {
                         ? <Files
                             card={card}
                             onAddFile={this.onAddFile}
-                            onDeleteFile={this.onDeleteFile}
+                            onUpdateFiles={this.onUpdateFiles}
                             />
                         : <Inputs
                             card={card}
