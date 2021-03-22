@@ -52,7 +52,7 @@ export default class ShortCard extends Component {
                         : ''}
                     </div>
                 </NavLink>
-                <hr />
+                {/*<hr />*/}
             </div>
         );
     }
