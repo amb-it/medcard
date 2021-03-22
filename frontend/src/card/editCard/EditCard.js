@@ -84,10 +84,12 @@ export default class EditCard extends Component {
             ? this.state.editCard
             : this.getCard();
 
+        const backUri = '/card/' + card._id;
+
         return (
             <div className='container'>
                 <header>
-                    <NavLink to='/' className='btn menu_button'>
+                    <NavLink to={backUri} className='btn menu_button'>
                         <span className='oi oi-x'/>
                     </NavLink>
                     <span className='card_page_title'>Редактировать запись</span>
