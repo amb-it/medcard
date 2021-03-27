@@ -10,6 +10,7 @@
     "node-sass": "^4.13.0",
     "react": "^16.8.6",
     "react-activity": "^1.2.2",
+    "react-autocomplete-input": "^1.0.17",
     "react-dom": "^16.8.6",
     "react-filepond": "^7.0.1",
     "react-moment": "^0.9.7",

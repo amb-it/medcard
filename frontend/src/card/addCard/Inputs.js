@@ -1,6 +1,18 @@
 import React, { Component } from "react";
+import TextInput from 'react-autocomplete-input';
+import 'react-autocomplete-input/dist/bundle.css';
 
 export default class Inputs extends Component {
+    constructor(props, context) {
+        super(props, context);
+
+        this.state = {
+            availableTags: ["apple", "apricot", "banana", "carrot"],
+            chosenTags: [],
+            tagInput: ''
+        };
+    }
+
     renderCardTypeOptions() {
         const cardTypes = this.props.cardTypes;
 
@@ -9,6 +21,45 @@ export default class Inputs extends Component {
                 (cardType, key) => <option value={cardType._id} key={key}>{cardType.title}</option>
             )
         }
+    }
+
+    renderTags() {
+        const tags = this.state.chosenTags;
+
+        if (tags.length > 0) {
+            return tags.map(
+                (tag, key) =>
+                    <button key={key} type="button" className="btn btn-link btn-sm" onClick={() => this.removeTag(tag)}>
+                        #{tag}
+                    </button>
+            )
+        }
+    }
+
+    addTag = (tag) => {
+        const chosenTags = this.state.chosenTags;
+        tag= tag.trim();
+
+        this.setState({tagInput:''});
+
+        if (!tag || (tag && chosenTags.includes(tag)) || chosenTags.length > 2) {
+            return;
+        }
+
+        chosenTags.push(tag)
+
+        this.setState({chosenTags});
+        this.props.newCardChange('tags', chosenTags);
+    }
+
+    removeTag = (tag) => {
+        let chosenTags = this.state.chosenTags;
+        chosenTags = chosenTags.filter(function(value, index, arr){
+            return value !== tag;
+        })
+
+        this.setState({chosenTags})
+        this.props.newCardChange('tags', chosenTags);
     }
 
     render() {
@@ -29,6 +80,23 @@ export default class Inputs extends Component {
                         {this.renderCardTypeOptions()}
                     </select>
                 </div>
+                <div className="input-group mb-3">
+                    <TextInput
+                        Component="input"
+                        options={this.state.availableTags}
+                        onChange={(tagInput) => this.setState({tagInput})}
+                        onSelect={(option) => this.addTag(option)}
+                        value={this.state.tagInput}
+                        trigger=''
+                        spacer=''
+                        type="text" className="form-control" placeholder="добавьте тег(и)"
+                    />
+                    &nbsp;
+                    <button
+                        onClick={() => this.addTag(this.state.tagInput)}
+                        className='btn btn-light'>+</button>
+                </div>
+                {this.renderTags()}
 
                 <hr />
                 <h2 className="badge badge-secondary">

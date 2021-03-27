@@ -19,12 +19,19 @@ export default class AddCard extends Component {
             newCard: {}
         };
     }
-    
+
+    // TODO: move this logic to newCardChange()
     onInputChange = (e) => {
         const newCard = this.state.newCard;
         newCard[e.target.id] = e.target.value;
         this.setState({newCard});
     };
+
+    newCardChange = (key, value) => {
+        const newCard = this.state.newCard;
+        newCard[key] = value;
+        this.setState({newCard});
+    }
     
     onAddFile = (filename) => {
         const newCard = this.state.newCard;
@@ -100,6 +107,8 @@ export default class AddCard extends Component {
                             />
                         : <Inputs
                             onInputChange={this.onInputChange}
+                            onTagsChange={this.onTagsChange}
+                            newCardChange={this.newCardChange}
                             cardTypes={this.props.cardTypes}
                             />
                     }
