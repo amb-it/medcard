@@ -62,18 +62,22 @@ export default class Inputs extends Component {
         this.props.newCardChange('tags', chosenTags);
     }
 
+    onInputChange = (e) => {
+        this.props.newCardChange(e.target.id, e.target.value);
+    }
+
     render() {
         return (
             <div className="card_inputs">
                 <div className="input-group mb-3">
                     <textarea
-                        onChange={this.props.onInputChange}
+                        onChange={this.onInputChange}
                         id="complaint"
                         rows="8" className="form-control" placeholder="введите описание или жалобу &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     (например 'Болел живот с правой стороны.. ' или 'Проходил плановый осмотр..' и т.д.)" />
                 </div>
                 <div className="input-group mb-3">
                     <select
-                        onChange={this.props.onInputChange}
+                        onChange={this.onInputChange}
                         id="cardType"
                         className="custom-select" placeholder="Тип">
                         <option>выберите тип</option>
@@ -105,25 +109,25 @@ export default class Inputs extends Component {
                 </h2>
                 <div className="input-group mb-3">
                     <input
-                        onChange={this.props.onInputChange}
+                        onChange={this.onInputChange}
                         id="clinicTitle"
                         type="text" className="form-control" placeholder="название" />
                 </div>
                 <div className="input-group mb-3">
                     <input
-                        onChange={this.props.onInputChange}
+                        onChange={this.onInputChange}
                         id="clinicAddress"
                         type="text" className="form-control" placeholder="адрес" />
                 </div>
                 <div className="input-group mb-3">
                     <input
-                        onChange={this.props.onInputChange}
+                        onChange={this.onInputChange}
                         id="clinicDepartmentTitle"
                         type="text" className="form-control" placeholder="отделение" />
                 </div>
                 <div className="input-group mb-3">
                     <input
-                        onChange={this.props.onInputChange}
+                        onChange={this.onInputChange}
                         id="clinicDepartmentAddress"
                         type="text" className="form-control" placeholder="адрес отделения" />
                 </div>
@@ -135,13 +139,13 @@ export default class Inputs extends Component {
                 </h2>
                 <div className="input-group mb-3">
                   <input
-                      onChange={this.props.onInputChange}
+                      onChange={this.onInputChange}
                       id="doctorSurname"
                       type="text" className="form-control" placeholder="Фамилия" />
                 </div>
                 <div className="input-group mb-3">
                   <input
-                      onChange={this.props.onInputChange}
+                      onChange={this.onInputChange}
                       id="doctorName"
                       type="text" className="form-control" placeholder="Имя" />
                 </div>
@@ -153,25 +157,25 @@ export default class Inputs extends Component {
                 </h2>
                 <div className="input-group mb-3">
                     <textarea
-                        onChange={this.props.onInputChange}
+                        onChange={this.onInputChange}
                         id="diagnoses"
                         rows="8" className="form-control" placeholder="диагноз" />
                 </div>
                 <div className="input-group mb-3">
                     <textarea
-                        onChange={this.props.onInputChange}
+                        onChange={this.onInputChange}
                         id="prescriptions"
                         rows="8" className="form-control" placeholder="назначения" />
                 </div>
                 <div className="input-group mb-3">
                     <textarea
-                        onChange={this.props.onInputChange}
+                        onChange={this.onInputChange}
                         id="materials"
                         rows="8" className="form-control" placeholder="анализы и материалы" />
                 </div>
                 <div className="input-group mb-5">
                   <textarea
-                      onChange={this.props.onInputChange}
+                      onChange={this.onInputChange}
                       id="notes"
                       rows="8" className="form-control" placeholder="заметки" />
                 </div>
