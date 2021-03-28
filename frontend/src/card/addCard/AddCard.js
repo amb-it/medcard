@@ -106,6 +106,7 @@ export default class AddCard extends Component {
                             />
                         : <Inputs
                             // onInputChange={this.onInputChange}
+                            newCard={this.state.newCard}
                             onTagsChange={this.onTagsChange}
                             newCardChange={this.newCardChange}
                             cardTypes={this.props.cardTypes}

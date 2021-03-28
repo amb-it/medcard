@@ -8,7 +8,6 @@ export default class Inputs extends Component {
 
         this.state = {
             availableTags: ["apple", "apricot", "banana", "carrot"],
-            chosenTags: [],
             tagInput: ''
         };
     }
@@ -24,9 +23,9 @@ export default class Inputs extends Component {
     }
 
     renderTags() {
-        const tags = this.state.chosenTags;
+        const tags = this.props.newCard.tags;
 
-        if (tags.length > 0) {
+        if (tags && tags.length > 0) {
             return tags.map(
                 (tag, key) =>
                     <button key={key} type="button" className="btn btn-link btn-sm" onClick={() => this.removeTag(tag)}>
@@ -37,28 +36,29 @@ export default class Inputs extends Component {
     }
 
     addTag = (tag) => {
-        const chosenTags = this.state.chosenTags;
+        let chosenTags = this.props.newCard.tags;
         tag= tag.trim();
 
         this.setState({tagInput:''});
 
+        if (!chosenTags) {
+            chosenTags = [];
+        }
         if (!tag || (tag && chosenTags.includes(tag)) || chosenTags.length > 2) {
             return;
         }
 
         chosenTags.push(tag)
 
-        this.setState({chosenTags});
         this.props.newCardChange('tags', chosenTags);
     }
 
     removeTag = (tag) => {
-        let chosenTags = this.state.chosenTags;
+        let chosenTags = this.props.newCard.tags;
         chosenTags = chosenTags.filter(function(value, index, arr){
             return value !== tag;
         })
 
-        this.setState({chosenTags})
         this.props.newCardChange('tags', chosenTags);
     }
 
