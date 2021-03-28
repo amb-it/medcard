@@ -7,15 +7,31 @@ export default class CardData extends Component {
     render() {
         const card = this.props.card;
 
+        let tags = '';
+
+        if (card.tags && card.tags.length > 0) {
+            tags = card.tags.map(
+                (tag, key) =>
+                    <span className='tag' key={key}>
+                        #{tag}
+                    </span>
+            )
+        }
+
         return (
             <div className="card_page">
                 <div className="card_data_box">
-                    <div className="title_elements">
-                        <span className="date">
+                    <div className="row title_elements">
+                        <span className="col date">
                             <Moment format="D MMMM">{card.date}</Moment>
                             {/*<Moment format="D MMMM YYYY">{card.date}</Moment>*/}
                         </span>
-                        <span className="float-right type">{card.cardType ? card.cardType.title : ''}</span>
+                        <span className="col type">
+                            {tags}
+                            <div className="cardType">
+                                {card.cardType ? card.cardType.title : ''}
+                            </div>
+                        </span>
                     </div>
 
                     { card.complaint &&

@@ -156,19 +156,16 @@ header {
       .type {
         text-align: right;
 
-        .cardType {
-          margin: 10px 10px 7px 10px;
-          font-size: small;
-
-          //a {
-            color: darkblue;
-          //}
-        }
         .tag {
           display: block;
           padding: 3px;
           font-size: small;
           color: mediumblue;
+        }
+        .cardType {
+          margin: 10px 10px 7px 10px;
+          font-size: small;
+          color: darkblue;
         }
       }
       .description {
@@ -217,16 +214,27 @@ header {
   .title_elements {
     .type {
       font-size: small;
-      font-style: italic;
+      text-align: right;
+
+      .tag {
+        display: block;
+        padding-top: 5px;
+        color: mediumblue;
+      }
+      .cardType {
+        margin: 10px 10px 7px 10px;
+        color: darkblue;
+      }
     }
     .date {
       color: gray;
+      padding-bottom: 40px;
     }
   }
 
   .paragraph {
     font-size: medium;
-    padding-top: 40px;
+    //padding-top: 20px;
 
     .title {
       padding: 5px 10px 5px 30px;
