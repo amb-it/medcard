@@ -157,6 +157,16 @@ header {
         text-align: right;
         font-size: small;
         font-style: italic;
+
+        .cardType {
+          margin-top: 10px;
+        }
+        .tag {
+          .btn {
+            font-size: small;
+            padding: 3px;
+          }
+        }
       }
       .description {
         padding-top: 10px;
