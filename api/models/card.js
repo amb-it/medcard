@@ -13,6 +13,7 @@ let cardSchema = new mongoose.Schema({
         type: Number,
         ref: 'CardType'
     },
+    tags: [String],
     complaint: String,
     clinic: {
         type: Number,
