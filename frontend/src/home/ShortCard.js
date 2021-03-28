@@ -5,30 +5,25 @@ import 'moment/locale/ru';
 
 export default class ShortCard extends Component {
 
-    renderTags() {
-        const tags = this.props.card.tags;
-
-        if (tags && tags.length > 0) {
-            return tags.map(
-                (tag, key) =>
-                    <div className="tag" key={key}>
-                        <button type="button" className="btn btn-link btn-sm">
-                            #{tag}
-                        </button>
-                    </div>
-            )
-        }
-    }
-
     render() {
         const card = this.props.card;
 
         let complaint = '';
+        let tags = '';
 
         if (card.complaint) {
             complaint = card.complaint.length > 130
                 ? card.complaint.substring(0,130) + '...'
                 : card.complaint
+        }
+
+        if (card.tags && card.tags.length > 0) {
+            tags = card.tags.map(
+                (tag, key) =>
+                    <span className='tag' key={key}>
+                        #{tag}
+                    </span>
+            )
         }
 
         return (
@@ -40,12 +35,11 @@ export default class ShortCard extends Component {
                                 <Moment format="D MMMM">{card.date}</Moment>
                                 <div className="card_id">запись № {card._id}</div>
                             </div>
-                            {/*<div className="col type">{card.cardType ? card.cardType.title : ''}</div>*/}
                             <div className="col type">
-                                {this.renderTags()}
-                                <div className="cardType">
-                                    {card.cardType ? card.cardType.title : ''}
-                                </div>
+                                {tags}
+                                {card.cardType
+                                    ? <span className='cardType'>{card.cardType.title}</span>
+                                    : ''}
                             </div>
                         </div>
 

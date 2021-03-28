@@ -155,17 +155,20 @@ header {
       }
       .type {
         text-align: right;
-        font-size: small;
-        font-style: italic;
 
         .cardType {
-          margin-top: 10px;
+          margin: 10px 10px 7px 10px;
+          font-size: small;
+
+          //a {
+            color: darkblue;
+          //}
         }
         .tag {
-          .btn {
-            font-size: small;
-            padding: 3px;
-          }
+          display: block;
+          padding: 3px;
+          font-size: small;
+          color: mediumblue;
         }
       }
       .description {
