@@ -8,6 +8,7 @@ import devRoutes from './routes/dev/dev';
 import userRoutes from './routes/user';
 import cardRoutes from './routes/card';
 import cardTypeRoutes from './routes/cardType';
+import tagRoutes from "./routes/tag";
 
 
 const app = express();
@@ -29,6 +30,7 @@ app.use('/dev', devRoutes);
 app.use('/user', userRoutes);
 app.use('/cards', cardRoutes);
 app.use('/card-types', cardTypeRoutes);
+app.use('/tags', tagRoutes);
 
 app.use(express.static('user_files/sandbox'));
 
