@@ -25,6 +25,7 @@ export default class App extends Component {
         this.state = {
             cards: [],
             cardTypes: [],
+            tags: [],
             user: this.authenticateFromStorage()
         };
 
@@ -86,6 +87,19 @@ export default class App extends Component {
             .then(response => {
                 this.setState({
                     cardTypes: response.data
+                });
+            })
+            .catch(error => {console.log(error);})
+    };
+
+    requestTags = () => {
+        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/tags';
+        const config = this.state.user.getAuthConfig();
+
+        axios.get(apiUrl, config)
+            .then(response => {
+                this.setState({
+                    tags: response.data
                 });
             })
             .catch(error => {console.log(error);})
@@ -160,7 +174,9 @@ export default class App extends Component {
                                   component={AddCard}
                                   user={this.state.user}
                                   cardTypes={this.state.cardTypes}
+                                  tags={this.state.tags}
                                   requestCardTypes={this.requestCardTypes}
+                                  requestTags={this.requestTags}
                                   requestCards={this.requestCards}
                     />
 

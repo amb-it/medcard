@@ -10,6 +10,7 @@ export default class AddCard extends Component {
         super(props, context);
 
         props.requestCardTypes();
+        props.requestTags();
 
         this.inputs_tab_id = 'inputs_tab';
         this.files_tab_id = 'files_tab';
@@ -110,6 +111,7 @@ export default class AddCard extends Component {
                             onTagsChange={this.onTagsChange}
                             newCardChange={this.newCardChange}
                             cardTypes={this.props.cardTypes}
+                            tags={this.props.tags}
                             />
                     }
 

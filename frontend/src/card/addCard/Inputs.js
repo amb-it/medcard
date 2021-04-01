@@ -7,7 +7,6 @@ export default class Inputs extends Component {
         super(props, context);
 
         this.state = {
-            availableTags: ["apple", "apricot", "banana", "carrot"],
             tagInput: ''
         };
     }
@@ -87,7 +86,7 @@ export default class Inputs extends Component {
                 <div className="input-group mb-3">
                     <TextInput
                         Component="input"
-                        options={this.state.availableTags}
+                        options={this.props.tags}
                         onChange={(tagInput) => this.setState({tagInput})}
                         onSelect={(option) => this.addTag(option)}
                         value={this.state.tagInput}
