@@ -111,6 +111,7 @@ cardRoutes.put('/:id', auth, async (req, res) => {
     card.prescriptions = r.prescriptions;
     card.notes = r.notes;
     card.cardType = r.cardType;
+    card.tags = r.tags;
     card.files = r.files;
 
     if (r.clinicTitle) {

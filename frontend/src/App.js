@@ -166,7 +166,9 @@ export default class App extends Component {
                                   user={this.state.user}
                                   cards={this.state.cards}
                                   cardTypes={this.state.cardTypes}
+                                  tags={this.state.tags}
                                   requestCardTypes={this.requestCardTypes}
+                                  requestTags={this.requestTags}
                                   requestCards={this.requestCards}
                     />
 

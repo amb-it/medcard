@@ -10,12 +10,13 @@ export default class EditCard extends Component {
         super(props, context);
 
         props.requestCardTypes();
+        props.requestTags();
 
         this.inputs_tab_id = 'inputs_tab';
         this.files_tab_id = 'files_tab';
 
         this.state = {
-            showTab: this.files_tab_id,
+            showTab: this.inputs_tab_id,
             editCard: null
         };
     }
@@ -31,14 +32,23 @@ export default class EditCard extends Component {
         }
     };
 
-    onInputChange = (e) => {
+    // onInputChange = (e) => {
+    //     const editCard = this.state.editCard === null
+    //         ? this.getCard()
+    //         : this.state.editCard;
+    //
+    //     editCard[e.target.id] = e.target.value;
+    //     this.setState({editCard});
+    // };
+
+    editCardChange = (key, value) => {
         const editCard = this.state.editCard === null
             ? this.getCard()
             : this.state.editCard;
 
-        editCard[e.target.id] = e.target.value;
+        editCard[key] = value;
         this.setState({editCard});
-    };
+    }
 
     onAddFile = (filename) => {
         const editCard = this.state.editCard === null
@@ -134,7 +144,8 @@ export default class EditCard extends Component {
                             />
                         : <Inputs
                             card={card}
-                            onInputChange={this.onInputChange}
+                            // onInputChange={this.onInputChange}
+                            editCardChange={this.editCardChange}
                             cardTypes={this.props.cardTypes}
                             />
                     }
