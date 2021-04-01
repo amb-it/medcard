@@ -36,10 +36,10 @@ export default class ShortCard extends Component {
                                 <div className="card_id">запись № {card._id}</div>
                             </div>
                             <div className="col type">
-                                {tags}
                                 {card.cardType
                                     ? <span className='cardType'>{card.cardType.title}</span>
                                     : ''}
+                                {tags}
                             </div>
                         </div>
 

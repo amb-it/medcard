@@ -27,10 +27,10 @@ export default class CardData extends Component {
                             {/*<Moment format="D MMMM YYYY">{card.date}</Moment>*/}
                         </span>
                         <span className="col type">
-                            {tags}
                             <div className="cardType">
                                 {card.cardType ? card.cardType.title : ''}
                             </div>
+                            {tags}
                         </span>
                     </div>
 
