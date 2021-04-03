@@ -149,9 +149,16 @@ header {
         background-color: rgb(250, 250, 250);
         font-size: x-small;
 
-        div {
-          padding-top: 3px;
-          text-decoration: underline;
+        .card_id {
+          span {
+            display: inline-block;
+            padding: 3px;
+          }
+        }
+        time {
+          display: inline-block;
+          padding: 5px;
+          background-color: white;
         }
       }
       .type {

@@ -32,8 +32,9 @@ export default class ShortCard extends Component {
                     <div className="card">
                         <div className="row">
                             <div className="col title">
+                                <div className="card_id">запись № <span>{card._id}</span></div>
+                                <span className="oi oi-calendar" title="icon name" aria-hidden="true" />
                                 <Moment format="D MMMM">{card.date}</Moment>
-                                <div className="card_id">запись № {card._id}</div>
                             </div>
                             <div className="col type">
                                 {card.cardType
