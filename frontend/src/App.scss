@@ -144,46 +144,49 @@ header {
       border: 2px rgb(220, 243, 245) solid;
       font-size: medium;
 
-      .title {
-        padding: 3px 3px 3px 10px;
-        background-color: rgb(250, 250, 250);
-        font-size: x-small;
+      .title_row {
+        padding-bottom: 15px;
 
-        .card_id {
-          span {
+        .title {
+          padding: 3px 3px 3px 10px;
+          background-color: rgb(250, 250, 250);
+          font-size: x-small;
+
+          .card_id {
+            span {
+              display: inline-block;
+              padding: 3px;
+            }
+          }
+          time {
             display: inline-block;
-            padding: 3px;
+            padding: 5px;
+            background-color: white;
           }
         }
-        time {
-          display: inline-block;
-          padding: 5px;
-          background-color: white;
-        }
-      }
-      .type {
-        text-align: right;
+        .type {
+          text-align: right;
 
-        .tag {
-          display: block;
-          padding: 3px;
-          font-size: small;
-          color: mediumblue;
-        }
-        .cardType {
-          display: inline-block;
-          padding: 10px 3px 5px 10px;
-          font-size: small;
-          color: darkblue;
-          opacity: 50%;
+          .tag {
+            display: block;
+            padding: 3px;
+            font-size: small;
+            color: mediumblue;
+          }
+          .cardType {
+            display: inline-block;
+            padding: 10px 3px 5px 10px;
+            font-size: small;
+            color: darkblue;
+            opacity: 50%;
+          }
         }
       }
       .description {
-        padding-top: 10px;
         padding-bottom: 10px;
       }
       .visited {
-        padding-top: 10px;
+        padding-top: 6px;
         padding-left: 10px;
         font-size: small;
 

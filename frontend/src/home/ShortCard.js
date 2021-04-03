@@ -30,7 +30,7 @@ export default class ShortCard extends Component {
             <div>
                 <NavLink to={"card/"+card._id}>
                     <div className="card">
-                        <div className="row">
+                        <div className="row title_row">
                             <div className="col title">
                                 <div className="card_id">запись № <span>{card._id}</span></div>
                                 <span className="oi oi-calendar" title="icon name" aria-hidden="true" />
