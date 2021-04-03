@@ -34,7 +34,7 @@ export default class Inputs extends Component {
     }
 
     addTag = (tag) => {
-        let chosenTags = this.props.editCard.tags;
+        let chosenTags = this.props.card.tags;
         tag= tag.trim();
 
         this.setState({tagInput:''});
@@ -52,7 +52,7 @@ export default class Inputs extends Component {
     }
 
     removeTag = (tag) => {
-        let chosenTags = this.props.editCard.tags;
+        let chosenTags = this.props.card.tags;
         chosenTags = chosenTags.filter(function(value, index, arr){
             return value !== tag;
         })

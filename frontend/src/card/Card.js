@@ -21,11 +21,20 @@ export default class Card extends Component {
         if (this.props.cards.length === 0) {
             this.props.requestCards();
         }
+        let card = null;
+
         for (const cardItem of this.props.cards) {
             if (cardItem._id === +id) {
-                return cardItem;
+                card = cardItem;
             }
         }
+        if (!card) {
+            setTimeout(() => {
+                this.props.requestCards();
+            }, 1000);
+        }
+
+        return card;
     };
 
     onMenuButtonClick = () => {

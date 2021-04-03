@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Inputs from './Inputs';
 import Files from './Files';
+import Dots from "react-activity/lib/Dots";
 
 export default class EditCard extends Component {
     constructor(props, context) {
@@ -31,15 +32,6 @@ export default class EditCard extends Component {
             if (cardItem._id === +card_id) return cardItem;
         }
     };
-
-    // onInputChange = (e) => {
-    //     const editCard = this.state.editCard === null
-    //         ? this.getCard()
-    //         : this.state.editCard;
-    //
-    //     editCard[e.target.id] = e.target.value;
-    //     this.setState({editCard});
-    // };
 
     editCardChange = (key, value) => {
         const editCard = this.state.editCard === null
@@ -94,7 +86,13 @@ export default class EditCard extends Component {
             ? this.state.editCard
             : this.getCard();
 
-        const backUri = '/card/' + card._id;
+        if (!card) {
+            return <Dots size={32} />;
+        }
+
+        const backUri = card
+            ? '/card/'+card._id
+            : '/';
 
         return (
             <div className='container'>
@@ -144,10 +142,11 @@ export default class EditCard extends Component {
                             />
                         : <Inputs
                             card={card}
-                            // onInputChange={this.onInputChange}
-                            editCardChange={this.editCardChange}
                             cardTypes={this.props.cardTypes}
-                            />
+                            tags={this.props.tags}
+                            editCardChange={this.editCardChange}
+                            onTagsChange={this.onTagsChange}
+                        />
                     }
 
                     <hr/>
