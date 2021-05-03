@@ -23,6 +23,8 @@ tagRoutes.get('/', auth, async (req, res) => {
 
     tags.sort();
 
+    tags = [...new Set(tags)]; // leave only unique values
+
     res.send(tags);
 });
 
