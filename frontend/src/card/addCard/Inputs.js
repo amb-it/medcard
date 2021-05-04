@@ -36,7 +36,7 @@ export default class Inputs extends Component {
 
     addTag = (tag) => {
         let chosenTags = this.props.newCard.tags;
-        tag= tag.trim();
+        tag= tag.trim().toLowerCase();
 
         this.setState({tagInput:''});
 

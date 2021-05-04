@@ -35,7 +35,7 @@ export default class Inputs extends Component {
 
     addTag = (tag) => {
         let chosenTags = this.props.card.tags;
-        tag= tag.trim();
+        tag= tag.trim().toLowerCase();
 
         this.setState({tagInput:''});
 
@@ -98,6 +98,7 @@ export default class Inputs extends Component {
                         value={this.state.tagInput}
                         trigger=''
                         spacer=''
+                        regex='^[a-zA-Zа-яА-Я0-9_\-]+$'
                         type="text" className="form-control" placeholder="добавьте тег(и)"
                     />
                     &nbsp;
