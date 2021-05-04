@@ -93,6 +93,7 @@ export default class Inputs extends Component {
                         value={this.state.tagInput}
                         trigger=''
                         spacer=''
+                        regex='^[a-zA-Zа-яА-Я0-9_\-]+$'
                         type="text" className="form-control" placeholder="добавьте тег(и)"
                     />
                     &nbsp;
