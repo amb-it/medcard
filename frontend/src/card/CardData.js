@@ -1,13 +1,33 @@
 import React, { Component } from "react";
 import Moment from 'react-moment';
 
+// import { Document, Page } from 'react-pdf';
+// import { pdfjs } from 'react-pdf';
+// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 export default class CardData extends Component {
+
+    getFileTag(filename) {
+        let result;
+
+        if (['jpg', 'jpeg', 'png'].includes(filename.split('.').pop())) {
+            result = <img src={process.env.REACT_APP_API_ADDRESS + '/' + filename} alt=""/>;
+        // } else if(filename.split('.').pop() === 'pdf') {
+        //     const pageNumber = 1;
+        //     result = <Document file={process.env.REACT_APP_API_ADDRESS + '/' + filename}>
+        //         <Page pageNumber={pageNumber} scale='0.5' />
+        //     </Document>
+        } else {
+            result = <a href={process.env.REACT_APP_API_ADDRESS + '/' + filename}>{filename}</a>;
+        }
+        return result;
+    }
 
     render() {
         const card = this.props.card;
 
         let tags = '';
+        // let files = '';
 
         if (card.tags && card.tags.length > 0) {
             tags = card.tags.map(
@@ -137,8 +157,8 @@ export default class CardData extends Component {
                         <ul className="pictures_list">
                             {card.files.map(
                                 (item, key) => <li key={key}>
-                                    <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} alt=""/>
-                                    {/*<hr />*/}
+                                    {this.getFileTag(item)}
+                                    <hr />
                                 </li>
                             )}
                         </ul>
