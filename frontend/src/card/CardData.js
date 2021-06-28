@@ -27,7 +27,8 @@ export default class CardData extends Component {
         const card = this.props.card;
 
         let tags = '';
-        // let files = '';
+        let images;
+        let otherFiles;
 
         if (card.tags && card.tags.length > 0) {
             tags = card.tags.map(
@@ -36,6 +37,22 @@ export default class CardData extends Component {
                         #{tag}
                     </span>
             )
+        }
+
+        if (card.files.length > 0) {
+            images = card.files.map(function (item, key) {
+                return ['jpg', 'jpeg', 'png'].includes(item.split('.').pop()) ?
+                    <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} key={key} alt=""/>
+                    : null;
+            }).filter(Boolean);
+
+            otherFiles = card.files.map(function (item, key) {
+                return !['jpg', 'jpeg', 'png'].includes(item.split('.').pop()) ?
+                    <div key={key}>
+                        <a href={process.env.REACT_APP_API_ADDRESS + '/' + item}>{item}</a>
+                    </div>
+                    : null;
+            }).filter(Boolean);
         }
 
         return (
@@ -155,12 +172,8 @@ export default class CardData extends Component {
                     {/*<hr />*/}
                     <div className="description">
                         <ul className="pictures_list">
-                            {card.files.map(
-                                (item, key) => <li key={key}>
-                                    {this.getFileTag(item)}
-                                    <hr />
-                                </li>
-                            )}
+                            {images}
+                            {otherFiles}
                         </ul>
                     </div>
                 </div>

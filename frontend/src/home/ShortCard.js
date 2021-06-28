@@ -10,6 +10,8 @@ export default class ShortCard extends Component {
 
         let complaint = '';
         let tags = '';
+        let images;
+        let otherFiles;
 
         if (card.complaint) {
             complaint = card.complaint.length > 130
@@ -24,6 +26,22 @@ export default class ShortCard extends Component {
                         #{tag}
                     </span>
             )
+        }
+
+        if (card.files.length > 0) {
+            images = card.files.map(function (item, key) {
+                return ['jpg', 'jpeg', 'png'].includes(item.split('.').pop()) ?
+                    <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} key={key} alt=""/>
+                    : null;
+            }).filter(Boolean);
+
+            otherFiles = card.files.map(function (item, key) {
+                return !['jpg', 'jpeg', 'png'].includes(item.split('.').pop()) ?
+                    <div key={key}>
+                        <span>{item}</span>
+                    </div>
+                    : null;
+            }).filter(Boolean);
         }
 
         return (
@@ -59,16 +77,12 @@ export default class ShortCard extends Component {
                         : ''}
                         {card.files.length > 0 ?
                         <div className="files">
-                            {card.files.map(
-                                // (item, key) => <span key={key} className="oi oi-file"></span>
-                                (item, key) => <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} key={key} alt=""/>
-                            )}
-                            {/*<span className="text">file(s)</span>*/}
+                            {images}
+                            {otherFiles}
                         </div>
                         : ''}
                     </div>
                 </NavLink>
-                {/*<hr />*/}
             </div>
         );
     }
