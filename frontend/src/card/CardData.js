@@ -49,7 +49,7 @@ export default class CardData extends Component {
             otherFiles = card.files.map(function (item, key) {
                 return !['jpg', 'jpeg', 'png'].includes(item.split('.').pop()) ?
                     <div key={key}>
-                        <a href={process.env.REACT_APP_API_ADDRESS + '/' + item}>{item}</a>
+                        <a href={process.env.REACT_APP_API_ADDRESS + '/' + item}>{item} &nbsp;&nbsp;<span className="oi oi-fullscreen-enter" title="icon name" aria-hidden="true" /></a>
                     </div>
                     : null;
             }).filter(Boolean);
