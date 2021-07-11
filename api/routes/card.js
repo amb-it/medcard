@@ -55,6 +55,10 @@ cardRoutes.post('/', auth, async (req, res) => {
 
     card.user = req.user._id;
 
+    if (r.date) {
+        card.date = r.date;
+    }
+
     if (r.clinicTitle) {
 
         const clinic = {title: r.clinicTitle};
@@ -113,6 +117,10 @@ cardRoutes.put('/:id', auth, async (req, res) => {
     card.cardType = r.cardType;
     card.tags = r.tags;
     card.files = r.files;
+
+    if (r.date) {
+        card.date = r.date;
+    }
 
     if (r.clinicTitle) {
 
