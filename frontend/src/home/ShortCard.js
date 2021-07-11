@@ -12,6 +12,7 @@ export default class ShortCard extends Component {
         let tags = '';
         let images;
         let otherFiles;
+        let dateFormat;
 
         if (card.complaint) {
             complaint = card.complaint.length > 130
@@ -44,6 +45,10 @@ export default class ShortCard extends Component {
             }).filter(Boolean);
         }
 
+        dateFormat = (new Date()).toISOString().substr(0,4) === card.date.substring(0, 4)
+            ? "D MMMM"
+            : "D MMMM Y";
+
         return (
             <div>
                 <NavLink to={"card/"+card._id}>
@@ -52,7 +57,7 @@ export default class ShortCard extends Component {
                             <div className="col title">
                                 <div className="card_id">запись № <span>{card._id}</span></div>
                                 <span className="oi oi-calendar" title="icon name" aria-hidden="true" />
-                                <Moment format="D MMMM">{card.date}</Moment>
+                                <Moment format={dateFormat}>{card.date}</Moment>
                             </div>
                             <div className="col type">
                                 {card.cardType

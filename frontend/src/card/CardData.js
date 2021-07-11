@@ -29,6 +29,7 @@ export default class CardData extends Component {
         let tags = '';
         let images;
         let otherFiles;
+        let dateFormat;
 
         if (card.tags && card.tags.length > 0) {
             tags = card.tags.map(
@@ -55,12 +56,16 @@ export default class CardData extends Component {
             }).filter(Boolean);
         }
 
+        dateFormat = (new Date()).toISOString().substr(0,4) === card.date.substring(0, 4)
+            ? "D MMMM"
+            : "D MMMM Y";
+
         return (
             <div className="card_page">
                 <div className="card_data_box">
                     <div className="row title_elements">
                         <span className="col date">
-                            <Moment format="D MMMM">{card.date}</Moment>
+                            <Moment format={dateFormat}>{card.date}</Moment>
                             {/*<Moment format="D MMMM YYYY">{card.date}</Moment>*/}
                         </span>
                         <span className="col type">

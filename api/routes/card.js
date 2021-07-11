@@ -17,7 +17,7 @@ cardRoutes.get('/', auth, async (req, res) => {
           user: req.user._id,
           deleted_at: {$exists: false}
       })
-      .sort({_id: "desc"})
+      .sort({date: "desc"})
       .populate('cardType')
       .populate('clinic')
       .populate('clinicDepartment')
