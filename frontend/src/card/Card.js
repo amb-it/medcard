@@ -43,7 +43,9 @@ export default class Card extends Component {
 
     deleteCard = () => {
         this.props.deleteCard(this.props.match.params.id);
-        this.props.history.push("/");
+        setTimeout(() => {
+            this.props.history.push("/")
+        },1000);
     };
 
     render() {

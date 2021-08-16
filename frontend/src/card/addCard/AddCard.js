@@ -38,14 +38,13 @@ export default class AddCard extends Component {
     };
     
     saveCard = () => {
-        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards';
         const newCard = this.state.newCard;
+        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards';
         const config = this.props.user.getAuthConfig();
         
         axios.post(apiUrl, newCard, config)
             .then((response) => {
 
-                const newCard = this.state.newCard;
                 this.setState({newCard});
 
                 this.props.history.push('/card/' + response.data._id);

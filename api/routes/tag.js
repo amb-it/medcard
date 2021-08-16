@@ -1,22 +1,17 @@
 import { Router } from 'express';
 
-import Card from "../models/card";
 import auth from '../middleware/auth';
 
 //      ../tags
 const tagRoutes = Router();
 
 tagRoutes.get('/', auth, async (req, res) => {
-    const cards = await Card
-        .find({
-            user: req.user._id,
-            deleted_at: {$exists: false}
-        });
+    const cards = req.user.cards;
 
     let tags = [];
 
     cards.forEach(function(card) {
-        if (card.tags.length > 1) {
+        if (card.tags.length > 0) {
             tags.push(...card.tags);
         }
     });

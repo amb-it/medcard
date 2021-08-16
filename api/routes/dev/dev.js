@@ -8,7 +8,17 @@ const devRoutes = Router();
 devRoutes.post('/db/refresh', async (req, res) => {
 
     if (process.env.ENV !== 'prod') {
-        await clearCollections(['cardtypes']);
+        await clearCollections(
+            [
+                'users',
+                'cards',
+                'cardtypes',
+                'clinics',
+                'clinicdepartments',
+                'doctors',
+                'idcounters'
+            ]
+        );
         await cardTypeSeed();
 
         res.send({"result": "success"});

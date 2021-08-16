@@ -20,7 +20,7 @@ http://localhost:5000
 ---
 Node App (api) will be available:
 
-http://localhost:8080
+http://localhost:8081
 
 ---
 
@@ -29,10 +29,10 @@ http://localhost:8080
 available commands:
 - to migrate (or to refresh) database (with HTTPie CLI tool)
 ```
-http POST localhost:8080/dev/db/refresh
+http POST localhost:8081/dev/db/refresh
 ```
 
 - to get access to auth-required endpoints
 ```
-http localhost:8080/-endpoint- 'Authorization:Bearer -token-'
+http localhost:8081/-endpoint- 'Authorization:Bearer -token-'
 ```

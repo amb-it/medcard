@@ -1,7 +1,8 @@
 import { Router } from 'express';
 import Formidable from 'formidable';
 
-import Card from '../models/card';
+import {Card} from '../models/card';
+import User from "../models/user";
 import Clinic from '../models/clinic';
 import ClinicDepartment from '../models/clinicDepartment';
 import Doctor from '../models/doctor';
@@ -12,16 +13,19 @@ const cardRoutes = Router();
 
 // get all cards
 cardRoutes.get('/', auth, async (req, res) => {
-    const cards = await Card
-      .find({
-          user: req.user._id,
-          deleted_at: {$exists: false}
-      })
-      .sort({_id: "desc"})
-      .populate('cardType')
-      .populate('clinic')
-      .populate('clinicDepartment')
-      .populate('doctor');
+    let user_id = req.user._id;
+
+    let user = await User.findOne({
+        _id: user_id
+    })
+    .populate('cards.cardType')
+    .populate('cards.clinic')
+    .populate('cards.clinicDepartment')
+    .populate('cards.doctor');
+
+    const cards = user.cards
+        .filter(card => !card.deleted_at)
+        .sort((a, b) => a.date < b.date ? 1 : -1)
 
     res.send(cards);
 });
@@ -29,20 +33,16 @@ cardRoutes.get('/', auth, async (req, res) => {
 // save new card
 cardRoutes.post('/', auth, async (req, res) => {
     const r = req.body;
-    let card;
 
-    if (r.complaint) {
-        card = await Card.findOne({
-            complaint: r.complaint,
-            user: req.user._id
-        });
+    let user = req.user;
 
-        if (card) {
-            return res.status(400).send({message: 'Card with such complaint already exists'});
-        }
+    if (user.cards === undefined) {
+        user.cards = [];
     }
 
-    card = new Card;
+    let card = new Card;
+
+    card._id = user.cards.length + 1;
 
     card.complaint = r.complaint;
     card.diagnoses = r.diagnoses;
@@ -52,8 +52,6 @@ cardRoutes.post('/', auth, async (req, res) => {
     card.cardType = r.cardType;
     card.tags = r.tags;
     card.files = r.files;
-
-    card.user = req.user._id;
 
     if (r.clinicTitle) {
 
@@ -91,8 +89,10 @@ cardRoutes.post('/', auth, async (req, res) => {
             .then(result => card.doctor = result.doc._id);
     }
 
-    await card.save()
-        .then(data => {res.send(data);})
+    user.cards.push(card);
+
+    await user.save()
+        .then(data => {res.send(card);})
         .catch(err => {res.status(500).send({message: err.message || "Some error occurred while saving new card."});});
 });
 
@@ -100,10 +100,9 @@ cardRoutes.post('/', auth, async (req, res) => {
 cardRoutes.put('/:id', auth, async (req, res) => {
     const r = req.body;
 
-    let card = await Card.findOne({
-        _id: req.params.id,
-        user: req.user._id
-    });
+    let user = req.user;
+
+    let card = user.cards.id(req.params.id);
 
     card.complaint = r.complaint;
     card.diagnoses = r.diagnoses;
@@ -150,7 +149,7 @@ cardRoutes.put('/:id', auth, async (req, res) => {
             .then(result => card.doctor = result.doc._id);
     }
 
-    await card.save()
+    await user.save()
         .then(data => {res.send(data);})
         .catch(err => {res.status(500).send({message: err.message || "Some error occurred while saving edited card."});});
 });
@@ -175,14 +174,13 @@ cardRoutes.post('/files', (req, res) => {
 });
 
 cardRoutes.delete('/:id', auth, async (req, res) => {
-    let card = await Card.findOne({
-        _id: req.params.id,
-        user: req.user._id
-    });
+    let user = req.user;
+
+    let card = user.cards.id(req.params.id);
 
     card.deleted_at = Date.now();
 
-    await card.save()
+    await user.save()
         .then(data => {res.send(data);})
         .catch(err => {res.status(500).send({message: err.message || "Some error occurred while deleting card."});})
 });

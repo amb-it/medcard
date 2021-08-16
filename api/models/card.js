@@ -1,13 +1,9 @@
 import mongoose from 'mongoose';
-import { MongooseAutoIncrementID } from 'mongoose-auto-increment-reworked';
 
 mongoose.set('useFindAndModify', false);
 
 let cardSchema = new mongoose.Schema({
-    user: {
-        type: Number,
-        ref: 'User'
-    },
+    _id: Number,
     date: { type: Date, default: Date.now },
     cardType: {
         type: Number,
@@ -35,6 +31,6 @@ let cardSchema = new mongoose.Schema({
     deleted_at: { type: Date }
 });
 
-cardSchema.plugin(MongooseAutoIncrementID.plugin, {modelName: 'Card'});
+let Card = mongoose.model('Card', cardSchema);
 
-export default mongoose.model('Card', cardSchema);
+export {cardSchema, Card};

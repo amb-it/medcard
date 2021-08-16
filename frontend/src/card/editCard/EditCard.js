@@ -65,17 +65,16 @@ export default class EditCard extends Component {
     };
 
     saveCard = () => {
-        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards/' + this.state.editCard._id;
         const editCard = this.state.editCard;
+        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards/' + editCard._id;
         const config = this.props.user.getAuthConfig();
 
         axios.put(apiUrl, editCard, config)
             .then((response) => {
 
-                const editCard = this.state.editCard;
                 this.setState({editCard});
 
-                this.props.history.push('/card/' + response.data._id);
+                this.props.history.push('/card/' + editCard._id);
 
             })
             .catch(error => { console.log(error); })
@@ -103,6 +102,7 @@ export default class EditCard extends Component {
                     <span className='card_page_title'>Редактировать запись</span>
                     <button
                         onClick={this.saveCard}
+                        disabled={!this.state.editCard}
                         className='btn menu_button float-right right_icon'>
                         <span className='oi oi-check'/>
                     </button>
@@ -160,6 +160,7 @@ export default class EditCard extends Component {
                         <div className='col-6 text-center'>
                             <button
                                 onClick={this.saveCard}
+                                disabled={!this.state.editCard}
                                 className='btn btn-success'>сохранить</button>
                         </div>
                     </div>

@@ -4,6 +4,9 @@ import validator from 'validator';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
+import {cardSchema} from './card';
+
+
 const userSchema = mongoose.Schema({
     name: {
         type: String,
@@ -24,13 +27,17 @@ const userSchema = mongoose.Schema({
     password: {
         type: String,
         required: true,
-        minLength: 7
+        minLength: 1
     },
     tokens: [{
         token: {
             type: String,
             required: true
         }
+    }],
+    cards: [{
+        type: cardSchema,
+        ref: 'Card'
     }]
 });
 
