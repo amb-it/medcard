@@ -10,6 +10,9 @@ export default class ShortCard extends Component {
 
         let complaint = '';
         let tags = '';
+        let images;
+        let otherFiles;
+        let dateFormat;
 
         if (card.complaint) {
             complaint = card.complaint.length > 130
@@ -26,6 +29,26 @@ export default class ShortCard extends Component {
             )
         }
 
+        if (card.files.length > 0) {
+            images = card.files.map(function (item, key) {
+                return ['jpg', 'jpeg', 'png'].includes(item.split('.').pop()) ?
+                    <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} key={key} alt=""/>
+                    : null;
+            }).filter(Boolean);
+
+            otherFiles = card.files.map(function (item, key) {
+                return !['jpg', 'jpeg', 'png'].includes(item.split('.').pop()) ?
+                    <div key={key}>
+                        <span>{item}</span>
+                    </div>
+                    : null;
+            }).filter(Boolean);
+        }
+
+        dateFormat = (new Date()).toISOString().substr(0,4) === card.date.substring(0, 4)
+            ? "D MMMM"
+            : "D MMMM Y";
+
         return (
             <div>
                 <NavLink to={"card/"+card._id}>
@@ -34,7 +57,7 @@ export default class ShortCard extends Component {
                             <div className="col title">
                                 <div className="card_id">запись № <span>{card._id}</span></div>
                                 <span className="oi oi-calendar" title="icon name" aria-hidden="true" />
-                                <Moment format="D MMMM">{card.date}</Moment>
+                                <Moment format={dateFormat}>{card.date}</Moment>
                             </div>
                             <div className="col type">
                                 {card.cardType
@@ -59,16 +82,12 @@ export default class ShortCard extends Component {
                         : ''}
                         {card.files.length > 0 ?
                         <div className="files">
-                            {card.files.map(
-                                // (item, key) => <span key={key} className="oi oi-file"></span>
-                                (item, key) => <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} key={key} alt=""/>
-                            )}
-                            {/*<span className="text">file(s)</span>*/}
+                            {images}
+                            {otherFiles}
                         </div>
                         : ''}
                     </div>
                 </NavLink>
-                {/*<hr />*/}
             </div>
         );
     }

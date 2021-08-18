@@ -108,6 +108,13 @@ export default class Inputs extends Component {
                 </div>
                 {this.renderTags()}
 
+                <div className="input-group mb-3">
+                    <input
+                        onChange={this.onInputChange}
+                        id="date"
+                        defaultValue={card.date.substr(0,10)}
+                        type="date" className="form-control" placeholder="дата" />
+                </div>
                 <hr />
                 <h2 className="badge badge-secondary">
                     <span className="oi oi-home" title="icon name" aria-hidden="true" />

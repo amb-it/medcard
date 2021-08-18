@@ -1,13 +1,35 @@
 import React, { Component } from "react";
 import Moment from 'react-moment';
 
+// import { Document, Page } from 'react-pdf';
+// import { pdfjs } from 'react-pdf';
+// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 export default class CardData extends Component {
+
+    getFileTag(filename) {
+        let result;
+
+        if (['jpg', 'jpeg', 'png'].includes(filename.split('.').pop())) {
+            result = <img src={process.env.REACT_APP_API_ADDRESS + '/' + filename} alt=""/>;
+        // } else if(filename.split('.').pop() === 'pdf') {
+        //     const pageNumber = 1;
+        //     result = <Document file={process.env.REACT_APP_API_ADDRESS + '/' + filename}>
+        //         <Page pageNumber={pageNumber} scale='0.5' />
+        //     </Document>
+        } else {
+            result = <a href={process.env.REACT_APP_API_ADDRESS + '/' + filename}>{filename}</a>;
+        }
+        return result;
+    }
 
     render() {
         const card = this.props.card;
 
         let tags = '';
+        let images;
+        let otherFiles;
+        let dateFormat;
 
         if (card.tags && card.tags.length > 0) {
             tags = card.tags.map(
@@ -18,12 +40,32 @@ export default class CardData extends Component {
             )
         }
 
+        if (card.files.length > 0) {
+            images = card.files.map(function (item, key) {
+                return ['jpg', 'jpeg', 'png'].includes(item.split('.').pop()) ?
+                    <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} key={key} alt=""/>
+                    : null;
+            }).filter(Boolean);
+
+            otherFiles = card.files.map(function (item, key) {
+                return !['jpg', 'jpeg', 'png'].includes(item.split('.').pop()) ?
+                    <div key={key}>
+                        <a href={process.env.REACT_APP_API_ADDRESS + '/' + item}>{item} &nbsp;&nbsp;<span className="oi oi-fullscreen-enter" title="icon name" aria-hidden="true" /></a>
+                    </div>
+                    : null;
+            }).filter(Boolean);
+        }
+
+        dateFormat = (new Date()).toISOString().substr(0,4) === card.date.substring(0, 4)
+            ? "D MMMM"
+            : "D MMMM Y";
+
         return (
             <div className="card_page">
                 <div className="card_data_box">
                     <div className="row title_elements">
                         <span className="col date">
-                            <Moment format="D MMMM">{card.date}</Moment>
+                            <Moment format={dateFormat}>{card.date}</Moment>
                             {/*<Moment format="D MMMM YYYY">{card.date}</Moment>*/}
                         </span>
                         <span className="col type">
@@ -135,12 +177,8 @@ export default class CardData extends Component {
                     {/*<hr />*/}
                     <div className="description">
                         <ul className="pictures_list">
-                            {card.files.map(
-                                (item, key) => <li key={key}>
-                                    <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} alt=""/>
-                                    {/*<hr />*/}
-                                </li>
-                            )}
+                            {images}
+                            {otherFiles}
                         </ul>
                     </div>
                 </div>

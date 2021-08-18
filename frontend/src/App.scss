@@ -205,6 +205,15 @@ header {
           border: 1px rgb(220, 243, 245) solid;
           filter: opacity(50%);
         }
+        div {
+          margin-top: 10px;
+
+          span {
+            padding: 3px;
+            background-color: #f3f0f3;
+            border-radius: 3px;
+          }
+        }
 
         .text {
           margin-left: 10px;
@@ -275,6 +284,12 @@ header {
         margin-top: 10px;
         border: 1px lightgray solid;
         border-radius: 2px;
+      }
+      div {
+        margin-top: 5px;
+        padding: 10px 30px;
+        background-color: #f3f0f3;
+        border-radius: 5px;
       }
     }
   }
