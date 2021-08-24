@@ -100,8 +100,10 @@ export default class Inputs extends Component {
                     <button
                         onClick={() => this.addTag(this.state.tagInput)}
                         className='btn btn-light'>+</button>
+                    <div className='tags'>
+                        {this.renderTags()}
+                    </div>
                 </div>
-                {this.renderTags()}
 
                 <div className="input-group mb-3">
                     <input
