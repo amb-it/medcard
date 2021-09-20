@@ -54,10 +54,13 @@ export default class Home extends Component {
         let cardsFiltered = this.state.cards;
 
         if (input.length !== 0) {
-            cardsFiltered = this.state.cards.filter(
-                card => card.complaint && card.complaint.toLowerCase().includes(input.toLowerCase())
-            );
-
+            cardsFiltered = this.state.cards.filter(function(card) {
+                    return (card.complaint && card.complaint.toLowerCase().includes(input.toLowerCase()))
+                        || (card.cardType && card.cardType.title.toLowerCase().includes(input.toLowerCase()))
+                        || (card.tags && card.tags.join().includes(input.toLowerCase()))
+                        || (card.doctor && card.doctor.surname.toLowerCase().includes(input.toLowerCase()))
+                        || (card.clinic && card.clinic.title.toLowerCase().includes(input.toLowerCase()))
+            });
         }
 
         this.setState({cardsFiltered});
