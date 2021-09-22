@@ -13,11 +13,12 @@ export default class MainMenu extends Component {
             <div className={menuClassName}>
                 <div className="user_data">
                     <span className="oi oi-person" />
-                    <b>{this.props.user.name}</b>
+                    <b>{this.props.user.profile.name}</b>
                 </div>
                 <ul>
-                    {/*<li><NavLink to="/under-construction">My bio</NavLink></li>*/}
-                    <li><NavLink to="/under-construction">Настройки</NavLink></li>
+                    <li><NavLink to="/">Медицинская история</NavLink></li>
+                    <li><NavLink to="/profile">Профиль</NavLink></li>
+                    {/*<li><NavLink to="/under-construction">Настройки</NavLink></li>*/}
                     {/*<li><NavLink to="/under-construction">Clinics</NavLink></li>*/}
                     {/*<li><NavLink to="/under-construction">Share</NavLink></li>*/}
                     {/*<li><NavLink to="/under-construction">About</NavLink></li>*/}

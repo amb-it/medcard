@@ -1,5 +1,6 @@
 import express, { Router } from 'express';
 import User from '../models/user';
+import auth from '../middleware/auth';
 
 //      ../user
 const userRoutes = Router();
@@ -14,6 +15,7 @@ userRoutes.post('/register', async (req, res) => {
             });
 
         let user = new User(req.body);
+        user.profile = {"name": req.body.name}
 
         await user.save()
             .catch((e) => {throw e});
@@ -35,6 +37,26 @@ userRoutes.post('/login', async (req, res) => {
         const token = await user.generateAuthToken();
 
         res.send({ user, token })
+    } catch (err) {
+        res.status(400).send(err.message)
+    }
+});
+
+userRoutes.get('/profile', auth, async (req, res) => {
+        let user = await User.findById(req.user._id);
+
+        res.send(user)
+});
+
+userRoutes.post('/profile/save', auth, async (req, res) => {
+    try {
+        let user = await User.findById(req.user._id);
+
+        user.profile = req.body;
+
+        await user.save()
+            .then(data => {res.send(data);})
+            .catch(err => {res.status(500).send({message: err.message || "Some error occurred while editing profile."});})
     } catch (err) {
         res.status(400).send(err.message)
     }

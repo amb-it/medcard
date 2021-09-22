@@ -127,6 +127,22 @@ header {
   }
 }
 
+
+// profile page
+.profile_page {
+  padding: 10px;
+
+  .edit_button {
+    margin: 10px;
+    font-size: x-small;
+  }
+  .table {
+    .title {
+      font-size: smaller;
+    }
+  }
+}
+
 // home page
 .home_page {
   padding: 10px;

@@ -8,11 +8,11 @@ import {cardSchema} from './card';
 
 
 const userSchema = mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        trim: true
-    },
+    // name: {
+    //     type: String,
+    //     required: true,
+    //     trim: true
+    // },
     email: {
         type: String,
         required: true,
@@ -35,6 +35,31 @@ const userSchema = mongoose.Schema({
             required: true
         }
     }],
+    profile: {
+        name: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        birthdate: {
+            type: String,
+        },
+        weight: {
+            type: String,
+        },
+        blood: {
+            type: String,
+        },
+        chronics: {
+            type: String,
+        },
+        allergies: {
+            type: String,
+        },
+        other: {
+            type: String,
+        },
+    },
     cards: [{
         type: cardSchema,
         ref: 'Card'

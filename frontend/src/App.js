@@ -16,6 +16,8 @@ import Home from "./home/Home";
 import Card from "./card/Card";
 import AddCard from "./card/addCard/AddCard";
 import EditCard from "./card/editCard/EditCard";
+import Profile from "./profile/Profile";
+import ProfileEdit from "./profile/ProfileEdit";
 
 
 export default class App extends Component {
@@ -151,6 +153,17 @@ export default class App extends Component {
                                   user={this.state.user}
                                   cards={this.state.cards}
                                   requestCards={this.requestCards}
+                    />
+
+                    <PrivateRoute exact path="/profile"
+                                  component={Profile}
+                                  user={this.state.user}
+                    />
+
+                    <PrivateRoute exact path="/profile/edit"
+                                  component={ProfileEdit}
+                                  requestProfile={this.requestProfile}
+                                  user={this.state.user}
                     />
 
                     <PrivateRoute exact path="/card/:id"
