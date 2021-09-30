@@ -7,6 +7,8 @@ help:
 	@echo "make stage-up"
 	@echo "make stage-down"
 	@echo "make fe-build"
+	@echo "make mongo-stage"
+	@echo "make mongo-dev"
 	@echo "make enter-server"
 	@echo '--------------------'
 
@@ -24,6 +26,12 @@ stage-down:
 
 fe-build:
 	sh ./infra/scripts/export_env_vars.sh
+
+mongo-stage:
+	docker exec -it medcard_stage_mongo bash
+
+mongo-dev:
+	docker exec -it medcard_dev_mongo bash
 
 enter-server:
 	echo "cd projects/medcard" && ssh root@vm1066258.had.tf
