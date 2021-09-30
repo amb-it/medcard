@@ -37,8 +37,20 @@ export default class Profile extends Component {
         this.setState({visibleMainMenu: !this.state.visibleMainMenu});
     };
 
+    getAge = (bd) => {}
+
     render() {
         const profile = this.state.profile;
+
+        let age = profile.birthdate
+            ? (new Date()).getFullYear() - profile.birthdate.substring(0,4)
+            : null;
+
+        // if (profile.birthdate) {
+        //     console.log(parseInt((new Date()).getFullYear()));
+        //     console.log(parseInt(profile.birthdate.substring(0,4)));
+        //     console.log(parseInt((new Date()).getFullYear()) - parseInt(profile.birthdate.substring(0,4)));
+        // }
 
         return (
             <div className="container">
@@ -80,13 +92,13 @@ export default class Profile extends Component {
                                 <td className="title">Дата рождения: </td>
                                 <td>{profile.birthdate}</td>
                             </tr>
-                        {/*<tr>*/}
-                        {/*    <td className="title">Возраст (лет)</td>*/}
-                        {/*    <td>33</td>*/}
-                        {/*</tr>*/}
+                        <tr>
+                            <td className="title">Возраст</td>
+                            <td>{age ? age : ''}{ age ? ' года/лет' : '' }</td>
+                        </tr>
                             <tr>
-                                <td className="title">Вес (кг)</td>
-                                <td>{profile.weight}</td>
+                                <td className="title">Вес</td>
+                                <td>{profile.weight}{ profile.weight ? ' кг' : '' }</td>
                             </tr>
                             <tr>
                                 <td className="title">Кровь:</td>
