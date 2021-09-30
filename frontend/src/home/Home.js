@@ -58,7 +58,7 @@ export default class Home extends Component {
                     return (card.complaint && card.complaint.toLowerCase().includes(input.toLowerCase()))
                         || (card.cardType && card.cardType.title.toLowerCase().includes(input.toLowerCase()))
                         || (card.tags && card.tags.join().includes(input.toLowerCase()))
-                        || (card.doctor && card.doctor.surname.toLowerCase().includes(input.toLowerCase()))
+                        || (card.doctor && card.doctor.name.toLowerCase().includes(input.toLowerCase()))
                         || (card.clinic && card.clinic.title.toLowerCase().includes(input.toLowerCase()))
             });
         }
