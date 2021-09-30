@@ -38,9 +38,7 @@ export default class Profile extends Component {
     };
 
     render() {
-        // this.requestProfile();
         const profile = this.state.profile;
-        // let profile = this.props.user.profile;
 
         return (
             <div className="container">
@@ -105,6 +103,14 @@ export default class Profile extends Component {
                             <tr>
                                 <td className="title">Другое:</td>
                                 <td>{profile.other}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td className="title">email: </td>
+                                <td>{this.props.user.email}</td>
                             </tr>
 
                         </tbody>
