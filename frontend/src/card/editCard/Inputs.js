@@ -159,14 +159,14 @@ export default class Inputs extends Component {
                 <div className="input-group mb-3">
                     <input
                         onChange={this.onInputChange}
-                        value={card.doctor ? card.doctor.name : ''}
+                        value={card.doctorName ? card.doctorName : card.doctor ? card.doctor.name : ''}
                         id="doctorName"
                         type="text" className="form-control" placeholder="Имя" />
                 </div>
                 <div className="input-group mb-3">
                   <input
                       onChange={this.onInputChange}
-                      value={card.doctor ? card.doctor.specialization : ''}
+                      value={card.doctorSpecialization ? card.doctorSpecialization : card.doctor ? card.doctor.specialization : ''}
                       id="doctorSpecialization"
                       type="text" className="form-control" placeholder="Специализация (например 'терапевт')" />
                 </div>
