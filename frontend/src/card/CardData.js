@@ -104,13 +104,19 @@ export default class CardData extends Component {
                             }
                         </div>
                         }
-                        { card.doctor &&
+                    </div>
+                    }
+
+                    { card.doctor &&
+                    <div className="paragraph">
+                        <div className="title">
+                            <span className="oi oi-badge" title="icon name" aria-hidden="true" />
+                            Врач
+                        </div>
                         <div className="description">
-                            <div>-</div>
-                            { card.doctor.surname ? card.doctor.surname : ''}&nbsp;
+                            { card.doctor.specialization ? <small>{card.doctor.specialization} &nbsp;</small> : ''}
                             { card.doctor.name ? card.doctor.name : ''}
                         </div>
-                        }
                     </div>
                     }
 

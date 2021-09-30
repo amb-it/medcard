@@ -83,12 +83,12 @@ cardRoutes.post('/', auth, async (req, res) => {
         }
     }
 
-    if (r.doctorSurname && r.doctorName) {
+    if (r.doctorName) {
         await Doctor.findOrCreate({
             name: r.doctorName,
-            surname: r.doctorSurname
+            specialization: r.doctorSpecialization
         }, {
-            title: r.doctorTitle
+            category: r.doctorCategory
         })
             .then(result => card.doctor = result.doc._id);
     }
@@ -147,12 +147,12 @@ cardRoutes.put('/:id', auth, async (req, res) => {
         }
     }
 
-    if (r.doctorSurname && r.doctorName) {
+    if (r.doctorName) {
         await Doctor.findOrCreate({
             name: r.doctorName,
-            surname: r.doctorSurname
+            specialization: r.doctorSpecialization
         }, {
-            title: r.doctorTitle
+            category: r.doctorCategory
         })
             .then(result => card.doctor = result.doc._id);
     }

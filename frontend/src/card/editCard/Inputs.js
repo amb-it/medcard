@@ -157,20 +157,19 @@ export default class Inputs extends Component {
                     Врач
                 </h2>
                 <div className="input-group mb-3">
-                  <input
-                      onChange={this.onInputChange}
-                      value={card.doctorSurname ? card.doctorSurname : card.doctor ? card.doctor.surname : ''}
-                      id="doctorSurname"
-                      type="text" className="form-control" placeholder="Фамилия" />
+                    <input
+                        onChange={this.onInputChange}
+                        value={card.doctor ? card.doctor.name : ''}
+                        id="doctorName"
+                        type="text" className="form-control" placeholder="Имя" />
                 </div>
                 <div className="input-group mb-3">
                   <input
                       onChange={this.onInputChange}
-                      value={card.doctorName ? card.doctorName : card.doctor ? card.doctor.name : ''}
-                      id="doctorName"
-                      type="text" className="form-control" placeholder="Имя" />
+                      value={card.doctor ? card.doctor.specialization : ''}
+                      id="doctorSpecialization"
+                      type="text" className="form-control" placeholder="Специализация (например 'терапевт')" />
                 </div>
-
                 <hr />
                 <h2 className="badge badge-secondary">
                     <span className="oi oi-info" title="icon name" aria-hidden="true" />

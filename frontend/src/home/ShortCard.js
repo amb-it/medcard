@@ -77,7 +77,10 @@ export default class ShortCard extends Component {
                         {card.doctor ?
                         <div className="visited">
                             <span className="oi oi-person" title="icon name" aria-hidden="true" />
-                            { card.doctor.name + ' ' + card.doctor.surname }
+                            { card.doctor.specialization ?
+                                <small>{ card.doctor.specialization } </small>
+                                : ''}
+                            { card.doctor.name }
                         </div>
                         : ''}
                         {card.files.length > 0 ?

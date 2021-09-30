@@ -150,14 +150,14 @@ export default class Inputs extends Component {
                 <div className="input-group mb-3">
                   <input
                       onChange={this.onInputChange}
-                      id="doctorSurname"
-                      type="text" className="form-control" placeholder="Фамилия" />
+                      id="doctorName"
+                      type="text" className="form-control" placeholder="ФИО" />
                 </div>
                 <div className="input-group mb-3">
                   <input
                       onChange={this.onInputChange}
-                      id="doctorName"
-                      type="text" className="form-control" placeholder="Имя" />
+                      id="doctorSpecialization"
+                      type="text" className="form-control" placeholder="Специализация (например 'терапевт')" />
                 </div>
 
                 <hr />

@@ -4,8 +4,8 @@ import { MongooseAutoIncrementID } from 'mongoose-auto-increment-reworked';
 
 let doctorSchema = new mongoose.Schema({
     name: String,
-    surname: String,
-    title: String,
+    specialization: String,
+    category: String,
     clinic: {
         type: Number,
         ref: 'Clinic'
