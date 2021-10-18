@@ -94,12 +94,12 @@ export default class Inputs extends Component {
                         trigger=''
                         spacer=''
                         regex='^[a-zA-Zа-яА-Я0-9_\-]+$'
-                        type="text" className="form-control" placeholder="добавьте тег(и)"
+                        type="text" className="form-control" placeholder="теги (ключевые слова)"
                     />
                     &nbsp;
                     <button
                         onClick={() => this.addTag(this.state.tagInput)}
-                        className='btn btn-light'>+</button>
+                        className='btn btn-sm btn-light'>добавить</button>
                     <div className='tags'>
                         {this.renderTags()}
                     </div>

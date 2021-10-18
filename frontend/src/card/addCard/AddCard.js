@@ -78,7 +78,7 @@ export default class AddCard extends Component {
                                 id={this.inputs_tab_id}
                                 className={this.state.showTab === this.inputs_tab_id ? 'nav-item nav-link active' : 'nav-item nav-link'}
                                 data-toggle='tab' role='tab' aria-controls='nav-home' aria-selected='true'>
-                                <span className='oi oi-align-center' />
+                                <span className='oi oi-align-center' /> <small>текст</small>
                                 {/*Inputs*/}
                             </button>
                             <button
@@ -86,9 +86,9 @@ export default class AddCard extends Component {
                                 id={this.files_tab_id}
                                 className={this.state.showTab === this.files_tab_id ? 'nav-item nav-link active' : 'nav-item nav-link'}
                                 data-toggle='tab' role='tab' aria-controls='nav-profile' aria-selected='false'>
-                                <span className='oi oi-file' />
-                                &nbsp;&nbsp;
                                 <span className='oi oi-camera-slr' />
+                                &nbsp;&nbsp;
+                                <span className='oi oi-file' /> <small>фото и файлы</small>
                                 {/*Files, pictures*/}
                             </button>
                         </div>
