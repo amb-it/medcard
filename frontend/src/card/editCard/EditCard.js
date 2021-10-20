@@ -161,7 +161,7 @@ export default class EditCard extends Component {
                             <button
                                 onClick={this.saveCard}
                                 disabled={!this.state.editCard}
-                                className='btn btn-success'>сохранить</button>
+                                className='btn btn-success'>сохранить запись</button>
                         </div>
                     </div>
 

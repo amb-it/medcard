@@ -118,7 +118,7 @@ export default class AddCard extends Component {
                         <div className='col-6 text-center'>
                             <button
                                 onClick={this.saveCard}
-                                className='btn btn-success'>сохранить</button>
+                                className='btn btn-success'>сохранить запись</button>
                         </div>
                     </div>
 

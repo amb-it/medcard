@@ -12,11 +12,16 @@ export default class Home extends Component {
         this.state = {
             visibleMainMenu: false,
             visibleSearchInput: false,
+            visibleAddCardText: true,
             cards: [],
             cardsFiltered: []
         };
 
         this.props.requestCards();
+    }
+
+    componentDidMount() {
+        this.interval = setInterval(() => this.setState({ visibleAddCardText: false }), 1500);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -120,8 +125,8 @@ export default class Home extends Component {
                     {this.renderCards()}
                 </div>
 
-                <NavLink to="/add-card" className="btn menu_button add_card_link">
-                    <span className="oi oi-plus" title="icon name" aria-hidden="true" />
+                <NavLink to="/add-card" className="btn add_card_link">
+                    <span className={'text' + (this.state.visibleAddCardText ? '' : ' collapsible')}>Добавить запись</span><span className="oi oi-plus" title="icon name" aria-hidden="true" />
                 </NavLink>
             </div>
         );

@@ -24,8 +24,9 @@ export default class Files extends Component {
         
         return (
             <div className="filepond_box">
+                <p>Добавьте к записи фотографии или файлы выписок, справок, анализов или любые другие файлы</p>
                 <FilePond
-                    labelIdle="<span class='btn btn-outline-primary'>Нажмите <b>здесь</b> чтоб сфотографировать и прикрепить к записи выписки, анализы или другие файлы ...</span>"
+                    labelIdle="<span class='btn btn-outline-primary'>Сфотографировать или выбрать файлы нажмите здесь</span>"
                     allowMultiple={true}
                     imageResizeTargetWidth={1024}
                     imageResizeUpscale={false}

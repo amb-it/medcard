@@ -120,10 +120,20 @@ header {
   padding: 10px 15px 8px 15px;
   border-radius: 30px;
   background-color: green;
-  font-size: larger;
+  color: white;
+  transition: all 2s ease-out;
 
+  .text {
+    display: inline-block;
+    margin-right: 10px;
+    transition: all 1s ease-out;
+  }
+  .collapsible {
+    margin: -64px;
+    opacity: 0;
+  }
   .oi {
-    color: white;
+    font-size: larger;
   }
 }
 
@@ -328,6 +338,10 @@ header {
   }
   .filepond_box {
     margin-bottom: 150px;
+
+    p {
+      font-size: small;
+    }
   }
   //.previously_loaded_title {
   //  font-size: small;
