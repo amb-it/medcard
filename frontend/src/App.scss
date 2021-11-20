@@ -138,6 +138,31 @@ header {
 }
 
 
+// landing page
+.landing_page {
+  text-align: center;
+
+  h1 {
+    padding-top: 50px;
+    font-size: large;
+  }
+  .screenshots {
+    padding-top: 20px;
+    padding-bottom: 30px;
+
+    img {
+      max-width: 30%;
+      padding: 8px;
+    }
+  }
+  h2 {
+    padding-top: 50px;
+    padding-bottom: 10px;
+    font-size: small;
+  }
+}
+
+
 // profile page
 .profile_page {
   padding: 10px;

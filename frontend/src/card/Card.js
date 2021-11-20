@@ -44,7 +44,7 @@ export default class Card extends Component {
     deleteCard = () => {
         this.props.deleteCard(this.props.match.params.id);
         setTimeout(() => {
-            this.props.history.push("/")
+            this.props.history.push("/home")
         },1000);
     };
 
@@ -55,7 +55,7 @@ export default class Card extends Component {
         return (
             <div className="container">
                 <header>
-                    <NavLink to="/" className="btn menu_button">
+                    <NavLink to="/home" className="btn menu_button">
                         <span className="oi oi-caret-left" title="icon name" aria-hidden="true" />
                     </NavLink>
                     <span className="card_page_title">Запись &nbsp; № {card_id}</span>

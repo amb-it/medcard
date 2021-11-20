@@ -20,9 +20,9 @@ export default class Home extends Component {
         this.props.requestCards();
     }
 
-    componentDidMount() {
-        this.interval = setInterval(() => this.setState({ visibleAddCardText: false }), 1500);
-    }
+    // componentDidMount() {
+    //     this.interval = setInterval(() => this.setState({ visibleAddCardText: false }), 1500);
+    // }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.cards !== prevProps.cards) {
@@ -126,7 +126,8 @@ export default class Home extends Component {
                 </div>
 
                 <NavLink to="/add-card" className="btn add_card_link">
-                    <span className={'text' + (this.state.visibleAddCardText ? '' : ' collapsible')}>Добавить запись</span><span className="oi oi-plus" title="icon name" aria-hidden="true" />
+                    {/*<span className={'text' + (this.state.visibleAddCardText ? '' : ' collapsible')}>Добавить запись</span>*/}
+                    <span className="oi oi-plus" title="icon name" aria-hidden="true" />
                 </NavLink>
             </div>
         );

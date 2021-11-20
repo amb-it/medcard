@@ -12,7 +12,7 @@ export default class Login extends Component {
         this.state = {};
 
         if (this.props.authenticated) {
-            this.props.history.push('/');
+            this.props.history.push('/home');
         }
     }
 
@@ -50,7 +50,7 @@ export default class Login extends Component {
         axios.post(apiUrl, this.state)
             .then(response => {
                 this.props.authenticate(response.data.user);
-                this.props.history.push('/');
+                this.props.history.push('/home');
 
             })
             .catch(error => {
@@ -97,7 +97,7 @@ export default class Login extends Component {
                     </div>
                     <div className="col-5 text-right">
                         <small>или</small> &nbsp;
-                        <NavLink to={"register"}>зарегистрировать</NavLink>
+                        <NavLink to={"register"}>зарегистрироваться</NavLink>
                     </div>
                 </div>
             </div>

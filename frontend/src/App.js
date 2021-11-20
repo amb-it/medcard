@@ -12,6 +12,7 @@ import Register from "./user/auth/Register";
 import Login from "./user/auth/Login";
 import Logout from "./user/auth/Logout";
 import UnderConstruction from "./service/UnderConstruction";
+import Landing from "./landing/Landing";
 import Home from "./home/Home";
 import Card from "./card/Card";
 import AddCard from "./card/addCard/AddCard";
@@ -148,7 +149,14 @@ export default class App extends Component {
                            render={(props) => (
                                <UnderConstruction {...props} />)}/>
 
-                    <PrivateRoute exact path="/"
+                    <Route exact path="/"
+                           render={(props) => (
+                               <Landing {...props}
+                                   user={this.state.user}
+                               />)}
+                    />
+
+                    <PrivateRoute exact path="/home"
                                   component={Home}
                                   user={this.state.user}
                                   cards={this.state.cards}

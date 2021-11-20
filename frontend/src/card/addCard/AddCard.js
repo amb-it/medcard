@@ -57,7 +57,7 @@ export default class AddCard extends Component {
         return (
             <div className='container'>
                 <header>
-                    <NavLink to='/' className='btn menu_button'>
+                    <NavLink to='/home' className='btn menu_button'>
                         <span className='oi oi-x'/>
                     </NavLink>
                     <span className='card_page_title'>Новая запись</span>
@@ -111,7 +111,7 @@ export default class AddCard extends Component {
 
                     <div className='row md-5'>
                         <div className='col-6 text-center'>
-                            <NavLink to='/' className='btn btn-outline-danger menu_button'>
+                            <NavLink to='/home' className='btn btn-outline-danger menu_button'>
                                 отмена
                             </NavLink>
                         </div>

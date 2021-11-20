@@ -5,7 +5,7 @@ export default class Logout extends Component {
     componentDidMount() {
         this.props.logout();
 
-        this.props.history.push('/login');
+        this.props.history.push('/');
     }
 
     render() {
