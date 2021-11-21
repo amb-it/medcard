@@ -33,6 +33,7 @@ app.use('/card-types', cardTypeRoutes);
 app.use('/tags', tagRoutes);
 
 app.use(express.static('user_files/sandbox'));
+app.use(express.static('static_files'));
 
 connectDb().then(async () => {
     app.listen(8080, () =>

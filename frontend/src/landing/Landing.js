@@ -23,7 +23,7 @@ export default class Landing extends Component {
                 <div className="landing_page">
                     <h1>Твоя онлайн медицинская карточка</h1>
                     <div className="screenshots">
-                        <video height="280" loop={true} autoPlay={true}  muted>
+                        <video height="280" loop={true} autoPlay={true} muted={true}>
                             <source src={process.env.REACT_APP_API_ADDRESS + '/video_shot_1.mp4'} type="video/mp4" />
                         </video>
                         {/*<img src={process.env.REACT_APP_API_ADDRESS + '/screenshot_1.png'} />*/}
