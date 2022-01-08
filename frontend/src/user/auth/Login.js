@@ -68,10 +68,12 @@ export default class Login extends Component {
         return (
             <div className="container auth_pages">
                 <header>
-                    <span className="logo">
-                        <span className="oi oi-medical-cross" title="icon name" aria-hidden="true" />
-                        MedCard
-                    </span>
+                    <NavLink to="/" className="btn menu_button">
+                        <span className="logo">
+                            <span className="oi oi-medical-cross" title="icon name" aria-hidden="true" />
+                            MedCard
+                        </span>
+                    </NavLink>
                 </header>
 
                 <h1>Войти</h1>
