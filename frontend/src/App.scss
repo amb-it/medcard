@@ -35,6 +35,13 @@ header {
       cursor: pointer;
     }
   }
+  .menu_button, .show_files_button {
+    margin-right: 13px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
   .right_icon {
     right: 10px;
     top: 10px;

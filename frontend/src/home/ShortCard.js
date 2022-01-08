@@ -30,11 +30,18 @@ export default class ShortCard extends Component {
         }
 
         if (card.files.length > 0) {
-            images = card.files.map(function (item, key) {
-                return ['jpg', 'jpeg', 'png'].includes(item.split('.').pop()) ?
-                    <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} key={key} alt=""/>
-                    : null;
-            }).filter(Boolean);
+            if (this.props.visiblePictures) {
+                images = card.files.map(function (item, key) {
+                    return ['jpg', 'jpeg', 'png'].includes(item.split('.').pop()) ?
+                        <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} key={key} alt=""/>
+                        : null;
+                }).filter(Boolean);
+            } else {
+                images = card.files.map(function (item, key) {
+                    return <span className="oi oi-calendar" title="icon name" aria-hidden="true" />
+                });
+            }
+
 
             otherFiles = card.files.map(function (item, key) {
                 return !['jpg', 'jpeg', 'png'].includes(item.split('.').pop()) ?

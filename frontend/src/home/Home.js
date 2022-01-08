@@ -13,6 +13,7 @@ export default class Home extends Component {
             visibleMainMenu: false,
             visibleSearchInput: false,
             visibleAddCardText: true,
+            visiblePictures: false,
             cards: [],
             cardsFiltered: []
         };
@@ -35,7 +36,7 @@ export default class Home extends Component {
         const cards = this.state.cardsFiltered;
 
         return cards.length > 0
-            ? cards.map((card, key) => <ShortCard card={card} key={key} />)
+            ? cards.map((card, key) => <ShortCard card={card} key={key} visiblePictures={this.state.visiblePictures} />)
             : 'Отсутствуют карточки либо проблема с загрузкой..';
     }
 
@@ -46,6 +47,11 @@ export default class Home extends Component {
     onSearchButtonClick = () => {
         this.setState({visibleSearchInput: !this.state.visibleSearchInput});
     };
+
+    onShowFilesClick = () => {
+        this.setState({visiblePictures: !this.state.visiblePictures});
+    };
+
 
     onCloseSearchClick = () => {
         this.setState({
@@ -95,6 +101,12 @@ export default class Home extends Component {
                             </span>
                             : ""
                     }
+                    <span className="float-right right_icon">
+                        <span
+                            onClick={this.onShowFilesClick}
+                            className="oi oi-file show_files_button"
+                        />
+                    </span>
                     <hr/>
                 </header>
 
