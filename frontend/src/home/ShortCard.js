@@ -38,7 +38,7 @@ export default class ShortCard extends Component {
                 }).filter(Boolean);
             } else {
                 images = card.files.map(function (item, key) {
-                    return <span className="oi oi-calendar" title="icon name" aria-hidden="true" />
+                    return <span className="oi oi-file" key={key} title="icon name" aria-hidden="true" />
                 });
             }
 

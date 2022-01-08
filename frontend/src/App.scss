@@ -130,14 +130,19 @@ header {
   color: white;
   transition: all 2s ease-out;
 
+  &:hover {
+    color: white;
+  }
+
   .text {
     display: inline-block;
     margin-right: 10px;
-    transition: all 1s ease-out;
-  }
-  .collapsible {
-    margin: -64px;
-    opacity: 0;
+
+    //&:hover {
+    //  transition: all 1s ease-out;
+    //  opacity: 0;
+    //  margin: -64px;
+    //}
   }
   .oi {
     font-size: larger;

@@ -26,6 +26,7 @@ export default class App extends Component {
         super(props, context);
 
         this.state = {
+            cardsLoaded: false,
             cards: [],
             cardTypes: [],
             tags: [],
@@ -77,7 +78,8 @@ export default class App extends Component {
         axios.get(apiUrl, config)
             .then(response => {
                 this.setState({
-                    cards: response.data
+                    cards: response.data,
+                    cardsLoaded: true
                 });
             })
           .catch(error => {console.log(error);})
@@ -160,6 +162,7 @@ export default class App extends Component {
                                   component={Home}
                                   user={this.state.user}
                                   cards={this.state.cards}
+                                  cardsLoaded={this.state.cardsLoaded}
                                   requestCards={this.requestCards}
                     />
 

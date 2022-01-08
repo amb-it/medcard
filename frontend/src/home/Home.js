@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
+import FadingBalls from "react-cssfx-loading/lib/FadingBalls";
 
 import ShortCard from "./ShortCard";
 import MenuButton from "../core/component/MenuButton";
@@ -34,10 +35,21 @@ export default class Home extends Component {
 
     renderCards() {
         const cards = this.state.cardsFiltered;
+        let result;
 
-        return cards.length > 0
-            ? cards.map((card, key) => <ShortCard card={card} key={key} visiblePictures={this.state.visiblePictures} />)
-            : 'Отсутствуют карточки либо проблема с загрузкой..';
+        if (this.props.cardsLoaded === false) {
+            result = <FadingBalls color="green" />
+        } else if (cards.length > 0) {
+            result = cards.map((card, key) => <ShortCard card={card} key={key} visiblePictures={this.state.visiblePictures} />);
+        } else {
+            result = <div>
+                        <h4>Медицинская история</h4>
+                        <hr />
+                        <p>Пока что нет записей.</p>
+                    </div>;
+        }
+
+        return result;
     }
 
     onMenuButtonClick = () => {
@@ -138,7 +150,10 @@ export default class Home extends Component {
                 </div>
 
                 <NavLink to="/add-card" className="btn add_card_link">
-                    {/*<span className={'text' + (this.state.visibleAddCardText ? '' : ' collapsible')}>Добавить запись</span>*/}
+                    {this.props.cardsLoaded === true && this.props.cards.length === 0 ?
+                        <span className="text">Добавить запись</span> :
+                        ''
+                    }
                     <span className="oi oi-plus" title="icon name" aria-hidden="true" />
                 </NavLink>
             </div>
