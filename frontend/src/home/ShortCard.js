@@ -96,6 +96,9 @@ export default class ShortCard extends Component {
                             {otherFiles}
                         </div>
                         : ''}
+                        <div className="enter_card_icon">
+                            <span className="float-right oi oi-fullscreen-enter" />
+                        </div>
                     </div>
                 </NavLink>
             </div>

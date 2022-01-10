@@ -1,13 +1,27 @@
 import React, { Component } from "react";
+
 import TextInput from 'react-autocomplete-input';
 import 'react-autocomplete-input/dist/bundle.css';
+import {Collapse} from 'react-collapse';
+
+import { FilePond, registerPlugin } from 'react-filepond';
+import 'filepond/dist/filepond.min.css';
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
+import FilePondPluginImageResize from 'filepond-plugin-image-resize';
+import FilePondPluginImageTransform from 'filepond-plugin-image-transform';
+
+
+registerPlugin(FilePondPluginImageTransform, FilePondPluginImageResize, FilePondPluginImagePreview);
+
 
 export default class Inputs extends Component {
     constructor(props, context) {
         super(props, context);
 
         this.state = {
-            tagInput: ''
+            tagInput: '',
+            showFilepondBox: false
         };
     }
 
@@ -28,7 +42,7 @@ export default class Inputs extends Component {
             return tags.map(
                 (tag, key) =>
                     <button key={key} type="button" className="btn btn-link btn-sm" onClick={() => this.removeTag(tag)}>
-                        #{tag}
+                        #{tag} <span className='oi oi-circle-x' />
                     </button>
             )
         }
@@ -66,23 +80,53 @@ export default class Inputs extends Component {
     }
 
     render() {
+        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards/files';
+        const filePondServerConfig = {
+            url: apiUrl,
+            process: {
+                onload: (data) => {
+                    this.props.onAddFile(JSON.parse(data).filename);
+                }
+            }
+        };
+
         return (
             <div className="card_inputs">
+                <div className="text-right">
+                    <button
+                        onClick={() => {this.setState({showFilepondBox: !this.state.showFilepondBox})}}
+                        data-toggle='tab'
+                        className={this.state.showFilepondBox ? "btn btn btn-light" : "btn btn-outline-info"}>
+                        <span className='oi oi-camera-slr' />
+                        &nbsp;&nbsp;
+                        <span className='oi oi-file' /> <small>{this.state.showFilepondBox ? "спрятать блок фото и файлов" : "добавить фото и файлы"}</small>
+                    </button>
+                </div>
+
+                <Collapse isOpened={this.state.showFilepondBox}>
+                    <div className="filepond_box">
+                        <p>Добавьте к записи фотографии или файлы выписок, справок, анализов или любые другие файлы</p>
+                        <FilePond
+                            labelIdle="<span class='btn btn-outline-primary'>Сфотографировать или выбрать файлы нажимайте здесь</span>"
+                            allowMultiple={true}
+                            imageResizeTargetWidth={1024}
+                            imageResizeUpscale={false}
+                            server={filePondServerConfig}
+                        />
+                    </div>
+                </Collapse>
+
+                <hr />
+
+                <div className="mb-3">
+                    <div className="text-right not_required_fields"><small>* все поля не обязательны к заполнению</small></div>
+                </div>
                 <div className="input-group mb-3">
                     <textarea
                         onChange={this.onInputChange}
                         id="complaint"
-                        rows="8" className="form-control" placeholder="введите описание или жалобу &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     (например 'Болел живот с правой стороны.. ' или 'Проходил плановый осмотр..' и т.д.)"
+                        rows="8" className="form-control" placeholder="введите описание или жалобу &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     (например 'Болел живот.. ' или 'Проходил мед. осмотр..' или 'Сдал анализы' и т.д.)"
                     />
-                </div>
-                <div className="input-group mb-3">
-                    <select
-                        onChange={this.onInputChange}
-                        id="cardType"
-                        className="custom-select" placeholder="Тип">
-                        <option>выберите тип</option>
-                        {this.renderCardTypeOptions()}
-                    </select>
                 </div>
                 <div className="input-group mb-3">
                     <TextInput
@@ -99,10 +143,19 @@ export default class Inputs extends Component {
                     &nbsp;
                     <button
                         onClick={() => this.addTag(this.state.tagInput)}
-                        className='btn btn-sm btn-light'>добавить</button>
+                        className='btn btn-sm btn-outline-primary'>добавить</button>
                     <div className='tags'>
                         {this.renderTags()}
                     </div>
+                </div>
+                <div className="input-group mb-3">
+                    <select
+                        onChange={this.onInputChange}
+                        id="cardType"
+                        className="custom-select" placeholder="Тип">
+                        <option>выберите тип</option>
+                        {this.renderCardTypeOptions()}
+                    </select>
                 </div>
 
                 <div className="input-group mb-3">
@@ -169,19 +222,19 @@ export default class Inputs extends Component {
                     <textarea
                         onChange={this.onInputChange}
                         id="diagnoses"
-                        rows="8" className="form-control" placeholder="диагноз" />
+                        rows="2" className="form-control" placeholder="диагноз" />
+                </div>
+                <div className="input-group mb-3">
+                    <textarea
+                        onChange={this.onInputChange}
+                        id="materials"
+                        rows="8" className="form-control" placeholder="параметры (например: давление, уровень глюкозы, гормонов и т.д.)" />
                 </div>
                 <div className="input-group mb-3">
                     <textarea
                         onChange={this.onInputChange}
                         id="prescriptions"
                         rows="8" className="form-control" placeholder="назначения" />
-                </div>
-                <div className="input-group mb-3">
-                    <textarea
-                        onChange={this.onInputChange}
-                        id="materials"
-                        rows="8" className="form-control" placeholder="анализы и материалы" />
                 </div>
                 <div className="input-group mb-5">
                   <textarea

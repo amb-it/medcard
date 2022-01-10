@@ -50,7 +50,8 @@ header {
 
   // card page
   .card_page_title {
-    padding-left: 70px;
+    //padding-left: 70px;
+    margin-left: 30px;
     color: green;
     font-size: smaller;
   }
@@ -282,6 +283,14 @@ header {
           margin-left: 10px;
         }
       }
+      .enter_card_icon {
+        padding: 0 10px 0 0;
+        font-size: small;
+
+        .oi {
+          color: darkblue;
+        }
+      }
     }
   }
 }
@@ -372,12 +381,19 @@ header {
         padding-right: 7px;
       }
     }
+    .not_required_fields {
+      color: #c3a608;
+    }
   }
   .filepond_box {
-    margin-bottom: 150px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #f3f0f3;
+    border-radius: 6px;
 
     p {
       font-size: small;
+      padding: 7px 7px 0 7px;
     }
   }
   //.previously_loaded_title {
