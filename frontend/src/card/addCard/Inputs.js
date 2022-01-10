@@ -119,7 +119,7 @@ export default class Inputs extends Component {
                 <hr />
 
                 <div className="mb-3">
-                    <div className="text-right not_required_fields"><small>* все поля не обязательны к заполнению</small></div>
+                    <div className="text-right not_required_fields"><small>* все поля НЕ обязательны к заполнению</small></div>
                 </div>
                 <div className="input-group mb-3">
                     <textarea

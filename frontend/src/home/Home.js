@@ -5,6 +5,7 @@ import FadingBalls from "react-cssfx-loading/lib/FadingBalls";
 import ShortCard from "./ShortCard";
 import MenuButton from "../core/component/MenuButton";
 import MainMenu from "./MainMenu";
+import EmptyMedicalHistory from "./EmptyMedicalHistory";
 
 export default class Home extends Component {
     constructor(props, context) {
@@ -15,8 +16,8 @@ export default class Home extends Component {
             visibleSearchInput: false,
             visibleAddCardText: true,
             visiblePictures: false,
-            cards: [],
-            cardsFiltered: []
+            cards: null,
+            cardsFiltered: null
         };
 
         this.props.requestCards();
@@ -37,18 +38,12 @@ export default class Home extends Component {
         const cards = this.state.cardsFiltered;
         let result;
 
-        if (this.props.cardsLoaded === false) {
-            result = <FadingBalls color="green" />
+        if (cards === null) {
+            result = <div className="text-center"><FadingBalls color="green" /></div>
         } else if (cards.length > 0) {
             result = cards.map((card, key) => <ShortCard card={card} key={key} visiblePictures={this.state.visiblePictures} />);
         } else {
-            result = <div>
-                        <h4>Медицинская история</h4>
-                        <hr />
-                        <p><b>Пока что нет записей.</b></p>
-                        <p>Добавьте записи, такие как: консультация врача, результаты анализов, рентген и тому подобное,
-                            и прикрепите к ней фотографии выписок, результатов анализов или любые другие файлы.</p>
-                    </div>;
+            result = <EmptyMedicalHistory />;
         }
 
         return result;
@@ -58,14 +53,13 @@ export default class Home extends Component {
         this.setState({visibleMainMenu: !this.state.visibleMainMenu});
     };
 
-    onSearchButtonClick = () => {
-        this.setState({visibleSearchInput: !this.state.visibleSearchInput});
-    };
-
     onShowFilesClick = () => {
         this.setState({visiblePictures: !this.state.visiblePictures});
     };
 
+    onSearchButtonClick = () => {
+        this.setState({visibleSearchInput: !this.state.visibleSearchInput});
+    };
 
     onCloseSearchClick = () => {
         this.setState({
@@ -152,7 +146,7 @@ export default class Home extends Component {
                 </div>
 
                 <NavLink to="/add-card" className="btn add_card_link">
-                    {this.props.cardsLoaded === true && this.props.cards.length === 0 ?
+                    {this.props.cards && this.props.cards.length === 0 ?
                         <span className="text">Добавить запись</span> :
                         ''
                     }

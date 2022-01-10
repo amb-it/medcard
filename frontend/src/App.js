@@ -26,8 +26,7 @@ export default class App extends Component {
         super(props, context);
 
         this.state = {
-            cardsLoaded: false,
-            cards: [],
+            cards: null,
             cardTypes: [],
             tags: [],
             user: this.authenticateFromStorage()
@@ -79,7 +78,6 @@ export default class App extends Component {
             .then(response => {
                 this.setState({
                     cards: response.data,
-                    cardsLoaded: true
                 });
             })
           .catch(error => {console.log(error);})
@@ -162,7 +160,6 @@ export default class App extends Component {
                                   component={Home}
                                   user={this.state.user}
                                   cards={this.state.cards}
-                                  cardsLoaded={this.state.cardsLoaded}
                                   requestCards={this.requestCards}
                     />
 
