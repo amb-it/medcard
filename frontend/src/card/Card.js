@@ -18,16 +18,22 @@ export default class Card extends Component {
     }
 
     getCardById = (id) => {
-        if (this.props.cards.length === 0) {
+        const cards = this.props.cards;
+
+        if (cards === null || cards.length === 0) {
             this.props.requestCards();
         }
+
         let card = null;
 
-        for (const cardItem of this.props.cards) {
-            if (cardItem._id === +id) {
-                card = cardItem;
+        if (cards !== null && cards.length > 0) {
+            for (const cardItem of cards) {
+                if (cardItem._id === +id) {
+                    card = cardItem;
+                }
             }
         }
+
         if (!card) {
             setTimeout(() => {
                 this.props.requestCards();

@@ -4,15 +4,7 @@ import TextInput from 'react-autocomplete-input';
 import 'react-autocomplete-input/dist/bundle.css';
 import {Collapse} from 'react-collapse';
 
-import { FilePond, registerPlugin } from 'react-filepond';
-import 'filepond/dist/filepond.min.css';
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
-import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
-import FilePondPluginImageResize from 'filepond-plugin-image-resize';
-import FilePondPluginImageTransform from 'filepond-plugin-image-transform';
-
-
-registerPlugin(FilePondPluginImageTransform, FilePondPluginImageResize, FilePondPluginImagePreview);
+import Files from "./Files";
 
 
 export default class Inputs extends Component {
@@ -80,16 +72,6 @@ export default class Inputs extends Component {
     }
 
     render() {
-        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards/files';
-        const filePondServerConfig = {
-            url: apiUrl,
-            process: {
-                onload: (data) => {
-                    this.props.onAddFile(JSON.parse(data).filename);
-                }
-            }
-        };
-
         return (
             <div className="card_inputs">
                 <div className="text-right">
@@ -104,16 +86,9 @@ export default class Inputs extends Component {
                 </div>
 
                 <Collapse isOpened={this.state.showFilepondBox}>
-                    <div className="filepond_box">
-                        <p>Добавьте к записи фотографии или файлы выписок, справок, анализов или любые другие файлы</p>
-                        <FilePond
-                            labelIdle="<span class='btn btn-outline-primary'>Сфотографировать или выбрать файлы нажимайте здесь</span>"
-                            allowMultiple={true}
-                            imageResizeTargetWidth={1024}
-                            imageResizeUpscale={false}
-                            server={filePondServerConfig}
-                        />
-                    </div>
+                    <Files
+                        onAddFile={this.props.onAddFile}
+                    />
                 </Collapse>
 
                 <hr />

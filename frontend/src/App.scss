@@ -396,6 +396,9 @@ header {
       padding: 7px 7px 0 7px;
     }
   }
+  .ReactCollapse--collapse {
+    transition: height 500ms;
+  }
   //.previously_loaded_title {
   //  font-size: small;
   //  margin-top: 30px;
