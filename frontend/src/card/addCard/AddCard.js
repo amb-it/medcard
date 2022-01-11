@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
 import Inputs from './Inputs';
-import Files from './Files';
 
 export default class AddCard extends Component {
     constructor(props, context) {
@@ -12,11 +11,7 @@ export default class AddCard extends Component {
         props.requestCardTypes();
         props.requestTags();
 
-        this.inputs_tab_id = 'inputs_tab';
-        this.files_tab_id = 'files_tab';
-
         this.state = {
-            showTab: this.inputs_tab_id,
             newCard: {}
         };
     }
@@ -68,58 +63,13 @@ export default class AddCard extends Component {
                 </header>
 
                 <div className='add_card_page'>
-
-
-                    {/*<div className='row md-5'>*/}
-                    {/*    <div className='col-6 text-center'>*/}
-                        {/*    <NavLink to='/home' className='btn btn-outline-danger menu_button'>*/}
-                        {/*        отмена*/}
-                        {/*    </NavLink>*/}
-                        {/*</div>*/}
-                        {/*<div className='col-6 text-center'>*/}
-                        {/*    <button*/}
-                        {/*        onClick={this.saveCard}*/}
-                        {/*        className='btn btn-success'>сохранить</button>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
-
-                    {/*<hr/>*/}
-
-                    {/*<nav className='mb-5'>*/}
-                    {/*    <div className='nav nav-tabs nav-fill' id='nav-tab' role='tablist'>*/}
-                    {/*        <button*/}
-                    {/*            onClick={() => {this.setState({showTab: this.inputs_tab_id})}}*/}
-                    {/*            id={this.inputs_tab_id}*/}
-                    {/*            className={this.state.showTab === this.inputs_tab_id ? 'nav-item nav-link active' : 'nav-item nav-link'}*/}
-                    {/*            data-toggle='tab' role='tab' aria-controls='nav-home' aria-selected='true'>*/}
-                    {/*            <span className='oi oi-align-center' /> <small>текст</small>*/}
-                    {/*            /!*Inputs*!/*/}
-                    {/*        </button>*/}
-                    {/*        <button*/}
-                    {/*            onClick={() => {this.setState({showTab: this.files_tab_id})}}*/}
-                    {/*            id={this.files_tab_id}*/}
-                    {/*            className={this.state.showTab === this.files_tab_id ? 'nav-item nav-link active' : 'nav-item nav-link'}*/}
-                    {/*            data-toggle='tab' role='tab' aria-controls='nav-profile' aria-selected='false'>*/}
-                    {/*            <span className='oi oi-camera-slr' />*/}
-                    {/*            &nbsp;&nbsp;*/}
-                    {/*            <span className='oi oi-file' /> <small>фото и файлы</small>*/}
-                    {/*            /!*Files, pictures*!/*/}
-                    {/*        </button>*/}
-                    {/*    </div>*/}
-                    {/*</nav>*/}
-
-                    {(this.state.showTab === this.files_tab_id)
-                        ? <Files
-                            onAddFile={this.onAddFile}
-                            />
-                        : <Inputs
-                            newCard={this.state.newCard}
-                            // onTagsChange={this.onTagsChange}
-                            newCardChange={this.newCardChange}
-                            cardTypes={this.props.cardTypes}
-                            tags={this.props.tags}
-                            onAddFile={this.onAddFile}
-                            />
+                    <Inputs
+                        newCard={this.state.newCard}
+                        newCardChange={this.newCardChange}
+                        cardTypes={this.props.cardTypes}
+                        tags={this.props.tags}
+                        onAddFile={this.onAddFile}
+                        />
                     }
 
                     <hr/>
