@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
 import Inputs from './Inputs';
-import Files from './Files';
+// import Files from './Files';
 import Dots from "react-activity/lib/Dots";
 
 export default class EditCard extends Component {
@@ -13,11 +13,11 @@ export default class EditCard extends Component {
         props.requestCardTypes();
         props.requestTags();
 
-        this.inputs_tab_id = 'inputs_tab';
-        this.files_tab_id = 'files_tab';
+        // this.inputs_tab_id = 'inputs_tab';
+        // this.files_tab_id = 'files_tab';
 
         this.state = {
-            showTab: this.inputs_tab_id,
+            // showTab: this.inputs_tab_id,
             editCard: null
         };
     }
@@ -25,12 +25,21 @@ export default class EditCard extends Component {
     getCard = () => {
         const card_id = this.props.match.params.id;
 
-        if (this.props.cards.length === 0) {
+        const cards = this.props.cards;
+
+        if (cards === null || cards.length === 0) {
             this.props.requestCards();
         }
-        for (const cardItem of this.props.cards) {
-            if (cardItem._id === +card_id) return cardItem;
+
+        if (cards && cards.length > 0) {
+            console.log(cards);
+            for (const cardItem of cards) {
+                    if (cardItem._id === +card_id) return cardItem;
+            }
         }
+        // for (const cardItem of this.props.cards) {
+        //     if (cardItem._id === +card_id) return cardItem;
+        // }
     };
 
     editCardChange = (key, value) => {
@@ -97,57 +106,64 @@ export default class EditCard extends Component {
             <div className='container'>
                 <header>
                     <NavLink to={backUri} className='btn menu_button'>
-                        <span className='oi oi-x'/>
+                        <span className='oi oi-caret-left'/>
                     </NavLink>
-                    <span className='card_page_title'>Редактировать запись</span>
+                    <span className="card_page_title">Запись &nbsp; № {this.props.match.params.id}</span>
+                    {/*<button*/}
+                    {/*    onClick={this.saveCard}*/}
+                    {/*    disabled={!this.state.editCard}*/}
+                    {/*    className='btn menu_button float-right right_icon'>*/}
+                    {/*    <span className='oi oi-check'/>*/}
+                    {/*</button>*/}
+
                     <button
                         onClick={this.saveCard}
                         disabled={!this.state.editCard}
-                        className='btn menu_button float-right right_icon'>
-                        <span className='oi oi-check'/>
-                    </button>
-
+                        className='btn btn-success float-right'>сохранить</button>
                     <hr/>
                 </header>
 
                 <div className='add_card_page'>
-                    <nav className='mb-5'>
-                        <div className='nav nav-tabs nav-fill' id='nav-tab' role='tablist'>
-                            <button
-                                onClick={() => {this.setState({showTab: this.inputs_tab_id})}}
-                                id={this.inputs_tab_id}
-                                className={this.state.showTab === this.inputs_tab_id ? 'nav-item nav-link active' : 'nav-item nav-link'}
-                                data-toggle='tab' role='tab' aria-controls='nav-home' aria-selected='true'>
-                                <span className='oi oi-align-center' /> <small>текст</small>
-                                {/*Inputs*/}
-                            </button>
-                            <button
-                                onClick={() => {this.setState({showTab: this.files_tab_id})}}
-                                id={this.files_tab_id}
-                                className={this.state.showTab === this.files_tab_id ? 'nav-item nav-link active' : 'nav-item nav-link'}
-                                data-toggle='tab' role='tab' aria-controls='nav-profile' aria-selected='false'>
-                                <span className='oi oi-camera-slr' />
-                                &nbsp;&nbsp;
-                                <span className='oi oi-file' /> <small>фото и файлы</small>
-                                {/*Files, pictures*/}
-                            </button>
-                        </div>
-                    </nav>
+                    {/*<nav className='mb-5'>*/}
+                    {/*    <div className='nav nav-tabs nav-fill' id='nav-tab' role='tablist'>*/}
+                    {/*        <button*/}
+                    {/*            onClick={() => {this.setState({showTab: this.inputs_tab_id})}}*/}
+                    {/*            id={this.inputs_tab_id}*/}
+                    {/*            className={this.state.showTab === this.inputs_tab_id ? 'nav-item nav-link active' : 'nav-item nav-link'}*/}
+                    {/*            data-toggle='tab' role='tab' aria-controls='nav-home' aria-selected='true'>*/}
+                    {/*            <span className='oi oi-align-center' /> <small>текст</small>*/}
+                    {/*            /!*Inputs*!/*/}
+                    {/*        </button>*/}
+                    {/*        <button*/}
+                    {/*            onClick={() => {this.setState({showTab: this.files_tab_id})}}*/}
+                    {/*            id={this.files_tab_id}*/}
+                    {/*            className={this.state.showTab === this.files_tab_id ? 'nav-item nav-link active' : 'nav-item nav-link'}*/}
+                    {/*            data-toggle='tab' role='tab' aria-controls='nav-profile' aria-selected='false'>*/}
+                    {/*            <span className='oi oi-camera-slr' />*/}
+                    {/*            &nbsp;&nbsp;*/}
+                    {/*            <span className='oi oi-file' /> <small>фото и файлы</small>*/}
+                    {/*            /!*Files, pictures*!/*/}
+                    {/*        </button>*/}
+                    {/*    </div>*/}
+                    {/*</nav>*/}
 
-                    {(this.state.showTab === this.files_tab_id)
-                        ? <Files
-                            card={card}
-                            onAddFile={this.onAddFile}
-                            onUpdateFiles={this.onUpdateFiles}
-                            />
-                        : <Inputs
+                    {/*{(this.state.showTab === this.files_tab_id)*/}
+                    {/*    ? <Files*/}
+                    {/*        card={card}*/}
+                    {/*        onAddFile={this.onAddFile}*/}
+                    {/*        onUpdateFiles={this.onUpdateFiles}*/}
+                    {/*        />*/}
+                    {/*    : */}
+                        <Inputs
                             card={card}
                             cardTypes={this.props.cardTypes}
                             tags={this.props.tags}
                             editCardChange={this.editCardChange}
                             onTagsChange={this.onTagsChange}
+                            onAddFile={this.onAddFile}
+                            onUpdateFiles={this.onUpdateFiles}
                         />
-                    }
+                    // }
 
                     <hr/>
 

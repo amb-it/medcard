@@ -61,7 +61,7 @@ export default class CardData extends Component {
             : "D MMMM Y";
 
         return (
-            <div className="card_page">
+            <div className="card_data">
                 <div className="card_data_box">
                     <div className="row title_elements">
                         <span className="col date">

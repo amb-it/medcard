@@ -70,7 +70,6 @@ export default class AddCard extends Component {
                         tags={this.props.tags}
                         onAddFile={this.onAddFile}
                         />
-                    }
 
                     <hr/>
                 </div>

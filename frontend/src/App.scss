@@ -50,6 +50,7 @@ header {
 
   // card page
   .card_page_title {
+    display: inline-block;
     //padding-left: 70px;
     margin-left: 30px;
     color: green;
@@ -297,32 +298,42 @@ header {
 
 // card page
 .card_page {
-  padding: 10px 0 40px 0;
-  background-color: rgb(249, 253, 255);
-  border: 1px rgb(220, 243, 245) solid;
 
-  .card_data_box {
-    padding: 0 20px 0 20px;
-  }
-  .title_elements {
-    .type {
-      font-size: small;
-      text-align: right;
-
-      .tag {
-        display: block;
-        padding-top: 5px;
-        color: mediumblue;
-      }
-      .cardType {
-        display: inline-block;
-        padding: 5px 0 5px 10px;
-        color: #6a9ad6;
+  header {
+    .float-right {
+      .btn {
+        margin-left: 20px;
       }
     }
-    .date {
-      color: gray;
-      padding-bottom: 10px;
+  }
+  .card_data {
+    padding: 10px 0 40px 0;
+    background-color: rgb(249, 253, 255);
+    border: 1px rgb(220, 243, 245) solid;
+
+    .card_data_box {
+      padding: 0 20px 0 20px;
+    }
+    .title_elements {
+      .type {
+        font-size: small;
+        text-align: right;
+
+        .tag {
+          display: block;
+          padding-top: 5px;
+          color: mediumblue;
+        }
+        .cardType {
+          display: inline-block;
+          padding: 5px 0 5px 10px;
+          color: #6a9ad6;
+        }
+      }
+      .date {
+        color: gray;
+        padding-bottom: 10px;
+      }
     }
   }
 

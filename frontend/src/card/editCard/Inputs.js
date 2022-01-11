@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import TextInput from "react-autocomplete-input";
+import {Collapse} from "react-collapse";
+import Files from "../editCard/Files";
 
 export default class Inputs extends Component {
     constructor(props, context) {
         super(props, context);
 
         this.state = {
-            tagInput: ''
+            tagInput: '',
+            showFilepondBox: true
         };
     }
 
@@ -70,6 +73,31 @@ export default class Inputs extends Component {
 
         return (
             <div className="card_inputs">
+                <div className="text-right">
+                    <button
+                        onClick={() => {this.setState({showFilepondBox: !this.state.showFilepondBox})}}
+                        data-toggle='tab'
+                        className={this.state.showFilepondBox ? "btn btn btn-light" : "btn btn-outline-info"}>
+                        <span className='oi oi-camera-slr' />
+                        &nbsp;&nbsp;
+                        <span className='oi oi-file' /> <small>{this.state.showFilepondBox ? "спрятать блок фото и файлов" : "добавить фото и файлы"}</small>
+                    </button>
+                </div>
+
+                <Collapse isOpened={this.state.showFilepondBox}>
+                    <Files
+                        card={card}
+                        onAddFile={this.props.onAddFile}
+                        onUpdateFiles={this.props.onUpdateFiles}
+                    />
+                </Collapse>
+
+                <hr />
+
+                <div className="mb-3">
+                    <div className="text-right not_required_fields"><small>* все поля НЕ обязательны к заполнению</small></div>
+                </div>
+
                 <div className="input-group mb-3">
                     <textarea
                         onChange={this.onInputChange}

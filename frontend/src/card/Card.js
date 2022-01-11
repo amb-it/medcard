@@ -26,7 +26,7 @@ export default class Card extends Component {
 
         let card = null;
 
-        if (cards !== null && cards.length > 0) {
+        if (cards && cards.length > 0) {
             for (const cardItem of cards) {
                 if (cardItem._id === +id) {
                     card = cardItem;
@@ -58,18 +58,28 @@ export default class Card extends Component {
         const card_id = this.props.match.params.id;
         const card = this.getCardById(card_id);
 
+        const editUrl = card
+            ? '/card/' + card._id + '/edit'
+            : '';
+
         return (
-            <div className="container">
+            <div className="container card_page">
                 <header>
                     <NavLink to="/home" className="btn menu_button">
                         <span className="oi oi-caret-left" title="icon name" aria-hidden="true" />
                     </NavLink>
                     <span className="card_page_title">Запись &nbsp; № {card_id}</span>
-                    <span className="float-right right_icon">
-                        <MenuButton
-                            handleClick={this.onMenuButtonClick}
-                            visibleMenu={this.state.visibleMenu}
-                        />
+                    <span className="float-right">
+                        <button
+                            className='btn btn-outline-danger btn-sm'
+                            onClick={this.deleteCard}>
+                            <span className="oi oi-trash" />
+                        </button>
+                        <NavLink to={editUrl}>
+                            <button className='btn btn-outline-primary'>
+                            <span className="oi oi-pencil" />
+                        </button>
+                        </NavLink>
                     </span>
                     <hr/>
                 </header>
