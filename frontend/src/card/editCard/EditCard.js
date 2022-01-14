@@ -163,7 +163,6 @@ export default class EditCard extends Component {
                             onAddFile={this.onAddFile}
                             onUpdateFiles={this.onUpdateFiles}
                         />
-                    // }
 
                     <hr/>
 
