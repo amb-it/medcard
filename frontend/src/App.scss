@@ -180,6 +180,7 @@ header {
 // profile page
 .profile_page {
   padding: 10px;
+  white-space: pre-wrap;
 
   .edit_button {
     margin: 10px;
@@ -248,6 +249,7 @@ header {
       }
       .description {
         padding-bottom: 10px;
+        white-space: pre-wrap;
       }
       .visited {
         padding-top: 6px;
@@ -340,6 +342,7 @@ header {
   .paragraph {
     font-size: medium;
     padding-top: 40px;
+    white-space: pre-wrap;
 
     .title {
       padding: 5px 10px 5px 30px;

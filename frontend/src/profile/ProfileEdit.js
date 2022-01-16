@@ -61,11 +61,11 @@ export default class ProfileEdit extends Component {
                         <span className='oi oi-x'/>
                     </NavLink>
                     <span className='card_page_title'>Редактировать профиль</span>
-                    <button
-                        onClick={this.saveProfile}
-                        className='btn menu_button float-right right_icon'>
-                        <span className='oi oi-check'/>
-                    </button>
+                    {/*<button*/}
+                    {/*    onClick={this.saveProfile}*/}
+                    {/*    className='btn menu_button float-right right_icon'>*/}
+                    {/*    <span className='oi oi-check'/>*/}
+                    {/*</button>*/}
 
                     <hr/>
                 </header>

@@ -30,7 +30,7 @@ export default class Inputs extends Component {
             return tags.map(
                 (tag, key) =>
                     <button key={key} type="button" className="btn btn-link btn-sm" onClick={() => this.removeTag(tag)}>
-                        #{tag}
+                        #{tag} <span className='oi oi-circle-x' />
                     </button>
             )
         }
@@ -132,7 +132,7 @@ export default class Inputs extends Component {
                     &nbsp;
                     <button
                         onClick={() => this.addTag(this.state.tagInput)}
-                        className='btn btn-sm btn-light'>добавить</button>
+                        className='btn btn-sm btn-outline-primary'>добавить</button>
                     <div className='tags'>
                         {this.renderTags()}
                     </div>
@@ -208,7 +208,14 @@ export default class Inputs extends Component {
                         onChange={this.onInputChange}
                         value={card.diagnoses}
                         id="diagnoses"
-                        rows="8" className="form-control" placeholder="диагноз" />
+                        rows="2" className="form-control" placeholder="диагноз" />
+                </div>
+                <div className="input-group mb-3">
+                    <textarea
+                        onChange={this.onInputChange}
+                        value={card.materials}
+                        id="materials"
+                        rows="8" className="form-control" placeholder="параметры (например: давление, уровень глюкозы, гормонов и т.д.)" />
                 </div>
                 <div className="input-group mb-3">
                     <textarea
@@ -216,13 +223,6 @@ export default class Inputs extends Component {
                         value={card.prescriptions}
                         id="prescriptions"
                         rows="8" className="form-control" placeholder="назначения" />
-                </div>
-                <div className="input-group mb-3">
-                    <textarea
-                        onChange={this.onInputChange}
-                        value={card.materials}
-                        id="materials"
-                        rows="8" className="form-control" placeholder="анализы и материалы" />
                 </div>
                 <div className="input-group mb-5">
                   <textarea
