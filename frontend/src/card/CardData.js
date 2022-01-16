@@ -66,7 +66,6 @@ export default class CardData extends Component {
                     <div className="row title_elements">
                         <span className="col date">
                             <Moment format={dateFormat}>{card.date}</Moment>
-                            {/*<Moment format="D MMMM YYYY">{card.date}</Moment>*/}
                         </span>
                         <span className="col type">
                             <div className="cardType">
@@ -180,7 +179,6 @@ export default class CardData extends Component {
                         <span className="oi oi-badge" title="icon name" aria-hidden="true" />
                         Файлы
                     </div>
-                    {/*<hr />*/}
                     <div className="description">
                         <ul className="pictures_list">
                             {images}
