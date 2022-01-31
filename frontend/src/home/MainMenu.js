@@ -18,11 +18,7 @@ export default class MainMenu extends Component {
                 <ul>
                     <li><NavLink to="/profile">Профиль</NavLink></li>
                     <li><NavLink to="/home">Медицинская история</NavLink></li>
-                    <li><NavLink to="/under-construction">Показать врачу</NavLink></li>
-                    {/*<li><NavLink to="/under-construction">Настройки</NavLink></li>*/}
-                    {/*<li><NavLink to="/under-construction">Clinics</NavLink></li>*/}
-                    {/*<li><NavLink to="/under-construction">Share</NavLink></li>*/}
-                    {/*<li><NavLink to="/under-construction">About</NavLink></li>*/}
+                    <li><NavLink to="/show-to-doctor">Показать врачу</NavLink></li>
                     <li><NavLink to="/logout">Выйти</NavLink></li>
                 </ul>
             </div>

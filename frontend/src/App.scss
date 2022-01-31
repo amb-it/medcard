@@ -381,6 +381,37 @@ header {
   }
 }
 
+
+// show to doctor page
+.show_to_doctor_page {
+  h1 {
+    font-size: large;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  div {
+    padding: 10px;
+
+    p {
+      padding: 10px;
+
+      button {
+        margin-top: 4px;
+      }
+    }
+    .must {
+      font-size: small;
+    }
+  }
+  table {
+    margin-bottom: 40px;
+
+    .values {
+      font-weight: bold;
+    }
+  }
+}
+
 // add card page
 .add_card_page {
   .card_inputs {
