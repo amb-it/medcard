@@ -4,7 +4,6 @@ import Dots from 'react-activity/lib/Dots';
 
 import CardData from "./CardData";
 import CardMenu from "./CardMenu";
-import MenuButton from "../core/component/MenuButton";
 
 
 export default class Card extends Component {
