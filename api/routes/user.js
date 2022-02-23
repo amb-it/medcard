@@ -1,6 +1,7 @@
 import express, { Router } from 'express';
 import User from '../models/user';
 import auth from '../middleware/auth';
+import {ShareData} from "../models/shareData";
 
 //      ../user
 const userRoutes = Router();
@@ -56,6 +57,32 @@ userRoutes.post('/profile/save', auth, async (req, res) => {
 
         await user.save()
             .then(data => {res.send(data);})
+            .catch(err => {res.status(500).send({message: err.message || "Some error occurred while editing profile."});})
+    } catch (err) {
+        res.status(400).send(err.message)
+    }
+});
+
+userRoutes.post('/share', auth, async (req, res) => {
+    try {
+        let user = req.user;
+        // let user = await User.findById(req.user._id);
+
+        let shareData = new ShareData;
+
+        // user.profile = req.body;
+        shareData._id = user.shareData.length + 1;
+        shareData.token = Math.floor(Math.random() * 1000000).toString();
+
+        if (!user.shareData) {
+            user.shareData = [];
+            user.shareData.push(shareData);
+        } else {
+            user.shareData.push(shareData);
+        }
+
+        await user.save()
+            .then(data => {res.send(shareData);})
             .catch(err => {res.status(500).send({message: err.message || "Some error occurred while editing profile."});})
     } catch (err) {
         res.status(400).send(err.message)

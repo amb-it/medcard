@@ -19,7 +19,7 @@ import AddCard from "./card/addCard/AddCard";
 import EditCard from "./card/editCard/EditCard";
 import Profile from "./profile/Profile";
 import ProfileEdit from "./profile/ProfileEdit";
-import ShowToDoctor from "./doctor/ShowToDoctor";
+import Share from "./doctor/Share";
 
 
 export default class App extends Component {
@@ -170,7 +170,7 @@ export default class App extends Component {
                     />
 
                     <PrivateRoute exact path="/show-to-doctor"
-                                  component={ShowToDoctor}
+                                  component={Share}
                                   user={this.state.user}
                     />
 

@@ -5,6 +5,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 import {cardSchema} from './card';
+import {shareDataSchema} from "./shareData";
 
 
 const userSchema = mongoose.Schema({
@@ -34,6 +35,10 @@ const userSchema = mongoose.Schema({
             type: String,
             required: true
         }
+    }],
+    shareData: [{
+        type: shareDataSchema,
+        ref: 'ShareData'
     }],
     profile: {
         name: {

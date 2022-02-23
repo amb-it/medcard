@@ -5,25 +5,44 @@ import MenuButton from "../core/component/MenuButton";
 import MainMenu from "../home/MainMenu";
 import axios from "axios";
 
-export default class ShowToDoctor extends Component {
+export default class Share extends Component {
     constructor(props, context) {
         super(props, context);
 
         this.state = {
             visibleMainMenu: false,
-            profile: this.props.user.profile
+            shareData: null
         };
     }
 
-    // componentDidMount() {
-    //     this.requestProfile();
-    // }
+    componentDidMount() {
+        this.requestSharaData();
+    }
+
+    requestSharaData = () => {
+        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/user/share';
+        const config = this.props.user.getAuthConfig();
+
+        axios.post(apiUrl, null, config)
+            .then(response => {
+                this.setState({
+                    shareData: response.data
+                });
+            })
+            .catch(error => {console.log(error);})
+    };
 
     onMenuButtonClick = () => {
         this.setState({visibleMainMenu: !this.state.visibleMainMenu});
     };
 
     render() {
+        let shareCode = 'Загружается...';
+
+        if (this.state.shareData) {
+            shareCode = this.state.shareData.token;
+            shareCode = shareCode.slice(0,2) + ' ' + shareCode.slice(2,4) + ' ' + shareCode.slice(4,6);
+        }
 
         return (
             <div className="container">
@@ -65,11 +84,11 @@ export default class ShowToDoctor extends Component {
                         <tbody>
                         <tr>
                             <td>Ваш id</td>
-                            <td className="values">13</td>
+                            <td className="values">{this.props.user._id}</td>
                         </tr>
                         <tr>
                             <td>Код доступа</td>
-                            <td className="values">35 67 29</td>
+                            <td className="values">{shareCode}</td>
                         </tr>
                         </tbody>
                     </table>
