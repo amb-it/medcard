@@ -36,7 +36,7 @@ export default class Share extends Component {
     };
 
     render() {
-        let shareCode = 'Загружается...';
+        let shareCode = '.. .. ..';
 
         if (this.state.shareData) {
             shareCode = this.state.shareData.token;
