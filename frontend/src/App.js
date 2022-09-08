@@ -20,6 +20,7 @@ import EditCard from "./card/editCard/EditCard";
 import Profile from "./profile/Profile";
 import ProfileEdit from "./profile/ProfileEdit";
 import Share from "./doctor/Share";
+import AuthenticatePatient from "./doctor/AuthenticatePatient";
 
 
 export default class App extends Component {
@@ -30,7 +31,8 @@ export default class App extends Component {
             cards: null,
             cardTypes: [],
             tags: [],
-            user: this.authenticateFromStorage()
+            user: this.authenticateFromStorage(),
+            patients: []
         };
 
         axios.defaults.headers.common['Cache-Control'] = 'no-cache';
@@ -121,6 +123,23 @@ export default class App extends Component {
             .catch(error => {console.log(error);})
     };
 
+    authenticatePatient = (user) => {
+        let patients = localStorage.getItem('patients');
+        patients = JSON.parse(patients);
+
+        if (!patients) {
+            patients = [];
+        }
+
+        patients.push(user);
+
+        localStorage.setItem('patients', JSON.stringify(patients));
+
+        this.setState(
+            { patients }
+        );
+    };
+
     render() {
         return (
             <Router>
@@ -156,6 +175,11 @@ export default class App extends Component {
                                    user={this.state.user}
                                />)}
                     />
+
+                    <Route path="/doctor/authenticate-patient"
+                           authenticatePatient={this.authenticatePatient}
+                           component={AuthenticatePatient}
+                           />
 
                     <PrivateRoute exact path="/home"
                                   component={Home}
