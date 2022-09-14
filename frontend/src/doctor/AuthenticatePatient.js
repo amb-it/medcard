@@ -16,12 +16,12 @@ export default class AuthenticatePatient extends Component {
     };
 
     authenticatePatient = () => {
-        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/doctor/patient/authenticate';
+        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/user/' + this.state.user_id;
 
         axios.post(apiUrl, this.state)
             .then(response => {
-                this.props.authenticatePatient(response.data.user);
-                this.props.history.push('/doctor/patient/' + response.data.user._id);
+                this.props.authenticatePatient(response);
+                this.props.history.push('/patient/' + response._id + '/get-data');
 
             })
             .catch(error => {
@@ -31,7 +31,7 @@ export default class AuthenticatePatient extends Component {
                     timeOut: 2000,
                     closeButton: true
                 };
-                toastr.error(error.response.data);
+                toastr.error(error);
             })
     }
 

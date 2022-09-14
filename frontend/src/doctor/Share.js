@@ -39,7 +39,7 @@ export default class Share extends Component {
         let shareCode = '.. .. ..';
 
         if (this.state.shareData) {
-            shareCode = this.state.shareData.token;
+            shareCode = this.state.shareData.code;
             shareCode = shareCode.slice(0,2) + ' ' + shareCode.slice(2,4) + ' ' + shareCode.slice(4,6);
         }
 

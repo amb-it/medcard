@@ -44,9 +44,13 @@ userRoutes.post('/login', async (req, res) => {
 });
 
 userRoutes.get('/profile', auth, async (req, res) => {
+    try {
         let user = await User.findById(req.user._id);
 
         res.send(user)
+    } catch (err) {
+        res.status(400).send(err.message)
+    }
 });
 
 userRoutes.post('/profile/save', auth, async (req, res) => {
@@ -72,7 +76,7 @@ userRoutes.post('/share', auth, async (req, res) => {
 
         // user.profile = req.body;
         shareData._id = user.shareData.length + 1;
-        shareData.token = Math.floor(Math.random() * 1000000).toString();
+        shareData.code = Math.floor(Math.random() * 1000000).toString();
 
         if (!user.shareData) {
             user.shareData = [];
@@ -88,5 +92,17 @@ userRoutes.post('/share', auth, async (req, res) => {
         res.status(400).send(err.message)
     }
 });
+
+userRoutes.post('/:id', async (req, res) => {
+    try {
+        const code = req.body.code.replace(/ /g, '');
+
+        const user = await User.findOne({ _id: req.params.id, 'shareData.code': code})
+
+        res.send(user)
+    } catch (err) {
+        res.status(400).send(err.message)
+    }
+})
 
 export default userRoutes;

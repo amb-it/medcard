@@ -35,7 +35,7 @@ export default class Landing extends Component {
                     </div>
                     <h2>или если Вы - доктор</h2>
                     <div>
-                        <NavLink to={"doctor/authenticate-patient"} className="btn btn-outline-success">посмотреть карту пациента</NavLink>
+                        <NavLink to={"patient/authenticate"} className="btn btn-outline-success">посмотреть карту пациента</NavLink>
                     </div>
                 </div>
 

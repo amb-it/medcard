@@ -176,10 +176,18 @@ export default class App extends Component {
                                />)}
                     />
 
-                    <Route path="/doctor/authenticate-patient"
-                           authenticatePatient={this.authenticatePatient}
-                           component={AuthenticatePatient}
-                           />
+                    <Route exact path="/patient/authenticate"
+                           render={(props) => (
+                               <AuthenticatePatient {...props}
+                                      authenticatePatient={this.authenticatePatient}
+                               />)}/>
+
+                    <PrivateRoute exact path="/patient/:id/get-data"
+                                  component={Home}
+                                  user={this.state.user}
+                                  cards={this.state.cards}
+                                  requestCards={this.requestCards}
+                    />
 
                     <PrivateRoute exact path="/home"
                                   component={Home}
