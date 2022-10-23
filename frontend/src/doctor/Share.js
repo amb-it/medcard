@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 
 import MenuButton from "../core/component/MenuButton";
-import MainMenu from "../home/MainMenu";
+import MainMenu from "../history/MainMenu";
 import axios from "axios";
 
 export default class Share extends Component {

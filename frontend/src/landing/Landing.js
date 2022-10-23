@@ -6,7 +6,7 @@ export default class Landing extends Component {
     render() {
         return this.props.user
             ? <Redirect to={{
-                pathname: '/home',
+                pathname: '/history',
                 state: { from: this.props.location }
             }} />
             : (

@@ -7,7 +7,7 @@ import MenuButton from "../core/component/MenuButton";
 import MainMenu from "./MainMenu";
 import EmptyMedicalHistory from "./EmptyMedicalHistory";
 
-export default class Home extends Component {
+export default class History extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -141,7 +141,7 @@ export default class Home extends Component {
                     </div>
                     : ''}
 
-                <div className="home_page">
+                <div className="history_page">
                     {this.renderCards()}
                 </div>
 

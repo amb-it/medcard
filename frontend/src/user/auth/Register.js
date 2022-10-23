@@ -29,7 +29,7 @@ export default class Register extends Component {
         axios.post(apiUrl, this.state)
             .then(response => {
                 this.props.authenticate(response.data.user);
-                this.props.history.push('/home');
+                this.props.history.push('/history');
 
             })
             .catch(error => {

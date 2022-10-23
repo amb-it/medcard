@@ -100,7 +100,7 @@ export default class EditCard extends Component {
 
         const backUri = card
             ? '/card/'+card._id
-            : '/home';
+            : '/history';
 
         return (
             <div className='container'>
@@ -168,7 +168,7 @@ export default class EditCard extends Component {
 
                     <div className='row md-5'>
                         <div className='col-6 text-center'>
-                            <NavLink to='/home' className='btn btn-outline-danger menu_button'>
+                            <NavLink to='/history' className='btn btn-outline-danger menu_button'>
                                 отмена
                             </NavLink>
                         </div>

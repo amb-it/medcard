@@ -12,7 +12,7 @@ export default class Login extends Component {
         this.state = {};
 
         if (this.props.authenticated) {
-            this.props.history.push('/home');
+            this.props.history.push('/history');
         }
     }
 
@@ -50,7 +50,7 @@ export default class Login extends Component {
         axios.post(apiUrl, this.state)
             .then(response => {
                 this.props.authenticate(response.data.user);
-                this.props.history.push('/home');
+                this.props.history.push('/history');
 
             })
             .catch(error => {

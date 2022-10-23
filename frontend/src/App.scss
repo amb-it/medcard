@@ -59,12 +59,14 @@ header {
 }
 
 .left_menu {
-  width: 80%;
+  width: 100%;
   height: 100%;
   position: absolute;
   z-index: 1;
   background-color: rgb(253, 255, 253);
-  border-right: 1px gray solid;
+  text-align: left;
+  //border-bottom: 2px gray solid;
+  //border-right: 1px gray solid;
   // to see menu - comment line below
   transform: translate3d(-100vw, 0, 0);
   transition: transform .3s ease-in;
@@ -76,48 +78,61 @@ header {
       margin-right: 20px;
     }
   }
+  .patients {
+    text-align: center;
+  }
   ul {
     list-style: none;
 
     li {
-      margin-top: 30px;
+      width: 80%;
+      padding: 10px 20px;
+      border-radius: 4px;
+      margin-bottom: 3px;
+      //margin-top: 30px;
+      background-color: rgb(240,250,250);
 
       a {
+        display: inline-block;
         color: black;
+        width:100%;
       }
     }
   }
-}
-.right_menu {
-  width: 50%;
-  position: absolute;
-  padding-bottom: 30px;
-  right: 0;
-  z-index: 1;
-  background-color: rgb(253, 255, 253);
-  border-bottom: 1px gray solid;
-  transform: translate3d(0, -100vw, 0);
-  transition: transform .3s ease-in;
-  font-weight: bold;
-
-  ul {
-    list-style: none;
-
-    li {
-      margin-top: 30px;
-      &:hover {
-        cursor: pointer;
-      }
-
-      a {
-        color: black;
-        &:hover {
-          text-decoration: none;
-        }
-      }
-    }
+  hr {
+    width:70%;
   }
 }
+//.right_menu {
+//  width: 50%;
+//  position: absolute;
+//  padding-bottom: 30px;
+//  right: 0;
+//  z-index: 1;
+//  background-color: rgb(253, 255, 253);
+//  border-bottom: 1px gray solid;
+//  transform: translate3d(0, -100vw, 0);
+//  transition: transform .3s ease-in;
+//  font-weight: bold;
+//
+//  ul {
+//    list-style: none;
+//
+//    li {
+//      margin-top: 30px;
+//      &:hover {
+//        cursor: pointer;
+//      }
+//
+//      a {
+//        color: black;
+//        &:hover {
+//          text-decoration: none;
+//        }
+//      }
+//    }
+//  }
+//}
 .visible {
   transform: translate3d(0, 0vw, 0);
 }
@@ -193,8 +208,8 @@ header {
   }
 }
 
-// home page
-.home_page {
+// history page
+.history_page {
   padding: 10px;
 
   a {

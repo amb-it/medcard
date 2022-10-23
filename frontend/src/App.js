@@ -13,7 +13,7 @@ import Login from "./user/auth/Login";
 import Logout from "./user/auth/Logout";
 import UnderConstruction from "./service/UnderConstruction";
 import Landing from "./landing/Landing";
-import Home from "./home/Home";
+import History from "./history/History";
 import Card from "./card/Card";
 import AddCard from "./card/addCard/AddCard";
 import EditCard from "./card/editCard/EditCard";
@@ -183,14 +183,14 @@ export default class App extends Component {
                                />)}/>
 
                     <PrivateRoute exact path="/patient/:id/get-data"
-                                  component={Home}
+                                  component={History}
                                   user={this.state.user}
                                   cards={this.state.cards}
                                   requestCards={this.requestCards}
                     />
 
-                    <PrivateRoute exact path="/home"
-                                  component={Home}
+                    <PrivateRoute exact path="/history"
+                                  component={History}
                                   user={this.state.user}
                                   cards={this.state.cards}
                                   requestCards={this.requestCards}
