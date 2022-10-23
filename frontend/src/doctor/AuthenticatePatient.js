@@ -20,8 +20,8 @@ export default class AuthenticatePatient extends Component {
 
         axios.post(apiUrl, this.state)
             .then(response => {
-                this.props.authenticatePatient(response);
-                this.props.history.push('/patient/' + response._id + '/get-data');
+                this.props.authenticatePatient(response.data);
+                this.props.history.push('/patient/' + response.data._id);
 
             })
             .catch(error => {
