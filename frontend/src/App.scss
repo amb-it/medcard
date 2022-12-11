@@ -78,8 +78,10 @@ header {
       margin-right: 20px;
     }
   }
-  .patients {
+  .patients_title {
     text-align: center;
+    font-size: large;
+    padding-top: 20px;
   }
   ul {
     list-style: none;
@@ -212,11 +214,21 @@ header {
 .history_page {
   padding: 10px;
 
+  .history_title {
+    text-align: center;
+    padding: 0 0 30px 0;
+  }
   a {
     color: black;
 
     &:hover {
       text-decoration: none;
+    }
+    .history_title {
+      text-align: center;
+      padding: 15px;
+      background-color: #b1dfbb;
+      color: darkgreen;
     }
     .card {
       padding: 10px 10px 30px 10px;

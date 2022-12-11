@@ -16,7 +16,7 @@ export default class History extends Component {
             visibleSearchInput: false,
             visibleAddCardText: true,
             visiblePictures: false,
-            cards: null,
+            cards: this.props.cards,
             cardsFiltered: null
         };
 
@@ -121,6 +121,7 @@ export default class History extends Component {
                 <MainMenu
                     visible={this.state.visibleMainMenu}
                     user={this.props.user}
+                    patients={this.props.patients}
                 />
 
                 {this.state.visibleSearchInput ?
@@ -142,16 +143,23 @@ export default class History extends Component {
                     : ''}
 
                 <div className="history_page">
+                    {this.props.patient ?
+                        <div className="history_title">
+                            Медична історія пацієнта: { this.props.patient.profile.name }
+                        </div>
+                    : ''}
                     {this.renderCards()}
                 </div>
 
-                <NavLink to="/add-card" className="btn add_card_link">
-                    {this.props.cards && this.props.cards.length === 0 ?
-                        <span className="text">Добавить запись</span> :
-                        ''
-                    }
-                    <span className="oi oi-plus" title="icon name" aria-hidden="true" />
-                </NavLink>
+                {!this.props.patient ?
+                    <NavLink to="/add-card" className="btn add_card_link">
+                        {this.props.cards && this.props.cards.length === 0 ?
+                            <span className="text">Добавить запись</span> :
+                            ''
+                        }
+                        <span className="oi oi-plus" title="icon name" aria-hidden="true" />
+                    </NavLink>
+                : ''}
             </div>
         );
     }

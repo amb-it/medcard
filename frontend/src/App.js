@@ -21,6 +21,8 @@ import Profile from "./profile/Profile";
 import ProfileEdit from "./profile/ProfileEdit";
 import Share from "./doctor/Share";
 import AuthenticatePatient from "./doctor/AuthenticatePatient";
+import HistoryChooser from "./history/HistoryChooser";
+import PatientCard from "./card/PatientCard";
 
 
 export default class App extends Component {
@@ -28,11 +30,11 @@ export default class App extends Component {
         super(props, context);
 
         this.state = {
+            user: this.authenticateFromStorage(),
             cards: null,
             cardTypes: [],
             tags: [],
-            user: this.authenticateFromStorage(),
-            patients: []
+            patients: this.getPatientsFromStorage()
         };
 
         axios.defaults.headers.common['Cache-Control'] = 'no-cache';
@@ -47,6 +49,16 @@ export default class App extends Component {
         }
 
         return user;
+    };
+
+    getPatientsFromStorage = () => {
+        let patients = localStorage.getItem('patients');
+
+        if (patients) {
+            patients = JSON.parse(patients);
+        }
+
+        return patients;
     };
 
     initializeUser(user) {
@@ -140,6 +152,26 @@ export default class App extends Component {
         );
     };
 
+    getPatientById = (id) => {
+        const patients = this.state.patients;
+        let patient = null;
+
+        if (patients && patients.length > 0) {
+            for (const patientItem of patients) {
+                if (patientItem._id === +id) {
+                    patient = patientItem;
+                }
+            }
+        }
+
+        if (!patient) {
+            console.log('patient was not found');
+
+        }
+
+        return patient;
+    };
+
     render() {
         return (
             <Router>
@@ -176,24 +208,12 @@ export default class App extends Component {
                                />)}
                     />
 
-                    <Route exact path="/patient/authenticate"
-                           render={(props) => (
-                               <AuthenticatePatient {...props}
-                                      authenticatePatient={this.authenticatePatient}
-                               />)}/>
-
-                    <PrivateRoute exact path="/patient/:id/get-data"
-                                  component={History}
-                                  user={this.state.user}
-                                  cards={this.state.cards}
-                                  requestCards={this.requestCards}
-                    />
-
                     <PrivateRoute exact path="/history"
                                   component={History}
                                   user={this.state.user}
                                   cards={this.state.cards}
                                   requestCards={this.requestCards}
+                                  patients={this.state.patients}
                     />
 
                     <PrivateRoute exact path="/profile"
@@ -241,6 +261,29 @@ export default class App extends Component {
                                   requestCards={this.requestCards}
                     />
 
+
+                    <Route exact path="/patient/authenticate"
+                           render={(props) => (
+                               <AuthenticatePatient {...props}
+                                                    authenticatePatient={this.authenticatePatient}
+                               />)}/>
+
+
+                    <Route exact path="/patient/:id/history"
+                           render={(props) => (
+                               <HistoryChooser {...props}
+                                               user={this.state.user}
+                                               patients={this.state.patients}
+                                               getPatientById={this.getPatientById}
+                               />)}/>
+
+                    <Route exact path="/patient/:id/card/:card_id"
+                           render={(props) => (
+                               <PatientCard {...props}
+                                            // user={this.state.user}
+                                            patients={this.state.patients}
+                                            getPatientById={this.getPatientById}
+                               />)}/>
                 </ScrollToTop>
             </Router>
         );

@@ -3,18 +3,18 @@ import { NavLink } from "react-router-dom";
 import Dots from 'react-activity/lib/Dots';
 
 import CardData from "./CardData";
-import CardMenu from "./CardMenu";
+// import CardMenu from "./CardMenu";
 
 
 export default class Card extends Component {
 
-    constructor(props, context) {
-        super(props, context);
-
-        this.state = {
-            visibleMenu: false,
-        };
-    }
+    // constructor(props, context) {
+    //     super(props, context);
+    //
+    //     this.state = {
+    //         visibleMenu: false,
+    //     };
+    // }
 
     getCardById = (id) => {
         const cards = this.props.cards;
@@ -42,9 +42,9 @@ export default class Card extends Component {
         return card;
     };
 
-    onMenuButtonClick = () => {
-        this.setState({ visibleMenu: !this.state.visibleMenu });
-    };
+    // onMenuButtonClick = () => {
+    //     this.setState({ visibleMenu: !this.state.visibleMenu });
+    // };
 
     deleteCard = () => {
         this.props.deleteCard(this.props.match.params.id);
