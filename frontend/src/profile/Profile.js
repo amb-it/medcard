@@ -3,7 +3,6 @@ import {NavLink} from "react-router-dom";
 
 import MenuButton from "../core/component/MenuButton";
 import MainMenu from "../history/MainMenu";
-import axios from "axios";
 
 export default class Profile extends Component {
     constructor(props, context) {
@@ -11,46 +10,27 @@ export default class Profile extends Component {
 
         this.state = {
             visibleMainMenu: false,
-            profile: this.props.user.profile
         };
+
+        this.props.requestProfile();
     }
-
-    componentDidMount() {
-        this.requestProfile();
-    }
-
-    requestProfile = () => {
-        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/user/profile';
-        const config = this.props.user.getAuthConfig();
-
-        axios.get(apiUrl, config)
-            .then(response => {
-                this.setState({
-                    profile: response.data.profile
-                });
-
-            })
-            .catch(error => {console.log(error);})
-    };
 
     onMenuButtonClick = () => {
         this.setState({visibleMainMenu: !this.state.visibleMainMenu});
     };
 
-    getAge = (bd) => {}
+    getAge = () => {}
 
     render() {
-        const profile = this.state.profile;
+        let profileUser = this.props.patient;
+        if (!profileUser) {
+            profileUser = this.props.user;
+        }
+        const profile = profileUser.profile;
 
         let age = profile.birthdate
             ? (new Date()).getFullYear() - profile.birthdate.substring(0,4)
             : null;
-
-        // if (profile.birthdate) {
-        //     console.log(parseInt((new Date()).getFullYear()));
-        //     console.log(parseInt(profile.birthdate.substring(0,4)));
-        //     console.log(parseInt((new Date()).getFullYear()) - parseInt(profile.birthdate.substring(0,4)));
-        // }
 
         return (
             <div className="container">
@@ -71,14 +51,21 @@ export default class Profile extends Component {
                 <MainMenu
                     visible={this.state.visibleMainMenu}
                     user={this.props.user}
+                    patients={this.props.patients}
                 />
 
                 <div className="profile_page">
-                    <div className="">
-                        <button type="button" className="btn btn-light float-right edit_button">
-                            <NavLink to="/profile/edit"><span><i className="oi oi-pencil"></i> редактировать </span></NavLink>
-                        </button>
-                    </div>
+                    {!this.props.patient ?
+                        <div className="">
+                            <button type="button" className="btn btn-light float-right edit_button">
+                                <NavLink to="/profile/edit"><span><i className="oi oi-pencil"></i> редактировать </span></NavLink>
+                            </button>
+                        </div>
+                    :
+                        <div className="profile_title">
+                            Данные пациента
+                        </div>
+                    }
 
                     <table className="table">
                         <thead>
@@ -122,7 +109,7 @@ export default class Profile extends Component {
                             </tr>
                             <tr>
                                 <td className="title">email: </td>
-                                <td>{this.props.user.email}</td>
+                                <td>{profileUser.email}</td>
                             </tr>
 
                         </tbody>

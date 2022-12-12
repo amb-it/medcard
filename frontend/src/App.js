@@ -23,6 +23,7 @@ import Share from "./doctor/Share";
 import AuthenticatePatient from "./doctor/AuthenticatePatient";
 import HistoryChooser from "./history/HistoryChooser";
 import PatientCard from "./card/PatientCard";
+import ProfileChooser from "./profile/ProfileChooser";
 
 
 export default class App extends Component {
@@ -123,6 +124,24 @@ export default class App extends Component {
             .catch(error => {console.log(error);})
     };
 
+    requestProfile = () => {
+        const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/user/profile';
+        const config = this.state.user.getAuthConfig();
+
+        let user = this.state.user;
+
+        axios.get(apiUrl, config)
+            .then(response => {
+                user.profile = response.data.profile;
+
+                this.setState({
+                    user: user
+                });
+
+            })
+            .catch(error => {console.log(error);})
+    };
+
     deleteCard = (id) => {
         const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards/' + id;
         const config = this.state.user.getAuthConfig();
@@ -166,7 +185,6 @@ export default class App extends Component {
 
         if (!patient) {
             console.log('patient was not found');
-
         }
 
         return patient;
@@ -219,16 +237,17 @@ export default class App extends Component {
                     <PrivateRoute exact path="/profile"
                                   component={Profile}
                                   user={this.state.user}
-                    />
-
-                    <PrivateRoute exact path="/show-to-doctor"
-                                  component={Share}
-                                  user={this.state.user}
+                                  requestProfile={this.requestProfile}
                     />
 
                     <PrivateRoute exact path="/profile/edit"
                                   component={ProfileEdit}
                                   requestProfile={this.requestProfile}
+                                  user={this.state.user}
+                    />
+
+                    <PrivateRoute exact path="/show-to-doctor"
+                                  component={Share}
                                   user={this.state.user}
                     />
 
@@ -268,6 +287,14 @@ export default class App extends Component {
                                                     authenticatePatient={this.authenticatePatient}
                                />)}/>
 
+
+                    <Route exact path="/patient/:id/profile"
+                           render={(props) => (
+                               <ProfileChooser {...props}
+                                               user={this.state.user}
+                                               patients={this.state.patients}
+                                               getPatientById={this.getPatientById}
+                               />)}/>
 
                     <Route exact path="/patient/:id/history"
                            render={(props) => (

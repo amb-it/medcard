@@ -31,7 +31,7 @@ export default class Landing extends Component {
                         {/*<img src={process.env.REACT_APP_API_ADDRESS + '/screenshot_3.png'} />*/}
                     </div>
                     <div>
-                        <NavLink to={"home"} className="btn btn-success">начать пользоваться</NavLink>
+                        <NavLink to={"history"} className="btn btn-success">начать пользоваться</NavLink>
                     </div>
                     <h2>или если Вы - доктор</h2>
                     <div>

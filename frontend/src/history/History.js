@@ -145,7 +145,7 @@ export default class History extends Component {
                 <div className="history_page">
                     {this.props.patient ?
                         <div className="history_title">
-                            Медична історія пацієнта: { this.props.patient.profile.name }
+                            Медицинская история пациента: { this.props.patient.profile.name }
                         </div>
                     : ''}
                     {this.renderCards()}

@@ -19,7 +19,6 @@ export default class MainMenuPatients extends Component {
                                 <li><NavLink to={"/patient/"+patient._id+"/profile"}>Профиль</NavLink></li>
                                 <li><NavLink to={"/patient/"+patient._id+"/history"}>Медицинская история</NavLink></li>
                             </ul>
-                            <hr/>
                         </div>
                     )
                 }

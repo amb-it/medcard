@@ -39,22 +39,6 @@ export default class MainMenu extends Component {
                     :
                     ''
                 }
-
-
-                        {/*<div className="user_data">*/}
-                        {/*    <b>Пациенты:</b>*/}
-                        {/*</div>*/}
-                        {/*<div className="user_data">*/}
-                        {/*    <span className="oi oi-person" />*/}
-                        {/*    ID {this.props.user._id}. Прокопенко Олександр*/}
-                        {/*</div>*/}
-                        {/*<ul>*/}
-                        {/*    <li><NavLink to="/profile">Профиль</NavLink></li>*/}
-                        {/*    <li><NavLink to="/history">Медицинская история</NavLink></li>*/}
-                        {/*</ul>*/}
-
-
-                {/*<hr/>*/}
             </div>
         );
     }
