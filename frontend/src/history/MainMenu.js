@@ -21,7 +21,7 @@ export default class MainMenu extends Component {
                         <ul>
                             <li><NavLink to="/profile">Профиль</NavLink></li>
                             <li><NavLink to="/history">Медицинская история</NavLink></li>
-                            <li><NavLink to="/show-to-doctor">Показать карту врачу</NavLink></li>
+                            <li><NavLink to="/share">Показать карту врачу</NavLink></li>
                             <li><NavLink to="/logout">Выйти</NavLink></li>
                         </ul>
                     </div>

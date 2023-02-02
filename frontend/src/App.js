@@ -238,6 +238,7 @@ export default class App extends Component {
                                   component={Profile}
                                   user={this.state.user}
                                   requestProfile={this.requestProfile}
+                                  patients={this.state.patients}
                     />
 
                     <PrivateRoute exact path="/profile/edit"
@@ -246,9 +247,10 @@ export default class App extends Component {
                                   user={this.state.user}
                     />
 
-                    <PrivateRoute exact path="/show-to-doctor"
+                    <PrivateRoute exact path="/share"
                                   component={Share}
                                   user={this.state.user}
+                                  patients={this.state.patients}
                     />
 
                     <PrivateRoute exact path="/card/:id"

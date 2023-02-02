@@ -62,6 +62,7 @@ export default class Share extends Component {
                 <MainMenu
                     visible={this.state.visibleMainMenu}
                     user={this.props.user}
+                    patients={this.props.patients}
                 />
 
                 <div className="show_to_doctor_page">
