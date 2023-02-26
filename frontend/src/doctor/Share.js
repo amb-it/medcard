@@ -3,6 +3,7 @@ import React, {Component} from "react";
 import MenuButton from "../core/component/MenuButton";
 import MainMenu from "../history/MainMenu";
 import axios from "axios";
+import Logo from "../core/component/Logo";
 
 export default class Share extends Component {
     constructor(props, context) {
@@ -46,15 +47,12 @@ export default class Share extends Component {
         return (
             <div className="container">
                 <header>
-                    <span className="btn menu_button_box">
+                    <span className="menu_button_box">
                         <MenuButton
                             handleClick={this.onMenuButtonClick}
                             visibleMenu={this.state.visibleMainMenu}
                         />
-                        <span className="logo">
-                            <span className="oi oi-medical-cross" title="icon name" aria-hidden="true" />
-                            MedCard
-                        </span>
+                        <Logo />
                     </span>
                     <hr/>
                 </header>
@@ -70,12 +68,8 @@ export default class Share extends Component {
 
                     <div>
                         <p className="must">Чтоб получить доступ к Вашей карточке врачу нужно:</p>
-                        <p>1. перейти по адресу:
-                            <span className="float-right">
-                                <b>medcard.amb.in.ua</b>
-                            </span>
-                        </p>
-                        <p>2. нажать кнопку <br/><button className="btn btn-outline-success float-right">посмотреть карту пациента</button></p>
+                        <p>1. перейти по адресу: <span className="url float-right">medcard.plus</span></p>
+                        <p>2. нажать кнопку <span className="btn btn-outline-success float-right">посмотреть карту пациента</span></p>
                         <br />
                         <p>3. ввести Ваши данные:</p>
                     </div>

@@ -34,7 +34,7 @@ export default class PatientCard extends Component {
                     <NavLink to={"/patient/"+patient_id+"/history"} className="btn menu_button">
                         <span className="oi oi-caret-left" title="icon name" aria-hidden="true" />
                     </NavLink>
-                    <span className="card_page_title">Запись &nbsp; № {card_id}</span>
+                    <span className="page_title">Запись &nbsp; № {card_id}</span>
                     <hr/>
                 </header>
 

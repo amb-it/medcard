@@ -57,15 +57,18 @@ export default class ProfileEdit extends Component {
         return (
             <div className='container'>
                 <header>
-                    <NavLink to="/profile" className='btn menu_button'>
-                        <span className='oi oi-x'/>
-                    </NavLink>
-                    <span className='card_page_title'>Редактировать профиль</span>
-                    {/*<button*/}
-                    {/*    onClick={this.saveProfile}*/}
-                    {/*    className='btn menu_button float-right right_icon'>*/}
-                    {/*    <span className='oi oi-check'/>*/}
-                    {/*</button>*/}
+                    <span className="menu_button_box">
+                        <NavLink to="/profile">
+                            <span className='oi oi-caret-left'/>
+                        </NavLink>
+                        <span className='page_title'>Редактировать профиль</span>
+
+                        {/*<button*/}
+                        {/*    onClick={this.saveProfile}*/}
+                        {/*    className='btn menu_button float-right right_icon'>*/}
+                        {/*    <span className='oi oi-check'/>*/}
+                        {/*</button>*/}
+                    </span>
 
                     <hr/>
                 </header>

@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {NavLink, Redirect} from "react-router-dom";
+import Logo from "../core/component/Logo";
 
 export default class Landing extends Component {
 
@@ -12,11 +13,8 @@ export default class Landing extends Component {
             : (
             <div className="container">
                 <header>
-                    <span className="btn menu_button_box">
-                        <span className="logo">
-                            <span className="oi oi-medical-cross" title="icon name" aria-hidden="true" />
-                            MedCard
-                        </span>
+                    <span className="menu_button_box">
+                        <Logo />
                     </span>
                 </header>
 

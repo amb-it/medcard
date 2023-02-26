@@ -3,6 +3,7 @@ import axios from "axios";
 import { NavLink } from "react-router-dom";
 import toastr from "toastr";
 import 'toastr/build/toastr.min.css'
+import Logo from "../../core/component/Logo";
 
 export default class Register extends Component {
 
@@ -47,12 +48,12 @@ export default class Register extends Component {
         return (
             <div className="container auth_pages">
                 <header>
-                    <NavLink to="/" className="btn menu_button">
-                        <span className="logo">
-                            <span className="oi oi-medical-cross" title="icon name" aria-hidden="true" />
-                            MedCard
-                        </span>
-                    </NavLink>
+                    <span className="menu_button_box">
+                        <NavLink to="/login">
+                            <span className='oi oi-caret-left'/>
+                        </NavLink>
+                        <Logo />
+                    </span>
                 </header>
 
                 <h1>Зарегистрироваться</h1>

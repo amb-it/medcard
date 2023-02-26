@@ -108,7 +108,7 @@ export default class EditCard extends Component {
                     <NavLink to={backUri} className='btn menu_button'>
                         <span className='oi oi-caret-left'/>
                     </NavLink>
-                    <span className="card_page_title">Запись &nbsp; № {this.props.match.params.id}</span>
+                    <span className="page_title">Запись &nbsp; № {this.props.match.params.id}</span>
                     {/*<button*/}
                     {/*    onClick={this.saveCard}*/}
                     {/*    disabled={!this.state.editCard}*/}

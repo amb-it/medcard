@@ -55,7 +55,7 @@ export default class AddCard extends Component {
                     <NavLink to='/history' className='btn menu_button'>
                         <span className='oi oi-x'/>
                     </NavLink>
-                    <span className='card_page_title'>Новая запись</span>
+                    <span className='page_title'>Новая запись</span>
                     <button
                         onClick={this.saveCard}
                         className='btn btn-success float-right'>сохранить</button>

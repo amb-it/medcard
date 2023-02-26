@@ -3,6 +3,7 @@ import axios from "axios";
 import { NavLink } from "react-router-dom";
 import toastr from 'toastr';
 import 'toastr/build/toastr.min.css'
+import Logo from "../../core/component/Logo";
 
 export default class Login extends Component {
 
@@ -31,7 +32,7 @@ export default class Login extends Component {
         const user =  {
             _id: 9,
             email: "u@e.com",
-            name: "Vladimir",
+            name: "Max",
             tokens: [
                 {
                     token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjksImlhdCI6MTU3ODA2ODIwM30.PryspKwi2a3oY7uzSftR9v7fBCvqfn53wgG06sttD7A"
@@ -68,12 +69,12 @@ export default class Login extends Component {
         return (
             <div className="container auth_pages">
                 <header>
-                    <NavLink to="/" className="btn menu_button">
-                        <span className="logo">
-                            <span className="oi oi-medical-cross" title="icon name" aria-hidden="true" />
-                            MedCard
-                        </span>
-                    </NavLink>
+                    <span className="menu_button_box">
+                        <NavLink to="/">
+                            <span className='oi oi-caret-left'/>
+                        </NavLink>
+                        <Logo />
+                    </span>
                 </header>
 
                 <h1>Войти</h1>

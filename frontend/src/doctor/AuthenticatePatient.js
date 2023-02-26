@@ -2,6 +2,8 @@ import React, {Component} from "react";
 
 import axios from "axios";
 import toastr from "toastr";
+import Logo from "../core/component/Logo";
+import {NavLink} from "react-router-dom";
 
 export default class AuthenticatePatient extends Component {
     constructor(props, context) {
@@ -40,19 +42,17 @@ export default class AuthenticatePatient extends Component {
         return (
             <div className="container">
                 <header>
-                    <span className="btn menu_button menu_button_box" onClick={this.props.history.goBack}>
-                        <span className="oi oi-caret-left" title="icon name" aria-hidden="true" />
-                        <span className="logo">
-                            <span className="oi oi-medical-cross" title="icon name" aria-hidden="true" />
-                            MedCard
-                        </span>
+                    <span className="menu_button_box">
+                        <NavLink to="/">
+                            <span className='oi oi-caret-left'/>
+                        </NavLink>
+                        <Logo />
                     </span>
-                    <hr/>
                 </header>
 
-                <div className="show_to_doctor_page">
-                    <div className="input-group mb-3">
-                        <small>введите авторизационные данные пациента</small>
+                <div className="authenticate_patient_page">
+                    <div className="input-group mb-3 title">
+                        введите авторизационные&nbsp;данные&nbsp;пациента
                     </div>
 
                     <div className="input-group mb-3">

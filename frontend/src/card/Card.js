@@ -67,7 +67,7 @@ export default class Card extends Component {
                     <NavLink to="/history" className="btn menu_button">
                         <span className="oi oi-caret-left" title="icon name" aria-hidden="true" />
                     </NavLink>
-                    <span className="card_page_title">Запись &nbsp; № {card_id}</span>
+                    <span className="page_title">Запись &nbsp; № {card_id}</span>
                     <span className="float-right">
                         <button
                             className='btn btn-outline-danger btn-sm'

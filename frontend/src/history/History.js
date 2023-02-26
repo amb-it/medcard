@@ -6,6 +6,7 @@ import ShortCard from "./ShortCard";
 import MenuButton from "../core/component/MenuButton";
 import MainMenu from "./MainMenu";
 import EmptyMedicalHistory from "./EmptyMedicalHistory";
+import Logo from "../core/component/Logo";
 
 export default class History extends Component {
     constructor(props, context) {
@@ -89,15 +90,12 @@ export default class History extends Component {
         return (
             <div className="container">
                 <header>
-                    <span className="btn menu_button_box">
+                    <span className="menu_button_box">
                         <MenuButton
                             handleClick={this.onMenuButtonClick}
                             visibleMenu={this.state.visibleMainMenu}
                         />
-                        <span className="logo">
-                            <span className="oi oi-medical-cross" title="icon name" aria-hidden="true" />
-                            MedCard
-                        </span>
+                        <Logo />
                     </span>
                     {
                         !this.state.visibleSearchInput ?
