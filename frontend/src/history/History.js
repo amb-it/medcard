@@ -24,10 +24,6 @@ export default class History extends Component {
         this.props.requestCards();
     }
 
-    // componentDidMount() {
-    //     this.interval = setInterval(() => this.setState({ visibleAddCardText: false }), 1500);
-    // }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.cards !== prevProps.cards) {
             this.setState({cards: this.props.cards});
@@ -51,8 +47,13 @@ export default class History extends Component {
     }
 
     onMenuButtonClick = () => {
+        document.querySelector('html').style.overflow = !this.state.visibleMainMenu ? 'hidden' : 'auto';
         this.setState({visibleMainMenu: !this.state.visibleMainMenu});
     };
+
+    componentWillUnmount() {
+        document.querySelector('html').style.overflow = 'auto';
+    }
 
     onShowFilesClick = () => {
         this.setState({visiblePictures: !this.state.visiblePictures});
@@ -145,19 +146,18 @@ export default class History extends Component {
                         <div className="history_title">
                             Медицинская история пациента: { this.props.patient.profile.name }
                         </div>
-                    : ''}
+                    :
+                        <NavLink to="/add-card">
+                            <div className="card">
+                                <div className="add_card">
+                                    <span className="oi oi-plus" title="icon name" aria-hidden="true" />
+                                    Добавить запись
+                                </div>
+                            </div>
+                        </NavLink>
+                    }
                     {this.renderCards()}
                 </div>
-
-                {!this.props.patient ?
-                    <NavLink to="/add-card" className="btn add_card_link">
-                        {this.props.cards && this.props.cards.length === 0 ?
-                            <span className="text">Добавить запись</span> :
-                            ''
-                        }
-                        <span className="oi oi-plus" title="icon name" aria-hidden="true" />
-                    </NavLink>
-                : ''}
             </div>
         );
     }

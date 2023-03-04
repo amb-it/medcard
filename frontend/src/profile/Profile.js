@@ -17,8 +17,13 @@ export default class Profile extends Component {
     }
 
     onMenuButtonClick = () => {
+        document.querySelector('html').style.overflow = !this.state.visibleMainMenu ? 'hidden' : 'auto';
         this.setState({visibleMainMenu: !this.state.visibleMainMenu});
     };
+
+    componentWillUnmount() {
+        document.querySelector('html').style.overflow = 'auto';
+    }
 
     getAge = () => {}
 

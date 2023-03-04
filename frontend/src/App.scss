@@ -6,6 +6,9 @@ html, body {
 
   font-size: medium;
 }
+.container {
+  max-width: 768px;
+}
 a {
   &:hover {
     cursor: pointer;
@@ -147,35 +150,6 @@ header {
   transform: translate3d(0, 0vw, 0);
 }
 
-.add_card_link {
-  position: fixed;
-  right: 40px;
-  bottom: 40px;
-  padding: 10px 15px 8px 15px;
-  border-radius: 30px;
-  background-color: green;
-  color: white;
-  transition: all 2s ease-out;
-
-  &:hover {
-    color: white;
-  }
-
-  .text {
-    display: inline-block;
-    margin-right: 10px;
-
-    //&:hover {
-    //  transition: all 1s ease-out;
-    //  opacity: 0;
-    //  margin: -64px;
-    //}
-  }
-  .oi {
-    font-size: larger;
-  }
-}
-
 
 // landing page
 .landing_page {
@@ -249,6 +223,18 @@ header {
       border: 2px rgb(220, 243, 245) solid;
       font-size: medium;
 
+      .add_card {
+        text-align: center;
+        color: green;
+
+        span {
+          font-size: smaller;
+          padding-right: 10px;
+        }
+      }
+      .add_card_link {
+        max-width: 200px;
+      }
       .title_row {
         padding-bottom: 15px;
 

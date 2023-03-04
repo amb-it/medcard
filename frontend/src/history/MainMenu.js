@@ -4,7 +4,7 @@ import MainMenuPatients from "./MainMenuPatients";
 
 export default class MainMenu extends Component {
     render() {
-        let menuClassName = 'left_menu';
+        let menuClassName = 'container left_menu';
 
         if (this.props.visible) {
             menuClassName += ' visible';
