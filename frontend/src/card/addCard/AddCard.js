@@ -56,9 +56,9 @@ export default class AddCard extends Component {
                         <span className='oi oi-x'/>
                     </NavLink>
                     <span className='page_title'>Новая запись</span>
-                    <button
-                        onClick={this.saveCard}
-                        className='btn btn-success float-right'>сохранить</button>
+                    {/*<button*/}
+                    {/*    onClick={this.saveCard}*/}
+                    {/*    className='btn btn-success float-right'>сохранить</button>*/}
                     <hr/>
                 </header>
 

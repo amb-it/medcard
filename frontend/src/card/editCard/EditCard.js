@@ -116,10 +116,10 @@ export default class EditCard extends Component {
                     {/*    <span className='oi oi-check'/>*/}
                     {/*</button>*/}
 
-                    <button
-                        onClick={this.saveCard}
-                        disabled={!this.state.editCard}
-                        className='btn btn-success float-right'>сохранить</button>
+                    {/*<button*/}
+                    {/*    onClick={this.saveCard}*/}
+                    {/*    disabled={!this.state.editCard}*/}
+                    {/*    className='btn btn-success float-right'>сохранить</button>*/}
                     <hr/>
                 </header>
 

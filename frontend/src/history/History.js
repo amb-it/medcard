@@ -99,7 +99,7 @@ export default class History extends Component {
                         <Logo />
                     </span>
                     {
-                        !this.state.visibleSearchInput ?
+                        !this.state.visibleSearchInput && !this.state.visibleMainMenu ?
                             <span className="float-right right_icon">
                                 <span
                                     onClick={this.onSearchButtonClick}
@@ -108,12 +108,16 @@ export default class History extends Component {
                             </span>
                             : ""
                     }
-                    <span className="float-right right_icon">
-                        <span
-                            onClick={this.onShowFilesClick}
-                            className="oi oi-file show_files_button"
-                        />
-                    </span>
+                    {
+                        !this.state.visibleMainMenu ?
+                            <span className="float-right right_icon">
+                                <span
+                                    onClick={this.onShowFilesClick}
+                                    className="oi oi-file show_files_button"
+                                />
+                            </span>
+                        : ""
+                    }
                     <hr/>
                 </header>
 
