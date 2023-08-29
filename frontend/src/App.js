@@ -22,8 +22,8 @@ import ProfileEdit from "./profile/ProfileEdit";
 import Share from "./doctor/Share";
 import AuthenticatePatient from "./doctor/AuthenticatePatient";
 import HistoryChooser from "./history/HistoryChooser";
-import PatientCard from "./card/PatientCard";
 import ProfileChooser from "./profile/ProfileChooser";
+import CardChooser from "./card/CardChooser";
 
 
 export default class App extends Component {
@@ -308,8 +308,7 @@ export default class App extends Component {
 
                     <Route exact path="/patient/:id/card/:card_id"
                            render={(props) => (
-                               <PatientCard {...props}
-                                            // user={this.state.user}
+                               <CardChooser {...props}
                                             patients={this.state.patients}
                                             getPatientById={this.getPatientById}
                                />)}/>

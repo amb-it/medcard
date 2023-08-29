@@ -8,33 +8,16 @@ import Dots from "react-activity/lib/Dots";
 
 export default class PatientCard extends Component {
 
-    getCardById = (cards, id) => {
-        let card = null;
-
-        if (cards && cards.length > 0) {
-            for (const cardItem of cards) {
-                if (cardItem._id === +id) {
-                    card = cardItem;
-                }
-            }
-        }
-
-        return card;
-    };
-
     render() {
-        const patient_id = this.props.match.params.id;
-        const patient = this.props.getPatientById(patient_id)
-        const card_id = this.props.match.params.card_id;
-        const card = this.getCardById(patient.cards, card_id);
+        const card = this.props.card;
 
         return (
             <div className="container card_page">
                 <header>
-                    <NavLink to={"/patient/"+patient_id+"/history"} className="btn menu_button">
+                    <NavLink to={"/patient/"+this.props.patient._id+"/history"} className="btn menu_button">
                         <span className="oi oi-caret-left" title="icon name" aria-hidden="true" />
                     </NavLink>
-                    <span className="page_title">Запись &nbsp; № {card_id}</span>
+                    <span className="page_title">Запись &nbsp; № {card._id}</span>
                     <hr/>
                 </header>
 
@@ -47,6 +30,3 @@ export default class PatientCard extends Component {
         );
     }
 }
-
-// HOC component (just for history)
-// export default withLoadingScreen(Card);
