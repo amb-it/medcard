@@ -97,7 +97,11 @@ userRoutes.post('/:id', async (req, res) => {
     try {
         const code = req.body.code.replace(/ /g, '');
 
-        const user = await User.findOne({ _id: req.params.id, 'shareData.code': code});
+        const user = await User.findOne({ _id: req.params.id, 'shareData.code': code})
+            .populate('cards.cardType')
+            .populate('cards.clinic')
+            .populate('cards.clinicDepartment')
+            .populate('cards.doctor');
 
         if (!user) {
             throw new Error('User credentials are not valid');
