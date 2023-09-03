@@ -59,6 +59,7 @@ export default class ShortCard extends Component {
         return (
             <div>
                 <NavLink to={"card/"+card._id}>
+                    <a id={"card_"+card._id} />
                     <div className="card">
                         <div className="row title_row">
                             <div className="col title">

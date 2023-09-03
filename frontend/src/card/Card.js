@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 import Dots from 'react-activity/lib/Dots';
 
 import CardData from "./CardData";
@@ -64,9 +65,9 @@ export default class Card extends Component {
         return (
             <div className="container card_page">
                 <header>
-                    <NavLink to="/history" className="btn menu_button">
+                    <HashLink to={"/history#card_"+card_id} className="btn menu_button">
                         <span className="oi oi-caret-left" title="icon name" aria-hidden="true" />
-                    </NavLink>
+                    </HashLink>
                     <span className="page_title">Запись &nbsp; № {card_id}</span>
                     <span className="float-right">
                         <button
