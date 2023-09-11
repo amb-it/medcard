@@ -30,26 +30,32 @@ export default class ShortCard extends Component {
         }
 
         if (card.files.length > 0) {
+            images = card.files.map(function (item, key) {
+                if (['jpg', 'jpeg', 'png'].includes(item.split('.').pop())) {
+                    return item;
+                }
+            }).filter(Boolean); // to filter empty element
+            otherFiles = card.files.map(function (item, key) {
+                if (!['jpg', 'jpeg', 'png'].includes(item.split('.').pop())) {
+                    return item;
+                }
+            }).filter(Boolean);
+
             if (this.props.visiblePictures) {
-                images = card.files.map(function (item, key) {
-                    return ['jpg', 'jpeg', 'png'].includes(item.split('.').pop()) ?
-                        <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} key={key} alt=""/>
-                        : null;
-                }).filter(Boolean);
+                images = images.map(function (item, key) {
+                    return <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} key={key} alt=""/>
+                });
+                otherFiles = otherFiles.map(function (item, key) {
+                    return <div key={key}><span>{item}</span></div>
+                });
             } else {
-                images = card.files.map(function (item, key) {
+                images = images.map(function (item, key) {
+                    return <span className="oi oi-image" key={key} title="icon name" aria-hidden="true" />
+                });
+                otherFiles = otherFiles.map(function (item, key) {
                     return <span className="oi oi-file" key={key} title="icon name" aria-hidden="true" />
                 });
             }
-
-
-            otherFiles = card.files.map(function (item, key) {
-                return !['jpg', 'jpeg', 'png'].includes(item.split('.').pop()) ?
-                    <div key={key}>
-                        <span>{item}</span>
-                    </div>
-                    : null;
-            }).filter(Boolean);
         }
 
         dateFormat = (new Date()).toISOString().substr(0,4) === card.date.substring(0, 4)
@@ -59,8 +65,7 @@ export default class ShortCard extends Component {
         return (
             <div>
                 <NavLink to={"card/"+card._id}>
-                    <a id={"card_"+card._id} />
-                    <div className="card">
+                    <div className="card" id={"card_"+card._id}>
                         <div className="row title_row">
                             <div className="col title">
                                 <div className="card_id">запись № <span>{card._id}</span></div>

@@ -289,7 +289,7 @@ header {
       .files {
         margin-top: 15px;
         margin-left: 10px;
-        font-size: x-small;
+        font-size: small;
 
         img {
           width: 80px;
@@ -305,6 +305,9 @@ header {
             background-color: #f3f0f3;
             border-radius: 3px;
           }
+        }
+        .oi {
+          padding-right: 4px;
         }
 
         .text {
