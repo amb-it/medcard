@@ -24,6 +24,7 @@ import AuthenticatePatient from "./doctor/AuthenticatePatient";
 import HistoryChooser from "./history/HistoryChooser";
 import ProfileChooser from "./profile/ProfileChooser";
 import CardChooser from "./card/CardChooser";
+import Settings from "./settings/Settings";
 
 
 export default class App extends Component {
@@ -238,6 +239,12 @@ export default class App extends Component {
                                   component={Profile}
                                   user={this.state.user}
                                   requestProfile={this.requestProfile}
+                                  patients={this.state.patients}
+                    />
+
+                    <PrivateRoute exact path="/settings"
+                                  component={Settings}
+                                  user={this.state.user}
                                   patients={this.state.patients}
                     />
 

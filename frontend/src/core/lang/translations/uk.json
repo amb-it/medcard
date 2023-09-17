@@ -1,0 +1,10 @@
+{
+  "main.menu.profile": "Профіль",
+  "main.menu.history": "Медична історія",
+  "main.menu.share": "Показати лікарю",
+  "main.menu.settings": "Налаштування",
+  "main.menu.log.out": "Вийти",
+  "main.menu.log.in": "Увійти в аккаунт",
+  "main.menu.patients.title": "Пацієнти",
+  "history.addentry": "Додати запис"
+}

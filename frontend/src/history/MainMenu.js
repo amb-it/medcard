@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import MainMenuPatients from "./MainMenuPatients";
+import {FormattedMessage} from "react-intl";
 
 export default class MainMenu extends Component {
     render() {
@@ -19,16 +20,47 @@ export default class MainMenu extends Component {
                             <b>{this.props.user.profile.name}</b>
                         </div>
                         <ul>
-                            <li><NavLink to="/profile">Профиль</NavLink></li>
-                            <li><NavLink to="/history">Медицинская история</NavLink></li>
-                            <li><NavLink to="/share">Показать карту врачу</NavLink></li>
-                            <li><NavLink to="/logout">Выйти</NavLink></li>
+                            <li><NavLink to="/profile">
+                                <FormattedMessage
+                                    id="main.menu.profile"
+                                    defaultMessage="Profile"
+                                />
+                            </NavLink></li>
+                            <li><NavLink to="/history">
+                                <FormattedMessage
+                                    id="main.menu.history"
+                                    defaultMessage="Medical history"
+                                />
+                            </NavLink></li>
+                            <li><NavLink to="/share">
+                                <FormattedMessage
+                                    id="main.menu.share"
+                                    defaultMessage="Share with doctor"
+                                />
+                            </NavLink></li>
+                            <li><NavLink to="/settings">
+                                <FormattedMessage
+                                    id="main.menu.settings"
+                                    defaultMessage="Settings"
+                                />
+                            </NavLink></li>
+                            <li><NavLink to="/logout">
+                                <FormattedMessage
+                                    id="main.menu.log.out"
+                                    defaultMessage="Log out"
+                                />
+                            </NavLink></li>
                         </ul>
                     </div>
                     :
                     <div>
                         <ul>
-                            <li><NavLink to="/login">Войти в аккаунт</NavLink></li>
+                            <li><NavLink to="/login">
+                                <FormattedMessage
+                                    id="main.menu.log.in"
+                                    defaultMessage="Log in"
+                                />
+                            </NavLink></li>
                         </ul>
                     </div>
                 }

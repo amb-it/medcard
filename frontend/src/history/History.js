@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
 import FadingBalls from "react-cssfx-loading/lib/FadingBalls";
+import {FormattedMessage} from "react-intl";
 
 import ShortCard from "./ShortCard";
 import MenuButton from "../core/component/MenuButton";
@@ -155,7 +156,10 @@ export default class History extends Component {
                             <div className="card">
                                 <div className="add_card">
                                     <span className="oi oi-plus" title="icon name" aria-hidden="true" />
-                                    Добавить запись
+                                    <FormattedMessage
+                                        id="history.addentry"
+                                        defaultMessage="Add entry"
+                                    />
                                 </div>
                             </div>
                         </NavLink>

@@ -196,6 +196,20 @@ header {
   }
 }
 
+
+// settings page
+.settings_page {
+  padding: 10px;
+  white-space: pre-wrap;
+
+  .settings_title {
+    text-align: center;
+    padding: 0 0 30px 0;
+    font-size: large;
+  }
+}
+
+
 // history page
 .history_page {
   padding: 10px;
@@ -210,12 +224,13 @@ header {
     &:hover {
       text-decoration: none;
     }
-    .history_title {
-      text-align: center;
-      padding: 15px;
-      background-color: #b1dfbb;
-      color: darkgreen;
-    }
+    //.history_title {
+    //  text-align: center;
+    //  padding: 15px;
+    //  background-color: #b1dfbb;
+    //  color: darkgreen;
+    //  font-weight: bold;
+    //}
     .card {
       padding: 10px 10px 30px 10px;
       margin-bottom: 45px;

@@ -1,0 +1,10 @@
+{
+  "main.menu.profile": "Profile",
+  "main.menu.history": "Medical history",
+  "main.menu.share": "Show to doctor",
+  "main.menu.settings": "Settings",
+  "main.menu.log.out": "Log out",
+  "main.menu.log.in": "Log in",
+  "main.menu.patients.title": "Patients",
+  "history.addentry": "Add entry"
+}

@@ -82,10 +82,10 @@ export default class Profile extends Component {
                                 <td className="title">Дата рождения: </td>
                                 <td>{profile.birthdate}</td>
                             </tr>
-                        <tr>
-                            <td className="title">Возраст</td>
-                            <td>{age ? age : ''}{ age ? ' года/лет' : '' }</td>
-                        </tr>
+                            <tr>
+                                <td className="title">Возраст</td>
+                                <td>{age ? age : ''}{ age ? ' года/лет' : '' }</td>
+                            </tr>
                             <tr>
                                 <td className="title">Вес</td>
                                 <td>{profile.weight}{ profile.weight ? ' кг' : '' }</td>
