@@ -1,5 +1,7 @@
 {
   "common.edit": "edit",
+  "common.cancel": "cancel",
+  "common.save": "save",
   "main-menu.profile": "Profile",
   "main-menu.history": "Medical history",
   "main-menu.share": "Show to doctor",
@@ -18,5 +20,8 @@
   "profile.chronic-diseases": "Chronic diseases",
   "profile.allergies": "Allergies",
   "profile.other": "Other",
+  "profile.edit.title": "Edit profile",
+  "profile.edit.weight": "Weight (kg)",
+  "profile.edit.blood-rf": "Blood group and Rhesus factor",
   "history.addentry": "Add entry"
 }

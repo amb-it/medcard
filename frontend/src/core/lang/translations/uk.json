@@ -1,5 +1,7 @@
 {
   "common.edit": "редагувати",
+  "common.cancel": "відміна",
+  "common.save": "зберегти",
   "main-menu.profile": "Профіль",
   "main-menu.history": "Медична історія",
   "main-menu.share": "Показати лікарю",
@@ -18,5 +20,8 @@
   "profile.chronic-diseases": "Хронічні захворювання",
   "profile.allergies": "Алергії",
   "profile.other": "Інше",
+  "profile.edit.title": "Редагувати профіль",
+  "profile.edit.weight": "Вага (кг)",
+  "profile.edit.blood-rf": "Група крові та Резус фактор",
   "history.addentry": "Додати запис"
 }
