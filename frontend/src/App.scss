@@ -188,6 +188,11 @@ header {
   .edit_button {
     margin: 10px;
     font-size: x-small;
+    color: darkblue;
+
+    i {
+      padding-right: 5px;
+    }
   }
   .table {
     .title {

@@ -22,31 +22,31 @@ export default class MainMenu extends Component {
                         <ul>
                             <li><NavLink to="/profile">
                                 <FormattedMessage
-                                    id="main.menu.profile"
+                                    id="main-menu.profile"
                                     defaultMessage="Profile"
                                 />
                             </NavLink></li>
                             <li><NavLink to="/history">
                                 <FormattedMessage
-                                    id="main.menu.history"
+                                    id="main-menu.history"
                                     defaultMessage="Medical history"
                                 />
                             </NavLink></li>
                             <li><NavLink to="/share">
                                 <FormattedMessage
-                                    id="main.menu.share"
+                                    id="main-menu.share"
                                     defaultMessage="Share with doctor"
                                 />
                             </NavLink></li>
                             <li><NavLink to="/settings">
                                 <FormattedMessage
-                                    id="main.menu.settings"
+                                    id="main-menu.settings"
                                     defaultMessage="Settings"
                                 />
                             </NavLink></li>
                             <li><NavLink to="/logout">
                                 <FormattedMessage
-                                    id="main.menu.log.out"
+                                    id="main-menu.log-out"
                                     defaultMessage="Log out"
                                 />
                             </NavLink></li>
@@ -57,7 +57,7 @@ export default class MainMenu extends Component {
                         <ul>
                             <li><NavLink to="/login">
                                 <FormattedMessage
-                                    id="main.menu.log.in"
+                                    id="main-menu.log-in"
                                     defaultMessage="Log in"
                                 />
                             </NavLink></li>

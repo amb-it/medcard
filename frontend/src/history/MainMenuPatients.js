@@ -8,7 +8,7 @@ export default class MainMenuPatients extends Component {
             <div>
                 <div className="patients_title">
                     <FormattedMessage
-                        id="main.menu.patients.title"
+                        id="main-menu.patients-title"
                         defaultMessage="Patients"
                     />
                 </div>
@@ -22,13 +22,13 @@ export default class MainMenuPatients extends Component {
                             <ul>
                                 <li><NavLink to={"/patient/"+patient._id+"/profile"}>
                                     <FormattedMessage
-                                        id="main.menu.profile"
+                                        id="main-menu.profile"
                                         defaultMessage="Profile"
                                     />
                                 </NavLink></li>
                                 <li><NavLink to={"/patient/"+patient._id+"/history"}>
                                     <FormattedMessage
-                                        id="main.menu.history"
+                                        id="main-menu.history"
                                         defaultMessage="Medical history"
                                     />
                                 </NavLink></li>
