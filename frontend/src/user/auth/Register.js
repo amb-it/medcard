@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import toastr from "toastr";
 import 'toastr/build/toastr.min.css'
 import Logo from "../../core/component/Logo";
+import {FormattedMessage} from "react-intl";
 
 export default class Register extends Component {
 
@@ -56,13 +57,15 @@ export default class Register extends Component {
                     </span>
                 </header>
 
-                <h1>Зарегистрироваться</h1>
+                <h1>
+                    <FormattedMessage id="register.title" defaultMessage="Registration" />
+                </h1>
 
                 <div className="input-group mb-3">
                     <input
                         onChange={this.onInputChange}
                         id="name"
-                        type="text" className="form-control" placeholder="имя"/>
+                        type="text" className="form-control" placeholder="name"/>
                 </div>
                 <div className="input-group mb-3">
                     <input
@@ -74,18 +77,24 @@ export default class Register extends Component {
                     <input
                         onChange={this.onInputChange}
                         id="password"
-                        type="password" className="form-control" placeholder="пароль"/>
+                        type="password" className="form-control" placeholder="password"/>
                 </div>
 
                 <div className="row register_button_box">
                     <div className="col-7 text-right">
                         <button
                             onClick={this.registerUser}
-                            className="btn btn-success">Зарегистрировать</button>
+                            className="btn btn-success">
+                            <FormattedMessage id="register.register-button" defaultMessage="Register" />
+                        </button>
                     </div>
                     <div className="col-5 text-right">
-                        <small>или</small> &nbsp;
-                        <NavLink to={"login"}>войти</NavLink>
+                        <small>
+                            <FormattedMessage id="common.or" defaultMessage="or" />
+                        </small> &nbsp;
+                        <NavLink to={"login"}>
+                            <FormattedMessage id="register.log-in" defaultMessage="log in" />
+                        </NavLink>
                     </div>
                 </div>
             </div>

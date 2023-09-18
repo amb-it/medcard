@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import toastr from 'toastr';
 import 'toastr/build/toastr.min.css'
 import Logo from "../../core/component/Logo";
+import {FormattedMessage} from "react-intl";
 
 export default class Login extends Component {
 
@@ -77,7 +78,9 @@ export default class Login extends Component {
                     </span>
                 </header>
 
-                <h1>Войти</h1>
+                <h1>
+                    <FormattedMessage id="log-in.entrance" defaultMessage="Entrance to card" />
+                </h1>
 
                 <div className="input-group mb-3">
                     <input
@@ -89,18 +92,22 @@ export default class Login extends Component {
                     <input
                         onChange={this.onInputChange}
                         id="password"
-                        type="password" className="form-control" placeholder="пароль"/>
+                        type="password" className="form-control" placeholder="password"/>
                 </div>
 
                 <div className="row register_button_box">
                     <div className="col-7 text-right">
                         <button
                             onClick={this.loginUser}
-                            className="btn btn-success">Войти</button>
+                            className="btn btn-success">
+                            <FormattedMessage id="log-in.log-in" defaultMessage="Log in" />
+                        </button>
                     </div>
                     <div className="col-5 text-right">
-                        <small>или</small> &nbsp;
-                        <NavLink to={"register"}>зарегистрироваться</NavLink>
+                        <small><FormattedMessage id="common.or" defaultMessage="or" /></small> &nbsp;
+                        <NavLink to={"register"}>
+                            <FormattedMessage id="log-in.register" defaultMessage="register" />
+                        </NavLink>
                     </div>
                 </div>
             </div>

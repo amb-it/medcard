@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {NavLink, Redirect} from "react-router-dom";
 import Logo from "../core/component/Logo";
+import {FormattedMessage} from "react-intl";
 
 export default class Landing extends Component {
 
@@ -19,7 +20,9 @@ export default class Landing extends Component {
                 </header>
 
                 <div className="landing_page">
-                    <h1>Твоя онлайн медицинская карточка</h1>
+                    <h1>
+                        <FormattedMessage id="landing.title" defaultMessage="Your online medical card" />
+                    </h1>
                     <div className="screenshots">
                         <video height="280" loop={true} autoPlay={true} muted={true}>
                             <source src={process.env.REACT_APP_API_ADDRESS + '/video_shot_1.mp4'} type="video/mp4" />
@@ -29,11 +32,17 @@ export default class Landing extends Component {
                         {/*<img src={process.env.REACT_APP_API_ADDRESS + '/screenshot_3.png'} />*/}
                     </div>
                     <div>
-                        <NavLink to={"history"} className="btn btn-success">начать пользоваться</NavLink>
+                        <NavLink to={"history"} className="btn btn-success">
+                            <FormattedMessage id="landing.start" defaultMessage="start to use" />
+                        </NavLink>
                     </div>
-                    <h2>или если Вы - доктор</h2>
+                    <h2>
+                        <FormattedMessage id="landing.doctor-title" defaultMessage="or if you are doctor" />
+                    </h2>
                     <div>
-                        <NavLink to={"patient/authenticate"} className="btn btn-outline-success">посмотреть карту пациента</NavLink>
+                        <NavLink to={"patient/authenticate"} className="btn btn-outline-success">
+                            <FormattedMessage id="landing.doctor-button" defaultMessage="look at patient card" />
+                        </NavLink>
                     </div>
                 </div>
 

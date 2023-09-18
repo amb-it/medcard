@@ -10,13 +10,16 @@ let lang;
 let predefinedLang = localStorage.getItem('lang');
 if (!predefinedLang) {
     lang = navigator.language.split(/[-_]/)[0];
+    if (lang === "ru") {
+        lang = "uk";
+    }
     localStorage.setItem('lang', lang);
 } else {
     lang = predefinedLang;
 }
 
 let translations;
-if (lang==="uk") {
+if (lang === "uk") {
     translations = Ukrainian;
 } else {
     translations = English;
