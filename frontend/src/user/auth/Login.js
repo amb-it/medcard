@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 import toastr from 'toastr';
 import 'toastr/build/toastr.min.css'
 import Logo from "../../core/component/Logo";
-import {FormattedMessage} from "react-intl";
+import {FormattedMessage, injectIntl} from "react-intl";
 
-export default class Login extends Component {
+class Login extends Component {
 
     constructor(props, context) {
         super(props, context);
@@ -86,13 +86,15 @@ export default class Login extends Component {
                     <input
                         onChange={this.onInputChange}
                         id="email"
-                        type="text" className="form-control" placeholder="email"/>
+                        type="text" className="form-control" placeholder="email" />
                 </div>
                 <div className="input-group mb-3">
                     <input
                         onChange={this.onInputChange}
                         id="password"
-                        type="password" className="form-control" placeholder="password"/>
+                        type="password"
+                        className="form-control"
+                        placeholder={this.props.intl.formatMessage({ id: "common.password", defaultMessage: 'password'})} />
                 </div>
 
                 <div className="row register_button_box">
@@ -114,3 +116,5 @@ export default class Login extends Component {
         );
     }
 }
+
+export default injectIntl(Login);

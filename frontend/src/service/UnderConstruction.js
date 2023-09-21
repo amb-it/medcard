@@ -16,7 +16,7 @@ export default class UnderConstruction extends Component {
                 </header>
 
                 <div className="content">
-                    <h1>Функционал в разработке...</h1>
+                    <h1>Under construction...</h1>
                 </div>
             </div>
         );

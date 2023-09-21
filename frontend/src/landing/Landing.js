@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {NavLink, Redirect} from "react-router-dom";
 import Logo from "../core/component/Logo";
 import {FormattedMessage} from "react-intl";
+import LangChooser from "../core/lang/LangChooser";
 
 export default class Landing extends Component {
 
@@ -17,6 +18,9 @@ export default class Landing extends Component {
                     <span className="menu_button_box">
                         <Logo />
                     </span>
+                    <span className="float-right">
+                        <LangChooser />
+                    </span>
                 </header>
 
                 <div className="landing_page">
@@ -24,7 +28,7 @@ export default class Landing extends Component {
                         <FormattedMessage id="landing.title" defaultMessage="Your online medical card" />
                     </h1>
                     <div className="screenshots">
-                        <video height="280" loop={true} autoPlay={true} muted={true}>
+                        <video height="280" loop={true} autoPlay={true} muted={true} webkit-playsinline="true" playsInline>
                             <source src={process.env.REACT_APP_API_ADDRESS + '/video_shot_1.mp4'} type="video/mp4" />
                         </video>
                         {/*<img src={process.env.REACT_APP_API_ADDRESS + '/screenshot_1.png'} />*/}

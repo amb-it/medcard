@@ -4,8 +4,9 @@ import axios from "axios";
 import toastr from "toastr";
 import Logo from "../core/component/Logo";
 import {NavLink} from "react-router-dom";
+import {FormattedMessage, injectIntl} from "react-intl";
 
-export default class AuthenticatePatient extends Component {
+class AuthenticatePatient extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -30,10 +31,10 @@ export default class AuthenticatePatient extends Component {
                 console.log(error);
 
                 toastr.options = {
-                    timeOut: 2000,
+                    timeOut: 4000,
                     closeButton: true
                 };
-                toastr.error(error);
+                toastr.error('authorization error');
             })
     }
 
@@ -51,15 +52,18 @@ export default class AuthenticatePatient extends Component {
                 </header>
 
                 <div className="authenticate_patient_page">
-                    <div className="input-group mb-3 title">
-                        введите авторизационные&nbsp;данные&nbsp;пациента
+                    <div className="title">
+                        <FormattedMessage id="authenticate-patient.title" defaultMessage="enter patient&nbsp;authentication&nbsp;data" />
                     </div>
 
                     <div className="input-group mb-3">
                         <input
                             onChange={this.onInputChange}
                             id="user_id"
-                            type="string" className="form-control" placeholder="ID пациента" />
+                            type="string"
+                            className="form-control"
+                            placeholder={this.props.intl.formatMessage({ id: "authenticate-patient.patient-id", defaultMessage: 'patient ID'})}
+                        />
 
                     </div>
 
@@ -67,7 +71,10 @@ export default class AuthenticatePatient extends Component {
                         <input
                             onChange={this.onInputChange}
                             id="code"
-                            type="string" className="form-control" placeholder="код доступа" />
+                            type="string"
+                            className="form-control"
+                            placeholder={this.props.intl.formatMessage({ id: "authenticate-patient.access-code", defaultMessage: 'access code'})}
+                        />
                     </div>
 
                     <div className='row md-5'>
@@ -75,7 +82,10 @@ export default class AuthenticatePatient extends Component {
                         <div className='col-6 text-center'>
                             <button
                                 onClick={this.authenticatePatient}
-                                className='btn btn-success'>посмотреть карту</button>
+                                className='btn btn-success'>
+                                <FormattedMessage id="authenticate-patient.look-at-card" defaultMessage="look at card" />
+                                {/*посмотреть карту*/}
+                            </button>
                         </div>
                     </div>
 
@@ -84,3 +94,5 @@ export default class AuthenticatePatient extends Component {
         );
     }
 }
+
+export default injectIntl(AuthenticatePatient);
