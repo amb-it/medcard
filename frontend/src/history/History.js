@@ -149,17 +149,14 @@ export default class History extends Component {
                 <div className="history_page">
                     {this.props.patient ?
                         <div className="history_title">
-                            Медицинская история пациента: { this.props.patient.profile.name }
+                            <FormattedMessage id="history.title" defaultMessage="Patient medical history" />: { this.props.patient.profile.name }
                         </div>
                     :
                         <NavLink to="/add-card">
                             <div className="card">
                                 <div className="add_card">
                                     <span className="oi oi-plus" title="icon name" aria-hidden="true" />
-                                    <FormattedMessage
-                                        id="history.addentry"
-                                        defaultMessage="Add entry"
-                                    />
+                                    <FormattedMessage id="history.add-entry" defaultMessage="Add entry" />
                                 </div>
                             </div>
                         </NavLink>

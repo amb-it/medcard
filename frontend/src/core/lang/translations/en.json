@@ -47,7 +47,19 @@
   "profile.edit.weight": "Weight (kg)",
   "profile.edit.blood-rf": "Blood group and Rhesus factor",
 
-  "history.addentry": "Add entry",
+  "history.title": "Patient medical history",
+  "history.add-entry": "Add entry",
+  "history.entry": "entry",
+
+  "card.entry": "Entry",
+  "card.description": "Description",
+  "card.visited": "Visited",
+  "card.doctor": "Doctor",
+  "card.diagnoses": "Diagnoses",
+  "card.prescriptions": "Prescriptions",
+  "card.analysis": "Analysis",
+  "card.notes": "Notes",
+  "card.files": "Files",
 
   "settings.title": "Settings",
   "settings.language": "Language",

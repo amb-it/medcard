@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Moment from 'react-moment';
+import {FormattedMessage, FormattedDate} from "react-intl";
 
 // import { Document, Page } from 'react-pdf';
 // import { pdfjs } from 'react-pdf';
@@ -7,21 +7,21 @@ import Moment from 'react-moment';
 
 export default class CardData extends Component {
 
-    getFileTag(filename) {
-        let result;
-
-        if (['jpg', 'jpeg', 'png'].includes(filename.split('.').pop())) {
-            result = <img src={process.env.REACT_APP_API_ADDRESS + '/' + filename} alt=""/>;
-        // } else if(filename.split('.').pop() === 'pdf') {
-        //     const pageNumber = 1;
-        //     result = <Document file={process.env.REACT_APP_API_ADDRESS + '/' + filename}>
-        //         <Page pageNumber={pageNumber} scale='0.5' />
-        //     </Document>
-        } else {
-            result = <a href={process.env.REACT_APP_API_ADDRESS + '/' + filename}>{filename}</a>;
-        }
-        return result;
-    }
+    // getFileTag(filename) {
+    //     let result;
+    //
+    //     if (['jpg', 'jpeg', 'png'].includes(filename.split('.').pop())) {
+    //         result = <img src={process.env.REACT_APP_API_ADDRESS + '/' + filename} alt=""/>;
+    //     } else if(filename.split('.').pop() === 'pdf') {
+    //         const pageNumber = 1;
+    //         result = <Document file={process.env.REACT_APP_API_ADDRESS + '/' + filename}>
+    //             <Page pageNumber={pageNumber} scale='0.5' />
+    //         </Document>
+    //     } else {
+    //         result = <a href={process.env.REACT_APP_API_ADDRESS + '/' + filename}>{filename}</a>;
+    //     }
+    //     return result;
+    // }
 
     render() {
         const card = this.props.card;
@@ -29,7 +29,6 @@ export default class CardData extends Component {
         let tags = '';
         let images;
         let otherFiles;
-        let dateFormat;
 
         if (card.tags && card.tags.length > 0) {
             tags = card.tags.map(
@@ -56,17 +55,15 @@ export default class CardData extends Component {
             }).filter(Boolean);
         }
 
-        dateFormat = (new Date()).toISOString().substr(0,4) === card.date.substring(0, 4)
-            ? "D MMMM"
-            : "D MMMM Y";
+        let formattedDate = (new Date()).toISOString().substring(0,4) === card.date.substring(0, 4)
+            ? <FormattedDate value={card.date} month="long" day="numeric" />
+            : <FormattedDate value={card.date} month="long" day="numeric" year="numeric" />;
 
         return (
             <div className="card_data">
                 <div className="card_data_box">
                     <div className="row title_elements">
-                        <span className="col date">
-                            <Moment format={dateFormat}>{card.date}</Moment>
-                        </span>
+                        <span className="col date">{formattedDate}</span>
                         <span className="col type">
                             <div className="cardType">
                                 {card.cardType ? card.cardType.title : ''}
@@ -79,7 +76,7 @@ export default class CardData extends Component {
                     <div className="paragraph">
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                            Описание
+                            <FormattedMessage id="card.description" defaultMessage="Description" />
                         </div>
                         <div className="description">{card.complaint}</div>
                     </div>
@@ -89,7 +86,8 @@ export default class CardData extends Component {
                     <div className="paragraph">
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                            Обратился
+                            <FormattedMessage id="card.visited" defaultMessage="Visited" />
+                            {/*Обратился*/}
                         </div>
                         <div className="description">
                             { card.clinic.title ? card.clinic.title : ''}
@@ -110,7 +108,8 @@ export default class CardData extends Component {
                     <div className="paragraph">
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                            Врач
+                            <FormattedMessage id="card.doctor" defaultMessage="Doctor" />
+                            {/*Врач*/}
                         </div>
                         <div className="description">
                             { card.doctor.specialization ? <small>{card.doctor.specialization} &nbsp;</small> : ''}
@@ -123,15 +122,11 @@ export default class CardData extends Component {
                     <div className="paragraph">
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                            Диагноз
+                            <FormattedMessage id="card.diagnoses" defaultMessage="Diagnoses" />
+                            {/*Диагноз*/}
                         </div>
                         <div className="description">
                             { card.diagnoses }
-                            {/*<ul>*/}
-                            {/*    {card.diagnose.map(*/}
-                            {/*        (item, key) => <li key={key}>{item.title}</li>*/}
-                            {/*    )}*/}
-                            {/*</ul>*/}
                         </div>
                     </div>
                     }
@@ -140,7 +135,8 @@ export default class CardData extends Component {
                     <div className="paragraph">
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                            Назначения
+                            <FormattedMessage id="card.prescriptions" defaultMessage="Prescriptions" />
+                            {/*Назначения*/}
                         </div>
                         <div className="description">
                             { card.prescriptions }
@@ -152,7 +148,8 @@ export default class CardData extends Component {
                     <div className="paragraph">
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                            Анализы и материалы
+                            <FormattedMessage id="card.analysis" defaultMessage="Analysis" />
+                            {/*Анализы и материалы*/}
                         </div>
                         <div className="description">
                             { card.materials }
@@ -164,7 +161,8 @@ export default class CardData extends Component {
                     <div className="paragraph">
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                            Другие записи
+                            <FormattedMessage id="card.notes" defaultMessage="Notes" />
+                            {/*Другие записи*/}
                         </div>
                         <div className="description">
                             { card.notes }
@@ -175,9 +173,10 @@ export default class CardData extends Component {
 
                 { card.files.length > 0 &&
                 <div className="paragraph">
-                    <div className="title">
+                    <div className="title files_title">
                         <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                        Файлы
+                        <FormattedMessage id="card.files" defaultMessage="Files" />
+                        {/*Файлы*/}
                     </div>
                     <div className="description">
                         <ul className="pictures_list">

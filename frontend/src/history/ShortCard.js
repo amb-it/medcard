@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import Moment from "react-moment";
-import 'moment/locale/ru';
+import {FormattedMessage, FormattedDate} from "react-intl";
 
 export default class ShortCard extends Component {
 
@@ -12,7 +11,6 @@ export default class ShortCard extends Component {
         let tags = '';
         let images;
         let otherFiles;
-        let dateFormat;
 
         if (card.complaint) {
             complaint = card.complaint.length > 130
@@ -58,9 +56,9 @@ export default class ShortCard extends Component {
             }
         }
 
-        dateFormat = (new Date()).toISOString().substr(0,4) === card.date.substring(0, 4)
-            ? "D MMMM"
-            : "D MMMM Y";
+        let formattedDate = (new Date()).toISOString().substring(0,4) === card.date.substring(0, 4)
+            ? <FormattedDate value={card.date} month="long" day="numeric" />
+            : <FormattedDate value={card.date} month="long" day="numeric" year="numeric" />;
 
         return (
             <div>
@@ -68,9 +66,11 @@ export default class ShortCard extends Component {
                     <div className="card" id={"card_"+card._id}>
                         <div className="row title_row">
                             <div className="col title">
-                                <div className="card_id">запись № <span>{card._id}</span></div>
+                                <div className="card_id">
+                                    <FormattedMessage id="history.entry" defaultMessage="entry" /> № <span>{card._id}</span>
+                                </div>
                                 <span className="oi oi-calendar" title="icon name" aria-hidden="true" />
-                                <Moment format={dateFormat}>{card.date}</Moment>
+                                <span className="date">{formattedDate}</span>
                             </div>
                             <div className="col type">
                                 {card.cardType
