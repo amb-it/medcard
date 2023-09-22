@@ -19,7 +19,7 @@ export default class Landing extends Component {
                         <Logo />
                     </span>
                     <span className="float-right">
-                        <LangChooser />
+                        <LangChooser component='landing' />
                     </span>
                 </header>
 

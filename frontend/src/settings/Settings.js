@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {FormattedMessage} from "react-intl";
 
 import MenuButton from "../core/component/MenuButton";
 import MainMenu from "../history/MainMenu";
@@ -44,11 +45,15 @@ export default class Settings extends Component {
                 />
 
                 <div className="settings_page">
-                    <div className="settings_title">Settings</div>
+                    <div className="settings_title">
+                        <FormattedMessage id="settings.title" defaultMessage="Settings" />
+                    </div>
                     <table className="table">
                         <tbody>
                             <tr>
-                                <td className="title">Language </td>
+                                <td className="name">
+                                    <FormattedMessage id="settings.language" defaultMessage="Language" />
+                                </td>
                                 <td><LangChooser /></td>
                             </tr>
 

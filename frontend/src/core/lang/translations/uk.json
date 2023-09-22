@@ -40,5 +40,7 @@
   "profile.edit.title": "Редагувати профіль",
   "profile.edit.weight": "Вага (кг)",
   "profile.edit.blood-rf": "Група крові та Резус фактор",
-  "history.addentry": "Додати запис"
+  "history.addentry": "Додати запис",
+  "settings.title": "Налаштування",
+  "settings.language": "Мова"
 }
