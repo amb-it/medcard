@@ -4,6 +4,7 @@ import MenuButton from "../core/component/MenuButton";
 import MainMenu from "../history/MainMenu";
 import axios from "axios";
 import Logo from "../core/component/Logo";
+import {FormattedMessage} from "react-intl";
 
 export default class Share extends Component {
     constructor(props, context) {
@@ -69,24 +70,48 @@ export default class Share extends Component {
                 />
 
                 <div className="show_to_doctor_page">
-                    <h1>Показать карточку врачу </h1>
+                    <h1>
+                        <FormattedMessage id="share.show-to-doctor" defaultMessage="Show card to doctor" />
+                        {/*Показать карточку врачу*/}
+                    </h1>
 
                     <div>
-                        <p className="must">Чтоб получить доступ к Вашей карточке врачу нужно:</p>
-                        <p>1. перейти по адресу: <span className="url float-right">medcard.plus</span></p>
-                        <p>2. нажать кнопку <span className="btn btn-outline-success float-right">посмотреть карту пациента</span></p>
+                        <p className="must">
+                            <FormattedMessage id="share.get-access" defaultMessage="In order to get access to your card doctor has to" />:
+                            {/*Чтоб получить доступ к Вашей карточке врачу нужно:*/}
+                        </p>
+                        <p>
+                            1. <FormattedMessage id="share.go-to-address" defaultMessage="go to address" />:
+                            {/*1. перейти по адресу: */}
+                            <span className="url float-right">medcard.plus</span>
+                        </p>
+                        <p>2. <FormattedMessage id="share.click" defaultMessage="click button" />
+                            {/*нажать кнопку*/}
+                            <span className="btn btn-outline-success float-right">
+                                <FormattedMessage id="share.look-at-card" defaultMessage="look at patient card" />
+                                {/*посмотреть карту пациента*/}
+                            </span></p>
                         <br />
-                        <p>3. ввести Ваши данные:</p>
+                        <p>
+                            3. <FormattedMessage id="share.enter-data" defaultMessage="enter your data" />:
+                            {/*3. ввести Ваши данные:*/}
+                        </p>
                     </div>
 
                     <table className="table">
                         <tbody>
                         <tr>
-                            <td>Ваш id</td>
+                            <td>
+                                <FormattedMessage id="share.your-id" defaultMessage="your ID" />
+                                {/*Ваш id*/}
+                            </td>
                             <td className="values">{this.props.user._id}</td>
                         </tr>
                         <tr>
-                            <td>Код доступа</td>
+                            <td>
+                                <FormattedMessage id="share.access-code" defaultMessage="Access code" />
+                                {/*Код доступа*/}
+                            </td>
                             <td className="values">{shareCode}</td>
                         </tr>
                         </tbody>

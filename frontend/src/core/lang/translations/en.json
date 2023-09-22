@@ -5,20 +5,25 @@
   "common.or": "or",
   "common.password": "password",
   "common.full-name": "full name",
+
   "landing.title": "Your online medical card",
   "landing.start": "start to use",
   "landing.doctor-title": "or if you are doctor",
   "landing.doctor-button": "look at patient card",
+
   "register.title": "Registration",
   "register.register-button": "Register",
   "register.log-in": "log in",
+
   "log-in.entrance": "Entrance to card",
   "log-in.log-in": "Log in",
   "log-in.register": "register",
+
   "authenticate-patient.title": "enter patient authentication data",
   "authenticate-patient.patient-id": "patient ID",
   "authenticate-patient.access-code": "access code",
   "authenticate-patient.look-at-card": "look at card",
+
   "main-menu.profile": "Profile",
   "main-menu.history": "Medical history",
   "main-menu.share": "Show to doctor",
@@ -26,6 +31,7 @@
   "main-menu.log-out": "Log out",
   "main-menu.log-in": "Log in",
   "main-menu.patients-title": "Patients",
+
   "profile.patient-data": "Patient data",
   "profile.full-name": "Full name",
   "profile.birth-date": "Birth date",
@@ -40,7 +46,18 @@
   "profile.edit.title": "Edit profile",
   "profile.edit.weight": "Weight (kg)",
   "profile.edit.blood-rf": "Blood group and Rhesus factor",
+
   "history.addentry": "Add entry",
+
   "settings.title": "Settings",
-  "settings.language": "Language"
+  "settings.language": "Language",
+
+  "share.show-to-doctor": "Show card to doctor",
+  "share.get-access": "In order to get access to your card doctor has to",
+  "share.go-to-address": "go to address",
+  "share.click": "click button",
+  "share.look-at-card": "look at patient card",
+  "share.enter-data": "enter your data",
+  "share.your-id": "Your ID",
+  "share.access-code": "Access code"
 }

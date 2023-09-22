@@ -5,20 +5,25 @@
   "common.or": "або",
   "common.password": "пароль",
   "common.full-name": "Прізвище Ім'я по Батькові",
+
   "landing.title": "Твоя онлайн медична картка",
   "landing.start": "почати користуватися",
   "landing.doctor-title": "або якщо Ви - доктор",
   "landing.doctor-button": "подивитись картку пацієнта",
+
   "register.title": "Реєстрація",
   "register.register-button": "Зареєструватись",
   "register.log-in": "війти",
+
   "log-in.entrance": "Вхід",
   "log-in.log-in": "Війти",
   "log-in.register": "зареєструватись",
+
   "authenticate-patient.title": "введіть авторізаційні дані пацієнта",
   "authenticate-patient.patient-id": "ID пацієнта",
   "authenticate-patient.access-code": "код доступу",
   "authenticate-patient.look-at-card": "подивитись картку",
+
   "main-menu.profile": "Профіль",
   "main-menu.history": "Медична історія",
   "main-menu.share": "Показати лікарю",
@@ -26,6 +31,7 @@
   "main-menu.log-out": "Вийти",
   "main-menu.log-in": "Увійти в аккаунт",
   "main-menu.patients-title": "Пацієнти",
+
   "profile.patient-data": "Данні пацієнта",
   "profile.full-name": "ПІБ",
   "profile.birth-date": "Дата народження",
@@ -40,7 +46,18 @@
   "profile.edit.title": "Редагувати профіль",
   "profile.edit.weight": "Вага (кг)",
   "profile.edit.blood-rf": "Група крові та Резус фактор",
+
   "history.addentry": "Додати запис",
+
   "settings.title": "Налаштування",
-  "settings.language": "Мова"
+  "settings.language": "Мова",
+
+  "share.show-to-doctor": "Показати картку лікарю",
+  "share.get-access": "Щоб отримати доступ до Вашої картки лікарю потрібно",
+  "share.go-to-address": "перейти за адресою",
+  "share.click": "натиснути кнопку",
+  "share.look-at-card": "подивитись картку пацієнта",
+  "share.enter-data": "ввести Ваші дані",
+  "share.your-id": "Ваш ID",
+  "share.access-code": "Код доступу"
 }
