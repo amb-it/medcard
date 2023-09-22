@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.2",
     "filepond": "^4.4.0",
     "filepond-plugin-image-preview": "^4.0.8",
     "filepond-plugin-image-resize": "^2.0.10",
