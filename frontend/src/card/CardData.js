@@ -87,7 +87,6 @@ export default class CardData extends Component {
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
                             <FormattedMessage id="card.visited" defaultMessage="Visited" />
-                            {/*Обратился*/}
                         </div>
                         <div className="description">
                             { card.clinic.title ? card.clinic.title : ''}
@@ -109,7 +108,6 @@ export default class CardData extends Component {
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
                             <FormattedMessage id="card.doctor" defaultMessage="Doctor" />
-                            {/*Врач*/}
                         </div>
                         <div className="description">
                             { card.doctor.specialization ? <small>{card.doctor.specialization} &nbsp;</small> : ''}
@@ -123,7 +121,6 @@ export default class CardData extends Component {
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
                             <FormattedMessage id="card.diagnoses" defaultMessage="Diagnoses" />
-                            {/*Диагноз*/}
                         </div>
                         <div className="description">
                             { card.diagnoses }
@@ -136,7 +133,6 @@ export default class CardData extends Component {
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
                             <FormattedMessage id="card.prescriptions" defaultMessage="Prescriptions" />
-                            {/*Назначения*/}
                         </div>
                         <div className="description">
                             { card.prescriptions }
@@ -148,8 +144,7 @@ export default class CardData extends Component {
                     <div className="paragraph">
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
-                            <FormattedMessage id="card.analysis" defaultMessage="Analysis" />
-                            {/*Анализы и материалы*/}
+                            <FormattedMessage id="card.analysis" defaultMessage="Parameters, analysis" />
                         </div>
                         <div className="description">
                             { card.materials }
@@ -162,7 +157,6 @@ export default class CardData extends Component {
                         <div className="title">
                             <span className="oi oi-badge" title="icon name" aria-hidden="true" />
                             <FormattedMessage id="card.notes" defaultMessage="Notes" />
-                            {/*Другие записи*/}
                         </div>
                         <div className="description">
                             { card.notes }
@@ -176,7 +170,6 @@ export default class CardData extends Component {
                     <div className="title files_title">
                         <span className="oi oi-badge" title="icon name" aria-hidden="true" />
                         <FormattedMessage id="card.files" defaultMessage="Files" />
-                        {/*Файлы*/}
                     </div>
                     <div className="description">
                         <ul className="pictures_list">

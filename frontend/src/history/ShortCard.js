@@ -67,7 +67,7 @@ export default class ShortCard extends Component {
                         <div className="row title_row">
                             <div className="col title">
                                 <div className="card_id">
-                                    <FormattedMessage id="history.entry" defaultMessage="entry" /> № <span>{card._id}</span>
+                                    <FormattedMessage id="history.note" defaultMessage="note" /> № <span>{card._id}</span>
                                 </div>
                                 <span className="oi oi-calendar" title="icon name" aria-hidden="true" />
                                 <span className="date">{formattedDate}</span>

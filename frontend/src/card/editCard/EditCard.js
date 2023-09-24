@@ -32,7 +32,6 @@ export default class EditCard extends Component {
         }
 
         if (cards && cards.length > 0) {
-            console.log(cards);
             for (const cardItem of cards) {
                     if (cardItem._id === +card_id) return cardItem;
             }

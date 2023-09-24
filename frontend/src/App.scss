@@ -487,6 +487,29 @@ header {
 // add card page
 .add_card_page {
   .card_inputs {
+
+    .add_files {
+      font-size: small;
+
+      .oi {
+        margin-right: 8px;
+        font-size: medium;
+      }
+    }
+    .filepond_box {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      background-color: #f3f0f3;
+      border-radius: 6px;
+
+      p {
+        font-size: small;
+        padding: 12px 12px 0 12px;
+      }
+    }
+    .ReactCollapse--collapse {
+      transition: height 500ms;
+    }
     .tags {
       display: block;
       padding: 10px 10px 0 10px;
@@ -500,44 +523,9 @@ header {
     }
     .not_required_fields {
       color: #c3a608;
-    }
-  }
-  .filepond_box {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    background-color: #f3f0f3;
-    border-radius: 6px;
-
-    p {
       font-size: small;
-      padding: 12px 12px 0 12px;
     }
   }
-  .ReactCollapse--collapse {
-    transition: height 500ms;
-  }
-  //.previously_loaded_title {
-  //  font-size: small;
-  //  margin-top: 30px;
-  //}
-  //.picture {
-  //  text-align: center;
-  //  margin-top: 20px;
-
-    //.delete_button {
-    //  float: right;
-    //  position: relative;
-    //  background-color: darkslategrey;
-    //  border-radius: 15px;
-    //  color: white;
-    //  padding: 5px 6px 8px 6px;
-    //}
-    //img {
-    //  max-width: 86%;
-    //  border: 1px black solid;
-    //  border-radius: 7px;
-    //}
-  //}
 }
 
 // under construction page

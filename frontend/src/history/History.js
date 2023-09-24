@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
 import FadingBalls from "react-cssfx-loading/lib/FadingBalls";
-import {FormattedMessage} from "react-intl";
+import {FormattedMessage, injectIntl} from "react-intl";
 
 import ShortCard from "./ShortCard";
 import MenuButton from "../core/component/MenuButton";
@@ -9,7 +9,7 @@ import MainMenu from "./MainMenu";
 import EmptyMedicalHistory from "./EmptyMedicalHistory";
 import Logo from "../core/component/Logo";
 
-export default class History extends Component {
+class History extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -133,7 +133,10 @@ export default class History extends Component {
                         <input
                             onChange={this.onSearchInputChange}
                             autoFocus={true}
-                            type="text" className="form-control col-10" placeholder="поиск"/>
+                            type="text"
+                            className="form-control col-10"
+                            placeholder={this.props.intl.formatMessage({ id: "common.search", defaultMessage: "search"})}
+                        />
                         <div className="input-group-append">
                             <button className="btn" type="button">
                                 <span
@@ -156,7 +159,7 @@ export default class History extends Component {
                             <div className="card">
                                 <div className="add_card">
                                     <span className="oi oi-plus" title="icon name" aria-hidden="true" />
-                                    <FormattedMessage id="history.add-entry" defaultMessage="Add entry" />
+                                    <FormattedMessage id="history.add-note" defaultMessage="Add note" />
                                 </div>
                             </div>
                         </NavLink>
@@ -167,3 +170,5 @@ export default class History extends Component {
         );
     }
 }
+
+export default injectIntl(History);

@@ -70,7 +70,7 @@ export default class Card extends Component {
                         <span className="oi oi-caret-left" title="icon name" aria-hidden="true" />
                     </HashLink>
                     <span className="page_title">
-                        <FormattedMessage id="card.entry" defaultMessage="Entry" /> № <span>{card_id}</span>
+                        <FormattedMessage id="card.note" defaultMessage="Note" /> № <span>{card_id}</span>
                     </span>
                     <span className="float-right">
                         <button

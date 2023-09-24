@@ -3,11 +3,12 @@ import React, { Component } from "react";
 import TextInput from 'react-autocomplete-input';
 import 'react-autocomplete-input/dist/bundle.css';
 import {Collapse} from 'react-collapse';
+import {FormattedMessage, injectIntl} from "react-intl";
 
 import Files from "./Files";
 
 
-export default class Inputs extends Component {
+class Inputs extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -78,10 +79,12 @@ export default class Inputs extends Component {
                     <button
                         onClick={() => {this.setState({showFilepondBox: !this.state.showFilepondBox})}}
                         data-toggle='tab'
-                        className={this.state.showFilepondBox ? "btn btn btn-light" : "btn btn-outline-info"}>
-                        <span className='oi oi-camera-slr' />
-                        &nbsp;&nbsp;
-                        <span className='oi oi-file' /> <small>{this.state.showFilepondBox ? "спрятать блок фото и файлов" : "добавить фото и файлы"}</small>
+                        className={this.state.showFilepondBox ? "btn btn-light add_files" : "btn btn-outline-info add_files"}>
+                            <span className='oi oi-camera-slr' />
+                            <span className='oi oi-file' />
+                            {this.state.showFilepondBox
+                                ? <FormattedMessage id="card.add.hide-files" defaultMessage="hide photo and files box" />
+                                : <FormattedMessage id="card.add.add-files" defaultMessage="add photo and files" />}
                     </button>
                 </div>
 
@@ -94,13 +97,17 @@ export default class Inputs extends Component {
                 <hr />
 
                 <div className="mb-3">
-                    <div className="text-right not_required_fields"><small>* все поля НЕ обязательны к заполнению</small></div>
+                    <div className="text-right not_required_fields">
+                        * <FormattedMessage id="card.add.not-required" defaultMessage="all fields are not required" />
+                    </div>
                 </div>
                 <div className="input-group mb-3">
                     <textarea
                         onChange={this.onInputChange}
                         id="complaint"
-                        rows="8" className="form-control" placeholder="введите описание или жалобу &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     (например 'Болел живот.. ' или 'Проходил мед. осмотр..' или 'Сдал анализы' и т.д.)"
+                        rows="8"
+                        className="form-control"
+                        placeholder={this.props.intl.formatMessage({ id: "card.add.description", defaultMessage: "enter description or complaint\nsuch as 'headache.. '\nor 'undergo medical examination.. '\nor 'taken tests.. ' etc."})}
                     />
                 </div>
                 <div className="input-group mb-3">
@@ -113,12 +120,16 @@ export default class Inputs extends Component {
                         trigger=''
                         spacer=''
                         regex='^[a-zA-Zа-яА-Я0-9_\-]+$'
-                        type="text" className="form-control" placeholder="теги (ключевые слова)"
+                        type="text"
+                        className="form-control"
+                        placeholder={this.props.intl.formatMessage({ id: "card.add.tags", defaultMessage: "tags (keywords)"})}
                     />
                     &nbsp;
                     <button
                         onClick={() => this.addTag(this.state.tagInput)}
-                        className='btn btn-sm btn-outline-primary'>добавить</button>
+                        className='btn btn-sm btn-outline-primary'>
+                            <FormattedMessage id="common.add" defaultMessage="add" />
+                    </button>
                     <div className='tags'>
                         {this.renderTags()}
                     </div>
@@ -127,9 +138,10 @@ export default class Inputs extends Component {
                     <select
                         onChange={this.onInputChange}
                         id="cardType"
-                        className="custom-select" placeholder="Тип">
-                        <option>выберите тип</option>
-                        {this.renderCardTypeOptions()}
+                        className="custom-select"
+                        placeholder={this.props.intl.formatMessage({ id: "card.add.type", defaultMessage: "type"})}>
+                            <option>{this.props.intl.formatMessage({ id: "card.add.choose-type", defaultMessage: "choose type"})}</option>
+                            {this.renderCardTypeOptions()}
                     </select>
                 </div>
 
@@ -137,87 +149,121 @@ export default class Inputs extends Component {
                     <input
                         onChange={this.onInputChange}
                         id="date"
-                        defaultValue={(new Date()).toISOString().substr(0,10)}
-                        type="date" className="form-control" placeholder="дата" />
+                        defaultValue={(new Date()).toISOString().substring(0,10)}
+                        type="date"
+                        className="form-control"
+                        placeholder={this.props.intl.formatMessage({ id: "card.add.date", defaultMessage: "date"})}
+                    />
                 </div>
                 <hr />
                 <h2 className="badge badge-secondary">
                     <span className="oi oi-home" title="icon name" aria-hidden="true" />
-                    Клиника
+                    <FormattedMessage id="card.add.clinic" defaultMessage="Clinic" />
                 </h2>
                 <div className="input-group mb-3">
                     <input
                         onChange={this.onInputChange}
                         id="clinicTitle"
-                        type="text" className="form-control" placeholder="название" />
+                        type="text"
+                        className="form-control"
+                        placeholder={this.props.intl.formatMessage({ id: "card.add.clinic-title", defaultMessage: "clinic title"})}
+                    />
                 </div>
                 <div className="input-group mb-3">
                     <input
                         onChange={this.onInputChange}
                         id="clinicAddress"
-                        type="text" className="form-control" placeholder="адрес" />
+                        type="text" className="form-control"
+                        placeholder={this.props.intl.formatMessage({ id: "card.add.clinic-address", defaultMessage: "address"})}
+                    />
                 </div>
                 <div className="input-group mb-3">
                     <input
                         onChange={this.onInputChange}
                         id="clinicDepartmentTitle"
-                        type="text" className="form-control" placeholder="отделение" />
+                        type="text"
+                        className="form-control"
+                        placeholder={this.props.intl.formatMessage({ id: "card.add.clinic-department", defaultMessage: "department"})}
+                    />
                 </div>
                 <div className="input-group mb-3">
                     <input
                         onChange={this.onInputChange}
                         id="clinicDepartmentAddress"
-                        type="text" className="form-control" placeholder="адрес отделения" />
+                        type="text"
+                        className="form-control"
+                        placeholder={this.props.intl.formatMessage({ id: "card.add.clinic-department-address", defaultMessage: "department address"})}
+                    />
                 </div>
 
                 <hr />
                 <h2 className="badge badge-secondary">
                     <span className="oi oi-person" title="icon name" aria-hidden="true" />
-                    Врач
+                    <FormattedMessage id="card.add.doctor" defaultMessage="Doctor" />
                 </h2>
                 <div className="input-group mb-3">
                   <input
                       onChange={this.onInputChange}
                       id="doctorName"
-                      type="text" className="form-control" placeholder="ФИО" />
+                      type="text"
+                      className="form-control"
+                      placeholder={this.props.intl.formatMessage({ id: "common.full-name", defaultMessage: "full name"})}
+                  />
                 </div>
                 <div className="input-group mb-3">
                   <input
                       onChange={this.onInputChange}
                       id="doctorSpecialization"
-                      type="text" className="form-control" placeholder="Специализация (например 'терапевт')" />
+                      type="text"
+                      className="form-control"
+                      placeholder={this.props.intl.formatMessage({ id: "card.add.specialization", defaultMessage: "specialization (f.e. therapist)"})}
+                  />
                 </div>
 
                 <hr />
                 <h2 className="badge badge-secondary">
                     <span className="oi oi-info" title="icon name" aria-hidden="true" />
-                    другое
+                    <FormattedMessage id="card.add.other" defaultMessage="other" />
                 </h2>
                 <div className="input-group mb-3">
                     <textarea
                         onChange={this.onInputChange}
                         id="diagnoses"
-                        rows="2" className="form-control" placeholder="диагноз" />
+                        rows="2"
+                        className="form-control"
+                        placeholder={this.props.intl.formatMessage({ id: "card.add.diagnoses", defaultMessage: "diagnoses"})}
+                    />
                 </div>
                 <div className="input-group mb-3">
                     <textarea
                         onChange={this.onInputChange}
                         id="materials"
-                        rows="8" className="form-control" placeholder="параметры (например: давление, уровень глюкозы, гормонов и т.д.)" />
+                        rows="8"
+                        className="form-control"
+                        placeholder={this.props.intl.formatMessage({ id: "card.add.parameters", defaultMessage: "parameters (such as blood pressure, level of glucose, hormones)"})}
+                    />
                 </div>
                 <div className="input-group mb-3">
                     <textarea
                         onChange={this.onInputChange}
                         id="prescriptions"
-                        rows="8" className="form-control" placeholder="назначения" />
+                        rows="8"
+                        className="form-control"
+                        placeholder={this.props.intl.formatMessage({ id: "card.add.prescriptions", defaultMessage: "prescriptions"})}
+                    />
                 </div>
                 <div className="input-group mb-5">
                   <textarea
                       onChange={this.onInputChange}
                       id="notes"
-                      rows="8" className="form-control" placeholder="заметки" />
+                      rows="8"
+                      className="form-control"
+                      placeholder={this.props.intl.formatMessage({ id: "card.add.other-notes", defaultMessage: "other notes"})}
+                  />
                 </div>
             </div>
         );
     }
 }
+
+export default injectIntl(Inputs);

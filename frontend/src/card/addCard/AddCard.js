@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom';
 import axios from 'axios';
+import {FormattedMessage} from "react-intl";
 
 import Inputs from './Inputs';
 
@@ -55,7 +56,9 @@ export default class AddCard extends Component {
                     <NavLink to='/history' className='btn menu_button'>
                         <span className='oi oi-x'/>
                     </NavLink>
-                    <span className='page_title'>Новая запись</span>
+                    <span className='page_title'>
+                        <FormattedMessage id="card.add.new-note" defaultMessage="New note" />
+                    </span>
                     {/*<button*/}
                     {/*    onClick={this.saveCard}*/}
                     {/*    className='btn btn-success float-right'>сохранить</button>*/}
@@ -70,20 +73,21 @@ export default class AddCard extends Component {
                         tags={this.props.tags}
                         onAddFile={this.onAddFile}
                         />
-
                     <hr/>
                 </div>
 
                 <div className='row md-5'>
                     <div className='col-6 text-center'>
                         <NavLink to='/history' className='btn btn-outline-danger menu_button'>
-                            отмена
+                            <FormattedMessage id="common.cancel" defaultMessage="cancel" />
                         </NavLink>
                     </div>
                     <div className='col-6 text-center'>
                         <button
                             onClick={this.saveCard}
-                            className='btn btn-success'>сохранить</button>
+                            className='btn btn-success'>
+                            <FormattedMessage id="common.save" defaultMessage="save" />
+                        </button>
                     </div>
                 </div>
 

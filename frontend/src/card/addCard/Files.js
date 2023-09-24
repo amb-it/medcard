@@ -6,11 +6,12 @@ import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
 import FilePondPluginImageResize from 'filepond-plugin-image-resize';
 import FilePondPluginImageTransform from 'filepond-plugin-image-transform';
+import {FormattedMessage, injectIntl} from "react-intl";
 
 
 registerPlugin(FilePondPluginImageTransform, FilePondPluginImageResize, FilePondPluginImagePreview);
 
-export default class Files extends Component {
+class Files extends Component {
     render() {
         const apiUrl =  process.env.REACT_APP_API_ADDRESS + '/cards/files';
         const filePondServerConfig = {
@@ -21,12 +22,16 @@ export default class Files extends Component {
                 }
             }
         };
-        
+
+        const buttonText = "<span class='btn btn-outline-primary'>" + this.props.intl.formatMessage({ id: "card.add.take-photo", defaultMessage: 'take photo or choose files click here'}) + "</span>";
+
         return (
             <div className="filepond_box">
-                <p>Добавьте к записи фотографии или файлы выписок, справок, анализов или любые другие файлы</p>
+                <p>
+                    <FormattedMessage id="card.add.add-files-extended" defaultMessage="add to note photo or files of statements, certificates, analysis or any other files" />
+                </p>
                 <FilePond
-                    labelIdle="<span class='btn btn-outline-primary'>Сфотографировать или выбрать файлы нажмите здесь</span>"
+                    labelIdle={buttonText}
                     allowMultiple={true}
                     imageResizeTargetWidth={1024}
                     imageResizeUpscale={false}
@@ -36,3 +41,5 @@ export default class Files extends Component {
         );
     }
 }
+
+export default injectIntl(Files);
