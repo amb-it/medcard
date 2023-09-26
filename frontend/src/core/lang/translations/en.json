@@ -86,6 +86,7 @@
   "card.add.parameters": "parameters (such as blood pressure, level of glucose, hormones)",
   "card.add.prescriptions": "prescriptions",
   "card.add.other-notes": "other notes",
+  "card.edit.edit": "Edit",
 
   "settings.title": "Settings",
   "settings.language": "Language",

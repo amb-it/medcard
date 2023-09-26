@@ -86,6 +86,7 @@
   "card.add.parameters": "параметри (наприклад: кров'яний тиск, рівень глюкози, рівень гормонів і т.д.)",
   "card.add.prescriptions": "призначення (ліки, процедури)",
   "card.add.other-notes": "інші записи",
+  "card.edit.edit": "Редагувати",
 
   "settings.title": "Налаштування",
   "settings.language": "Мова",

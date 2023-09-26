@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
 import Inputs from './Inputs';
-// import Files from './Files';
 import Dots from "react-activity/lib/Dots";
+import {FormattedMessage} from "react-intl";
 
 export default class EditCard extends Component {
     constructor(props, context) {
@@ -13,11 +13,7 @@ export default class EditCard extends Component {
         props.requestCardTypes();
         props.requestTags();
 
-        // this.inputs_tab_id = 'inputs_tab';
-        // this.files_tab_id = 'files_tab';
-
         this.state = {
-            // showTab: this.inputs_tab_id,
             editCard: null
         };
     }
@@ -33,12 +29,9 @@ export default class EditCard extends Component {
 
         if (cards && cards.length > 0) {
             for (const cardItem of cards) {
-                    if (cardItem._id === +card_id) return cardItem;
+                if (cardItem._id === +card_id) return cardItem;
             }
         }
-        // for (const cardItem of this.props.cards) {
-        //     if (cardItem._id === +card_id) return cardItem;
-        // }
     };
 
     editCardChange = (key, value) => {
@@ -98,7 +91,7 @@ export default class EditCard extends Component {
         }
 
         const backUri = card
-            ? '/card/'+card._id
+            ? '/card/' + card._id
             : '/history';
 
         return (
@@ -107,75 +100,38 @@ export default class EditCard extends Component {
                     <NavLink to={backUri} className='btn menu_button'>
                         <span className='oi oi-caret-left'/>
                     </NavLink>
-                    <span className="page_title">Запись &nbsp; № {this.props.match.params.id}</span>
-                    {/*<button*/}
-                    {/*    onClick={this.saveCard}*/}
-                    {/*    disabled={!this.state.editCard}*/}
-                    {/*    className='btn menu_button float-right right_icon'>*/}
-                    {/*    <span className='oi oi-check'/>*/}
-                    {/*</button>*/}
-
-                    {/*<button*/}
-                    {/*    onClick={this.saveCard}*/}
-                    {/*    disabled={!this.state.editCard}*/}
-                    {/*    className='btn btn-success float-right'>сохранить</button>*/}
+                    <span className="page_title">
+                        <FormattedMessage id="card.edit.edit" defaultMessage="Edit" /> <FormattedMessage id="card.note" defaultMessage="Note" /> № <span>{this.props.match.params.id}</span>
+                    </span>
                     <hr/>
                 </header>
 
                 <div className='add_card_page'>
-                    {/*<nav className='mb-5'>*/}
-                    {/*    <div className='nav nav-tabs nav-fill' id='nav-tab' role='tablist'>*/}
-                    {/*        <button*/}
-                    {/*            onClick={() => {this.setState({showTab: this.inputs_tab_id})}}*/}
-                    {/*            id={this.inputs_tab_id}*/}
-                    {/*            className={this.state.showTab === this.inputs_tab_id ? 'nav-item nav-link active' : 'nav-item nav-link'}*/}
-                    {/*            data-toggle='tab' role='tab' aria-controls='nav-home' aria-selected='true'>*/}
-                    {/*            <span className='oi oi-align-center' /> <small>текст</small>*/}
-                    {/*            /!*Inputs*!/*/}
-                    {/*        </button>*/}
-                    {/*        <button*/}
-                    {/*            onClick={() => {this.setState({showTab: this.files_tab_id})}}*/}
-                    {/*            id={this.files_tab_id}*/}
-                    {/*            className={this.state.showTab === this.files_tab_id ? 'nav-item nav-link active' : 'nav-item nav-link'}*/}
-                    {/*            data-toggle='tab' role='tab' aria-controls='nav-profile' aria-selected='false'>*/}
-                    {/*            <span className='oi oi-camera-slr' />*/}
-                    {/*            &nbsp;&nbsp;*/}
-                    {/*            <span className='oi oi-file' /> <small>фото и файлы</small>*/}
-                    {/*            /!*Files, pictures*!/*/}
-                    {/*        </button>*/}
-                    {/*    </div>*/}
-                    {/*</nav>*/}
-
-                    {/*{(this.state.showTab === this.files_tab_id)*/}
-                    {/*    ? <Files*/}
-                    {/*        card={card}*/}
-                    {/*        onAddFile={this.onAddFile}*/}
-                    {/*        onUpdateFiles={this.onUpdateFiles}*/}
-                    {/*        />*/}
-                    {/*    : */}
-                        <Inputs
-                            card={card}
-                            cardTypes={this.props.cardTypes}
-                            tags={this.props.tags}
-                            editCardChange={this.editCardChange}
-                            onTagsChange={this.onTagsChange}
-                            onAddFile={this.onAddFile}
-                            onUpdateFiles={this.onUpdateFiles}
-                        />
+                    <Inputs
+                        card={card}
+                        cardTypes={this.props.cardTypes}
+                        tags={this.props.tags}
+                        editCardChange={this.editCardChange}
+                        onTagsChange={this.onTagsChange}
+                        onAddFile={this.onAddFile}
+                        onUpdateFiles={this.onUpdateFiles}
+                    />
 
                     <hr/>
 
                     <div className='row md-5'>
                         <div className='col-6 text-center'>
                             <NavLink to='/history' className='btn btn-outline-danger menu_button'>
-                                отмена
+                                <FormattedMessage id="common.cancel" defaultMessage="cancel" />
                             </NavLink>
                         </div>
                         <div className='col-6 text-center'>
                             <button
                                 onClick={this.saveCard}
                                 disabled={!this.state.editCard}
-                                className='btn btn-success'>сохранить запись</button>
+                                className='btn btn-success'>
+                                    <FormattedMessage id="common.save" defaultMessage="save" />
+                            </button>
                         </div>
                     </div>
 

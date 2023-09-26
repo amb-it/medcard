@@ -6,11 +6,12 @@ import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
 import FilePondPluginImageResize from 'filepond-plugin-image-resize';
 import FilePondPluginImageTransform from 'filepond-plugin-image-transform';
+import {injectIntl} from "react-intl";
 
 
 registerPlugin(FilePondPluginImageTransform, FilePondPluginImageResize, FilePondPluginImagePreview);
 
-export default class Files extends Component {
+class Files extends Component {
     onUpdateFiles = (files) => {
         let newFiles = [];
         files.forEach(el => {
@@ -45,11 +46,13 @@ export default class Files extends Component {
                 }
             ))
         }
-        
+
+        const buttonText = "<span class='btn btn-outline-primary'>" + this.props.intl.formatMessage({ id: "card.add.take-photo", defaultMessage: 'take photo or choose files click here'}) + "</span>";
+
         return (
             <div className="filepond_box">
                 <FilePond
-                    labelIdle="<span class='btn btn-outline-primary'>Сфотографировать или выбрать файлы нажмите здесь</span>"
+                    labelIdle={buttonText}
                     allowMultiple={true}
                     imageResizeTargetWidth={1024}
                     imageResizeUpscale={false}
@@ -64,3 +67,5 @@ export default class Files extends Component {
         );
     }
 }
+
+export default injectIntl(Files);

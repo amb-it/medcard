@@ -59,9 +59,6 @@ export default class AddCard extends Component {
                     <span className='page_title'>
                         <FormattedMessage id="card.add.new-note" defaultMessage="New note" />
                     </span>
-                    {/*<button*/}
-                    {/*    onClick={this.saveCard}*/}
-                    {/*    className='btn btn-success float-right'>сохранить</button>*/}
                     <hr/>
                 </header>
 

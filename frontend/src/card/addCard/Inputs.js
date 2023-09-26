@@ -84,7 +84,8 @@ class Inputs extends Component {
                             <span className='oi oi-file' />
                             {this.state.showFilepondBox
                                 ? <FormattedMessage id="card.add.hide-files" defaultMessage="hide photo and files box" />
-                                : <FormattedMessage id="card.add.add-files" defaultMessage="add photo and files" />}
+                                : <FormattedMessage id="card.add.add-files" defaultMessage="add photo and files" />
+                            }
                     </button>
                 </div>
 
@@ -110,7 +111,7 @@ class Inputs extends Component {
                         placeholder={this.props.intl.formatMessage({ id: "card.add.description", defaultMessage: "enter description or complaint\nsuch as 'headache.. '\nor 'undergo medical examination.. '\nor 'taken tests.. ' etc."})}
                     />
                 </div>
-                <div className="input-group mb-3">
+                <div className="input-group mb-3 tags_box">
                     <TextInput
                         Component="input"
                         options={this.props.tags}
@@ -124,7 +125,6 @@ class Inputs extends Component {
                         className="form-control"
                         placeholder={this.props.intl.formatMessage({ id: "card.add.tags", defaultMessage: "tags (keywords)"})}
                     />
-                    &nbsp;
                     <button
                         onClick={() => this.addTag(this.state.tagInput)}
                         className='btn btn-sm btn-outline-primary'>
