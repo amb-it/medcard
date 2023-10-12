@@ -29,7 +29,8 @@ class Files extends Component {
             process: {
                 onload: (data) => {
                     this.props.onAddFile(JSON.parse(data).filename);
-                }
+                },
+                headers: this.props.user.getAuthConfig().headers,
             }
         };
 
@@ -39,7 +40,7 @@ class Files extends Component {
         if (card) {
             card.files.forEach(el => files.push(
                 {
-                    source: el,
+                    source: this.props.user._id + '/' + el,
                     options: {
                         type: 'local'
                     }

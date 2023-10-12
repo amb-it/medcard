@@ -34,12 +34,13 @@ class History extends Component {
 
     renderCards() {
         const cards = this.state.cardsFiltered;
+        const user = this.props.user;
         let result;
 
         if (cards === null) {
             result = <div className="text-center"><FadingBalls color="green" /></div>
         } else if (cards.length > 0) {
-            result = cards.map((card, key) => <ShortCard card={card} key={key} visiblePictures={this.state.visiblePictures} />);
+            result = cards.map((card, key) => <ShortCard card={card} user={user} key={key} visiblePictures={this.state.visiblePictures} />);
         } else {
             result = <EmptyMedicalHistory />;
         }
@@ -114,7 +115,7 @@ class History extends Component {
                             <span className="float-right right_icon">
                                 <span
                                     onClick={this.onShowFilesClick}
-                                    className="oi oi-file show_files_button"
+                                    className="oi oi-image show_files_button"
                                 />
                             </span>
                         : ""

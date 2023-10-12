@@ -6,6 +6,7 @@ export default class ShortCard extends Component {
 
     render() {
         const card = this.props.card;
+        const user = this.props.user;
 
         let complaint = '';
         let tags = '';
@@ -41,7 +42,7 @@ export default class ShortCard extends Component {
 
             if (this.props.visiblePictures) {
                 images = images.map(function (item, key) {
-                    return <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} key={key} alt=""/>
+                    return <img src={process.env.REACT_APP_API_ADDRESS + '/' + user._id + '/' + item} key={key} alt=""/>
                 });
                 otherFiles = otherFiles.map(function (item, key) {
                     return <div key={key}><span>{item}</span></div>

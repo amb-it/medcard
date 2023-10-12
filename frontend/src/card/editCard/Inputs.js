@@ -90,6 +90,7 @@ class Inputs extends Component {
 
                 <Collapse isOpened={this.state.showFilepondBox}>
                     <Files
+                        user={this.props.user}
                         card={card}
                         onAddFile={this.props.onAddFile}
                         onUpdateFiles={this.props.onUpdateFiles}

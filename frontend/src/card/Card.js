@@ -10,14 +10,6 @@ import CardData from "./CardData";
 
 export default class Card extends Component {
 
-    // constructor(props, context) {
-    //     super(props, context);
-    //
-    //     this.state = {
-    //         visibleMenu: false,
-    //     };
-    // }
-
     getCardById = (id) => {
         const cards = this.props.cards;
 
@@ -43,10 +35,6 @@ export default class Card extends Component {
 
         return card;
     };
-
-    // onMenuButtonClick = () => {
-    //     this.setState({ visibleMenu: !this.state.visibleMenu });
-    // };
 
     deleteCard = () => {
         this.props.deleteCard(this.props.match.params.id);
@@ -94,7 +82,7 @@ export default class Card extends Component {
                 {/*/>*/}
 
                 { card
-                    ? <CardData card={card} />
+                    ? <CardData card={card} user={this.props.user} />
                     : <Dots size={32} />
                 }
 

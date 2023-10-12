@@ -19,7 +19,8 @@ class Files extends Component {
             process: {
                 onload: (data) => {
                     this.props.onAddFile(JSON.parse(data).filename);
-                }
+                },
+                headers: this.props.user.getAuthConfig().headers,
             }
         };
 

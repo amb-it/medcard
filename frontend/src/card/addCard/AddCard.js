@@ -64,6 +64,7 @@ export default class AddCard extends Component {
 
                 <div className='add_card_page'>
                     <Inputs
+                        user={this.props.user}
                         newCard={this.state.newCard}
                         newCardChange={this.newCardChange}
                         cardTypes={this.props.cardTypes}

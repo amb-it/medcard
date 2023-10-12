@@ -108,6 +108,7 @@ export default class EditCard extends Component {
 
                 <div className='add_card_page'>
                     <Inputs
+                        user={this.props.user}
                         card={card}
                         cardTypes={this.props.cardTypes}
                         tags={this.props.tags}

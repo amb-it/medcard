@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import Formidable from 'formidable';
+import fs from 'fs'
 
 import {Card} from '../models/card';
 import User from "../models/user";
@@ -166,13 +167,18 @@ cardRoutes.get('/files', (req, res) => {
     res.redirect('/'+req.query.load);
 });
 
-cardRoutes.post('/files', (req, res) => {
+cardRoutes.post('/files', auth, async (req, res) => {
     let filename;
+
+    let dir = __dirname + '/../user_files/' + req.user._id;
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, 0o744);
+    }
 
     new Formidable.IncomingForm().parse(req)
         .on('fileBegin', (name, file) => {
             filename = Date.now() + '.' + file.name.substring(file.name.length - 3);
-            file.path = __dirname + '/../user_files/sandbox/' + filename;
+            file.path = dir + '/' + filename;
         })
         .on('file', (name, file) => {
             res.send({

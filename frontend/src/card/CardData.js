@@ -25,6 +25,7 @@ export default class CardData extends Component {
 
     render() {
         const card = this.props.card;
+        const user = this.props.user;
 
         let tags = '';
         let images;
@@ -42,7 +43,7 @@ export default class CardData extends Component {
         if (card.files.length > 0) {
             images = card.files.map(function (item, key) {
                 return ['jpg', 'jpeg', 'png'].includes(item.split('.').pop()) ?
-                    <img src={process.env.REACT_APP_API_ADDRESS + '/' + item} key={key} alt=""/>
+                    <img src={process.env.REACT_APP_API_ADDRESS + '/' + user._id + '/' + item} key={key} alt=""/>
                     : null;
             }).filter(Boolean);
 
