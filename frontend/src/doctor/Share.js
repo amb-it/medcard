@@ -72,29 +72,23 @@ export default class Share extends Component {
                 <div className="show_to_doctor_page">
                     <h1>
                         <FormattedMessage id="share.show-to-doctor" defaultMessage="Show card to doctor" />
-                        {/*Показать карточку врачу*/}
                     </h1>
 
                     <div>
                         <p className="must">
                             <FormattedMessage id="share.get-access" defaultMessage="In order to get access to your card doctor has to" />:
-                            {/*Чтоб получить доступ к Вашей карточке врачу нужно:*/}
                         </p>
                         <p>
                             1. <FormattedMessage id="share.go-to-address" defaultMessage="go to address" />:
-                            {/*1. перейти по адресу: */}
                             <span className="url float-right">medcard.plus</span>
                         </p>
                         <p>2. <FormattedMessage id="share.click" defaultMessage="click button" />
-                            {/*нажать кнопку*/}
                             <span className="btn btn-outline-success float-right">
                                 <FormattedMessage id="share.look-at-card" defaultMessage="look at patient card" />
-                                {/*посмотреть карту пациента*/}
                             </span></p>
                         <br />
                         <p>
                             3. <FormattedMessage id="share.enter-data" defaultMessage="enter your data" />:
-                            {/*3. ввести Ваши данные:*/}
                         </p>
                     </div>
 
@@ -103,14 +97,12 @@ export default class Share extends Component {
                         <tr>
                             <td>
                                 <FormattedMessage id="share.your-id" defaultMessage="your ID" />
-                                {/*Ваш id*/}
                             </td>
                             <td className="values">{this.props.user._id}</td>
                         </tr>
                         <tr>
                             <td>
                                 <FormattedMessage id="share.access-code" defaultMessage="Access code" />
-                                {/*Код доступа*/}
                             </td>
                             <td className="values">{shareCode}</td>
                         </tr>

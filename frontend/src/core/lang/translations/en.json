@@ -53,6 +53,10 @@
   "history.add-note": "Add note",
   "history.note": "note",
 
+  "empty-history.history": "Medical history",
+  "empty-history.no-entries": "There are no notes yet",
+  "empty-history.add-notes": "Add note such as: doctor's consultation, blood analysis, x-ray and so on and attach to it photos of doctor's conclusion, analysis results or any other files",
+
   "card.note": "Note",
   "card.description": "Description",
   "card.visited": "Visited",

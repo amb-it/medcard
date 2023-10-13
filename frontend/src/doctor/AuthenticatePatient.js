@@ -84,7 +84,6 @@ class AuthenticatePatient extends Component {
                                 onClick={this.authenticatePatient}
                                 className='btn btn-success'>
                                 <FormattedMessage id="authenticate-patient.look-at-card" defaultMessage="look at card" />
-                                {/*посмотреть карту*/}
                             </button>
                         </div>
                     </div>

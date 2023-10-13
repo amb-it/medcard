@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-// import Dots from 'react-activity/lib/Dots';
+import {FormattedMessage} from "react-intl";
 
 import CardData from "./CardData";
 import Dots from "react-activity/lib/Dots";
@@ -17,7 +17,7 @@ export default class PatientCard extends Component {
                     <NavLink to={"/patient/"+this.props.patient._id+"/history"} className="btn menu_button">
                         <span className="oi oi-caret-left" title="icon name" aria-hidden="true" />
                     </NavLink>
-                    <span className="page_title">Запись &nbsp; № {card._id}</span>
+                    <span className="page_title"><FormattedMessage id="card.note" defaultMessage="Note" /> &nbsp; № {card._id}</span>
                     <hr/>
                 </header>
 

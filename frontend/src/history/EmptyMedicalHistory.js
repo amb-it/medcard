@@ -1,11 +1,11 @@
 import React from "react";
+import {FormattedMessage} from "react-intl";
 
 export default function EmptyMedicalHistory() {
     return  <div>
-                <h4>Медицинская история</h4>
+                <h4><FormattedMessage id="empty-history.history" defaultMessage="Medical history" /></h4>
                 <hr />
-                <p><b>Пока что нет записей.</b></p>
-                <p>Добавьте записи, такие как: консультация врача, результаты анализов, рентген и тому подобное,
-                    и прикрепите к ней фотографии выписок, результатов анализов или любые другие файлы.</p>
+                <p><b><FormattedMessage id="empty-history.no-entries" defaultMessage="There are no notes yet" />.</b></p>
+                <p><FormattedMessage id="empty-history.add-notes" defaultMessage="Add notes" /></p>
             </div>
 }
